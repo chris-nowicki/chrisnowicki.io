@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@astrojs/tailwind": "^2.1.0",
+    "@astrojs/vercel": "^2.3.4",
     "@sanity/client": "^3.4.1",
     "astro": "^1.5.0",
     "es6-promise": "^4.2.8",
