@@ -1,0 +1,48 @@
+---
+import picture from '../images/me.png'
+---
+
+<!-- about me section -->
+<div class="flex flex-col w-full items-center md:items-start text-xl md:mr-6">
+    <p class="mt-6 md:mt-0 md:text-3xl mb-3">
+        Hello, I'm <span class="text-purple-600 dark:text-purpleDark"
+            >Chris Nowicki</span
+        >.
+    </p>
+    <p class="px-10 text-center md:text-left md:px-0">
+        I'm a technology nerd who lives on coffee ☕️, obsessed with
+        cheeseburgers 🍔, and tinkers with new tech on a daily basis.
+    </p>
+    <p class="px-10 text-center md:text-left md:px-0 md:mr-4 mt-4">
+        I excel at bringing web designs to life and am passionate about backend
+        development.
+    </p>
+    <p class="px-10 text-center md:text-left md:px-0 md:mr-4 mt-4">
+        I'm currently looking for a new role as a full-stack engineer. <span
+            class="text-purple-600 dark:text-purpleDark">Hire me!</span
+        >
+    </p>
+    <div class="flex flex-row">
+        <a
+            href="http://www.linkedin.com/in/chris-nowicki"
+            class="border border-blue-600 text-blue-600 hover:bg-blue-600 dark:text-textDark hover:text-white dark:border-textDark dark:hover:bg-textDark dark:hover:text-bgDark text-2xl mt-8 px-4 py-2 mr-4"
+            target="_blank">View Linkedin</a
+        >
+        <a
+            href="https://github.com/chris-nowicki"
+            class="border border-black hover:bg-black hover:text-white dark:border-purpleDark dark:text-purpleDark dark:hover:bg-purpleDark dark:hover:text-textDark text-2xl mt-8 px-4 py-2"
+            target="_blank">View Github</a
+        >
+    </div>
+</div>
+
+<!-- about me image -->
+<div
+    class="mt-8 md:mt-0 flex justify-center md:justify-end md:items-start md:ml-6 md:w-[400px] w-[250px]"
+>
+    <img
+        src={picture}
+        height="auto"
+        class="rounded shadow-lg shadow-black/50 mr-auto dark:shadow-purpleDark dark:shadow grayscale hover:grayscale-0 ease-in-out transition-all duration-500"
+    />
+</div>

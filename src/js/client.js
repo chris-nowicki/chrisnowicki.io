@@ -1,0 +1,9 @@
+import sanityClient from '@sanity/client'
+
+export const client = sanityClient({
+    projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
+    dataset: import.meta.env.PUBLIC_SANITY_DATASET,
+    apiVersion: '2022-11-30', // use current UTC date - see "specifying API version"!
+    token: import.meta.env.PUBLIC_SANITY_TOKEN, // or leave blank for unauthenticated usage
+    useCdn: true, // `false` if you want to ensure fresh data
+})
