@@ -11,7 +11,8 @@ interface Technologies {
 const query = '*[_type == "tech"] {name, link, show}'
 const tech: Technologies[] = await client.fetch(query)
 
-let sortedTech: Technologies[] = tech.sort((a, b) => {
+// sort technologies in alphebetical order
+tech.sort((a, b) => {
     if (a.name < b.name) {
         return -1
     }
@@ -31,7 +32,7 @@ let sortedTech: Technologies[] = tech.sort((a, b) => {
         class="link-animate flex w-full flex-col flex-wrap items-center text-base text-textDark sm:max-h-64 md:max-h-48"
     >
         {
-            sortedTech.map(
+            tech.map(
                 (tech) =>
                     tech.show && (
                         <li class="py-1 text-xl">

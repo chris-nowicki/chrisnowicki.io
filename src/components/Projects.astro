@@ -1,5 +1,6 @@
 ---
 import ProjectCard from './ProjectCard.astro'
+import ProjectCardB from './ProjectCardB.astro'
 ---
 
 <div
@@ -12,13 +13,16 @@ import ProjectCard from './ProjectCard.astro'
     <p class="mt-1 px-10 md:mt-0 md:px-0">
         Take a look at some of my favorite projects that I've worked on below!
     </p>
-    <div
+    <!-- <div
         class="mt-6 flex w-full flex-col flex-wrap items-center justify-center lg:flex-row lg:items-start lg:justify-between"
     >
         <ProjectCard />
         <ProjectCard />
         <ProjectCard />
         <ProjectCard />
+    </div> -->
+    <div class="mt-6 flex w-full flex-col lg:items-start">
+        <ProjectCardB />
     </div>
     <div class="flex w-full flex-col items-center lg:justify-center">
         <a
