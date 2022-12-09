@@ -8,7 +8,8 @@
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "pretty": "prettier --write src/**/*.astro"
   },
   "dependencies": {
     "@astrojs/tailwind": "^2.1.0",
@@ -22,6 +23,6 @@
   "devDependencies": {
     "prettier": "^2.8.0",
     "prettier-plugin-astro": "^0.7.0",
-    "prettier-plugin-tailwindcss": "^0.1.13"
+    "prettier-plugin-tailwindcss": "^0.2.1"
   }
 }

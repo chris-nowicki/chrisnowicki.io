@@ -14,16 +14,16 @@ const links: Links[] = [
 
 <div id="home" class="flex flex-col">
     <nav
-        class="flex flex-row md:items-center sm:items-center justify-between max-w-3xl w-full sm:px-10 md:px-0 relative mx-auto pt-4 pb-4 sm:shadow md:shadow-none"
+        class="relative mx-auto flex w-full max-w-3xl flex-row justify-between pt-4 pb-4 sm:items-center sm:px-10 sm:shadow md:items-center md:px-0 md:shadow-none"
     >
-        <div class="md:flex items-center">
+        <div class="items-center md:flex">
             {
                 links.map(
                     (link, index) =>
                         link.show && (
-                            <a  
-                            href={link.html}
-                                class={`dark:text-textDark dark:hover:text-purpleDark text-xl hover:scale-105 hover:text-purple-600
+                            <a
+                                href={link.html}
+                                class={`text-xl hover:scale-105 hover:text-purple-600 dark:text-textDark dark:hover:text-purpleDark
                             ${
                                 index % 2 == 0
                                     ? 'hover:-rotate-12'
@@ -41,7 +41,7 @@ const links: Links[] = [
         <!-- sun:moon icon button for dark:light theme -->
         <div class="flex flex-row items-center justify-center">
             <button
-                class="flex items-center border-gray-300 rounded border-2 hover:border-purple-600 hover:text-purple-600 hover:shadow-purple-600/25 shadow-md p-1 dark:text-textDark dark:border-textDark/25 dark:hover:text-purpleDark dark:hover:border-purpleDark"
+                class="flex items-center rounded border-2 border-gray-300 p-1 shadow-md hover:border-purple-600 hover:text-purple-600 hover:shadow-purple-600/25 dark:border-textDark/25 dark:text-textDark dark:hover:border-purpleDark dark:hover:text-purpleDark"
                 onclick="themeSwitch()"
             >
                 <svg
@@ -51,7 +51,7 @@ const links: Links[] = [
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6 font-bold"
+                    class="h-6 w-6 font-bold"
                 >
                     <path
                         stroke-linecap="round"
@@ -66,7 +66,7 @@ const links: Links[] = [
                     viewBox="0 0 24 24"
                     stroke-width="1.5"
                     stroke="currentColor"
-                    class="w-6 h-6 hover:font-bold"
+                    class="h-6 w-6 hover:font-bold"
                 >
                     <path
                         stroke-linecap="round"
@@ -90,29 +90,29 @@ const links: Links[] = [
 </div>
 
 <script is:global>
-            // icons
-            const sun = document.getElementById('sun').classList
-            const moon = document.getElementById('moon').classList
+    // icons
+    const sun = document.getElementById('sun').classList
+    const moon = document.getElementById('moon').classList
 
-            // theme variables
-            const currentTheme = document.documentElement.classList
+    // theme variables
+    const currentTheme = document.documentElement.classList
 
-            // iconToggle
-            const iconToggle = () => {
-                moon.toggle('hidden')
-                sun.toggle('hidden')
-            }
+    // iconToggle
+    const iconToggle = () => {
+        moon.toggle('hidden')
+        sun.toggle('hidden')
+    }
 
-            const themeSwitch = () => {
-                if (currentTheme.contains('dark')) {
-                    currentTheme.remove('dark')
-                    localStorage.theme = 'light'
-                    iconToggle()
-                    return
-                }
+    const themeSwitch = () => {
+        if (currentTheme.contains('dark')) {
+            currentTheme.remove('dark')
+            localStorage.theme = 'light'
+            iconToggle()
+            return
+        }
 
-                currentTheme.add('dark')
-                localStorage.theme = 'dark'
-                iconToggle()
-            }
+        currentTheme.add('dark')
+        localStorage.theme = 'dark'
+        iconToggle()
+    }
 </script>

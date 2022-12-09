@@ -2,23 +2,28 @@
 import ProjectCard from './ProjectCard.astro'
 ---
 
-<div id="projects" class="flex flex-col w-full items-center lg:items-start mt-16">
-    <h1 class="text-2xl text-purple-600 dark:text-purpleDark uppercase">
+<div
+    id="projects"
+    class="mt-16 flex w-full flex-col items-center lg:items-start"
+>
+    <h1 class="text-2xl uppercase text-purple-600 dark:text-purpleDark">
         Projects
     </h1>
-    <p class="px-10 mt-1 md:px-0 md:mt-0">
+    <p class="mt-1 px-10 md:mt-0 md:px-0">
         Take a look at some of my favorite projects that I've worked on below!
     </p>
-    <div class="flex flex-col items-center lg:items-start lg:flex-row w-full justify-center lg:justify-between flex-wrap mt-6">
+    <div
+        class="mt-6 flex w-full flex-col flex-wrap items-center justify-center lg:flex-row lg:items-start lg:justify-between"
+    >
         <ProjectCard />
         <ProjectCard />
         <ProjectCard />
         <ProjectCard />
     </div>
-    <div class="flex flex-col items-center lg:justify-center w-full">
+    <div class="flex w-full flex-col items-center lg:justify-center">
         <a
             href="#"
-            class="w-1/3 text-center text-purple-600 border border-purple-600 px-4 py-2 mt-4 hover:bg-purple-600 hover:text-white dark:text-textDark dark:border-textDark dark:hover:bg-textDark dark:hover:text-bgDark"
+            class="mt-4 w-1/3 border border-purple-600 px-4 py-2 text-center text-purple-600 hover:bg-purple-600 hover:text-white dark:border-textDark dark:text-textDark dark:hover:bg-textDark dark:hover:text-bgDark"
             >More Projects</a
         >
     </div>
