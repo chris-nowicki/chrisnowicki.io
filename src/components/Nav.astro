@@ -7,7 +7,7 @@ interface Links {
 
 const links: Links[] = [
     { name: 'home', html: '#home', show: true },
-    { name: 'projects', html: '#projects', show: false },
+    { name: 'projects', html: '#projects', show: true },
     { name: 'contact', html: '#contact', show: true },
 ]
 ---
@@ -23,13 +23,7 @@ const links: Links[] = [
                         link.show && (
                             <a
                                 href={link.html}
-                                class={`text-xl hover:scale-105 hover:text-purple-600 dark:text-textDark dark:hover:text-purpleDark
-                            ${
-                                index % 2 == 0
-                                    ? 'hover:-rotate-12'
-                                    : 'hover:rotate-12'
-                            } 
-                            mr-4 transition-transform duration-300 ease-in-out`}
+                                class={`dark:text-textDark dark:hover:text-purpleDark mr-4 text-xl hover:text-purple-600`}
                             >
                                 {link.name}
                             </a>

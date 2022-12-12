@@ -1,34 +1,30 @@
 ---
-import ProjectCard from './ProjectCard.astro'
+import ProjectCardA from './ProjectCardA.astro'
 import ProjectCardB from './ProjectCardB.astro'
 ---
 
-<div
-    id="projects"
-    class="mt-16 flex w-full flex-col items-center lg:items-start"
->
-    <h1 class="text-2xl uppercase text-purple-600 dark:text-purpleDark">
-        Projects
+<div class="mt-16 flex w-full flex-col items-center lg:items-center">
+    <h1
+        id="projects"
+        class="mt-1 text-center text-4xl text-purple-600 dark:text-purpleDark"
+    >
+        Featured Projects
     </h1>
-    <p class="mt-1 px-10 md:mt-0 md:px-0">
+    <p class="px-10 text-center text-lg md:mt-0 md:px-0">
         Take a look at some of my favorite projects that I've worked on below!
     </p>
-    <!-- <div
-        class="mt-6 flex w-full flex-col flex-wrap items-center justify-center lg:flex-row lg:items-start lg:justify-between"
-    >
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-        <ProjectCard />
-    </div> -->
+
     <div class="mt-6 flex w-full flex-col lg:items-start">
+        <ProjectCardA />
+        <ProjectCardB />
+        <ProjectCardA />
         <ProjectCardB />
     </div>
     <div class="flex w-full flex-col items-center lg:justify-center">
         <a
             href="#"
-            class="mt-4 w-1/3 border border-purple-600 px-4 py-2 text-center text-purple-600 hover:bg-purple-600 hover:text-white dark:border-textDark dark:text-textDark dark:hover:bg-textDark dark:hover:text-bgDark"
-            >More Projects</a
+            class="rounded-lg border-2 border-purple-600 px-6 py-2 uppercase text-purple-600 hover:bg-purple-600 hover:text-textDark dark:border-purpleDark dark:text-purpleDark dark:hover:bg-purpleDark dark:hover:text-textDark"
+            >more projects</a
         >
     </div>
 </div>
