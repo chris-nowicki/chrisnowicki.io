@@ -1,3 +1,27 @@
+---
+import imageUrlBuilder from '@sanity/image-url'
+import { client } from '../js/client'
+const builder = imageUrlBuilder(client)
+
+// image url builder
+function urlFor(source: string) {
+    return builder.image(source)
+}
+
+export interface Props {
+    name: string
+    excerpt: string
+    image: string
+    tags: string[]
+    gitHubUrl: string
+    liveSiteUrl: string
+    slug: string
+}
+
+const { name, excerpt, image, tags, gitHubUrl, liveSiteUrl, slug } = Astro.props
+console.log(typeof urlFor(image))
+---
+
 <div
     class="mx-24 mb-8 flex flex-row flex-wrap-reverse border border-gray-900 p-4 shadow-md outline outline-0 outline-purple-600 ease-in-out hover:outline-2 dark:border-purpleDark dark:shadow-lg dark:shadow-gray-600/25 dark:outline-purpleDark dark:hover:border-transparent dark:hover:outline-2 md:relative md:mx-0 md:w-full"
 >
@@ -5,51 +29,55 @@
         class="flex w-full flex-col items-center justify-evenly md:items-start"
     >
         <a
-            href="https://github.com/chris-nowicki"
+            href={`/projects/${slug}`}
             class="mt-6 mb-2 text-2xl hover:text-purple-600 dark:text-textDark dark:hover:text-purpleDark md:mt-0"
         >
-            Pomodoro App
+            {name}
         </a>
         <div
             class="mb-2 flex flex-row items-center rounded bg-gray-300 p-2 text-center text-bgDark shadow-md shadow-gray-900/25 md:mx-0 md:w-[475px] md:text-left"
         >
             <p>
-                Frontend Mentor Challenge to create a pomodoro app. eating
-                custom hooks, and styling.
+                {excerpt}
             </p>
         </div>
         <div
             class="flex w-full flex-col items-center justify-between md:items-start"
         >
             <div class="mt-1 flex flex-row flex-wrap justify-end gap-1">
-                <span
-                    class="inline-flex items-center bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800"
-                    >Nextjs</span
-                >
-                <span
-                    class="inline-flex items-center bg-purple-100 px-2.5 py-0.5 text-sm font-medium text-purple-800"
-                    >React</span
-                >
-                <span
-                    class="inline-flex items-center bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800"
-                    >PostCSS</span
-                >
+                {
+                    tags.map((tag, index) =>
+                        index == 0 ? (
+                            <span class="inline-flex items-center bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">
+                                {tag['name']}
+                            </span>
+                        ) : index == 1 ? (
+                            <span class="inline-flex items-center bg-purple-100 px-2.5 py-0.5 text-sm font-medium text-purple-800">
+                                {tag['name']}
+                            </span>
+                        ) : (
+                            <span class="inline-flex items-center bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800">
+                                {tag['name']}
+                            </span>
+                        )
+                    )
+                }
             </div>
             <div
                 class="mt-10 flex w-full flex-row items-center justify-center gap-2 text-4xl md:justify-start"
             >
                 <a
-                    href="http://www.github.com/chris-nowicki"
+                    href={gitHubUrl}
                     class="flex items-center hover:text-purple-600 dark:hover:text-purpleDark"
                     ><ion-icon name="logo-github"></ion-icon>
                 </a>
                 <a
-                    href="http://www.github.com/chris-nowicki"
+                    href={liveSiteUrl}
                     class="flex items-center hover:text-purple-600 dark:hover:text-purpleDark"
                     ><ion-icon name="open-outline"></ion-icon>
                 </a>
                 <a
-                    href="#"
+                    href={`/projects/${slug}`}
                     class="rounded border border-purple-600 px-4 py-2 text-sm text-purple-600 hover:bg-purple-600 hover:text-textDark dark:border-purpleDark dark:text-purpleDark dark:hover:bg-purpleDark dark:hover:text-textDark"
                 >
                     READ MORE
@@ -60,6 +88,6 @@
     <div
         class="flex w-full sm:justify-center md:absolute md:right-4 md:-z-10 md:justify-end"
     >
-        <img src="/images/test.png" alt="placeholder" />
+        <img src={urlFor(image).width(350).url()} alt="placeholder" />
     </div>
 </div>

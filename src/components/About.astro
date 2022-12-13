@@ -1,5 +1,11 @@
 ---
-import picture from '../images/me.png'
+import { urlFor } from '../util/imageBuilder';
+
+export interface Props {
+    profilePicture: string
+}
+
+const { profilePicture } = Astro.props
 ---
 
 <!-- about me section -->
@@ -41,8 +47,9 @@ import picture from '../images/me.png'
     class="mt-8 flex w-[250px] justify-center md:mt-0 md:ml-6 md:w-[400px] md:items-start md:justify-end"
 >
     <img
-        src={picture}
+        src={urlFor(profilePicture).width(250).url()}
         height="auto"
         class="mr-auto rounded shadow-lg shadow-black/50 grayscale transition-all duration-500 ease-in-out hover:grayscale-0 dark:shadow dark:shadow-purpleDark"
+        alt="chris nowicki's profile picture"
     />
 </div>

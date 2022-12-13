@@ -6,7 +6,7 @@ interface Links {
 }
 
 const links: Links[] = [
-    { name: 'home', html: '#home', show: true },
+    { name: 'home', html: '/', show: true },
     { name: 'projects', html: '#projects', show: true },
     { name: 'contact', html: '#contact', show: true },
 ]
@@ -19,7 +19,7 @@ const links: Links[] = [
         <div class="items-center md:flex">
             {
                 links.map(
-                    (link, index) =>
+                    (link) =>
                         link.show && (
                             <a
                                 href={link.html}

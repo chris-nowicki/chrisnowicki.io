@@ -1,14 +1,14 @@
 ---
 import { client } from '../js/client'
+import { tech as query } from '../ts/querries'
 
 interface Technologies {
-    name: any
+    name: string
     link?: string
     show: boolean
 }
 
-// fetch technologies from sanity
-const query = '*[_type == "tech"] {name, link, show}'
+// fetch technologies from sanity.io
 const tech: Technologies[] = await client.fetch(query)
 
 // sort technologies in alphebetical order
@@ -24,7 +24,7 @@ tech.sort((a, b) => {
 ---
 
 <div
-    class="mt-16 flex w-full flex-col items-center rounded bg-bgDark p-8 shadow-lg shadow-bgDark/50 dark:bg-gray-900 dark:shadow-gray-900/50 md:mt-20"
+    class="my-16 flex w-full flex-col items-center rounded bg-bgDark p-8 shadow-lg shadow-bgDark/50 dark:bg-gray-900 dark:shadow-gray-900/50"
 >
     <h1 class="mb-3 text-4xl text-purpleDark">Tech Stack</h1>
     <ul

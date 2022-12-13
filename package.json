@@ -12,15 +12,20 @@
     "pretty": "prettier --write src/**/*.astro"
   },
   "dependencies": {
+    "@astrojs/image": "^0.12.1",
     "@astrojs/tailwind": "^2.1.0",
     "@astrojs/vercel": "^2.3.4",
+    "@portabletext/to-html": "^1.0.4",
     "@sanity/client": "^3.4.1",
+    "@sanity/image-url": "^1.0.1",
     "astro": "^1.5.0",
     "es6-promise": "^4.2.8",
     "rough-notation": "^0.5.1",
+    "sharp": "^0.31.2",
     "tailwindcss": "^3.1.8"
   },
   "devDependencies": {
+    "@types/node": "^18.11.14",
     "prettier": "^2.8.0",
     "prettier-plugin-astro": "^0.7.0",
     "prettier-plugin-tailwindcss": "^0.2.1"

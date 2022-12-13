@@ -1,9 +1,24 @@
 ---
 import ProjectCardA from './ProjectCardA.astro'
 import ProjectCardB from './ProjectCardB.astro'
+import { client } from '../js/client'
+import { featuredProjects as query } from '../ts/querries'
+
+interface Projects {
+    name: string
+    excerpt: string
+    image: object
+    tags: string[]
+    gitHubUrl: string
+    liveSiteUrl: string
+    slug: object
+}
+
+// fetch featured projects from sanity.io
+const projects: Projects[] = await client.fetch(query)
 ---
 
-<div class="mt-16 flex w-full flex-col items-center lg:items-center">
+<div class="mb-16 flex w-full flex-col items-center lg:items-center">
     <h1
         id="projects"
         class="mt-1 text-center text-4xl text-purple-600 dark:text-purpleDark"
@@ -15,10 +30,31 @@ import ProjectCardB from './ProjectCardB.astro'
     </p>
 
     <div class="mt-6 flex w-full flex-col lg:items-start">
-        <ProjectCardA />
-        <ProjectCardB />
-        <ProjectCardA />
-        <ProjectCardB />
+        {
+            projects.map((project, index) =>
+                index % 2 === 0 ? (
+                    <ProjectCardA
+                        name={project.name}
+                        excerpt={project.excerpt}
+                        image={project.image['asset']._ref}
+                        tags={project.tags}
+                        gitHubUrl={project.gitHubUrl}
+                        liveSiteUrl={project.liveSiteUrl}
+                        slug={project.slug['current']}
+                    />
+                ) : (
+                    <ProjectCardB
+                        name={project.name}
+                        excerpt={project.excerpt}
+                        image={project.image['asset']._ref}
+                        tags={project.tags}
+                        gitHubUrl={project.gitHubUrl}
+                        liveSiteUrl={project.liveSiteUrl}
+                        slug={project.slug['current']}
+                    />
+                )
+            )
+        }
     </div>
     <div class="flex w-full flex-col items-center lg:justify-center">
         <a
