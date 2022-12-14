@@ -4,12 +4,16 @@ export const siteSettings: string = `*[_type == "siteSettings"] {
 
 export const tech: string = '*[_type == "tech"] {name, link, show}'
 
-export const featuredProjects: string = `*[_type == "projects" && count(*[ _type == "featuredProjects" && ^._id in projects[]._ref ]) > 0 ] {
-  "name": projectName,
-    excerpt,
-    image {asset {_ref}},
-    "tags": *[_type == "tech" && count(*[ _type == "projects" && ^._id in tags[]._ref ]) > 0 ] {name},
-    gitHubUrl,
-    liveSiteUrl,
-    slug {current}
+export const featuredProjects: string = `*[_type == "featuredProjects"]{
+   projects[]->{
+     "name": projectName,
+     "slug": slug.current,
+     excerpt,
+     gitHubUrl,
+     liveSiteUrl,
+     "image": image.asset._ref,
+     "tags": tags[]->{
+       name
+     }
+   }
 }`

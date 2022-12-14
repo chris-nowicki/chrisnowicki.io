@@ -17,13 +17,6 @@ const { title = 'Chris Nowicki' } = Astro.props
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
         <meta name="generator" content={Astro.generator} />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
-            rel="stylesheet"
-        />
-
         <title>{title}</title>
     </head>
     <body
@@ -40,6 +33,6 @@ const { title = 'Chris Nowicki' } = Astro.props
         <script
             type="module"
             src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
-        ></script>
+        defer></script>
     </body>
 </html>

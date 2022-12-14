@@ -4,18 +4,23 @@ import ProjectCardB from './ProjectCardB.astro'
 import { client } from '../js/client'
 import { featuredProjects as query } from '../ts/querries'
 
+interface getProjects {
+    projects: any[]
+}
+
 interface Projects {
     name: string
     excerpt: string
-    image: object
+    image: string
     tags: string[]
     gitHubUrl: string
     liveSiteUrl: string
-    slug: object
+    slug: string
 }
 
 // fetch featured projects from sanity.io
-const projects: Projects[] = await client.fetch(query)
+const getProjects: getProjects[] = await client.fetch(query)
+const projects: Projects[] = getProjects[0].projects
 ---
 
 <div class="mb-16 flex w-full flex-col items-center lg:items-center">
@@ -36,21 +41,21 @@ const projects: Projects[] = await client.fetch(query)
                     <ProjectCardA
                         name={project.name}
                         excerpt={project.excerpt}
-                        image={project.image['asset']._ref}
+                        image={project.image}
                         tags={project.tags}
                         gitHubUrl={project.gitHubUrl}
                         liveSiteUrl={project.liveSiteUrl}
-                        slug={project.slug['current']}
+                        slug={project.slug}
                     />
                 ) : (
                     <ProjectCardB
                         name={project.name}
                         excerpt={project.excerpt}
-                        image={project.image['asset']._ref}
+                        image={project.image}
                         tags={project.tags}
                         gitHubUrl={project.gitHubUrl}
                         liveSiteUrl={project.liveSiteUrl}
-                        slug={project.slug['current']}
+                        slug={project.slug}
                     />
                 )
             )

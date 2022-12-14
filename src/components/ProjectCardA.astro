@@ -42,10 +42,19 @@ const { name, excerpt, image, tags, gitHubUrl, liveSiteUrl, slug } = Astro.props
             <div class="mt-1 flex flex-row flex-wrap gap-1 md:justify-end">
                 {
                     tags.map((tag, index) =>
-                
+                        index == 0 ? (
+                            <span class="inline-flex items-center bg-green-100 px-2.5 py-0.5 text-sm font-medium text-green-800">
+                                {tag['name']}
+                            </span>
+                        ) : index == 1 ? (
                             <span class="inline-flex items-center bg-purple-100 px-2.5 py-0.5 text-sm font-medium text-purple-800">
                                 {tag['name']}
                             </span>
+                        ) : (
+                            <span class="inline-flex items-center bg-blue-100 px-2.5 py-0.5 text-sm font-medium text-blue-800">
+                                {tag['name']}
+                            </span>
+                        )
                     )
                 }
             </div>
