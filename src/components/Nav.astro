@@ -1,15 +1,22 @@
 ---
+import { client } from '../js/client'
+import { links as query } from '../ts/querries'
+
+interface getLinks {
+    links: string[]
+    showResume: boolean
+}
+
 interface Links {
-    name: string
-    html: string
+    title: string
+    reference: string
     show: boolean
 }
 
-const links: Links[] = [
-    { name: 'home', html: '/', show: true },
-    { name: 'projects', html: '#projects', show: true },
-    { name: 'contact', html: '#contact', show: true },
-]
+// fetch navigation links from sanity.io
+const getNavigationLinks: getLinks = await client.fetch(query)
+const links: Links[] = getNavigationLinks[0].links
+const showResume: boolean = getNavigationLinks[0].showResume
 ---
 
 <div id="home" class="flex flex-col items-center">
@@ -22,10 +29,10 @@ const links: Links[] = [
                     (link) =>
                         link.show && (
                             <a
-                                href={link.html}
+                                href={link.reference}
                                 class={`dark:text-textDark dark:hover:text-purpleDark mr-4 text-xl hover:text-purple-600`}
                             >
-                                {link.name}
+                                {link.title}
                             </a>
                         )
                 )
@@ -69,17 +76,26 @@ const links: Links[] = [
                     ></path>
                 </svg>
             </button>
+            <!-- resume link -->
+            {
+                showResume && (
+                    <div class="flex flex-row">
+                        <a
+                            href="#"
+                            class={`dark:text-textDark dark:border-purpleDark hover:dark:bg-purpleDark border-2 border-purple-600 text-xl text-purple-600 hover:bg-purple-700
+                    ${
+                        links.length % 2 === 0
+                            ? 'hover:-rotate-12'
+                            : 'hover:rotate-12 '
+                    } 
+                    hover:shadow-0 durration-700 ml-4 px-4 py-1 transition-all delay-75 ease-in-out hover:rounded hover:text-white hover:shadow-md`}
+                        >
+                            resume
+                        </a>
+                    </div>
+                )
+            }
         </div>
-        <!-- resume link -->
-        <!-- <div class="flex flex-row">
-                <a
-                    href="#"
-                    class={`text-xl dark:text-textDark text-purple-600 border-2 border-purple-600 dark:border-purpleDark hover:dark:bg-purpleDark hover:bg-purple-700
-            ${links.length % 2 === 0 ? 'hover:-rotate-12' : 'hover:rotate-12 '} 
-            hover:shadow-md hover:shadow-0 hover:rounded transition-all delay-75 hover:text-white durration-700 ease-in-out px-4 py-1 ml-4`}
-                    >resume</a
-                >
-            </div> -->
     </nav>
 </div>
 

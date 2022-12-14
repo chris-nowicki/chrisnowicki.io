@@ -1,19 +1,25 @@
-export const siteSettings: string = `*[_type == "siteSettings"] {
-  "profilePicture": profilePicture {asset {_ref}},
-  showProjects}`
+export const siteSettings: string = `*[_type == "settings"] {
+  "profilePicture": profilePicture.asset._ref,
+  "showProjects": featuredProjects.showProjects
+}`
 
 export const tech: string = '*[_type == "tech"] {name, link, show}'
 
-export const featuredProjects: string = `*[_type == "featuredProjects"]{
-   projects[]->{
-     "name": projectName,
-     "slug": slug.current,
-     excerpt,
-     gitHubUrl,
-     liveSiteUrl,
-     "image": image.asset._ref,
-     "tags": tags[]->{
-       name
-     }
-   }
+export const featuredProjects: string = `*[_type == "settings"] {
+  "projects": featuredProjects.featured[]->{
+      projectName,
+      "slug": slug.current,
+      excerpt,
+      gitHubUrl,
+      liveSiteUrl,
+      "image": image.asset._ref,
+      "tags": tags[]->{
+        name
+      },
+  },
+}`
+
+export const links = `*[_type == "settings"] {
+  "links": navigation.links,
+  "showResume": navigation.showResume
 }`
