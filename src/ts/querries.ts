@@ -8,7 +8,7 @@ export const featuredProjects: string = `*[_type == "projects" && count(*[ _type
   "name": projectName,
     excerpt,
     image {asset {_ref}},
-    "tags": *[_type == "tech" && count(*[ _type == "projects" && ^._id in tags[]._ref ]) > 0 ] {name} | order(name asc),
+    "tags": *[_type == "tech" && count(*[ _type == "projects" && ^._id in tags[]._ref ]) > 0 ] {name},
     gitHubUrl,
     liveSiteUrl,
     slug {current}
