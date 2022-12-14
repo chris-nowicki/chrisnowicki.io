@@ -7,7 +7,7 @@ export const tech: string = '*[_type == "tech"] {name, link, show}'
 
 export const featuredProjects: string = `*[_type == "settings"] {
   "projects": featuredProjects.featured[]->{
-      projectName,
+      "name": projectName,
       "slug": slug.current,
       excerpt,
       gitHubUrl,
