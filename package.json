@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@astrojs/image": "^0.12.1",
+    "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^2.1.0",
     "@astrojs/vercel": "^2.3.4",
     "@portabletext/to-html": "^1.0.4",
