@@ -2,6 +2,7 @@
 import ProjectLayout from '../../layouts/ProjectLayout.astro'
 import { toHTML } from '@portabletext/to-html'
 import { client } from '../../js/client'
+import { urlFor } from '../../util/imageBuilder'
 import imageUrlBuilder from '@sanity/image-url'
 const builder = imageUrlBuilder(client)
 
@@ -9,17 +10,14 @@ const { slug } = Astro.params
 
 // fetch technologies from sanity
 const query = `*[_type == "projects" && slug.current == "${slug}"]`
-const getProject = await client.fetch(query).catch((e) => console.log(e))
-const project = getProject[0]
-
-// image url builder
-function urlFor(source) {
-  return builder.image(source)
-}
+const response = await client.fetch(query).catch((e) => console.log(e))
+const project = response[0]
 
 const myTextComponents = {
-  types: {
-    image: ({value}) => `<img src="${urlFor(value)}" class="shadow shadow-black/25"/>`}
+    types: {
+        image: ({ value }) =>
+            `<img src="${urlFor(value)}" class="shadow shadow-black/25"/>`,
+    },
 }
 ---
 
