@@ -87,6 +87,6 @@ const { name, excerpt, image, tags, gitHubUrl, liveSiteUrl, slug } = Astro.props
     <div
         class="flex w-full sm:justify-center md:absolute md:right-4 md:-z-10 md:justify-end"
     >
-        <img src={urlFor(image).width(350).url()} alt="placeholder" />
+        <img src={urlFor(image).width(350).url()} alt="placeholder" class="shadow-md" width="350px" height="216"/>
     </div>
 </div>
