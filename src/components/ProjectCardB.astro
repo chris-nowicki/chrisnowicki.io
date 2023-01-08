@@ -1,12 +1,5 @@
 ---
-import imageUrlBuilder from '@sanity/image-url'
-import { client } from '../js/client'
-const builder = imageUrlBuilder(client)
-
-// image url builder
-function urlFor(source: string) {
-    return builder.image(source)
-}
+import { urlFor } from '../util/imageBuilder'
 
 export interface Props {
     name: string
