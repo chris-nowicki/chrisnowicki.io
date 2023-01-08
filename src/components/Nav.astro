@@ -30,7 +30,7 @@ const showResume: boolean = getNavigationLinks[0].showResume
                         link.show && (
                             <a
                                 href={link.reference}
-                                class={`dark:text-textDark dark:hover:text-purpleDark mr-4 text-xl hover:text-purple-600`}
+                                class={`dark:text-textDark dark:hover:text-purpleDark mr-4 text-xl hover:text-purple-600 `}
                             >
                                 {link.title}
                             </a>
@@ -82,13 +82,7 @@ const showResume: boolean = getNavigationLinks[0].showResume
                     <div class="flex flex-row">
                         <a
                             href="#"
-                            class={`dark:text-textDark dark:border-purpleDark hover:dark:bg-purpleDark border-2 border-purple-600 text-xl text-purple-600 hover:bg-purple-700
-                    ${
-                        links.length % 2 === 0
-                            ? 'hover:-rotate-12'
-                            : 'hover:rotate-12 '
-                    } 
-                    hover:shadow-0 durration-700 ml-4 px-4 py-1 transition-all delay-75 ease-in-out hover:rounded hover:text-white hover:shadow-md`}
+                            class={`dark:text-textDark dark:border-purpleDark hover:dark:bg-purpleDark hover:shadow-0 durration-700 ml-4 border-2 border-purple-600 px-4 py-1 text-xl text-purple-600 transition-all delay-75 ease-in-out hover:rounded hover:bg-purple-700 hover:text-white hover:shadow-md`}
                         >
                             resume
                         </a>
