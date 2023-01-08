@@ -1,5 +1,6 @@
 ---
 import { urlFor } from '../util/imageBuilder'
+import Image from '@astrojs/image'
 
 export interface Props {
     name: string
@@ -12,6 +13,7 @@ export interface Props {
 }
 
 const { name, excerpt, image, tags, gitHubUrl, liveSiteUrl, slug } = Astro.props
+const projectImage = urlFor(image).url()
 ---
 
 <div
@@ -21,11 +23,11 @@ const { name, excerpt, image, tags, gitHubUrl, liveSiteUrl, slug } = Astro.props
         class="mr-2 w-full sm:flex sm:justify-center md:absolute md:-z-10 md:justify-start"
     >
         <img
-            src={urlFor(image).url()}
-            alt="placeholder"
-            width="350"
-            height="216"
-            class="shadow-md"
+            src={projectImage}
+            alt="featured project image"
+            width="350px"
+            height="216px"
+            class="shadow-md object-contain"
         />
     </div>
     <div class="mt-6 flex flex-col items-center sm:w-full md:mt-0 md:items-end">
