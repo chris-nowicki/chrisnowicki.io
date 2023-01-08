@@ -1,4 +1,4 @@
-export type Meta {
+export type Meta = {
     title: string
     description: string
     image: string
