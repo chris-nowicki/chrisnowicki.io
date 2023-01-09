@@ -1,5 +1,5 @@
 ---
-import ProjectCardA from './ProjectCard.astro'
+import ProjectCard from './ProjectCard/ProjectCard.astro'
 import { client } from '../js/client'
 import { featuredProjects as query } from '../ts/queries'
 
@@ -36,7 +36,7 @@ const projects: Projects[] = getProjects[0].projects
     <div class="mt-6 flex w-full flex-col items-center lg:items-start">
         {
             projects.map((project, index) => (
-                <ProjectCardA
+                <ProjectCard
                     name={project.name}
                     excerpt={project.excerpt}
                     image={project.image}

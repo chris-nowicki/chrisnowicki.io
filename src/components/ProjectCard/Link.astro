@@ -1,0 +1,17 @@
+---
+export interface Props {
+    url: string
+    icon: string
+    name: string
+}
+
+const { url, icon, name } = Astro.props
+---
+
+<a
+    href={url}
+    class="flex w-1/2 items-center justify-center rounded bg-black p-2 text-white hover:bg-purple-600 dark:bg-gray-900 dark:text-textDark dark:hover:bg-purpleDark md:w-1/2"
+    target="_blank"
+    ><ion-icon name={icon}></ion-icon>
+    <span class="ml-2 text-lg">{name}</span>
+</a>
