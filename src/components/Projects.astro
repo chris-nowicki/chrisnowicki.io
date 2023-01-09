@@ -1,6 +1,5 @@
 ---
-import ProjectCardA from './ProjectCardA.astro'
-import ProjectCardB from './ProjectCardB.astro'
+import ProjectCardA from './ProjectCard.astro'
 import { client } from '../js/client'
 import { featuredProjects as query } from '../ts/queries'
 
@@ -34,31 +33,19 @@ const projects: Projects[] = getProjects[0].projects
         Take a look at some of my favorite projects that I've worked on below!
     </p>
 
-    <div class="mt-6 flex w-full flex-col lg:items-start">
+    <div class="mt-6 flex w-full flex-col items-center lg:items-start">
         {
-            projects.map((project, index) =>
-                index % 2 === 0 ? (
-                    <ProjectCardA
-                        name={project.name}
-                        excerpt={project.excerpt}
-                        image={project.image}
-                        tags={project.tags}
-                        gitHubUrl={project.gitHubUrl}
-                        liveSiteUrl={project.liveSiteUrl}
-                        slug={project.slug}
-                    />
-                ) : (
-                    <ProjectCardB
-                        name={project.name}
-                        excerpt={project.excerpt}
-                        image={project.image}
-                        tags={project.tags}
-                        gitHubUrl={project.gitHubUrl}
-                        liveSiteUrl={project.liveSiteUrl}
-                        slug={project.slug}
-                    />
-                )
-            )
+            projects.map((project, index) => (
+                <ProjectCardA
+                    name={project.name}
+                    excerpt={project.excerpt}
+                    image={project.image}
+                    tags={project.tags}
+                    gitHubUrl={project.gitHubUrl}
+                    liveSiteUrl={project.liveSiteUrl}
+                    slug={project.slug}
+                />
+            ))
         }
     </div>
     <!-- <div class="flex w-full flex-col items-center lg:justify-center">
@@ -68,8 +55,8 @@ const projects: Projects[] = getProjects[0].projects
             >more projects</a
         >
     </div> -->
-    <div
+    <span
         class="flex w-1/2 border-b-2 border-purple-600 border-opacity-50 dark:border-purpleDark dark:border-opacity-50"
     >
-    </div>
+    </span>
 </div>

@@ -25,16 +25,14 @@ const siteSettings = fetchSiteSettings[0]
                 <div
                     class="flex flex-row flex-wrap-reverse justify-center md:mt-10 md:flex-nowrap"
                 >
-                    <About
-                        profilePicture={siteSettings.profilePicture}
-                    />
+                    <About profilePicture={siteSettings.profilePicture} />
                 </div>
-                <div class="flex flex-col">
+                <div class="flex w-full flex-col">
                     <Tech />
                     {siteSettings.showProjects && <Projects />}
                 </div>
             </div>
-            <Contact showProjects={siteSettings.showProjects}/>
+            <Contact showProjects={siteSettings.showProjects} />
         </div>
     </main>
 </Layout>
