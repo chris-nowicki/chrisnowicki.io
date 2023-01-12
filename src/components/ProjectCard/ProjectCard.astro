@@ -16,13 +16,17 @@ const { name, excerpt, image, tags, gitHubUrl, liveSiteUrl, slug } = Astro.props
 const projectImage = urlFor(image).url()
 ---
 
-<div class="flip-card">
+<div class="flip-card h-[400px] w-[400px] md:h-[235px] md:w-[375px]">
     <div class="flip-card-inner">
-        <div class="flip-card-front shadow-md shadow-black/25">
-            <img src={projectImage} alt="Avatar" />
+        <div class="flip-card-front rounded shadow-lg shadow-black/25">
+            <img
+                src={projectImage}
+                alt="Avatar"
+                class="w-[400px] md:w-[375px]"
+            />
         </div>
         <div
-            class="flip-card-back flex flex-col justify-start bg-bgDark dark:bg-gray-900 shadow-md shadow-black/25"
+            class="flip-card-back flex flex-col justify-start bg-bgDark shadow-md shadow-black/25 dark:bg-gray-900"
         >
             <div class="mt-4">
                 <span class="text-lg text-purpleDark">{name}</span>
@@ -31,7 +35,7 @@ const projectImage = urlFor(image).url()
                 </p>
             </div>
             <div class="mb-4 flex flex-wrap justify-center gap-1">
-                <div class="w-full flex px-12 pb-2 gap-2">
+                <div class="flex w-full justify-center gap-2 px-12 pb-2">
                     <Link url={gitHubUrl} icon="logo-github" name="code" />
                     <Link
                         url={liveSiteUrl}
@@ -65,7 +69,6 @@ const projectImage = urlFor(image).url()
     /* The flip card container - set the width and height to whatever you want. We have added the border property to demonstrate that the flip itself goes out of the box on hover (remove perspective if you don't want the 3D effect */
     .flip-card {
         background-color: transparent;
-        width: 400px;
         height: 235px;
         perspective: 1000px; /* Remove this if you don't want the 3D effect */
     }
