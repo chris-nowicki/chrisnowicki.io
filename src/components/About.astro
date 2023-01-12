@@ -1,5 +1,5 @@
 ---
-import { urlFor } from '../util/imageBuilder';
+import { urlFor } from '../util/imageBuilder'
 
 export interface Props {
     profilePicture: string
@@ -31,13 +31,15 @@ const { profilePicture } = Astro.props
     <div class="flex flex-row">
         <a
             href="http://www.linkedin.com/in/chris-nowicki"
-            class="mt-8 mr-4 border border-blue-600 px-4 py-2 text-2xl text-blue-600 hover:bg-blue-600 hover:text-white dark:border-textDark dark:text-textDark dark:hover:bg-textDark dark:hover:text-bgDark"
-            target="_blank">View Linkedin</a
+            class="mt-8 mr-4 flex items-center rounded border border-blue-600 px-4 py-2 text-2xl text-blue-600 hover:bg-blue-600 hover:text-white dark:border-textDark dark:text-textDark dark:hover:bg-textDark dark:hover:text-bgDark"
+            target="_blank"
+            ><ion-icon name="logo-linkedin" class="mr-2"></ion-icon>Linkedin</a
         >
         <a
             href="https://github.com/chris-nowicki"
-            class="mt-8 border border-black px-4 py-2 text-2xl hover:bg-black hover:text-white dark:border-purpleDark dark:text-purpleDark dark:hover:bg-purpleDark dark:hover:text-textDark"
-            target="_blank">View Github</a
+            class="mt-8 flex items-center rounded border border-black px-4 py-2 text-2xl hover:bg-black hover:text-white dark:border-purpleDark dark:text-purpleDark dark:hover:bg-purpleDark dark:hover:text-textDark"
+            target="_blank"
+            ><ion-icon name="logo-github" class="mr-2"></ion-icon>Github</a
         >
     </div>
 </div>
