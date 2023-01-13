@@ -20,5 +20,5 @@ export default defineConfig({
   site: 'https://chrisnowicki.io',
   integrations: [tailwind(), image(), sitemap(), react()],
   output: 'server',
-  adapter: vercel()
+  adapter: vercel(),
 });
