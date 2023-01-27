@@ -16,9 +16,11 @@ import sitemap from '@astrojs/sitemap';
 import react from "@astrojs/react";
 
 // https://astro.build/config
+
+// https://astro.build/config
 export default defineConfig({
   site: 'https://chrisnowicki.io',
   integrations: [tailwind(), image(), sitemap(), react()],
   output: 'server',
-  adapter: vercel(),
+  adapter: vercel()
 });
