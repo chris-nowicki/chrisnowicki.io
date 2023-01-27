@@ -12,7 +12,7 @@
     "pretty": "prettier --write src/**/*.astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.12.1",
+    "@astrojs/image": "^0.13.0",
     "@astrojs/react": "^2.0.1",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^3.0.0",
