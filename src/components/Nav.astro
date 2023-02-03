@@ -11,15 +11,17 @@ interface Links {
     title: string
     reference: string
     show: boolean
+    resumeURL: string
 }
 
 // fetch navigation links from sanity.io
 const getNavigationLinks: getLinks = await client.fetch(query)
 const links: Links[] = getNavigationLinks[0].links
 const showResume: boolean = getNavigationLinks[0].showResume
+const resumeURL: string = getNavigationLinks[0].resumeURL
 ---
-    
-<div id="home" class="flex flex-col items-center mb-6">
+
+<div id="home" class="mb-6 flex flex-col items-center">
     <nav
         class="flex w-full max-w-3xl flex-row justify-between pt-4 pb-4 sm:items-center sm:px-10 sm:shadow md:px-0 md:shadow-none"
     >
@@ -81,8 +83,8 @@ const showResume: boolean = getNavigationLinks[0].showResume
                 showResume && (
                     <div class="flex flex-row">
                         <a
-                            href="#"
-                            class={`dark:text-textDark dark:border-purpleDark hover:dark:bg-purpleDark hover:shadow-0 durration-700 ml-4 border-2 border-purple-600 px-4 py-1 text-xl text-purple-600 transition-all delay-75 ease-in-out hover:rounded hover:bg-purple-700 hover:text-white hover:shadow-md`}
+                            href={`${resumeURL}?dl=`}
+                            class={`dark:text-textDark dark:border-purpleDark hover:dark:bg-purpleDark durration-700 hover:text-textDark ml-4 rounded border-2 border-purple-600 px-4 py-0.5 text-xl text-purple-600 transition-all hover:rounded hover:bg-purple-600 hover:shadow-md`}
                         >
                             resume
                         </a>
