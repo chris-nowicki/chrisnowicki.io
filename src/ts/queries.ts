@@ -19,6 +19,16 @@ export const featuredProjects: string = `*[_type == "settings"] {
   },
 }`
 
+export const projects: string = `*[_type == "projects"]{
+  projectName,
+    dateCreated,
+    "tags": tags[]->{
+        name
+      },
+    gitHubUrl,
+    liveSiteUrl
+}`
+
 export const links = `*[_type == "settings"] {
   "links": navigation.links,
   "showResume": navigation.showResume

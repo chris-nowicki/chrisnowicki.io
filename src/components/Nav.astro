@@ -18,8 +18,8 @@ const getNavigationLinks: getLinks = await client.fetch(query)
 const links: Links[] = getNavigationLinks[0].links
 const showResume: boolean = getNavigationLinks[0].showResume
 ---
-
-<div id="home" class="flex flex-col items-center">
+    
+<div id="home" class="flex flex-col items-center mb-6">
     <nav
         class="flex w-full max-w-3xl flex-row justify-between pt-4 pb-4 sm:items-center sm:px-10 sm:shadow md:px-0 md:shadow-none"
     >

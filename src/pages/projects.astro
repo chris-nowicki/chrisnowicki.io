@@ -1,0 +1,101 @@
+---
+import ProjectsLayout from '../layouts/ProjectsLayout.astro'
+import { client } from '../js/client'
+import { projects as query } from '../ts/queries'
+import { KeyObject } from 'crypto'
+
+interface Projects {
+    projectName: string
+    dateCreated: string
+    tags: string[]
+    gitHubUrl: string
+    liveSiteUrl: string
+}
+
+// fetch featured projects from sanity.io
+const projects: Projects[] = await client.fetch(query)
+---
+
+<ProjectsLayout>
+    <main class="flex flex-col md:px-10 lg:px-0">
+        <div class="mx-auto flex w-full max-w-3xl flex-col">
+            <div class="mb-6 flex flex-col">
+                <h1
+                    class="text-2xl uppercase text-purple-600 dark:text-purpleDark"
+                >
+                    projects
+                </h1>
+                <p class="dark:text-textDark">
+                    Collection of my projects that I've made over the years.
+                </p>
+            </div>
+            <div class="flex flex-col rounded">
+                <table class="w-full table-auto overflow-auto">
+                    <thead
+                        class="border-b border-gray-900/25 dark:border-textDark/25"
+                    >
+                        <tr
+                            class="text-md w-full uppercase text-gray-900 dark:text-textDark"
+                        >
+                            <th class="px-2 text-left">year</th>
+                            <th class="px-2 text-left">title</th>
+                            <th class="text-left">tech stack</th>
+                            <th class="px-2 text-right">links</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            projects.map((project: any) => (
+                                <tr class="dark:border-textDark/25 dark:text-textDark dark:hover:bg-textDark/25 border-b border-gray-900/25 align-top text-sm text-gray-900 hover:bg-purple-400 hover:bg-gray-900/25">
+                                    <td class="dark:text-purpleDark px-2 pt-2 text-purple-600">
+                                        {new Date(
+                                            project.dateCreated
+                                        ).getFullYear()}
+                                    </td>
+                                    <td class="px-2 pt-2">
+                                        {project.projectName}
+                                    </td>
+                                    <td class="flex gap-1 pt-2">
+                                        {project.tags.map((tag, index) => (
+                                            <span
+                                                class={`inline-flex items-center rounded px-2.5 py-0.5 text-xs
+                                    ${
+                                        index == 0
+                                            ? 'bg-green-100  text-green-800'
+                                            : index == 1
+                                            ? 'bg-purple-100 text-purple-800'
+                                            : 'bg-blue-100 text-blue-800'
+                                    }
+                                `}
+                                            >
+                                                {tag['name']}
+                                            </span>
+                                        ))}
+                                    </td>
+                                    <td class="px-2 pt-2 text-right">
+                                        <a
+                                            href={project.gitHubUrl}
+                                            target="_blank"
+                                            class="dark:hover:text-purpleDark text-2xl hover:text-purple-600"
+                                        >
+                                            <ion-icon name="git-branch-outline" />
+                                        </a>
+                                        {project.liveSiteUrl && (
+                                            <a
+                                                href={project.liveSiteUrl}
+                                                target="_blank"
+                                                class="dark:hover:text-purpleDark text-2xl hover:text-purple-600"
+                                            >
+                                                <ion-icon name="open-outline" />
+                                            </a>
+                                        )}
+                                    </td>
+                                </tr>
+                            ))
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</ProjectsLayout>

@@ -78,11 +78,15 @@ const meta: Meta = {
     <body
         class="bg-gray-50 duration-200 ease-in-out dark:bg-bgDark dark:text-textDark"
     >
-        <Nav />
-        <div>
-            <slot />
+        <div class="mx-auto flex h-screen flex-col justify-between">
+            <div>
+                <Nav />
+                <div>
+                    <slot />
+                </div>
+            </div>
+            <Footer />
         </div>
-        <Footer />
 
         <!-- js for theme check on page load and ionicons -->
         <script src="../js/theme.js"></script>
