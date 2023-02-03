@@ -18,8 +18,6 @@ const meta: Meta = {
 <html lang="en">
     <head>
         <script is:inline>
-            const moon = document.getElementById('moon').classList
-            
             if (
                 localStorage.theme === 'dark' ||
                 (!('theme' in localStorage) &&
@@ -27,7 +25,6 @@ const meta: Meta = {
             ) {
                 document.documentElement.classList.add('dark')
                 localStorage.theme = 'dark'
-                moon.add('hidden')
             }
         </script>
         <meta charset="UTF-8" />
