@@ -2,19 +2,12 @@
 import Layout from '../layouts/Layout.astro'
 import { client } from '../js/client'
 import { projects as query } from '../ts/queries'
-import { KeyObject } from 'crypto'
-
-interface Projects {
-    projectName: string
-    dateCreated: string
-    tags: string[]
-    gitHubUrl: string
-    liveSiteUrl: string
-}
+import { Projects } from '../ts/types'
 
 // fetch featured projects from sanity.io
 const projects: Projects[] = await client.fetch(query)
 
+// sort projects by date created
 projects.sort((a, b) => {
     if (a.dateCreated > b.dateCreated) {
         return -1
@@ -27,7 +20,7 @@ projects.sort((a, b) => {
 ---
 
 <Layout>
-    <main class="flex flex-col md:mt-10 md:px-10 lg:px-0">
+    <main class="flex flex-col sm:mt-4 md:mt-10 md:px-10 lg:px-0">
         <div class="mx-auto flex w-full max-w-3xl flex-col sm:px-10 md:px-0">
             <div class="mb-6 flex w-full flex-col">
                 <h1
@@ -50,7 +43,9 @@ projects.sort((a, b) => {
                             <th class="px-2 text-left">year</th>
                             <th class="px-2 text-left">title</th>
                             <th class="text-left">tech stack</th>
-                            <th class="px-2 sm:text-center md:text-right">links</th>
+                            <th class="px-2 sm:text-center md:text-right"
+                                >links</th
+                            >
                         </tr>
                     </thead>
                     <tbody>
@@ -62,10 +57,10 @@ projects.sort((a, b) => {
                                             project.dateCreated
                                         ).getFullYear()}
                                     </td>
-                                    <td class="px-2 pt-2 overflow-hidden">
+                                    <td class="overflow-hidden px-2 pt-2">
                                         {project.projectName}
                                     </td>
-                                    <td class="flex gap-1 pt-2 flex-wrap mb-2">
+                                    <td class="mb-2 flex flex-wrap gap-1 pt-2">
                                         {project.tags.map((tag, index) => (
                                             <span
                                                 class={`inline-flex items-center rounded px-2.5 py-0.5 text-xs
@@ -82,7 +77,7 @@ projects.sort((a, b) => {
                                             </span>
                                         ))}
                                     </td>
-                                    <td class="px-2 pt-2 md:text-right sm:text-center">
+                                    <td class="px-2 pt-2 sm:text-center md:text-right">
                                         <a
                                             href={project.gitHubUrl}
                                             target="_blank"

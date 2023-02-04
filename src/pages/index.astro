@@ -3,21 +3,17 @@ import Layout from '../layouts/Layout.astro'
 import About from '../components/About.astro'
 import Tech from '../components/Tech.astro'
 import Contact from '../components/Contact.astro'
-import Projects from '../components/Projects.astro'
+import FeaturedProjects from '../components/FeaturedProjects.astro'
 import { client } from '../js/client'
 import { siteSettings as query } from '../ts/queries'
+import { Settings } from '../ts/types'
 
 export const prerender = true
 
-interface Settings {
-    navigation: string[]
-    profilePicture: string
-    showProjects: boolean
-}
 
 // fetch site settings from sanity.io
-const fetchSiteSettings: Settings = await client.fetch(query)
-const siteSettings = fetchSiteSettings[0]
+const response: Settings = await client.fetch(query)
+const siteSettings = response[0]
 ---
 
 <Layout>
@@ -25,13 +21,13 @@ const siteSettings = fetchSiteSettings[0]
         <div class="mx-auto flex max-w-3xl flex-col">
             <div>
                 <div
-                    class="flex flex-row flex-wrap-reverse justify-center md:mt-10 md:flex-nowrap"
+                    class="flex flex-row flex-wrap-reverse justify-center sm:mt-0 md:mt-10 md:flex-nowrap"
                 >
                     <About profilePicture={siteSettings.profilePicture} />
                 </div>
                 <div class="flex w-full flex-col">
                     <Tech />
-                    {siteSettings.showProjects && <Projects />}
+                    {siteSettings.showProjects && <FeaturedProjects />}
                 </div>
             </div>
             <Contact showProjects={siteSettings.showProjects} />

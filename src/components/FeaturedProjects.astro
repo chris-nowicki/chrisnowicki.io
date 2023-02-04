@@ -2,25 +2,11 @@
 import ProjectCard from './ProjectCard/ProjectCard.astro'
 import { client } from '../js/client'
 import { featuredProjects as query } from '../ts/queries'
-
-interface getProjects {
-    projects: any[]
-}
-
-interface Projects {
-    name: string
-    excerpt: string
-    image: string
-    tags: string[]
-    gitHubUrl: string
-    liveSiteUrl: string
-    slug: string
-}
+import { FeaturedProjects } from '../ts/types'
 
 // fetch featured projects from sanity.io
-const getProjects: getProjects[] = await client.fetch(query)
-const projects: Projects[] = getProjects[0].projects
-
+const response = await client.fetch(query)
+const projects: FeaturedProjects[] = response[0].projects
 ---
 
 <div class="mb-16 flex w-full flex-col items-center lg:items-center">
@@ -34,7 +20,9 @@ const projects: Projects[] = getProjects[0].projects
         Take a look at some of my favorite projects that I've worked on below!
     </p>
 
-    <div class="mt-6 flex flex-col items-center md:flex-row w-full gap-4 lg:items-start">
+    <div
+        class="mt-6 flex w-full flex-col items-center gap-4 md:flex-row lg:items-start"
+    >
         {
             projects.map((project) => (
                 <ProjectCard
@@ -49,7 +37,7 @@ const projects: Projects[] = getProjects[0].projects
             ))
         }
     </div>
-    <div class="flex w-full flex-col items-center lg:justify-center mt-8">
+    <div class="mt-8 flex w-full flex-col items-center lg:justify-center">
         <a
             href="/projects"
             class="rounded-lg border-2 border-purple-600 px-6 py-2 uppercase text-purple-600 hover:bg-purple-600 hover:text-textDark dark:border-purpleDark dark:text-purpleDark dark:hover:bg-purpleDark dark:hover:text-textDark"

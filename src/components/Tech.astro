@@ -1,12 +1,7 @@
 ---
 import { client } from '../js/client'
 import { tech as query } from '../ts/queries'
-
-interface Technologies {
-    name: string
-    link?: string
-    show: boolean
-}
+import { Technologies } from '../ts/types'
 
 // fetch technologies from sanity.io
 const tech: Technologies[] = await client.fetch(query)
