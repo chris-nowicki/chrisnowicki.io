@@ -39,8 +39,8 @@ projects.sort((a, b) => {
                     Collection of my projects that I've made over the years.
                 </p>
             </div>
-            <div class="flex flex-col overflow-visible rounded">
-                <table class="w-full table-auto overflow-visible">
+            <div class="flex flex-col">
+                <table class="w-full">
                     <thead
                         class="border-b border-gray-900/25 dark:border-textDark/25"
                     >
@@ -65,7 +65,7 @@ projects.sort((a, b) => {
                                     <td class="px-2 pt-2 overflow-hidden">
                                         {project.projectName}
                                     </td>
-                                    <td class="flex gap-1 pt-2 flex-wrap">
+                                    <td class="flex gap-1 pt-2 flex-wrap mb-2">
                                         {project.tags.map((tag, index) => (
                                             <span
                                                 class={`inline-flex items-center rounded px-2.5 py-0.5 text-xs
