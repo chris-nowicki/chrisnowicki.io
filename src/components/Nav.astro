@@ -5,13 +5,13 @@ import { links as query } from '../ts/queries'
 interface getLinks {
     links: string[]
     showResume: boolean
+    resumeURL: string
 }
 
 interface Links {
     title: string
     reference: string
     show: boolean
-    resumeURL: string
 }
 
 // fetch navigation links from sanity.io
@@ -25,7 +25,8 @@ const resumeURL: string = getNavigationLinks[0].resumeURL
     <nav
         class="flex w-full max-w-3xl flex-row justify-between pt-4 pb-4 sm:items-center sm:px-10 sm:shadow md:px-0 md:shadow-none"
     >
-        <div class="items-center md:flex">
+        <!-- menu -->
+        <div class="items-center sm:hidden md:flex">
             {
                 links.map(
                     (link) =>
@@ -39,6 +40,38 @@ const resumeURL: string = getNavigationLinks[0].resumeURL
                         )
                 )
             }
+        </div>
+
+        <!-- hamburger icon -->
+        <button
+            class="hamburger block shadow-2xl focus:outline-none md:hidden"
+            id="menu-btn"
+        >
+            <span class="hamburger-top bg-black dark:bg-textDark"></span>
+            <span class="hamburger-middle bg-black dark:bg-textDark"></span>
+            <span class="hamburger-bottom bg-black dark:bg-textDark"></span>
+        </button>
+
+        <!-- mobile menu -->
+        <div class="md:hidden">
+            <div
+                id="menu"
+                class="absolute left-6 right-6 z-10 mt-10 hidden flex-col items-center space-y-2 self-end bg-bgDark py-4 text-textDark drop-shadow-md dark:bg-gray-900 sm:w-auto sm:self-center"
+            >
+                {
+                    links.map(
+                        (link) =>
+                            link.show && (
+                                <a
+                                    href={link.reference}
+                                    class="text-textDark hover:text-purpleDark text-xl"
+                                >
+                                    {link.title}
+                                </a>
+                            )
+                    )
+                }
+            </div>
         </div>
 
         <!-- sun:moon icon button for dark:light theme -->
@@ -78,6 +111,7 @@ const resumeURL: string = getNavigationLinks[0].resumeURL
                     ></path>
                 </svg>
             </button>
+
             <!-- resume link -->
             {
                 showResume && (
@@ -121,4 +155,13 @@ const resumeURL: string = getNavigationLinks[0].resumeURL
         localStorage.theme = 'dark'
         iconToggle()
     }
+
+    const btn = document.getElementById('menu-btn')
+    const nav = document.getElementById('menu')
+
+    btn.addEventListener('click', () => {
+        btn.classList.toggle('open')
+        nav.classList.toggle('flex')
+        nav.classList.toggle('hidden')
+    })
 </script>

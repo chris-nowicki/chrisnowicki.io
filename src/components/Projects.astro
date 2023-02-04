@@ -20,6 +20,7 @@ interface Projects {
 // fetch featured projects from sanity.io
 const getProjects: getProjects[] = await client.fetch(query)
 const projects: Projects[] = getProjects[0].projects
+
 ---
 
 <div class="mb-16 flex w-full flex-col items-center lg:items-center">

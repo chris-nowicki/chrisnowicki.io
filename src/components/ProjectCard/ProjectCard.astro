@@ -1,4 +1,5 @@
 ---
+import { Image } from '@astrojs/image/components'
 import Link from './Link.astro'
 import { urlFor } from '../../util/imageBuilder'
 
@@ -19,8 +20,11 @@ const projectImage = urlFor(image).url()
 <div class="flip-card h-[400px] w-[400px] md:h-[235px] md:w-[375px]">
     <div class="flip-card-inner">
         <div class="flip-card-front rounded shadow-lg shadow-black/25">
-            <img
+            <Image
                 src={projectImage}
+                width={375}
+                height={235}
+                format={'webp'}
                 alt="Avatar"
                 class="w-[400px] md:w-[375px]"
             />

@@ -1,4 +1,5 @@
 ---
+import { Image } from '@astrojs/image/components'
 import { urlFor } from '../util/imageBuilder'
 
 export interface Props {
@@ -48,9 +49,11 @@ const { profilePicture } = Astro.props
 <div
     class="mt-8 flex w-[250px] flex-col justify-center md:mt-0 md:ml-6 md:w-[400px] md:items-start md:justify-end"
 >
-    <img
-        src={urlFor(profilePicture).width(250).url()}
-        height="auto"
+    <Image
+        src={urlFor(profilePicture).url()}
+        format="webp"
+        width={246}
+        height={328}
         class="mb-5 mr-auto rounded shadow-lg shadow-black/50 grayscale transition-all duration-500 ease-in-out hover:grayscale-0 dark:shadow dark:shadow-purpleDark"
         alt="chris nowicki's profile picture"
     />
