@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components'
+import { Img } from 'astro-imagetools/components'
 import Link from './Link.astro'
 import { urlFor } from '../../util/imageBuilder'
 
@@ -17,17 +17,10 @@ const { name, excerpt, image, tags, gitHubUrl, liveSiteUrl, slug } = Astro.props
 const projectImage = urlFor(image).url()
 ---
 
-<div class="flip-card h-[400px] w-[400px] md:h-[235px] md:w-[375px]">
+<div class="flip-card w-[400px]">
     <div class="flip-card-inner">
-        <div class="flip-card-front rounded shadow-lg shadow-black/25">
-            <Image
-                src={projectImage}
-                width={375}
-                height={235}
-                format={'webp'}
-                alt="Avatar"
-                class="w-[400px] md:w-[375px]"
-            />
+        <div class="flip-card-front shadow-lg shadow-black/25">
+            <Img src={projectImage} format="webp" alt="Avatar" loading="lazy" />
         </div>
         <div
             class="flip-card-back flex cursor-default flex-col justify-start bg-bgDark shadow-md shadow-black/25 dark:bg-gray-900"
