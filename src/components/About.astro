@@ -1,6 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components'
-import { Icon } from 'astro-icon';
+import { Icon } from 'astro-icon'
 import { urlFor } from '../util/imageBuilder'
 
 export interface Props {
@@ -36,28 +36,26 @@ const { profilePicture } = Astro.props
             class="mt-8 mr-4 flex items-center gap-2 rounded border border-blue-600 px-4 py-2 text-2xl text-blue-600 hover:bg-blue-600 hover:text-white dark:border-textDark dark:text-textDark dark:hover:bg-textDark dark:hover:text-bgDark"
             target="_blank"
         >
-            <Icon size={24} name="linkedin"/>
+            <Icon size={24} name="linkedin" />
             Linkedin</a
         >
         <a
             href="https://github.com/chris-nowicki"
             class="mt-8 flex items-center gap-2 rounded border border-black px-4 py-2 text-2xl hover:bg-black hover:text-white dark:border-purpleDark dark:text-purpleDark dark:hover:bg-purpleDark dark:hover:text-textDark"
-            target="_blank"
-            ><Icon size={24} name="github"/>Github</a
+            target="_blank"><Icon size={24} name="github" />Github</a
         >
     </div>
 </div>
 
 <!-- about me image -->
-<div
-    class="mt-8 flex w-[250px] flex-col justify-center md:mt-0 md:ml-6 md:w-[400px] md:items-start md:justify-end"
->
+<div class="sm:mb-4 md:mb-0 flex w-[400px] flex-col items-center md:mt-0 md:ml-6">
     <Image
         src={urlFor(profilePicture).url()}
         format="webp"
         width={246}
-        height={328}
-        class="mb-5 mr-auto rounded shadow-lg shadow-black/50 grayscale transition-all duration-500 ease-in-out hover:grayscale-0 dark:shadow dark:shadow-purpleDark"
+        height={246}
+        aspectRatio={1.666}
+        class="rounded-full shadow-xl"
         alt="chris nowicki's profile picture"
     />
 </div>
