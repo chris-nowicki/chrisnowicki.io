@@ -48,14 +48,14 @@ const { profilePicture } = Astro.props
 </div>
 
 <!-- about me image -->
-<div class="sm:mb-4 md:mb-0 flex w-[400px] flex-col items-center md:mt-0 md:ml-6">
+<div class="sm:mb-4 md:mb-0 flex w-[400px] flex-col items-center md:mt-0 md:ml-2">
     <Image
         src={urlFor(profilePicture).url()}
         format="webp"
         width={246}
         height={246}
         aspectRatio={1.666}
-        class="rounded-full shadow-xl"
+        class="rounded-full shadow-xl shadow-bgDark/25 border-4 border-black dark:border-textDark dark:shadow-gray-900 grayscale contrast-100 hover:grayscale-0"
         alt="chris nowicki's profile picture"
         loading="eager"
     />
