@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { Icon } from 'astro-icon'
 import { client } from '../js/client'
 import { projects as query } from '../ts/queries'
 import { Projects } from '../ts/types'
@@ -77,23 +78,31 @@ projects.sort((a, b) => {
                                             </span>
                                         ))}
                                     </td>
-                                    <td class="px-2 pt-2 sm:text-center md:text-right">
-                                        <a
-                                            href={project.gitHubUrl}
-                                            target="_blank"
-                                            class="dark:hover:text-purpleDark text-2xl hover:text-purple-600"
-                                        >
-                                            <ion-icon name="git-branch-outline" />
-                                        </a>
-                                        {project.liveSiteUrl && (
+                                    <td class="px-2 pt-2">
+                                        <div class="flex w-full items-center justify-end">
                                             <a
-                                                href={project.liveSiteUrl}
+                                                href={project.gitHubUrl}
                                                 target="_blank"
-                                                class="dark:hover:text-purpleDark text-2xl hover:text-purple-600"
+                                                class="dark:hover:text-purpleDark hover:text-purple-600"
                                             >
-                                                <ion-icon name="open-outline" />
+                                                <Icon
+                                                    size={24}
+                                                    name="git-branch-outline"
+                                                />
                                             </a>
-                                        )}
+                                            {project.liveSiteUrl && (
+                                                <a
+                                                    href={project.liveSiteUrl}
+                                                    target="_blank"
+                                                    class="dark:hover:text-purpleDark hover:text-purple-600"
+                                                >
+                                                    <Icon
+                                                        size={24}
+                                                        name="open-outline"
+                                                    />
+                                                </a>
+                                            )}
+                                        </div>
                                     </td>
                                 </tr>
                             ))

@@ -1,5 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components'
+import { Icon } from 'astro-icon';
 import { urlFor } from '../util/imageBuilder'
 
 export interface Props {
@@ -32,15 +33,17 @@ const { profilePicture } = Astro.props
     <div class="flex flex-row">
         <a
             href="http://www.linkedin.com/in/chris-nowicki"
-            class="mt-8 mr-4 flex items-center rounded border border-blue-600 px-4 py-2 text-2xl text-blue-600 hover:bg-blue-600 hover:text-white dark:border-textDark dark:text-textDark dark:hover:bg-textDark dark:hover:text-bgDark"
+            class="mt-8 mr-4 flex items-center gap-2 rounded border border-blue-600 px-4 py-2 text-2xl text-blue-600 hover:bg-blue-600 hover:text-white dark:border-textDark dark:text-textDark dark:hover:bg-textDark dark:hover:text-bgDark"
             target="_blank"
-            ><ion-icon name="logo-linkedin" class="mr-2"></ion-icon>Linkedin</a
+        >
+            <Icon size={24} name="linkedin"/>
+            Linkedin</a
         >
         <a
             href="https://github.com/chris-nowicki"
-            class="mt-8 flex items-center rounded border border-black px-4 py-2 text-2xl hover:bg-black hover:text-white dark:border-purpleDark dark:text-purpleDark dark:hover:bg-purpleDark dark:hover:text-textDark"
+            class="mt-8 flex items-center gap-2 rounded border border-black px-4 py-2 text-2xl hover:bg-black hover:text-white dark:border-purpleDark dark:text-purpleDark dark:hover:bg-purpleDark dark:hover:text-textDark"
             target="_blank"
-            ><ion-icon name="logo-github" class="mr-2"></ion-icon>Github</a
+            ><Icon size={24} name="github"/>Github</a
         >
     </div>
 </div>

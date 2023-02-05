@@ -1,5 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components'
+import { Icon } from 'astro-icon'
 import Link from './Link.astro'
 import { urlFor } from '../../util/imageBuilder'
 
@@ -41,7 +42,7 @@ const projectImage = urlFor(image).url()
             </div>
             <div class="mb-4 flex flex-wrap justify-center gap-1">
                 <div class="flex w-full justify-center gap-2 px-12 pb-2">
-                    <Link url={gitHubUrl} icon="logo-github" name="code" />
+                    <Link url={gitHubUrl} icon="github" name="code" />
                     <Link
                         url={liveSiteUrl}
                         icon="open-outline"

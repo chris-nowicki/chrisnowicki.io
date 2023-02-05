@@ -1,3 +1,7 @@
+---
+import { Icon } from 'astro-icon'
+---
+
 <div class="flex flex-col items-center">
     <footer
         class="relative mt-16 flex w-full max-w-3xl flex-col items-center justify-center border-t border-gray-300"
@@ -5,7 +9,7 @@
         <a
             href="#home"
             class="-mb-6 -translate-y-4 text-2xl text-purple-600 hover:text-purple-500"
-            ><ion-icon name="triangle"></ion-icon>
+            ><Icon size={24} name='triangle-sharp' />
         </a>
         <!-- social links -->
         <div class="mt-4 flex w-full flex-col items-center">
@@ -14,32 +18,28 @@
                     href="http://www.linkedin.com/in/chris-nowicki"
                     class="hover:text-purple-600 dark:hover:text-purpleDark"
                     target="_blank"
-                    ><ion-icon name="logo-linkedin" class="text-3xl mr-2"
-                    ></ion-icon>
+                    ><Icon size={30} name="linkedin" class="mr-2"/>
                 </a>
                 <a
                     href="https://github.com/chris-nowicki"
                     class="link-animate hover:text-purple-600 dark:hover:text-purpleDark"
                     target="_blank"
-                    ><ion-icon name="logo-github" class="text-3xl mr-2"
-                    ></ion-icon>
+                    ><Icon size={30} name="github" class="mr-2"/>
                 </a>
                 <a
                     href="http://www.twitter.com/iamwix"
                     class="link-animate hover:text-purple-600 dark:hover:text-purpleDark"
                     target="_blank"
-                    ><ion-icon name="logo-twitter" class="text-3xl mr-2"
-                    ></ion-icon>
+                    ><Icon size={30} name="twitter" class="mr-2"/>
                 </a>
                 <a
                     href="http://www.instagram.com/iamwix"
                     class="link-animate hover:text-purple-600 dark:hover:text-purpleDark"
                     target="_blank"
-                    ><ion-icon name="logo-instagram" class="text-3xl"
-                    ></ion-icon>
+                    ><Icon size={30} name="instagram" class="mr-2"/>
                 </a>
             </div>
-            <div class="link-animate mt-4 flex items-center pb-4 text-xl">
+            <div class="link-animate mt-2 flex items-center pb-4 text-md">
                 made with <a
                     href="https://www.astro.build"
                     class="mx-1 text-purple-600 dark:text-purpleDark"
