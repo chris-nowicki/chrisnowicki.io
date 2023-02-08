@@ -7,6 +7,8 @@ export interface Props {
     profilePicture: string
 }
 
+import chrisnowicki from '../images/chrisnowicki.webp'
+
 const { profilePicture } = Astro.props
 ---
 
@@ -25,7 +27,9 @@ const { profilePicture } = Astro.props
         I excel at bringing web designs to life and am passionate about backend
         development.
     </p>
-    <p class="mt-4 px-10 text-center md:mr-4 md:px-0 md:text-left text-purple-600 dark:text-purpleDark font-bold font-mono text-lg">
+    <p
+        class="mt-4 px-10 text-center font-mono text-lg font-bold text-purple-600 dark:text-purpleDark md:mr-4 md:px-0 md:text-left"
+    >
         I'm currently looking for a new role as a full-stack engineer.
     </p>
     <div class="flex flex-row">
@@ -46,7 +50,9 @@ const { profilePicture } = Astro.props
 </div>
 
 <!-- about me image -->
-<div class="sm:mb-4 md:mb-0 flex w-[400px] flex-col items-center md:mt-0 md:ml-2">
+<div
+    class="flex w-[400px] flex-col items-center sm:mb-4 md:mb-0 md:mt-0 md:ml-2"
+>
     <Image
         src={urlFor(profilePicture).url()}
         format="webp"
@@ -55,6 +61,5 @@ const { profilePicture } = Astro.props
         aspectRatio={1.666}
         class="rounded-full shadow-xl shadow-bgDark/25 border-4 border-black dark:border-textDark dark:shadow-gray-900 grayscale contrast-100 hover:grayscale-0"
         alt="chris nowicki's profile picture"
-        loading="eager"
     />
 </div>
