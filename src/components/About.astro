@@ -1,15 +1,8 @@
 ---
 import { Image } from '@astrojs/image/components'
 import { Icon } from 'astro-icon'
-import { urlFor } from '../util/imageBuilder'
-
-export interface Props {
-    profilePicture: string
-}
 
 import chrisnowicki from '../images/chrisnowicki.webp'
-
-const { profilePicture } = Astro.props
 ---
 
 <!-- about me section -->
@@ -54,7 +47,7 @@ const { profilePicture } = Astro.props
     class="flex w-[400px] flex-col items-center sm:mb-4 md:mb-0 md:mt-0 md:ml-2"
 >
     <Image
-        src={urlFor(profilePicture).url()}
+        src={chrisnowicki}
         format="webp"
         width={246}
         height={246}

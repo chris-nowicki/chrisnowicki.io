@@ -4,12 +4,15 @@ import About from '../components/About.astro'
 import Tech from '../components/Tech.astro'
 import Contact from '../components/Contact.astro'
 import FeaturedProjects from '../components/FeaturedProjects.astro'
+
+// Sanity CMS client and query
 import { client } from '../js/client'
 import { siteSettings as query } from '../ts/queries'
+
+// Types
 import { Settings } from '../ts/types'
 
 export const prerender = true
-
 
 // fetch site settings from sanity.io
 const response: Settings = await client.fetch(query)
@@ -23,7 +26,7 @@ const siteSettings = response[0]
                 <div
                     class="flex flex-row flex-wrap-reverse justify-center sm:mt-0 md:mt-10 md:flex-nowrap"
                 >
-                    <About profilePicture={siteSettings.profilePicture} />
+                    <About />
                 </div>
                 <div class="flex w-full flex-col">
                     <Tech />
