@@ -1,5 +1,6 @@
 ---
-import { Icon } from 'astro-icon'
+import { TriangleSharp } from './icons'
+import { Linkedin, GitHub, Twitter, Instagram } from './icons'
 ---
 
 <div class="flex flex-col items-center">
@@ -9,7 +10,7 @@ import { Icon } from 'astro-icon'
         <a
             href="#home"
             class="-mb-6 -translate-y-4 text-2xl text-purple-600 hover:text-purple-500"
-            ><Icon size={24} name='triangle-sharp' />
+            ><TriangleSharp size={24} />
         </a>
         <!-- social links -->
         <div class="mt-4 flex w-full flex-col items-center">
@@ -18,28 +19,28 @@ import { Icon } from 'astro-icon'
                     href="http://www.linkedin.com/in/chris-nowicki"
                     class="hover:text-purple-600 dark:hover:text-purpleDark"
                     target="_blank"
-                    ><Icon size={24} name="linkedin"/>
+                    ><Linkedin size={24} />
                 </a>
                 <a
                     href="https://github.com/chris-nowicki"
                     class="link-animate hover:text-purple-600 dark:hover:text-purpleDark"
                     target="_blank"
-                    ><Icon size={24} name="github"/>
+                    ><GitHub size={24} />
                 </a>
                 <a
                     href="http://www.twitter.com/iamwix"
                     class="link-animate hover:text-purple-600 dark:hover:text-purpleDark"
                     target="_blank"
-                    ><Icon size={24} name="twitter"/>
+                    ><Twitter size={24} />
                 </a>
                 <a
                     href="http://www.instagram.com/iamwix"
                     class="link-animate hover:text-purple-600 dark:hover:text-purpleDark"
                     target="_blank"
-                    ><Icon size={24} name="instagram"/>
+                    ><Instagram size={24} />
                 </a>
             </div>
-            <div class="link-animate mt-2 flex items-center pb-4 text-md">
+            <div class="link-animate text-md mt-2 flex items-center pb-4">
                 made with <a
                     href="https://www.astro.build"
                     class="mx-1 text-purple-600 dark:text-purpleDark"

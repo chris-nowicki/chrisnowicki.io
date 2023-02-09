@@ -1,3 +1,5 @@
+import { type } from 'os'
+
 export type Meta = {
     title: string
     description: string
@@ -45,4 +47,8 @@ export interface Links {
     title: string
     reference: string
     show: boolean
+}
+
+export type icon = {
+    size: number
 }
