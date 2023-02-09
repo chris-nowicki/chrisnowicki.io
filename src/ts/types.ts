@@ -50,4 +50,5 @@ export interface Links {
 
 export type icon = {
     size: number
+    classProps?: string
 }

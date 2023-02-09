@@ -66,8 +66,9 @@ const showResume = response[0].showResume
         </div>
 
         <!-- sun:moon icon button for dark:light theme -->
-        <div class="flex flex-row items-center justify-center gap-4">
+        <div class="flex flex-row items-center justify-center gap-2 md:gap-4">
             <ThemeToggle client:only />
+            
             <!-- resume link -->
             {
                 showResume && (
@@ -76,8 +77,8 @@ const showResume = response[0].showResume
                             href="/resume"
                             class={`dark:text-textDark flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100  dark:border-neutral-900/50 hover:dark:bg-neutral-900/20`}
                         >
-                            <div class="mr-6 flex items-center gap-2">
-                                <PDF size={24} />
+                            <div class="mr-2 flex items-center gap-2 md:mr-6">
+                                <PDF size={24} classProps="hidden md:block" />
                                 resumé
                             </div>
                             <ArrowIcon size={12} />
