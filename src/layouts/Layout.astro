@@ -4,12 +4,17 @@ import Footer from '../components/Footer.astro'
 import '../styles/global.css'
 import { Meta } from '../ts/types'
 
+export interface Props {
+    title?: string
+}
+
 const meta: Meta = {
-    title: 'Chris Nowicki',
     description: 'Full-Stack Developer & Technology Nerd.',
     image: 'https://chrisnowicki.io/images/chrisnowicki-banner.png',
     type: 'website',
 }
+
+const { title = 'Chris Nowicki' } = Astro.props
 ---
 
 <!DOCTYPE html>
@@ -27,7 +32,7 @@ const meta: Meta = {
         />
 
         <!-- website meta data -->
-        <title>{meta.title}</title>
+        <title>{title}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
         <meta property="og:url" content={`https://www.chrisnowicki.io`} />
@@ -35,13 +40,13 @@ const meta: Meta = {
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="chrisnowicki.io" />
         <meta property="og:description" content={meta.description} />
-        <meta property="og:title" content={meta.title} />
+        <meta property="og:title" content={title} />
         <meta property="og:image" content={meta.image} />
 
         <!-- twitter meta data -->
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:site" content="@iamwix" />
-        <meta name="twitter:title" content={meta.title} />
+        <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={meta.description} />
         <meta name="twitter:image" content={meta.image} />
 
@@ -79,12 +84,11 @@ const meta: Meta = {
                 return 'light'
             })()
 
-            if (theme === 'light') {
-                document.documentElement.classList.remove('dark')
-            } else {
+            if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
                 document.documentElement.classList.add('dark')
+            } else {
+                document.documentElement.classList.add('light')
             }
-            window.localStorage.setItem('theme', theme)
         </script>
     </head>
     <body class="bg-gray-50 ease-in-out dark:bg-bgDark dark:text-textDark">

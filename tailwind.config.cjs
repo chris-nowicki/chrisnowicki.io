@@ -5,9 +5,9 @@ module.exports = {
     theme: {
         screens: {
             sm: '375px',
-            md: '768px',
+            md: '846px',
             lg: '976px',
-            xl: '1440px',
+            xl: '2000px',
         },
         extend: {
             colors: {
@@ -17,5 +17,5 @@ module.exports = {
             },
         },
     },
-    plugins: [],
+    plugins: [require('@tailwindcss/typography')],
 }

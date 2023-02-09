@@ -4,16 +4,17 @@ import { client } from '../../lib/sanity'
 import { links as query } from '../../ts/queries'
 import { getLinks, Links } from '../../ts/types'
 
+import { ArrowIcon, PDF } from '../icons'
+
 // fetch navigation links from sanity.io
 const response: getLinks = await client.fetch(query)
 const links: Links[] = response[0].links
 const showResume = response[0].showResume
-const resumeURL = response[0].resumeURL
 ---
 
 <div id="home" class="mb-6 flex flex-col items-center">
     <nav
-        class="flex w-full max-w-3xl flex-row justify-between pt-4 pb-4 sm:items-center sm:px-10 sm:shadow md:px-0 md:shadow-none"
+        class="flex w-full max-w-3xl flex-row items-center justify-between pt-4 pb-4 sm:px-10 sm:shadow md:px-0 md:shadow-none"
     >
         <!-- menu -->
         <div class="items-center sm:hidden md:flex">
@@ -65,18 +66,21 @@ const resumeURL = response[0].resumeURL
         </div>
 
         <!-- sun:moon icon button for dark:light theme -->
-        <div class="flex flex-row items-center justify-center">
+        <div class="flex flex-row items-center justify-center gap-4">
             <ThemeToggle client:only />
-
             <!-- resume link -->
             {
                 showResume && (
                     <div class="flex flex-row">
                         <a
-                            href={`${resumeURL}?dl=`}
-                            class={`dark:text-textDark dark:border-purpleDark hover:dark:bg-purpleDark durration-700 hover:text-textDark ml-4 rounded border-2 border-purple-600 px-4 py-0.5 text-xl text-purple-600 transition-all hover:rounded hover:bg-purple-600 hover:shadow-md`}
+                            href="/resume"
+                            class={`dark:text-textDark flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100`}
                         >
-                            resumé
+                            <div class="mr-6 flex items-center gap-2">
+                                <PDF size={24} />
+                                resumé
+                            </div>
+                            <ArrowIcon size={12} />
                         </a>
                     </div>
                 )

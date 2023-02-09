@@ -137,13 +137,15 @@ export function TriangleSharp({ size }: icon) {
     )
 }
 
-export function Moon() {
+export function Moon({size = 12}: icon) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
+            width={size}
+            height={size}
             viewBox="0 0 24 24"
-            stroke-width="1.5"
+            strokeWidth="1.5"
             stroke="currentColor"
             className="h-6 w-6 font-bold"
         >
@@ -156,11 +158,13 @@ export function Moon() {
     )
 }
 
-export function Sun() {
+export function Sun({size = 12}: icon) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
+            width={size}
+            height={size}
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
@@ -171,6 +175,38 @@ export function Sun() {
                 stroke-linejoin="round"
                 d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
             ></path>
+        </svg>
+    )
+}
+
+export function Download({ size = 32 }: icon) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+        >
+            <path
+                fill="currentColor"
+                d="M6 20q-.825 0-1.412-.587Q4 18.825 4 18v-3h2v3h12v-3h2v3q0 .825-.587 1.413Q18.825 20 18 20Zm6-4l-5-5l1.4-1.45l2.6 2.6V4h2v8.15l2.6-2.6L17 11Z"
+            />
+        </svg>
+    )
+}
+
+export function PDF({ size = 32 }: icon) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={size}
+            height={size}
+            viewBox="0 0 24 24"
+        >
+            <path
+                d="M13 9h5.5L13 3.5V9M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m4.1 9.4c-.02.04-.29 1.76-2.1 4.69c0 0-3.5 1.82-2.67 3.18c.67 1.08 2.32-.04 3.74-2.68c0 0 1.82-.64 4.24-.82c0 0 3.86 1.73 4.39-.11c.52-1.86-3.06-1.44-3.7-1.25c0 0-2-1.35-2.5-3.21c0 0 1.14-3.95-.61-3.9c-1.75.05-1.09 3.13-.79 4.1m.81 1.04c.03.01.47 1.21 1.89 2.46c0 0-2.33.46-3.39.9c0 0 1-1.73 1.5-3.36m3.93 2.72c.58-.16 2.33.15 2.26.48c-.06.33-2.26-.48-2.26-.48M7.77 17c-.53 1.24-1.44 2-1.67 2c-.23 0 .7-1.6 1.67-2m3.14-6.93c0-.07-.36-2.2 0-2.15c.54.08 0 2.08 0 2.15z"
+                fill="currentColor"
+            />
         </svg>
     )
 }

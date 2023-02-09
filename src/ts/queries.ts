@@ -32,5 +32,8 @@ export const projects: string = `*[_type == "projects"]{
 export const links = `*[_type == "settings"] {
   "links": navigation.links,
   "showResume": navigation.showResume,
+}`
+
+export const resume = `*[_type == "settings"] {
   "resumeURL": navigation.resume.asset->url
 }`
