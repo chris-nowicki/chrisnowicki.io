@@ -84,3 +84,14 @@ const resumeURL = response[0].resumeURL
         </div>
     </nav>
 </div>
+
+<script is:global>
+    const btn = document.getElementById('menu-btn')
+    const nav = document.getElementById('menu')
+
+    btn.addEventListener('click', () => {
+        btn.classList.toggle('open')
+        nav.classList.toggle('flex')
+        nav.classList.toggle('hidden')
+    })
+</script>
