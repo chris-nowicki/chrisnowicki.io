@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import { Icon } from 'astro-icon'
 import { client } from '../js/client'
 import { projects as query } from '../ts/queries'
 import { Projects } from '../ts/types'
+import { GitBranchOutline, OpenOutline } from '../components/icons'
 
 // fetch featured projects from sanity.io
 const projects: Projects[] = await client.fetch(query)
@@ -85,10 +85,7 @@ projects.sort((a, b) => {
                                                 target="_blank"
                                                 class="dark:hover:text-purpleDark hover:text-purple-600"
                                             >
-                                                <Icon
-                                                    size={24}
-                                                    name="git-branch-outline"
-                                                />
+                                                <GitBranchOutline size={24} />
                                             </a>
                                             {project.liveSiteUrl && (
                                                 <a
@@ -96,10 +93,7 @@ projects.sort((a, b) => {
                                                     target="_blank"
                                                     class="dark:hover:text-purpleDark hover:text-purple-600"
                                                 >
-                                                    <Icon
-                                                        size={24}
-                                                        name="open-outline"
-                                                    />
+                                                    <OpenOutline size={24} />
                                                 </a>
                                             )}
                                         </div>
