@@ -25,7 +25,7 @@ import chrisnowicki from '../images/chrisnowicki.webp'
     >
         I'm currently looking for a new role as a full-stack engineer.
     </p>
-    <div class="flex w-full flex-row">
+    <div class="flex w-full flex-row justify-center md:justify-start">
         <a
             href
             href="http://www.linkedin.com/in/chris-nowicki"
@@ -46,16 +46,14 @@ import chrisnowicki from '../images/chrisnowicki.webp'
 
 <!-- about me image -->
 <div
-    class="flex w-[400px] flex-col items-center sm:mb-4 md:mb-0 md:mt-0 md:ml-2"
+    class="flex w-[400px] flex-col items-center sm:mb-4 md:mb-0 md:mt-0"
 >
     <Image
         src={chrisnowicki}
-        format="webp"
-        width={246}
-        height={246}
-        aspectRatio={1.666}
+        width={224}
+        height={224}
         class="rounded-full shadow-xl shadow-bgDark/25 border-4 border-black dark:border-textDark dark:shadow-gray-900 grayscale contrast-100 hover:grayscale-0"
         alt="chris nowicki's profile picture"
-        loading={'eager'}
+        quality={75}
     />
 </div>
