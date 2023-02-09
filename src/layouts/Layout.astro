@@ -1,5 +1,5 @@
 ---
-import Nav from '../components/Nav.astro'
+import Nav from '../components/NavBar/Nav.astro'
 import Footer from '../components/Footer.astro'
 import '../styles/global.css'
 import { Meta } from '../ts/types'
@@ -15,16 +15,6 @@ const meta: Meta = {
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script is:inline>
-            if (
-                localStorage.theme === 'dark' ||
-                (!('theme' in localStorage) &&
-                    window.matchMedia('(prefers-color-scheme: dark)').matches)
-            ) {
-                document.documentElement.classList.add('dark')
-                localStorage.theme = 'dark'
-            }
-        </script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
@@ -73,6 +63,29 @@ const meta: Meta = {
             sizes="16x16"
             href="/images/favicon-16x16.png"
         />
+
+        <!-- dark mode theme script -->
+        <script is:inline>
+            const theme = (() => {
+                if (
+                    typeof localStorage !== 'undefined' &&
+                    localStorage.getItem('theme')
+                ) {
+                    return localStorage.getItem('theme')
+                }
+                if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                    return 'dark'
+                }
+                return 'light'
+            })()
+
+            if (theme === 'light') {
+                document.documentElement.classList.remove('dark')
+            } else {
+                document.documentElement.classList.add('dark')
+            }
+            window.localStorage.setItem('theme', theme)
+        </script>
     </head>
     <body class="bg-gray-50 ease-in-out dark:bg-bgDark dark:text-textDark">
         <div class="mx-auto flex h-screen flex-col justify-between">
@@ -84,8 +97,5 @@ const meta: Meta = {
             </div>
             <Footer />
         </div>
-
-        <!-- js for theme check on page load and ionicons -->
-        <script src="../js/theme.js"></script>
     </body>
 </html>

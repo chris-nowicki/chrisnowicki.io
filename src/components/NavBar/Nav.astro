@@ -1,7 +1,8 @@
 ---
-import { client } from '../js/client'
-import { links as query } from '../ts/queries'
-import { getLinks, Links } from '../ts/types'
+import ThemeToggle from './ThemeToggle'
+import { client } from '../../js/client'
+import { links as query } from '../../ts/queries'
+import { getLinks, Links } from '../../ts/types'
 
 // fetch navigation links from sanity.io
 const response: getLinks = await client.fetch(query)
@@ -65,41 +66,7 @@ const resumeURL = response[0].resumeURL
 
         <!-- sun:moon icon button for dark:light theme -->
         <div class="flex flex-row items-center justify-center">
-            <button
-                class="flex items-center rounded border-2 border-gray-300 p-1 shadow-md hover:border-purple-600 hover:text-purple-600 hover:shadow-purple-600/25 dark:border-textDark/25 dark:text-textDark dark:hover:border-purpleDark dark:hover:text-purpleDark"
-                onclick="themeSwitch()"
-            >
-                <svg
-                    id="moon"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="h-6 w-6 font-bold"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z"
-                    ></path>
-                </svg>
-                <svg
-                    id="sun"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke-width="1.5"
-                    stroke="currentColor"
-                    class="h-6 w-6 hover:font-bold"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0z"
-                    ></path>
-                </svg>
-            </button>
+            <ThemeToggle client:only />
 
             <!-- resume link -->
             {
@@ -117,40 +84,3 @@ const resumeURL = response[0].resumeURL
         </div>
     </nav>
 </div>
-
-<script is:global>
-    // icons
-    const sun = document.getElementById('sun').classList
-    const moon = document.getElementById('moon').classList
-
-    // theme variables
-    const currentTheme = document.documentElement.classList
-
-    // iconToggle
-    const iconToggle = () => {
-        moon.toggle('hidden')
-        sun.toggle('hidden')
-    }
-
-    const themeSwitch = () => {
-        if (currentTheme.contains('dark')) {
-            currentTheme.remove('dark')
-            localStorage.theme = 'light'
-            iconToggle()
-            return
-        }
-
-        currentTheme.add('dark')
-        localStorage.theme = 'dark'
-        iconToggle()
-    }
-
-    const btn = document.getElementById('menu-btn')
-    const nav = document.getElementById('menu')
-
-    btn.addEventListener('click', () => {
-        btn.classList.toggle('open')
-        nav.classList.toggle('flex')
-        nav.classList.toggle('hidden')
-    })
-</script>
