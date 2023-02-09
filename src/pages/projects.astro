@@ -1,9 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import { GitBranchOutline, OpenOutline } from '../components/icons'
 import { client } from '../js/client'
 import { projects as query } from '../ts/queries'
 import { Projects } from '../ts/types'
-import { GitBranchOutline, OpenOutline } from '../components/icons'
 
 // fetch featured projects from sanity.io
 const projects: Projects[] = await client.fetch(query)
