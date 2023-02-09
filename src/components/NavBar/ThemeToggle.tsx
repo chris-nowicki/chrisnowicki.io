@@ -18,10 +18,24 @@ export default function ThemeToggle() {
     useMemo(() => {
         if (theme === 'dark') {
             document.documentElement.classList.add('dark')
+            setEnabled(true)
         } else {
             document.documentElement.classList.remove('dark')
+            setEnabled(false)
         }
         localStorage.setItem('theme', theme)
+
+        window
+            .matchMedia('(prefers-color-scheme: dark)')
+            .addEventListener('change', ({ matches }) => {
+                if (matches) {
+                    document.documentElement.classList.add('dark')
+                    setEnabled(true)
+                } else {
+                    document.documentElement.classList.remove('dark')
+                    setEnabled(false)
+                }
+            })
     }, [theme])
 
     return (
