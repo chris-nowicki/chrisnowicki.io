@@ -69,9 +69,7 @@ const currentPath = pathname.slice(1)
             </div>
         </div>
 
-        <div class="flex flex-row items-center justify-center gap-2 md:gap-4">
-            <ThemeToggle client:only />
-
+        <div class="flex flex-row items-center justify-center gap-1">
             <!-- resume link -->
             {
                 showResume && (
@@ -91,6 +89,8 @@ const currentPath = pathname.slice(1)
                     </div>
                 )
             }
+
+            <ThemeToggle client:only />
         </div>
     </nav>
 </div>
