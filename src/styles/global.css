@@ -13,7 +13,7 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
-    overflow: scroll;
+    overflow-y: scroll;
 }
 
 .link-animate a {
@@ -85,6 +85,8 @@ body {
     transform: rotate(-45deg) translateY(6px) translate(-6px);
 }
 
+/* scroll bar customization */
+
 ::-webkit-scrollbar {
     width: 10px;
     padding: 0px;
@@ -98,7 +100,7 @@ body {
     background: #e3e3e3;
 }
 .parent {
-    width: calc(100% - 15px);
+    width: calc(100% - 10px);
     max-height: 200px;
     overflow-y: hidden;
 }
@@ -107,6 +109,7 @@ body {
     overflow-y: scroll;
     width: 100%;
 }
+
 .table {
     width: 100%;
 }
