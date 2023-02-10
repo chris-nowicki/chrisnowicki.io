@@ -10,6 +10,10 @@ import { ArrowIcon, PDF } from '../icons'
 const response: getLinks = await client.fetch(query)
 const links: Links[] = response[0].links
 const showResume = response[0].showResume
+
+// remove resume nav link based on page
+const pathname = new URL(Astro.request.url).pathname
+const currentPath = pathname.slice(1)
 ---
 
 <div id="home" class="mb-6 flex flex-col items-center">
@@ -66,15 +70,17 @@ const showResume = response[0].showResume
         </div>
 
         <div class="flex flex-row items-center justify-center gap-2 md:gap-4">
-            <!-- <ThemeToggle client:only /> -->
-            
+            <ThemeToggle client:only />
+
             <!-- resume link -->
             {
                 showResume && (
                     <div class="flex flex-row">
                         <a
                             href="/resume"
-                            class={`dark:text-textDark flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100  dark:border-neutral-900/50 hover:dark:bg-neutral-900/20`}
+                            class={`dark:text-textDark flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100  dark:border-neutral-900/50 hover:dark:bg-neutral-900/20
+                                ${currentPath === 'resume' ? 'hidden' : ''}
+                                `}
                         >
                             <div class="mr-2 flex items-center gap-2 md:mr-6">
                                 <PDF size={24} classProps="hidden md:block" />
