@@ -13,6 +13,7 @@ html {
 
 body {
     font-family: 'Roboto', sans-serif;
+    overflow: scroll;
 }
 
 .link-animate a {
@@ -82,4 +83,30 @@ body {
 
 .open .hamburger-bottom {
     transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    padding: 0px;
+}
+::-webkit-scrollbar-thumb {
+    min-height: 50px;
+    background-color: #bd93f9;
+    height: 50px;
+}
+::-webkit-scrollbar-track {
+    background: #e3e3e3;
+}
+.parent {
+    width: calc(100% - 15px);
+    max-height: 200px;
+    overflow-y: hidden;
+}
+
+.parent:hover {
+    overflow-y: scroll;
+    width: 100%;
+}
+.table {
+    width: 100%;
 }

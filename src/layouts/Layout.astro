@@ -3,6 +3,7 @@ import Nav from '../components/NavBar/Nav.astro'
 import Footer from '../components/Footer.astro'
 import '../styles/global.css'
 import { Meta } from '../ts/types'
+import { animate } from 'motion'
 
 export interface Props {
     title?: string
@@ -83,13 +84,15 @@ const { title = 'Chris Nowicki' } = Astro.props
     </head>
     <body class="bg-gray-50 ease-in-out dark:bg-bgDark dark:text-textDark">
         <div class="mx-auto flex h-screen flex-col justify-between">
-            <div>
+            <div class="w-full">
                 <Nav />
-                <div>
-                    <slot class="w-full" />
+                <div >
+                    <slot id="box" class="w-full"/>
                 </div>
             </div>
             <Footer />
         </div>
     </body>
 </html>
+
+

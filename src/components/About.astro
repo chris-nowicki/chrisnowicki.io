@@ -1,13 +1,15 @@
 ---
 import { Image } from '@astrojs/image/components'
 import { Linkedin, GitHub, ArrowIcon } from './icons'
-
+import { animate } from 'motion'
 import chrisnowicki from '../images/chrisnowicki.webp'
 ---
 
 <!-- about me section -->
-<div class="flex w-full flex-col items-center text-xl md:mr-6 md:items-start">
-    <p class="mb-3 md:mt-0 md:text-3xl">
+<div
+    class="box flex w-full flex-col items-center text-xl md:mr-6 md:items-start"
+>
+    <p class="box mb-3 md:mt-0 md:text-3xl">
         Hello, I'm <span class="text-purple-600 dark:text-purpleDark"
             >Chris Nowicki</span
         >.
@@ -53,3 +55,7 @@ import chrisnowicki from '../images/chrisnowicki.webp'
         alt="chris nowicki's profile picture"
     />
 </div>
+
+<script is:inline>
+    animate('.box', { x: 100 }, { duration: 1 })
+</script>
