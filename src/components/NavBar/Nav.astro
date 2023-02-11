@@ -1,5 +1,5 @@
 ---
-import ThemeToggle from './ThemeToggle'
+import ThemeToggle from './ThemeToggle.astro'
 import { client } from '../../lib/sanity'
 import { links as query } from '../../ts/queries'
 import { getLinks, Links } from '../../ts/types'
@@ -78,7 +78,7 @@ const currentPath = pathname.slice(1)
                             href="/resume"
                             rel="prefetch"
                             class={`dark:text-textDark flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100  dark:border-neutral-900/50 hover:dark:bg-neutral-900/20
-                                ${currentPath === 'resume' ? 'hidden' : ''}
+                                    ${currentPath === 'resume' ? 'hidden' : ''}
                                 `}
                         >
                             <div class="mr-2 flex items-center gap-2 md:mr-6">
@@ -91,7 +91,7 @@ const currentPath = pathname.slice(1)
                 )
             }
 
-            <ThemeToggle client:only />
+            <ThemeToggle />
         </div>
     </nav>
 </div>

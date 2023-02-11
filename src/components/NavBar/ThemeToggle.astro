@@ -1,0 +1,54 @@
+---
+import { Sun, Moon } from '../icons'
+---
+
+<button
+    class="cursor-pointer rounded-lg border border-neutral-200 p-2.5 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20"
+    onclick="themeSwitch()"
+>
+    <Sun size={24} />
+    <Moon size={24} />
+</button>
+
+<script is:global>
+    // icons
+    const sun = document.getElementById('sun').classList
+    const moon = document.getElementById('moon').classList
+
+    // theme variables
+    const currentTheme = document.documentElement.classList
+
+    // iconToggle
+    const iconToggle = () => {
+        moon.toggle('hidden')
+        sun.toggle('hidden')
+    }
+
+    const themeSwitch = () => {
+        if (currentTheme.contains('dark')) {
+            currentTheme.remove('dark')
+            localStorage.theme = 'light'
+            iconToggle()
+            return
+        }
+        currentTheme.add('dark')
+        localStorage.theme = 'dark'
+        iconToggle()
+    }
+
+    window
+        .matchMedia('(prefers-color-scheme: dark)')
+        .addEventListener('change', ({ matches }) => {
+            if (matches) {
+                if (!currentTheme.contains('dark')) {
+                    currentTheme.add('dark')
+                    iconToggle()
+                }
+            } else {
+                if (currentTheme.contains('dark')) {
+                    currentTheme.remove('dark')
+                    iconToggle()
+                }
+            }
+        })
+</script>
