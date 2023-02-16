@@ -2,18 +2,27 @@ import { GitBranchOutline, OpenOutline } from '../icons'
 
 export default function TechnicalProjectCard({ project }) {
     return (
-        <div className="flex flex-col rounded border border-neutral-200 text-lg">
-            <div className="flex justify-between border-b border-neutral-200 p-4">
-                <div>
-                    <p>
-                        <b>{project.projectName}</b> | <em>{project.role}</em>
+        <div className="text-md flex flex-col rounded border border-neutral-200 md:text-lg">
+            <div className="flex flex-col items-center justify-center border-b border-neutral-200 p-4 md:flex-row md:justify-between">
+                <div className="flex justify-center md:justify-start">
+                    <p className="mb-2 flex gap-1 text-center md:mb-0 md:text-left">
+                        <b>{project.projectName}</b> <span> | </span>{' '}
+                        <em>{project.role}</em>
                     </p>
                 </div>
-                <div className="text-md flex items-center gap-2">
-                    <a href={project.gitHubUrl} target="_blank">
+                <div className="text-md flex  items-center gap-2">
+                    <a
+                        href={project.gitHubUrl}
+                        target="_blank"
+                        className="hover:text-purple-600 dark:hover:text-purpleDark"
+                    >
                         <GitBranchOutline size={24} />
                     </a>
-                    <a href={project.liveSiteUrl} target="_blank">
+                    <a
+                        href={project.liveSiteUrl}
+                        target="_blank"
+                        className="hover:text-purple-600 dark:hover:text-purpleDark"
+                    >
                         <OpenOutline size={24} />
                     </a>
                 </div>

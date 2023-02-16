@@ -23,14 +23,14 @@ export default function ProfessionalExperience() {
         <>
             {loaded && (
                 <div className="flex flex-col">
-                    <div className="flex w-full justify-between text-lg mb-2">
-                        <p>
+                    <div className="flex w-full flex-col md:flex-row justify-between text-md md:text-lg mb-2">
+                        <p className='text-center md:text-left'>
                             <b>{experience.position}</b> |
                             <a href={experience.companyURL} target="_blank">
                                 <em> {experience.company}</em>
                             </a>
                         </p>
-                        <div className="flex text-purple-600 dark:text-purpleDark">
+                        <div className="flex text-purple-600 dark:text-purpleDark justify-center md:justify-start">
                             {new Date(experience.startDate).getFullYear()} -{' '}
                             {experience.endDate
                                 ? new Date(experience.endDate).getFullYear()

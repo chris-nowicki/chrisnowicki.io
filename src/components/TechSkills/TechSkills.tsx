@@ -59,7 +59,7 @@ export default function TechSkills() {
     return (
         <div className="mb-16 flex w-full flex-col items-center">
             <div className="flex w-full items-center sm:flex-col md:flex-row md:items-start">
-                <div className="mr-4 mb-4 flex flex-row flex-wrap justify-center gap-2 md:flex-col md:justify-start">
+                <div className="mr-4 mb-4 flex w-full md:w-1/2 flex-row flex-wrap justify-center gap-2 md:flex-col md:justify-start">
                     <Button
                         name="All"
                         activeCheck="all"
@@ -103,13 +103,16 @@ export default function TechSkills() {
                         data={currentFilter}
                     />
                 </div>
-                <div className="flex w-3/4 flex-col rounded bg-bgDark shadow-lg shadow-bgDark/50 dark:bg-gray-900 dark:shadow-gray-900/50 md:w-full">
-                    <ul className="link-animate flex h-[450px] w-full flex-col flex-wrap py-4 text-lg text-textDark">
+                <div className="flex w-full flex-col rounded bg-bgDark shadow-lg shadow-bgDark/50 dark:bg-gray-900 dark:shadow-gray-900/50">
+                    <ul className="link-animate flex h-[450px] w-full flex-col flex-wrap py-4 text-sm text-textDark md:text-lg">
                         {loaded &&
                             filtered.map(
                                 (tech, index) =>
                                     tech.show && (
-                                        <li key={index} className="px-4">
+                                        <li
+                                            key={index}
+                                            className="flex flex-wrap px-4"
+                                        >
                                             {tech.link ? (
                                                 <a
                                                     href={tech.link}

@@ -39,11 +39,11 @@ export default function Resume() {
             {loaded && (
                 <>
                     {/* name and email */}
-                    <div className="mb-4 text-center text-xl md:text-left">
-                        <h1 className="text-4xl">{resume.name}</h1>
+                    <div className="mb-4 text-center md:text-left">
+                        <h1 className="text-2xl md:text-4xl">{resume.name}</h1>
                         <a
                             href="mailto:chris@chrisnowicki.io"
-                            className="ml-1 text-purple-600 hover:underline dark:text-purpleDark"
+                            className="ml-1 text-lg text-purple-600 hover:underline dark:text-purpleDark md:text-xl"
                         >
                             {resume.email}
                         </a>
@@ -54,7 +54,7 @@ export default function Resume() {
                         {/* resume link */}
                         <a
                             href={`${resume.resumeURL}?dl=`}
-                            className="flex w-3/4 items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20 md:w-full"
+                            className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20"
                         >
                             <div className="flex items-center gap-2">
                                 <PDF size={24} />
@@ -66,7 +66,7 @@ export default function Resume() {
                         {/* linkedin link */}
                         <a
                             href={resume.linkedin}
-                            className="flex w-3/4 items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20 md:w-full"
+                            className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20"
                             target="_blank"
                         >
                             <div className="flex items-center gap-2">
@@ -79,7 +79,7 @@ export default function Resume() {
                         {/* github Link */}
                         <a
                             href={resume.github}
-                            className="flex w-3/4 items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20 md:w-full"
+                            className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20"
                             target="_blank"
                         >
                             <div className="flex items-center gap-2">
@@ -91,11 +91,11 @@ export default function Resume() {
                     </div>
 
                     {/* technical skills, projects, professional experience, and education */}
-                    <div >
+                    <div>
                         {/* Technical Skills */}
                         <div className="-mb-8 flex w-full flex-col gap-4">
                             <div className="mb-1">
-                                <h1 className="mb-2 text-xl uppercase text-purple-600 dark:text-purpleDark md:text-2xl">
+                                <h1 className="mb-2 text-xl uppercase text-purple-600 dark:text-purpleDark md:text-2xl text-center md:text-left">
                                     Technical Skills
                                 </h1>
                                 <TechSkills />
@@ -105,7 +105,10 @@ export default function Resume() {
                         {/* Technical Projects */}
                         <div className="mb-8 flex w-full flex-col gap-4">
                             <div className="mb-1">
-                                <h1 id="technicalProjects" className="mb-2  text-xl uppercase text-purple-600 dark:text-purpleDark md:text-2xl">
+                                <h1
+                                    id="technicalProjects"
+                                    className="mb-2  text-xl uppercase text-purple-600 dark:text-purpleDark md:text-2xl text-center md:text-left"
+                                >
                                     Technical Projects
                                 </h1>
                                 <div className="flex flex-col gap-2">
@@ -122,7 +125,7 @@ export default function Resume() {
                         {/* Professional Experience */}
                         <div className="mb-8 flex w-full flex-col gap-4">
                             <div className="mb-1">
-                                <h1 className="mb-2  text-xl uppercase text-purple-600 dark:text-purpleDark md:text-2xl">
+                                <h1 className="mb-2 text-center md:text-start text-xl uppercase text-purple-600 dark:text-purpleDark md:text-2xl">
                                     Professional Experience
                                 </h1>
                                 <ProfessionalExperience />
@@ -132,7 +135,7 @@ export default function Resume() {
                         {/* Education */}
                         <div className="flex w-full flex-col gap-4">
                             <div className="mb-1">
-                                <h1 className="mb-2  text-xl uppercase text-purple-600 dark:text-purpleDark md:text-2xl">
+                                <h1 className="mb-2  text-xl uppercase text-purple-600 dark:text-purpleDark md:text-2xl text-center md:text-left">
                                     Education
                                 </h1>
                                 <Education />
