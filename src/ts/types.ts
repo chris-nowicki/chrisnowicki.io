@@ -1,5 +1,3 @@
-import { type } from 'os'
-
 export type Meta = {
     description: string
     image: string
@@ -32,6 +30,7 @@ export interface FeaturedProjects {
 
 export interface Technologies {
     name: string
+    category: string
     link?: string
     show: boolean
 }
@@ -51,4 +50,31 @@ export interface Links {
 export type icon = {
     size: number
     classProps?: string
+}
+
+export type Resume = {
+    name: string
+    email: string
+    resumeURL: string
+    github: string
+    linkedin: string
+    projects: string[] 
+}
+
+export type Experience = {
+    company: string
+    companyURL: string
+    position: string
+    startDate?: string
+    endDate?: string
+    accomplishments: string[]
+}
+
+export type Education = {
+    school: string
+    shoolURL: string
+    degree: string
+    dateEarned?: string
+    displayDate?: boolean
+    details: string[]
 }

@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import About from '../components/About.astro'
-import Tech from '../components/Tech.astro'
+import TechSkills from '../components/TechSkills/TechSkills'
 import Contact from '../components/Contact.astro'
 import FeaturedProjects from '../components/FeaturedProjects.astro'
 
@@ -26,10 +26,15 @@ const siteSettings = response[0]
                 <div
                     class="flex flex-row flex-wrap-reverse justify-center sm:mt-0 md:mt-10 md:flex-nowrap"
                 >
-                    <About/>
+                    <About />
                 </div>
                 <div class="flex w-full flex-col">
-                    <Tech />
+                    <h1
+                        class="mb-3 mt-16 text-center text-4xl text-purpleDark w-full bg-bgDark rounded p-2 dark:bg-gray-900"
+                    >
+                        Technical Skills
+                    </h1>
+                    <TechSkills client:only />
                     {siteSettings.showProjects && <FeaturedProjects />}
                 </div>
             </div>

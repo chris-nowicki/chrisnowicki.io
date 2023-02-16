@@ -3,7 +3,7 @@ export const siteSettings: string = `*[_type == "settings"] {
   "showProjects": featuredProjects.showProjects
 }`
 
-export const tech: string = '*[_type == "tech"] {name, link, show}'
+export const tech: string = '*[_type == "tech"] {name, category, link, show}'
 
 export const featuredProjects: string = `*[_type == "settings"] {
   "projects": featuredProjects.featured[]->{
@@ -34,6 +34,41 @@ export const links = `*[_type == "settings"] {
   "showResume": navigation.showResume,
 }`
 
-export const resume = `*[_type == "settings"] {
-  "resumeURL": navigation.resume.asset->url
+export const resume = `*[_type == "resume"] {
+  name,
+  email,
+  github,
+  linkedin,
+  "resumeURL": resume.asset->url,
+  "projects": technicalProjects[]->{
+    projectName,
+    role,
+    liveSiteUrl,
+    gitHubUrl,
+    "tags": tags[]->{
+      name
+    },
+      "projectDetails": projectDetails[] {
+    "listItem": listItem, 
+    "text": children[0].text
+    }
+  }
 }`
+
+export const professionalExperience = `*[_type == 'professionalExperience'] {
+  company,
+  companyURL,
+    position,
+    startDate,
+    endDate,
+    "accomplishments": accomplishments[].children[].text
+}`
+
+export const education = `*[_type == 'education'] {
+  school,
+  schoolURL,
+    degree,
+    dateEarned,
+    displayDate,
+    "details": details[].children[].text
+} | order(dateEarned desc)`
