@@ -24,6 +24,10 @@ import { Sun, Moon } from '../icons'
         sun.toggle('hidden')
     }
 
+    if (currentTheme.contains('dark')) {
+        iconToggle()
+    }
+
     const themeSwitch = () => {
         if (currentTheme.contains('dark')) {
             currentTheme.remove('dark')
@@ -43,11 +47,14 @@ import { Sun, Moon } from '../icons'
                 if (!currentTheme.contains('dark')) {
                     currentTheme.add('dark')
                     iconToggle()
+                    localStorage.theme = 'dark'
                 }
             } else {
                 if (currentTheme.contains('dark')) {
                     currentTheme.remove('dark')
+                    localStorage.theme = 'light'
                     iconToggle()
+                
                 }
             }
         })
