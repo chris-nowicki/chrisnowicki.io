@@ -18,13 +18,15 @@ export default function TechnicalProjectCard({ project }) {
                     >
                         <GitBranchOutline size={24} />
                     </a>
-                    <a
-                        href={project.liveSiteUrl}
-                        target="_blank"
-                        className="hover:text-purple-600 dark:hover:text-purpleDark"
-                    >
-                        <OpenOutline size={24} />
-                    </a>
+                    {project.liveSiteUrl && (
+                        <a
+                            href={project.liveSiteUrl}
+                            target="_blank"
+                            className="hover:text-purple-600 dark:hover:text-purpleDark"
+                        >
+                            <OpenOutline size={24} />
+                        </a>
+                    )}
                 </div>
             </div>
             <div className="p-4">
