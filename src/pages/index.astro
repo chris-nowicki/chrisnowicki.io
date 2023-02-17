@@ -38,10 +38,13 @@ const siteSettings = response[0]
                         </h1>
 
                         <TechSkills client:only />
+                        {siteSettings.showProjects && <FeaturedProjects />}
                     </div>
-                    {siteSettings.showProjects && <FeaturedProjects />}
                 </div>
-                <Contact showProjects={siteSettings.showProjects} />
+                <div class="px-10 md:px-0">
+
+                    <Contact showProjects={siteSettings.showProjects} />
+                </div>
             </div>
         </div>
     </main>
