@@ -13,5 +13,7 @@
         "jsx": "react-jsx",
         "jsxImportSource": "react"
     },
-    "extends": "astro/tsconfigs/base"
+    "extends": "astro/tsconfigs/base",
+    "include": ["**/*.ts", "**/*.tsx"],
+    "exclude": ["node_modules"]
 }
