@@ -13,17 +13,17 @@ const { project } = Astro.props
     class="text-md flex flex-col rounded border border-neutral-200 dark:border-gray-900 md:text-lg"
 >
     <div
-        class="flex border-b border-neutral-200 bg-neutral-100 p-4 dark:border-gray-900 dark:bg-gray-900/25"
+        class="flex flex-wrap border-b border-neutral-200 bg-neutral-100 p-4 dark:border-gray-900 dark:bg-gray-900/25 md:flex-nowrap"
     >
-        <div class="flex w-full flex-col">
+        <div class="flex w-full flex-col items-center md:items-start">
             <div class="flex flex-col">
-                <p class="mb-2 flex gap-1 text-center md:mb-0 md:text-left">
+                <p class="mb-1 flex gap-1 text-center md:text-left">
                     <b>{project.projectName}</b>
                     <span> |</span>{' '}
                     <em>{project.role}</em>
                 </p>
             </div>
-            <div class="mt-1 flex gap-1">
+            <div class="flex gap-1 md:mt-1">
                 {
                     project.tags.map((tag: string, index: number) => (
                         <span
@@ -43,22 +43,29 @@ const { project } = Astro.props
                 }
             </div>
         </div>
-        <div class="text-md flex items-center gap-2">
+        <div
+            class="text-md mt-2 flex w-full items-center justify-center gap-2 md:mt-0 md:justify-end"
+        >
             <a
                 href={project.gitHubURL}
                 target="_blank"
-                class="hover:text-purple-600 dark:hover:text-purpleDark"
+                class="text-md flex items-center gap-1 rounded border p-2 hover:text-purple-600 dark:hover:text-purpleDark md:border-0 md:p-0 dark:border-gray-900"
             >
-                <GitBranchOutline size={24} />
+                <GitBranchOutline size={24} /><span class="block md:hidden"
+                    >Code</span
+                >
             </a>
             {
                 project.liveSiteURL && (
                     <a
                         href={project.liveSiteURL}
                         target="_blank"
-                        class="dark:hover:text-purpleDark hover:text-purple-600"
+                        class="text-md dark:hover:text-purpleDark flex items-center gap-1 rounded border p-2 hover:text-purple-600 md:border-0 md:p-0 dark:border-gray-900"
                     >
-                        <OpenOutline size={24} />
+                        <>
+                            <OpenOutline size={24} />
+                            <span class="block md:hidden">Live Site</span>
+                        </>
                     </a>
                 )
             }
