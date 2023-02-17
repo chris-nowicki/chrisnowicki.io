@@ -10,14 +10,14 @@ import { Picture as query } from '../ts/queries'
 
 // fetch featured projects from sanity.io
 const response = await client.fetch(query)
-const image = response[0].chrisnowicki
+const image: string = response[0].chrisnowicki
 
 const chrisnowicki = urlFor(image).url()
 ---
 
 <!-- about me section -->
 <div
-    class="box flex w-full flex-col items-center text-xl md:mr-6 md:items-start text-center md:text-left"
+    class="box flex w-full flex-col items-center text-center text-xl md:mr-6 md:items-start md:text-left"
 >
     <p class="mb-3 md:mt-0 md:text-3xl">
         Hello, I'm <span class="text-purple-600 dark:text-purpleDark"
@@ -40,7 +40,7 @@ const chrisnowicki = urlFor(image).url()
     <div class="flex w-full flex-row justify-center md:justify-start">
         <a
             href="http://www.linkedin.com/in/chris-nowicki"
-            class="mt-8 mr-4 flex  items-center gap-2 rounded border border-blue-600 px-4 py-2 text-lg text-blue-600 hover:bg-blue-600 hover:text-white dark:border-textDark dark:text-textDark dark:hover:bg-textDark dark:hover:text-bgDark"
+            class="mt-8 mr-4 flex items-center gap-2 rounded border border-blue-600 px-4 py-2 text-lg text-blue-600 hover:bg-blue-600 hover:text-white dark:border-textDark dark:text-textDark dark:hover:bg-textDark dark:hover:text-bgDark"
             target="_blank"
         >
             <Linkedin size={24} />Linkedin <ArrowIcon size={14} /></a
@@ -48,7 +48,7 @@ const chrisnowicki = urlFor(image).url()
 
         <a
             href="https://github.com/chris-nowicki"
-            class="mt-8 flex  items-center gap-2 rounded border border-black px-4 py-2 text-lg hover:bg-black hover:text-white dark:border-purpleDark dark:text-purpleDark dark:hover:bg-purpleDark dark:hover:text-textDark"
+            class="mt-8 flex items-center gap-2 rounded border border-black px-4 py-2 text-lg hover:bg-black hover:text-white dark:border-purpleDark dark:text-purpleDark dark:hover:bg-purpleDark dark:hover:text-textDark"
             target="_blank"
             ><GitHub size={24} />GitHub <ArrowIcon size={14} /></a
         >
@@ -56,10 +56,13 @@ const chrisnowicki = urlFor(image).url()
 </div>
 
 <!-- about me image -->
-<div class="flex w-[400px] flex-col items-center sm:mb-4 md:mb-0 md:mt-0">
+<div
+    class="flex w-[200px] flex-col items-center sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]"
+>
     <img
-        class="rounded shadow-lg w-[200px] md:w-auto"
+        class="w-full rounded shadow-lg md:w-auto"
         width="400px"
+        height="400px"
         src={chrisnowicki}
         alt="chris nowicki"
     />
