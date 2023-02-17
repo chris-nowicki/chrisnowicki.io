@@ -19,9 +19,9 @@ const experience: Experience = response[0]
             Professional Experience
         </h1>
 
-        <div class="flex flex-col">
+        <div class="flex flex-col rounded border border-neutral-200  dark:border-gray-900">
             <div
-                class="text-md mb-2 flex w-full flex-col justify-between md:flex-row md:text-lg"
+                class="text-md mb-2 flex w-full flex-col justify-between md:flex-row md:text-lg border-b border-neutral-200  dark:border-gray-900 p-4 bg-neutral-100 dark:bg-gray-900/25"
             >
                 <p class="text-center md:text-left">
                     <b>{experience.position}</b> |
@@ -40,7 +40,7 @@ const experience: Experience = response[0]
                     }
                 </div>
             </div>
-            <div class="flex flex-col">
+            <div class="flex flex-col p-4">
                 <ul
                     class="text-md ml-6 list-outside list-disc marker:text-purple-600 dark:marker:text-purpleDark md:text-lg"
                 >

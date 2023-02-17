@@ -40,12 +40,6 @@ export const resume = `*[_type == "resume"] {
   github,
   linkedin,
   "resumeURL": resume.asset->url,
-  "projects": technicalProjects[]->{
-    projectName,
-    role,
-    liveSiteUrl,
-    gitHubUrl,
-  }
 }`
 
 export const technicalProjects = `*[_type == "resume"] {

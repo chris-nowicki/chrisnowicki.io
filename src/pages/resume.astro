@@ -12,30 +12,43 @@ import TechnicalProjects from '../components/Resume/TechnicalProjects.astro'
 import { Resume } from '../ts/types'
 
 // icons
-import { Linkedin, GitHub, ArrowIcon, Download, PDF } from '../components/icons'
+import { Linkedin, GitHub, ArrowIcon, Download, PDF, Location } from '../components/icons'
 
 // sanity.io client & query
 import { client } from '../lib/sanity'
 import { resume as query } from '../ts/queries'
+import { Picture } from '../ts/queries'
+import { urlFor } from '../util/imageBuilder'
 
-// fetch featured projects from sanity.io
+// fetch resume from sanity.io
 const response = await client.fetch(query)
 const resume: Resume = response[0]
+
+// fetch chrisnowicki picture
+const picture = await client.fetch(Picture)
+const image: string = picture[0].chrisnowicki
+
+const chrisnowicki = urlFor(image).url()
 ---
 
 <Layout title="Resumé | Chris Nowicki">
     <main class="flex flex-col sm:mt-4 md:mt-10 md:px-10 lg:px-0">
         <div class="mx-auto flex w-full max-w-3xl flex-col sm:px-5 md:px-0">
-            
             {/* name and email */}
-            <div class="mb-4 text-center md:text-left">
-                <h1 class="text-2xl md:text-4xl">{resume.name}</h1>
-                <a
-                    href="mailto:chris@chrisnowicki.io"
-                    class="ml-1 text-lg text-purple-600 hover:underline dark:text-purpleDark md:text-xl"
-                >
-                    {resume.email}
-                </a>
+            <div class="mb-4 flex text-center md:text-left gap-4 border border-neutral-200 p-2 rounded">
+                <div class='flex w-1/4'>
+                    <img src={chrisnowicki} width="200px" class="rounded">
+                </div>
+                <div class="flex flex-col items-center justify-center w-3/4">
+                    <h1 class="text-2xl md:text-5xl">{resume.name}</h1>
+                    <a
+                        href="mailto:chris@chrisnowicki.io"
+                        class="ml-1 text-lg text-purple-600 hover:underline dark:text-purpleDark md:text-2xl"
+                    >
+                        {resume.email}
+                    </a>
+                    <p class="flex items-center mt-1 text-md md:text-xl"><Location size={24}/>Cleveland, TN</p>
+                </div>
             </div>
 
             {/* resume and social links */}
