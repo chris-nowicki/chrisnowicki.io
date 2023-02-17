@@ -1,9 +1,16 @@
 ---
+// layout
 import Layout from '../layouts/Layout.astro'
+
+// types
+import { Projects } from '../ts/types'
+
+//  icons
 import { GitBranchOutline, OpenOutline } from '../components/icons'
+
+// sanity client & query
 import { client } from '../lib/sanity'
 import { projects as query } from '../ts/queries'
-import { Projects } from '../ts/types'
 
 // fetch featured projects from sanity.io
 const projects: Projects[] = await client.fetch(query)
@@ -20,7 +27,7 @@ projects.sort((a, b) => {
 })
 ---
 
-<Layout>
+<Layout title={'Projects | Chris Nowicki'}>
     <main class="flex flex-col sm:mt-4 md:mt-10 md:px-10 lg:px-0">
         <div class="mx-auto flex w-full max-w-3xl flex-col sm:px-10 md:px-0">
             <div class="mb-6 flex w-full flex-col">

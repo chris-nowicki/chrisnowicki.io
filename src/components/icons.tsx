@@ -1,7 +1,7 @@
-import { icon } from '../ts/types'
+import { Icon } from '../ts/types'
 
 // social media icons
-export function GitHub({ size }: icon) {
+export function GitHub({ size }: Icon) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -17,7 +17,7 @@ export function GitHub({ size }: icon) {
     )
 }
 
-export function GitBranchOutline({ size }: icon) {
+export function GitBranchOutline({ size }: Icon) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +33,7 @@ export function GitBranchOutline({ size }: icon) {
     )
 }
 
-export function Linkedin({ size }: icon) {
+export function Linkedin({ size }: Icon) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ export function Linkedin({ size }: icon) {
     )
 }
 
-export function Twitter({ size }: icon) {
+export function Twitter({ size }: Icon) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ export function Twitter({ size }: icon) {
     )
 }
 
-export function Instagram({ size }: icon) {
+export function Instagram({ size }: Icon) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ export function Instagram({ size }: icon) {
 
 // non-social or logo icons
 
-export function ArrowIcon({ size }: icon) {
+export function ArrowIcon({ size }: Icon) {
     return (
         <svg
             width={size}
@@ -104,7 +104,7 @@ export function ArrowIcon({ size }: icon) {
     )
 }
 
-export function OpenOutline({ size }: icon) {
+export function OpenOutline({ size }: Icon) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +124,7 @@ export function OpenOutline({ size }: icon) {
     )
 }
 
-export function TriangleSharp({ size }: icon) {
+export function TriangleSharp({ size }: Icon) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +137,7 @@ export function TriangleSharp({ size }: icon) {
     )
 }
 
-export function Moon({ size = 12 }: icon) {
+export function Moon({ size = 12 }: Icon) {
     return (
         <svg
             id="moon"
@@ -159,7 +159,7 @@ export function Moon({ size = 12 }: icon) {
     )
 }
 
-export function Sun({ size = 12 }: icon) {
+export function Sun({ size = 12 }: Icon) {
     return (
         <svg
             id="sun"
@@ -181,7 +181,7 @@ export function Sun({ size = 12 }: icon) {
     )
 }
 
-export function Download({ size = 32 }: icon) {
+export function Download({ size = 32 }: Icon) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -197,7 +197,7 @@ export function Download({ size = 32 }: icon) {
     )
 }
 
-export function PDF({ size = 32, classProps }: icon) {
+export function PDF({ size = 32, classProps }: Icon) {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"

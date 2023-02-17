@@ -47,7 +47,7 @@ export interface Links {
     show: boolean
 }
 
-export type icon = {
+export type Icon = {
     size: number
     classProps?: string
 }
@@ -58,7 +58,7 @@ export type Resume = {
     resumeURL: string
     github: string
     linkedin: string
-    projects: string[] 
+    projects: string[]
 }
 
 export type Experience = {
@@ -77,4 +77,8 @@ export type Education = {
     dateEarned?: string
     displayDate?: boolean
     details: string[]
+}
+
+export type TechnicalProjects = {
+    projects: any
 }

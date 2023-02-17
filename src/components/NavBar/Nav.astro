@@ -1,10 +1,16 @@
 ---
+// components
 import ThemeToggle from './ThemeToggle.astro'
-import { client } from '../../lib/sanity'
-import { links as query } from '../../ts/queries'
+
+// types
 import { getLinks, Links } from '../../ts/types'
 
+// icons
 import { ArrowIcon, PDF } from '../icons'
+
+// sanity.io client & query
+import { client } from '../../lib/sanity'
+import { links as query } from '../../ts/queries'
 
 // fetch navigation links from sanity.io
 const response: getLinks = await client.fetch(query)

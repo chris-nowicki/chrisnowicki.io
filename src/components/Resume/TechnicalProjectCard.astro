@@ -1,0 +1,62 @@
+---
+// icons
+import { GitBranchOutline, OpenOutline } from '../icons'
+
+export interface Props {
+    project: any
+}
+
+const { project } = Astro.props
+---
+
+<div class="text-md flex flex-col rounded border border-neutral-200 md:text-lg">
+    <div
+        class="flex flex-col items-center justify-center border-b border-neutral-200 p-4 md:flex-row md:justify-between"
+    >
+        <div class="flex justify-center md:justify-start">
+            <p class="mb-2 flex gap-1 text-center md:mb-0 md:text-left">
+                <b>{project.projectName}</b>
+                <span> |</span>{' '}
+                <em>{project.role}</em>
+            </p>
+        </div>
+        <div class="text-md flex items-center gap-2">
+            <a
+                href={project.gitHubURL}
+                target="_blank"
+                class="hover:text-purple-600 dark:hover:text-purpleDark"
+            >
+                <GitBranchOutline size={24} />
+            </a>
+            {
+                project.liveSiteURL && (
+                    <a
+                        href={project.liveSiteURL}
+                        target="_blank"
+                        class="dark:hover:text-purpleDark hover:text-purple-600"
+                    >
+                        <OpenOutline size={24} />
+                    </a>
+                )
+            }
+        </div>
+    </div>
+    <div class="p-4">
+        {
+            project.projectDetails.map(
+                (project: any, index: number) =>
+                    index == 0 && <p class="italic">{project}</p>
+            )
+        }
+        <ul
+            class="text-md ml-6 list-outside list-disc marker:text-purple-600 dark:marker:text-purpleDark md:text-lg"
+        >
+            {
+                project.projectDetails.map(
+                    (project: any, index: number) =>
+                        index !== 0 && <li>{project}</li>
+                )
+            }
+        </ul>
+    </div>
+</div>

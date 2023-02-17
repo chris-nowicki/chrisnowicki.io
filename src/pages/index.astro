@@ -1,18 +1,19 @@
 ---
+// layout
 import Layout from '../layouts/Layout.astro'
+
+// components
 import About from '../components/About.astro'
 import TechSkills from '../components/TechSkills/TechSkills'
 import Contact from '../components/Contact.astro'
-import FeaturedProjects from '../components/FeaturedProjects.astro'
+import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects.astro'
 
-// Sanity CMS client and query
-import { client } from '../lib/sanity'
-import { siteSettings as query } from '../ts/queries'
-
-// Types
+// types
 import { Settings } from '../ts/types'
 
-export const prerender = true
+// sanity client and query
+import { client } from '../lib/sanity'
+import { siteSettings as query } from '../ts/queries'
 
 // fetch site settings from sanity.io
 const response: Settings = await client.fetch(query)

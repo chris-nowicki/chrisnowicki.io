@@ -1,10 +1,107 @@
 ---
+// layout
 import Layout from '../layouts/Layout.astro'
-import Resume from '../components/Resume/Resume'
+
+// components
+import TechSkills from '../components/TechSkills/TechSkills'
+import ProfessionalExperience from '../components/Resume/ProfessionalExperience.astro'
+import Education from '../components/Resume/Education.astro'
+import TechnicalProjects from '../components/Resume/TechnicalProjects.astro'
+import { Linkedin, GitHub, ArrowIcon, Download, PDF } from '../components/icons'
+
+// types
+import { Resume } from '../ts/types'
+
+// sanity.io client & query
+import { client } from '../lib/sanity'
+import { resume as query } from '../ts/queries'
+
+// fetch featured projects from sanity.io
+const response = await client.fetch(query)
+const resume: Resume = response[0]
 ---
 
-<Layout title="resumé | Chris Nowicki">
+<Layout title="Resumé | Chris Nowicki">
     <main class="flex flex-col sm:mt-4 md:mt-10 md:px-10 lg:px-0">
-        <Resume client:load/>
+        <div class="mx-auto flex w-full max-w-3xl flex-col sm:px-10 md:px-0">
+            
+            {/* name and email */}
+            <div class="mb-4 text-center md:text-left">
+                <h1 class="text-2xl md:text-4xl">{resume.name}</h1>
+                <a
+                    href="mailto:chris@chrisnowicki.io"
+                    class="ml-1 text-lg text-purple-600 hover:underline dark:text-purpleDark md:text-xl"
+                >
+                    {resume.email}
+                </a>
+            </div>
+
+            {/* resume and social links */}
+            <div
+                class="mb-12 flex w-full flex-col items-center gap-4 md:flex-row"
+            >
+                {/* resume link */}
+                <a
+                    href={`${resume.resumeURL}?dl=`}
+                    class="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20"
+                >
+                    <div class="flex items-center gap-2">
+                        <PDF size={24} />
+                        Download Resumé
+                    </div>
+                    <Download size={24} />
+                </a>
+
+                {/* linkedin link */}
+                <a
+                    href={resume.linkedin}
+                    class="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20"
+                    target="_blank"
+                >
+                    <div class="flex items-center gap-2">
+                        <Linkedin size={24} />
+                        Linkedin
+                    </div>
+                    <ArrowIcon size={12} />
+                </a>
+
+                {/* github Link */}
+                <a
+                    href={resume.github}
+                    class="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20"
+                    target="_blank"
+                >
+                    <div class="flex items-center gap-2">
+                        <GitHub size={24} />
+                        GitHub
+                    </div>
+                    <ArrowIcon size={12} />
+                </a>
+            </div>
+
+            {
+                /* technical skills, projects, professional experience, and education */
+            }
+            <div>
+                {/* Technical Skills */}
+                <div class="-mb-8 flex w-full flex-col gap-4">
+                    <div class="mb-1">
+                        <h1
+                            class="mb-2 text-center text-xl uppercase text-purple-600 dark:text-purpleDark md:text-left md:text-2xl"
+                        >
+                            Technical Skills
+                        </h1>
+                        <TechSkills client:load />
+                    </div>
+                </div>
+                <!-- technical projects -->
+                <TechnicalProjects />
+                {/* Professional Experience */}
+                <ProfessionalExperience />
+
+                {/* Education */}
+                <Education />
+            </div>
+        </div>
     </main>
 </Layout>

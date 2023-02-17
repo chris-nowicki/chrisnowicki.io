@@ -48,10 +48,19 @@ export const resume = `*[_type == "resume"] {
     "tags": tags[]->{
       name
     },
-      "projectDetails": projectDetails[] {
-    "listItem": listItem, 
-    "text": children[0].text
-    }
+  }
+}`
+
+export const technicalProjects = `*[_type == "resume"] {
+  "projects": technicalProjects[]->{
+    projectName,
+    role,
+    "liveSiteURL": liveSiteUrl,
+    "gitHubURL": gitHubUrl,
+    "tags": tags[]->{
+      name
+    },
+      "projectDetails": projectDetails[].children[].text
   }
 }`
 

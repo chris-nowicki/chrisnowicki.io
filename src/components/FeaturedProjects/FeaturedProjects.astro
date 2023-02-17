@@ -1,8 +1,13 @@
 ---
-import ProjectCard from './ProjectCard/ProjectCard.astro'
-import { client } from '../lib/sanity'
-import { featuredProjects as query } from '../ts/queries'
-import { FeaturedProjects } from '../ts/types'
+// components
+import ProjectCard from './ProjectCard.astro'
+
+// types
+import { FeaturedProjects } from '../../ts/types'
+
+// sanity.io client & query
+import { client } from '../../lib/sanity'
+import { featuredProjects as query } from '../../ts/queries'
 
 // fetch featured projects from sanity.io
 const response = await client.fetch(query)

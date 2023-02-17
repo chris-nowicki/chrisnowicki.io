@@ -4,17 +4,17 @@ import { useEffect, useState } from 'react'
 import { client } from '../../lib/sanity'
 import { tech as query } from '../../ts/queries'
 
-// Types
-import { Technologies } from '../../ts/types'
-
 // Components
 import Button from './Button'
 
+// types
+import { Technologies } from '../../ts/types'
+
 export default function TechSkills() {
     const [loaded, setLoaded] = useState<boolean | null>(false)
-    const [tech, setTech] = useState<Technologies[] | null>()
-    const [filtered, setFiltered] = useState<Technologies[] | null>()
-    const [currentFilter, setCurrentFilter] = useState<string | null>('all')
+    const [tech, setTech] = useState<Technologies[] | null>(null)
+    const [filtered, setFiltered] = useState<Technologies[] | null>(null)
+    const [currentFilter, setCurrentFilter] = useState<string>('all')
 
     // fetch data from sanity
     useEffect(() => {
@@ -59,7 +59,7 @@ export default function TechSkills() {
     return (
         <div className="mb-16 flex w-full flex-col items-center">
             <div className="flex w-full items-center sm:flex-col md:flex-row md:items-start">
-                <div className="mr-4 mb-4 flex w-full md:w-1/2 flex-row flex-wrap justify-center gap-2 md:flex-col md:justify-start">
+                <div className="mr-4 mb-4 flex w-full flex-row flex-wrap justify-center gap-2 md:w-1/2 md:flex-col md:justify-start">
                     <Button
                         name="All"
                         activeCheck="all"
