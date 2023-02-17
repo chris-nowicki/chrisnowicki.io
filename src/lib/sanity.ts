@@ -92,3 +92,14 @@ export const education = `*[_type == "resume"] {
 export const picture = `*[_type == "settings"] {
     "chrisnowicki": profilePicture.asset._ref
 }`
+
+export const seo = `*[_type == "settings"] {
+    seo {
+        name,
+        url,
+        description,
+        type,
+        "image": image.asset._ref,
+        twitter
+    }
+}`

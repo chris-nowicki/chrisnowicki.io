@@ -82,3 +82,12 @@ export type Education = {
 export type TechnicalProjects = {
     projects: any
 }
+
+export type SEO = {
+    name: string
+    url: string
+    description: string
+    type: string
+    image: string
+    twitter: string
+}
