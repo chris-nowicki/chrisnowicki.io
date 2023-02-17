@@ -57,7 +57,7 @@ const currentPath = pathname.slice(1)
         <div class="md:hidden">
             <div
                 id="menu"
-                class="absolute left-6 right-6 z-10 mt-10 hidden flex-col items-center space-y-2 self-end bg-bgDark py-4 text-textDark drop-shadow-md dark:bg-gray-900 sm:w-auto sm:self-center"
+                class="-mx-6 opacity-95 h-1/4 justify-center absolute left-6 right-6 z-10 mt-10 hidden flex-col items-center space-y-2 self-end bg-bgDark py-4 text-textDark drop-shadow-md dark:bg-gray-900 sm:w-full sm:self-center"
             >
                 {
                     links.map(
@@ -65,7 +65,7 @@ const currentPath = pathname.slice(1)
                             link.show && (
                                 <a
                                     href={link.reference}
-                                    class="text-textDark hover:text-purpleDark text-xl"
+                                    class="text-textDark hover:text-purpleDark text-3xl"
                                 >
                                     {link.title}
                                 </a>
