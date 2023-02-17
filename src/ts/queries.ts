@@ -45,9 +45,6 @@ export const resume = `*[_type == "resume"] {
     role,
     liveSiteUrl,
     gitHubUrl,
-    "tags": tags[]->{
-      name
-    },
   }
 }`
 
@@ -81,3 +78,7 @@ export const education = `*[_type == 'education'] {
     displayDate,
     "details": details[].children[].text
 } | order(dateEarned desc)`
+
+export const Picture = `*[_type == "settings"] {
+  "chrisnowicki": profilePicture.asset._ref
+}`

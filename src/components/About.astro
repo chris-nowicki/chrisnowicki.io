@@ -1,13 +1,25 @@
 ---
 // icons
 import { Linkedin, GitHub, ArrowIcon } from './icons'
+
+import { urlFor } from '../util/imageBuilder'
+
+// sanity.io client & query
+import { client } from '../lib/sanity'
+import { Picture as query } from '../ts/queries'
+
+// fetch featured projects from sanity.io
+const response = await client.fetch(query)
+const image = response[0].chrisnowicki
+
+const chrisnowicki = urlFor(image).url()
 ---
 
 <!-- about me section -->
 <div
-    class="box flex w-full flex-col items-center text-xl md:mr-6 md:items-start text-center"
+    class="box flex w-full flex-col items-center text-xl md:mr-6 md:items-start text-center md:text-left"
 >
-    <p class="box mb-3 md:mt-0 md:text-3xl">
+    <p class="mb-3 md:mt-0 md:text-3xl">
         Hello, I'm <span class="text-purple-600 dark:text-purpleDark"
             >Chris Nowicki</span
         >.
@@ -46,9 +58,9 @@ import { Linkedin, GitHub, ArrowIcon } from './icons'
 <!-- about me image -->
 <div class="flex w-[400px] flex-col items-center sm:mb-4 md:mb-0 md:mt-0">
     <img
-        class="rounded shadow-lg"
-        width="200px"
-        src="/images/chrisnowicki.png"
+        class="rounded shadow-lg w-[200px] md:w-auto"
+        width="400px"
+        src={chrisnowicki}
         alt="chris nowicki"
     />
 </div>
