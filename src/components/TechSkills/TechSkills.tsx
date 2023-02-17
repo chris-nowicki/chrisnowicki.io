@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react'
 
 // sanity client and query
-import { client } from '../../lib/sanity'
-import { tech as query } from '../../ts/queries'
+import { client, tech as query } from '../../lib/sanity'
 
 // Components
 import Button from './Button'
@@ -59,7 +58,7 @@ export default function TechSkills() {
     return (
         <div className="mb-16 flex w-full flex-col items-center">
             <div className="flex w-full items-center sm:flex-col md:flex-row md:items-start">
-                <div className="mr-0 md:mr-4 mb-4 flex w-full flex-row flex-wrap justify-center gap-2 md:w-1/2 md:flex-col md:justify-start">
+                <div className="mr-0 mb-4 flex w-full flex-row flex-wrap justify-center gap-2 md:mr-4 md:w-1/2 md:flex-col md:justify-start">
                     <Button
                         name="All"
                         activeCheck="all"

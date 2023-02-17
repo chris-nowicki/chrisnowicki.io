@@ -12,8 +12,7 @@ import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects.as
 import { Settings } from '../ts/types'
 
 // sanity client and query
-import { client } from '../lib/sanity'
-import { siteSettings as query } from '../ts/queries'
+import { client, siteSettings as query } from '../lib/sanity'
 
 // fetch site settings from sanity.io
 const response: Settings = await client.fetch(query)

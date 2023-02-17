@@ -6,8 +6,7 @@ import ProjectCard from './ProjectCard.astro'
 import { FeaturedProjects } from '../../ts/types'
 
 // sanity.io client & query
-import { client } from '../../lib/sanity'
-import { featuredProjects as query } from '../../ts/queries'
+import { client, featuredProjects as query } from '../../lib/sanity'
 
 // fetch featured projects from sanity.io
 const response = await client.fetch(query)
@@ -17,7 +16,7 @@ const projects: FeaturedProjects[] = response[0].projects
 <div class="mb-16 flex w-full flex-col items-center lg:items-center">
     <h1
         id="projects"
-        class="mt-1 text-center text-2xl md:text-4xl text-purple-600 dark:text-purpleDark"
+        class="mt-1 text-center text-2xl text-purple-600 dark:text-purpleDark md:text-4xl"
     >
         Featured Projects
     </h1>

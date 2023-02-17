@@ -9,8 +9,7 @@ import { getLinks, Links } from '../../ts/types'
 import { ArrowIcon, PDF } from '../icons'
 
 // sanity.io client & query
-import { client } from '../../lib/sanity'
-import { links as query } from '../../ts/queries'
+import { client, links as query } from '../../lib/sanity'
 
 // fetch navigation links from sanity.io
 const response: getLinks = await client.fetch(query)
@@ -24,7 +23,7 @@ const currentPath = pathname.slice(1)
 
 <div id="home" class="mb-6 flex flex-col items-center">
     <nav
-        class="flex w-full max-w-3xl flex-row items-center justify-between pt-4 pb-4 px-5  sm:shadow md:px-0 md:shadow-none"
+        class="flex w-full max-w-3xl flex-row items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none"
     >
         <!-- menu -->
         <div class="items-center sm:hidden md:flex">
@@ -57,7 +56,7 @@ const currentPath = pathname.slice(1)
         <div class="md:hidden">
             <div
                 id="menu"
-                class="-mx-6 opacity-95 h-1/4 justify-center absolute left-6 right-6 z-10 mt-10 hidden flex-col items-center space-y-2 self-end bg-bgDark py-4 text-textDark drop-shadow-md dark:bg-gray-900 sm:w-full sm:self-center"
+                class="absolute left-6 right-6 z-10 -mx-6 mt-10 hidden h-1/4 flex-col items-center justify-center space-y-2 self-end bg-bgDark py-4 text-textDark opacity-95 drop-shadow-md dark:bg-gray-900 sm:w-full sm:self-center"
             >
                 {
                     links.map(

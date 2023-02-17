@@ -14,19 +14,17 @@ import { Resume } from '../ts/types'
 // icons
 import { Linkedin, GitHub, ArrowIcon, Download, PDF, Location } from '../components/icons'
 
-// sanity.io client & query
-import { client } from '../lib/sanity'
-import { resume as query } from '../ts/queries'
-import { Picture } from '../ts/queries'
+// sanity.io client & queries
+import { client, resume as query1, picture as query2 } from '../lib/sanity'
 import { urlFor } from '../util/imageBuilder'
 
 // fetch resume from sanity.io
-const response = await client.fetch(query)
+const response = await client.fetch(query1)
 const resume: Resume = response[0]
 
 // fetch chrisnowicki picture
-const picture = await client.fetch(Picture)
-const image: string = picture[0].chrisnowicki
+const getPicture = await client.fetch(query2)
+const image: string = getPicture[0].chrisnowicki
 
 const chrisnowicki = urlFor(image).url()
 ---
