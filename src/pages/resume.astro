@@ -35,7 +35,7 @@ const chrisnowicki = urlFor(image).url()
     <main class="flex flex-col sm:mt-4 md:mt-10 md:px-10 lg:px-0">
         <div class="mx-auto flex w-full max-w-3xl flex-col sm:px-5 md:px-0">
             {/* name and email */}
-            <div class="mb-4 flex text-center md:text-left gap-4 border border-neutral-200 p-2 rounded">
+            <div class="mb-4 flex text-center md:text-left gap-4 border border-neutral-200 dark:border-gray-900 p-2 rounded">
                 <div class='flex w-1/4'>
                     <img src={chrisnowicki} width="200px" class="rounded">
                 </div>
@@ -58,7 +58,7 @@ const chrisnowicki = urlFor(image).url()
                 {/* resume link */}
                 <a
                     href={`${resume.resumeURL}?dl=`}
-                    class="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20"
+                    class="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-gray-900 hover:dark:bg-gray-900/25"
                 >
                     <div class="flex items-center gap-2">
                         <PDF size={24} />
@@ -70,7 +70,7 @@ const chrisnowicki = urlFor(image).url()
                 {/* linkedin link */}
                 <a
                     href={resume.linkedin}
-                    class="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20"
+                    class="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-gray-900 hover:dark:bg-gray-900/25"
                     target="_blank"
                 >
                     <div class="flex items-center gap-2">
@@ -83,7 +83,7 @@ const chrisnowicki = urlFor(image).url()
                 {/* github Link */}
                 <a
                     href={resume.github}
-                    class="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20"
+                    class="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-gray-900 hover:dark:bg-gray-900/20"
                     target="_blank"
                 >
                     <div class="flex items-center gap-2">
