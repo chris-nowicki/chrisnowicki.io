@@ -29,7 +29,7 @@ const siteSettings = response[0]
                 >
                     <About />
                 </div>
-                <div class="flex w-full flex-col">
+                <div class="flex w-full flex-col px-10 md:px-0">
                     <h1
                         class="mb-3 mt-16 text-center text-2xl md:text-4xl text-purpleDark w-full bg-bgDark rounded p-2 dark:bg-gray-900"
                     >
@@ -38,8 +38,8 @@ const siteSettings = response[0]
                     <TechSkills client:only />
                     {siteSettings.showProjects && <FeaturedProjects />}
                 </div>
+                <Contact showProjects={siteSettings.showProjects} />
             </div>
-            <Contact showProjects={siteSettings.showProjects} />
         </div>
     </main>
 </Layout>
