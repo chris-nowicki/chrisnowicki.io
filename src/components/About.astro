@@ -1,7 +1,6 @@
 ---
-import { Image } from '@astrojs/image/components'
+// icons
 import { Linkedin, GitHub, ArrowIcon } from './icons'
-import chrisnowicki from '../images/chrisnowicki.webp'
 ---
 
 <!-- about me section -->
@@ -46,11 +45,10 @@ import chrisnowicki from '../images/chrisnowicki.webp'
 
 <!-- about me image -->
 <div class="flex w-[400px] flex-col items-center sm:mb-4 md:mb-0 md:mt-0">
-    <Image
-        src={chrisnowicki}
-        width={200}
-        height={200}
-        class="rounded-full shadow-lg border-4 border-black dark:border-textDark"
-        alt="chris nowicki's profile picture"
+    <img
+        class="rounded shadow-lg"
+        width="200px"
+        src="/images/chrisnowicki.png"
+        alt="chris nowicki"
     />
 </div>
