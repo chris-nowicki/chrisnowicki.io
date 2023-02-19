@@ -43,13 +43,4 @@ const siteSettings = response[0]
     </main>
 </Layout>
 
-<script>
-    import { webVitals } from '../lib/vitals'
 
-    const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID
-
-    webVitals({
-        path: window.location.pathname,
-        analyticsId,
-    })
-</script>
