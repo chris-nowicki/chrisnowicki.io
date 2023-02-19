@@ -98,5 +98,10 @@ const { title = 'Chris Nowicki' } = Astro.props
             </div>
             <Footer />
         </div>
+        <script>
+            // analytics
+            import { webVitals } from '../lib/vitals'
+            webVitals()
+        </script>
     </body>
 </html>
