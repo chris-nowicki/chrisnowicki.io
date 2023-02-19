@@ -2,10 +2,10 @@
 // icons
 import { Linkedin, GitHub, ArrowIcon } from './icons'
 
-import { urlFor } from '../util/imageBuilder'
 
 // sanity.io client & query
 import { client, picture as query } from '../lib/sanity'
+import { urlFor } from '../util/imageBuilder'
 
 // fetch featured projects from sanity.io
 const response = await client.fetch(query)
