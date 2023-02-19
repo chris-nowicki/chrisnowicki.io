@@ -87,7 +87,7 @@ const { title = 'Chris Nowicki' } = Astro.props
                 localStorage.theme = 'dark'
             }
         </script>
-        <script>
+        <script is:inline>
             import { webVitals } from '../lib/vitals'
 
             const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID
