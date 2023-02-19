@@ -12,10 +12,10 @@ import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects.as
 import { Settings } from '../ts/types'
 
 // analytics
-import reportWebVitals from '../lib/reportWebVitals'
-import { sendToVercelAnalytics } from '../lib/vitals'
+import { webVitals } from '../lib/vitals'
+webVitals()
 
-reportWebVitals(sendToVercelAnalytics)
+
 
 // sanity client and query
 import { client, siteSettings as query } from '../lib/sanity'
