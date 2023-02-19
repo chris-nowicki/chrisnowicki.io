@@ -99,9 +99,14 @@ const { title = 'Chris Nowicki' } = Astro.props
             <Footer />
         </div>
         <script>
-            // analytics
             import { webVitals } from '../lib/vitals'
-            webVitals()
+
+            const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID
+
+            webVitals({
+                path: window.location.pathname,
+                analyticsId,
+            })
         </script>
     </body>
 </html>
