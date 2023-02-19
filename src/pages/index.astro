@@ -11,10 +11,6 @@ import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects.as
 // types
 import { Settings } from '../ts/types'
 
-
-
-
-
 // sanity client and query
 import { client, siteSettings as query } from '../lib/sanity'
 
@@ -46,3 +42,14 @@ const siteSettings = response[0]
         </div>
     </main>
 </Layout>
+
+<script>
+    import { webVitals } from '../lib/vitals'
+
+    const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID
+
+    webVitals({
+        path: window.location.pathname,
+        analyticsId,
+    })
+</script>
