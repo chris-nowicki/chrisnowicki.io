@@ -10,6 +10,11 @@ export interface Props {
     title?: string
 }
 
+// vercel analytics
+import { inject } from '@vercel/analytics'
+
+inject()
+
 // sanity.io client & query
 import { client, seo as query } from '../lib/sanity'
 import { urlFor } from '../util/imageBuilder'
@@ -87,7 +92,16 @@ const { title = 'Chris Nowicki' } = Astro.props
                 localStorage.theme = 'dark'
             }
         </script>
-        <script defer src="/_vercel/insights/script.js"></script>
+        <script>
+            import { webVitals } from '../lib/vitals'
+
+            let analyticsId = import.meta.env.VERCEL_ANALYTICS_ID
+
+            webVitals({
+                path: window.location.pathname,
+                analyticsId,
+            })
+        </script>
     </head>
     <body class="bg-gray-50 ease-in-out dark:bg-bgDark dark:text-textDark">
         <div class="mx-auto flex h-screen flex-col justify-between">
