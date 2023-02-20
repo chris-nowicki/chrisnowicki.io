@@ -2,6 +2,7 @@
 import Nav from '../components/NavBar/Nav.astro'
 import Footer from '../components/Footer.astro'
 import '../styles/global.css'
+import TrackVitals from '../components/Analytics/TrackVitals.astro'
 
 // types
 import { SEO } from '../ts/types'
@@ -9,6 +10,11 @@ import { SEO } from '../ts/types'
 export interface Props {
     title?: string
 }
+
+const path = Object.entries(Astro.params).reduce(
+    (acc, [key, value]) => acc.replace(value as string, `[${key}]`),
+    Astro.url.pathname
+)
 
 // sanity.io client & query
 import { client, seo as query } from '../lib/sanity'
@@ -98,5 +104,6 @@ const { title = 'Chris Nowicki' } = Astro.props
             </div>
             <Footer />
         </div>
+        <TrackVitals />
     </body>
 </html>
