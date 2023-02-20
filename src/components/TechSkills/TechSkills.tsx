@@ -10,18 +10,20 @@ import Button from './Button'
 import { Technologies } from '../../ts/types'
 
 export default function TechSkills() {
-    const [loaded, setLoaded] = useState<boolean | null>(false)
+    const [loaded, setLoaded] = useState<boolean>(false)
     const [tech, setTech] = useState<Technologies[] | null>(null)
-    const [filtered, setFiltered] = useState<Technologies[] | null>(null)
+    const [filteredTech, setFilteredTech] = useState<Technologies[] | null>(
+        null
+    )
     const [currentFilter, setCurrentFilter] = useState<string>('all')
 
-    // fetch data from sanity
+    // fetch tech list from sanity
     useEffect(() => {
         client
             .fetch(query)
-            .then((data) => {
+            .then((tech) => {
                 // sort the data from a - z by tech name
-                data.sort((a: any, b: any) => {
+                tech.sort((a: any, b: any) => {
                     if (a.name.toLowerCase() < b.name.toLowerCase()) {
                         return -1
                     }
@@ -31,9 +33,8 @@ export default function TechSkills() {
                     return 0
                 })
 
-                // set state for tech and filtered to data and set loaded to true
-                setTech(data)
-                setFiltered(data)
+                setTech(tech)
+                setFilteredTech(tech)
                 setLoaded(true)
             })
             .catch(console.error)
@@ -42,15 +43,14 @@ export default function TechSkills() {
     const handleFilter = (category: string) => {
         // set filtered category if not 'all'
         if (category !== 'all') {
-            const filteredTech: Technologies[] = [...tech]
-            const filter = filteredTech.filter(
+            const filter = tech.filter(
                 (tech) => tech.category === `${category}`
             )
-            setFiltered(filter)
+            setFilteredTech(filter)
             setCurrentFilter(category)
         } else {
             // set filtered and currentFilter to 'all'
-            setFiltered(tech)
+            setFilteredTech(tech)
             setCurrentFilter('all')
         }
     }
@@ -63,49 +63,55 @@ export default function TechSkills() {
                         name="All"
                         activeCheck="all"
                         handleClick={() => handleFilter('all')}
-                        data={currentFilter}
+                        currentFilter={currentFilter}
                     />
                     <Button
                         name="Languages"
                         activeCheck="lang"
                         handleClick={() => handleFilter('lang')}
-                        data={currentFilter}
+                        currentFilter={currentFilter}
                     />
                     <Button
                         name="Frameworks/Libraries"
                         activeCheck="framelib"
                         handleClick={() => handleFilter('framelib')}
-                        data={currentFilter}
+                        currentFilter={currentFilter}
                     />
                     <Button
                         name="Databases"
                         activeCheck="db"
                         handleClick={() => handleFilter('db')}
-                        data={currentFilter}
+                        currentFilter={currentFilter}
                     />
                     <Button
                         name="Cloud/Serverless"
                         activeCheck="cloud"
                         handleClick={() => handleFilter('cloud')}
-                        data={currentFilter}
+                        currentFilter={currentFilter}
                     />
                     <Button
                         name="Operating Systems"
                         activeCheck="os"
                         handleClick={() => handleFilter('os')}
-                        data={currentFilter}
+                        currentFilter={currentFilter}
                     />
                     <Button
                         name="Tools"
                         activeCheck="tools"
                         handleClick={() => handleFilter('tools')}
-                        data={currentFilter}
+                        currentFilter={currentFilter}
                     />
                 </div>
-                <div className="flex w-full flex-col rounded bg-bgDark shadow-lg shadow-bgDark/50 dark:bg-gray-900 dark:shadow-gray-900/50">
-                    <ul className="link-animate flex h-[450px] w-full flex-col flex-wrap py-4 text-sm text-textDark md:text-lg">
-                        {loaded &&
-                            filtered.map(
+                <div
+                    className={`flex w-full flex-col rounded bg-bgDark shadow-lg shadow-bgDark/50 dark:bg-gray-900 dark:shadow-gray-900/50`}
+                >
+                    <ul
+                        className={`link-animate flex h-[450px] w-full flex-col flex-wrap py-4 text-sm text-textDark md:text-lg ${
+                            !loaded && 'items-center justify-center'
+                        }`}
+                    >
+                        {loaded ? (
+                            filteredTech.map(
                                 (tech, index) =>
                                     tech.show && (
                                         <li
@@ -125,7 +131,16 @@ export default function TechSkills() {
                                             )}
                                         </li>
                                     )
-                            )}
+                            )
+                        ) : (
+                            // loading ring
+                            <div className="lds-ring">
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                                <div></div>
+                            </div>
+                        )}
                     </ul>
                 </div>
             </div>
