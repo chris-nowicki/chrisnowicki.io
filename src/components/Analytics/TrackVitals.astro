@@ -7,10 +7,6 @@
  * element this component also injects.
  */
 
-import { inject } from '@vercel/analytics';
-
-inject();
-
 const path = Object.entries(Astro.params).reduce(
     (acc, [key, value]) => acc.replace(value as string, `[${key}]`),
     Astro.url.pathname

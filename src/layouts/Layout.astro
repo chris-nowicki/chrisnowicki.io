@@ -2,7 +2,10 @@
 import Nav from '../components/NavBar/Nav.astro'
 import Footer from '../components/Footer.astro'
 import '../styles/global.css'
+
+// Analytics
 import TrackVitals from '../components/Analytics/TrackVitals.astro'
+import Audience from '../components/Analytics/Audience.astro'
 
 // types
 import { SEO } from '../ts/types'
@@ -99,6 +102,7 @@ const { title = 'Chris Nowicki' } = Astro.props
             </div>
             <Footer />
         </div>
+        <Audience />
         <TrackVitals />
     </body>
 </html>
