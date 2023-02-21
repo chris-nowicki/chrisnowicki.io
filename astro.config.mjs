@@ -19,14 +19,11 @@ import react from '@astrojs/react';
 import prefetch from '@astrojs/prefetch';
 
 // https://astro.build/config
-import compress from "astro-compress";
-
-// https://astro.build/config
 export default defineConfig({
   site: 'https://chrisnowicki.io',
   integrations: [tailwind(), image({
     serviceEntryPoint: '@astrojs/image/sharp'
-  }), sitemap(), react(), prefetch(), compress()],
+  }), sitemap(), react(), prefetch()],
   output: 'server',
   adapter: vercel({
     analytics: true
