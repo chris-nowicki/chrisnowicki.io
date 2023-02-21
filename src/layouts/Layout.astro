@@ -11,6 +11,10 @@ export interface Props {
     title?: string
 }
 
+import { inject } from '@vercel/analytics'
+
+inject()
+
 // sanity.io client & query
 import { client, seo as query } from '../lib/sanity'
 import { urlFor } from '../util/imageBuilder'
