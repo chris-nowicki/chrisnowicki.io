@@ -20,10 +20,22 @@ import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://chrisnowicki.io',
-  integrations: [tailwind(), sitemap(), react(), prefetch(), compress()],
-  output: 'server',
-  adapter: vercel({
-    analytics: true
-  })
-});
+    site: 'https://chrisnowicki.io',
+    integrations: [
+        tailwind(),
+        sitemap(),
+        react(),
+        prefetch(),
+        compress({
+            css: true,
+            html: false,
+            img: true,
+            js: true,
+            svg: true,
+        }),
+    ],
+    output: 'server',
+    adapter: vercel({
+        analytics: true,
+    }),
+})
