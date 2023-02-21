@@ -25,7 +25,6 @@ export interface FeaturedProjects {
     tags: string[]
     gitHubUrl: string
     liveSiteUrl: string
-    slug: string
 }
 
 export interface Technologies {

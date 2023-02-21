@@ -1,5 +1,4 @@
 ---
-import { Image } from '@astrojs/image/components'
 import Link from './Link.astro'
 import { urlFor } from '../../util/imageBuilder'
 
@@ -10,21 +9,19 @@ export interface Props {
     tags: string[]
     gitHubUrl: string
     liveSiteUrl: string
-    slug: string
 }
 
-const { name, excerpt, image, tags, gitHubUrl, liveSiteUrl, slug } = Astro.props
+const { name, excerpt, image, tags, gitHubUrl, liveSiteUrl } = Astro.props
 const projectImage = urlFor(image).url()
 ---
 
 <div class="flip-card h-[400px] w-[400px] md:h-[235px] md:w-[375px]">
     <div class="flip-card-inner">
         <div class="flip-card-front rounded shadow-lg shadow-black/25">
-            <Image
+            <img
                 src={projectImage}
                 width={375}
                 height={235}
-                format={'webp'}
                 alt="Avatar"
                 loading={'lazy'}
                 class="w-[400px] md:w-[375px]"
@@ -51,7 +48,7 @@ const projectImage = urlFor(image).url()
                 {
                     tags.map((tag, index) => (
                         <span
-                            class={`inline-flex items-center px-2.5 py-0.5 text-xs rounded
+                            class={`inline-flex items-center rounded px-2.5 py-0.5 text-xs
                                     ${
                                         index == 0
                                             ? 'bg-green-100  text-green-800'

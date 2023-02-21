@@ -21,7 +21,6 @@ export const tech: string = groq`*[_type == "tech"] {name, category, link, show}
 export const featuredProjects: string = groq`*[_type == "settings"] {
         "projects": featuredProjects.featured[]->{
         "name": projectName,
-        "slug": slug.current,
         excerpt,
         gitHubUrl,
         liveSiteUrl,

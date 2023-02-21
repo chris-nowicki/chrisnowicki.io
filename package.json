@@ -12,7 +12,6 @@
     "pretty": "prettier --write src/**/*.astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.15.0",
     "@astrojs/prefetch": "^0.1.2",
     "@astrojs/react": "^2.0.1",
     "@astrojs/sitemap": "^1.0.0",
@@ -29,7 +28,6 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rough-notation": "^0.5.1",
-    "sharp": "^0.31.3",
     "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
