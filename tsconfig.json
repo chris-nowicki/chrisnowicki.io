@@ -14,6 +14,6 @@
         "jsxImportSource": "react"
     },
     "extends": "astro/tsconfigs/base",
-    "include": ["**/*.ts", "**/*.tsx", "src/lib/reportWebVitals.js", "src/lib/vitals.js"],
+    "include": ["**/*.ts", "**/*.tsx", "src/lib/reportWebVitals.js", "src/lib/vitals.js", "src/lib/sanity.ts"],
     "exclude": ["node_modules"]
 }

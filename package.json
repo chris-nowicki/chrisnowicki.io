@@ -12,29 +12,25 @@
     "pretty": "prettier --write src/**/*.astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.13.0",
+    "@astrojs/image": "^0.15.0",
     "@astrojs/prefetch": "^0.1.2",
     "@astrojs/react": "^2.0.1",
     "@astrojs/sitemap": "^1.0.0",
     "@astrojs/tailwind": "^3.0.0",
-    "@astrojs/vercel": "^3.0.0",
+    "@astrojs/vercel": "^3.1.2",
     "@headlessui/react": "^1.7.10",
-    "@portabletext/to-html": "^1.0.4",
-    "@sanity/client": "^3.4.1",
+    "@sanity/client": "^5.2.2",
     "@sanity/image-url": "^1.0.1",
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.10",
-    "@vercel/analytics": "^0.1.10",
     "astro": "^2.0.2",
-    "axios": "^1.2.2",
     "es6-promise": "^4.2.8",
     "groq": "^3.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rough-notation": "^0.5.1",
     "sharp": "^0.31.3",
-    "tailwindcss": "^3.2.4",
-    "web-vitals": "^3.1.1"
+    "tailwindcss": "^3.2.4"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.9",

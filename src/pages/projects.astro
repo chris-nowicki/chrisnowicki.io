@@ -58,8 +58,8 @@ projects.sort((a, b) => {
                     <tbody>
                         {
                             projects.map((project: any) => (
-                                <tr class="dark:border-textDark/25 dark:text-textDark dark:hover:bg-textDark/25 border-b border-gray-900/25 align-top text-sm text-gray-900 hover:bg-purple-400 hover:bg-gray-900/25">
-                                    <td class="dark:text-purpleDark px-2 pt-2 text-purple-600">
+                                <tr class="border-b border-gray-900/25 align-top text-sm text-gray-900 hover:bg-purple-400 hover:bg-gray-900/25 dark:border-textDark/25 dark:text-textDark dark:hover:bg-textDark/25">
+                                    <td class="px-2 pt-2 text-purple-600 dark:text-purpleDark">
                                         {new Date(
                                             project.dateCreated
                                         ).getFullYear()}
@@ -89,7 +89,7 @@ projects.sort((a, b) => {
                                             <a
                                                 href={project.gitHubUrl}
                                                 target="_blank"
-                                                class="dark:hover:text-purpleDark hover:text-purple-600"
+                                                class="hover:text-purple-600 dark:hover:text-purpleDark"
                                             >
                                                 <GitBranchOutline size={24} />
                                             </a>
@@ -97,7 +97,7 @@ projects.sort((a, b) => {
                                                 <a
                                                     href={project.liveSiteUrl}
                                                     target="_blank"
-                                                    class="dark:hover:text-purpleDark hover:text-purple-600"
+                                                    class="hover:text-purple-600 dark:hover:text-purpleDark"
                                                 >
                                                     <OpenOutline size={24} />
                                                 </a>
