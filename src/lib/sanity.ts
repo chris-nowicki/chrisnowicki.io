@@ -51,6 +51,7 @@ export const resume = `*[_type == "resume"] {
     email,
     github,
     linkedin,
+    location,
     "resumeURL": resume.asset->url,
 }`
 

@@ -59,6 +59,7 @@ export type Resume = {
     github: string
     linkedin: string
     projects: string[]
+    location: string
 }
 
 export type Experience = {
