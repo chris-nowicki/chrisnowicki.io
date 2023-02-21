@@ -31,5 +31,7 @@ export default defineConfig({
         prefetch(),
     ],
     output: 'server',
-    adapter: vercel(),
+    adapter: vercel({
+        analytics: true,
+    }),
 })
