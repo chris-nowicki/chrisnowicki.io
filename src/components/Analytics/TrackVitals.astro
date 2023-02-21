@@ -21,8 +21,10 @@ const path = Object.entries(Astro.params).reduce(
   import { onCLS, onFCP, onFID, onLCP, onTTFB } from 'web-vitals';
 
   const vitalsUrl = 'https://vitals.vercel-analytics.com/v1/vitals';
-  const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID as string;
+  const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID
   const dataEl = document.querySelector<HTMLElement>('web-vitals-data');
+
+    console.log(analyticsId)
 
   if (analyticsId) {
     webVitals({

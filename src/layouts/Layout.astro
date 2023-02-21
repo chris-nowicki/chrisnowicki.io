@@ -3,6 +3,7 @@ import Nav from '../components/NavBar/Nav.astro'
 import Footer from '../components/Footer.astro'
 import '../styles/global.css'
 import TrackVitals from '../components/Analytics/TrackVitals.astro'
+import { webVitals } from '../lib/vitals'
 
 // types
 import { SEO } from '../ts/types'
@@ -23,6 +24,20 @@ const seo: SEO = response[0].seo
 const image = urlFor(seo.image).url()
 
 const { title = 'Chris Nowicki' } = Astro.props
+
+const path = Object.entries(Astro.params).reduce(
+    (acc, [key, value]) => acc.replace(value as string, `[${key}]`),
+    Astro.url.pathname
+)
+
+const analyticsId = import.meta.env.VERCEL_ANALYTICS_ID
+
+if (analyticsId) {
+    webVitals({
+        analyticsId,
+        path: path || location.pathname,
+    })
+}
 ---
 
 <!DOCTYPE html>
