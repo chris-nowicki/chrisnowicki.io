@@ -1,4 +1,5 @@
 import sanityClient from '@sanity/client'
+import groq from 'groq'
 
 export const client = sanityClient({
     projectId: import.meta.env.PUBLIC_SANITY_PROJECT_ID,
@@ -10,12 +11,12 @@ export const client = sanityClient({
 })
 
 // Sanity CMS Queries
-export const siteSettings: string = `*[_type == "settings"] {
+export const siteSettings: string = groq`*[_type == "settings"] {
     "profilePicture": profilePicture.asset._ref,
     "showProjects": featuredProjects.showProjects
 }`
 
-export const tech: string = '*[_type == "tech"] {name, category, link, show}'
+export const tech: string = groq`*[_type == "tech"] {name, category, link, show}`
 
 export const featuredProjects: string = `*[_type == "settings"] {
         "projects": featuredProjects.featured[]->{
@@ -31,7 +32,7 @@ export const featuredProjects: string = `*[_type == "settings"] {
     },
 }`
 
-export const projects: string = `*[_type == "projects"] {
+export const projects: string = groq`*[_type == "projects"] {
     projectName,
     dateCreated,
     "tags": tags[]->{
@@ -41,12 +42,12 @@ export const projects: string = `*[_type == "projects"] {
     liveSiteUrl
 }`
 
-export const links = `*[_type == "settings"] {
+export const links = groq`*[_type == "settings"] {
     "links": navigation.links,
     "showResume": navigation.showResume,
 }`
 
-export const resume = `*[_type == "resume"] {
+export const resume = groq`*[_type == "resume"] {
     name,
     email,
     github,
@@ -55,7 +56,7 @@ export const resume = `*[_type == "resume"] {
     "resumeURL": resume.asset->url,
 }`
 
-export const technicalProjects = `*[_type == "resume"] {
+export const technicalProjects = groq`*[_type == "resume"] {
     "projects": technicalProjects[]->{
         projectName,
         role,
@@ -68,7 +69,7 @@ export const technicalProjects = `*[_type == "resume"] {
     }
 }`
 
-export const professionalExperience = `*[_type == 'resume'] {
+export const professionalExperience = groq`*[_type == 'resume'] {
     professionalExperience[]->{
         company,
         companyURL,
@@ -79,7 +80,7 @@ export const professionalExperience = `*[_type == 'resume'] {
     }
 }`
 
-export const education = `*[_type == "resume"] {
+export const education = groq`*[_type == "resume"] {
     education[]->{
         school,
         schoolURL,
@@ -90,11 +91,11 @@ export const education = `*[_type == "resume"] {
     }
 }`
 
-export const picture = `*[_type == "settings"] {
+export const picture = groq`*[_type == "settings"] {
     "chrisnowicki": profilePicture.asset._ref
 }`
 
-export const seo = `*[_type == "settings"] {
+export const seo = groq`*[_type == "settings"] {
     seo {
         name,
         url,
