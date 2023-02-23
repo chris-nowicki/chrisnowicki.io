@@ -91,7 +91,7 @@ export default function Nav({
                         </div>
                     )}
 
-                    <ThemeToggle />
+                    {/* <ThemeToggle /> */}
                 </div>
             </div>
         </nav>
