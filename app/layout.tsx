@@ -2,6 +2,7 @@ import './globals.css'
 import Nav from '../components/NavBar/Nav'
 import Footer from 'components/Footer'
 import { AnalyticsWrapper } from 'components/Analytics'
+import Script from 'next/script'
 
 // fonts
 import { Roboto } from '@next/font/google'
@@ -78,7 +79,7 @@ export default async function RootLayout({
     return (
         <html lang="en" className={roboto.className}>
             <head>
-                <script src="../lib/theme.js"></script>
+                <Script src='../lib/theme.js'/>
             </head>
             <body className="bg-gray-50 dark:bg-bgDark dark:text-textDark">
                 <div className="flex h-screen flex-col items-center justify-between">
