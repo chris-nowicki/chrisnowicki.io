@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 import { Sun, Moon } from '../Icons'
 
 export default function ThemeToggle() {
-    const [theme, setTheme] = useState<string | null>(localStorage.getItem('theme') ?? 'light')
+    const [theme, setTheme] = useState<string | null>('dark')
 
     useEffect(() => {
         window

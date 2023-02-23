@@ -1,4 +1,5 @@
 'use client'
+import { useEffect } from 'react'
 import ThemeToggle from './ThemeToggle'
 
 //type
@@ -13,7 +14,8 @@ export default function Nav({
 }: {
     links: Links[]
     showResume: boolean
-}) {
+    }) {
+
     const handleMenu = () => {
         const btn = document.getElementById('menu-btn')
         const nav = document.getElementById('menu')

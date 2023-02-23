@@ -91,6 +91,17 @@ export default async function RootLayout({
                     <Footer />
                 </div>
             </body>
+            <Script id="theme">
+                {`
+                if (localStorage.theme === 'dark' ||
+                (!('theme' in localStorage) &&
+                    window.matchMedia('(prefers-color-scheme: dark)').matches)
+                ) {
+                    document.documentElement.classList.add('dark')
+                    localStorage.theme = 'dark'
+                }
+                `}
+            </Script>
         </html>
     )
 }

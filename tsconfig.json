@@ -26,7 +26,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts", "public/theme.js",
+    ".next/types/**/*.ts", "app/theme.js",
   ],
   "exclude": ["node_modules"]
 }
