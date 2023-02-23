@@ -78,9 +78,8 @@ export default async function RootLayout({
 
     return (
         <html lang="en" className={roboto.className}>
-            <head>
-                <Script src='../lib/theme.js'/>
-            </head>
+            <head />
+
             <body className="bg-gray-50 dark:bg-bgDark dark:text-textDark">
                 <div className="flex h-screen flex-col items-center justify-between">
                     <div className="w-full max-w-3xl">
@@ -92,6 +91,16 @@ export default async function RootLayout({
                     </div>
                     <Footer />
                 </div>
+                <Script>
+                    {`if (
+    localStorage.theme === 'dark' ||
+    (!('theme' in localStorage) &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches)
+) {
+    document.documentElement.classList.add('dark')
+    localStorage.theme = 'dark'
+}`}
+                </Script>
             </body>
         </html>
     )

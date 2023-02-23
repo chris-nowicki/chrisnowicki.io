@@ -43,7 +43,7 @@ export default function Nav({
                 <button
                     className="hamburger block shadow-2xl focus:outline-none md:hidden"
                     id="menu-btn"
-                    onClick={()=> handleMenu()}
+                    onClick={() => handleMenu()}
                 >
                     <span className="hamburger-top bg-black dark:bg-textDark"></span>
                     <span className="hamburger-middle bg-black dark:bg-textDark"></span>

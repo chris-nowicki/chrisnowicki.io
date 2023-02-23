@@ -3,7 +3,11 @@ import { useEffect, useState } from 'react'
 import { Sun, Moon } from '../Icons'
 
 export default function ThemeToggle() {
-    const [theme, setTheme] = useState<string>('light')
+    const [theme, setTheme] = useState<string | null>('light')
+
+    useEffect(() => {
+        setTheme(localStorage.getItem('theme'))
+    }, [])
 
     useEffect(() => {
         window
@@ -34,7 +38,9 @@ export default function ThemeToggle() {
         <>
             <button
                 className="cursor-pointer rounded-lg border border-neutral-200 p-2.5 hover:bg-neutral-100 dark:border-neutral-900/50 hover:dark:bg-neutral-900/20"
-                onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+                onClick={() => {
+                    setTheme(theme === 'light' ? 'dark' : 'light')
+                }}
             >
                 {theme === 'light' ? <Moon size={24} /> : <Sun size={24} />}
             </button>
