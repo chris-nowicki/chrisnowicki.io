@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Sun, Moon } from '../Icons'
 
 export default function ThemeToggle() {
@@ -21,7 +21,7 @@ export default function ThemeToggle() {
             })
     }, [])
 
-    useMemo(() => {
+    useEffect(() => {
         if (theme === 'dark') {
             document.documentElement.classList.add('dark')
         } else {
