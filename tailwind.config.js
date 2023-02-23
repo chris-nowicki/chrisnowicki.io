@@ -14,6 +14,9 @@ module.exports = {
             xl: '2000px',
         },
         extend: {
+            fontFamily: {
+                serif: ['var(--font-roboto)'],
+            },
             colors: {
                 bgDark: '#282a36',
                 textDark: '#f8f8f2',

@@ -10,6 +10,7 @@ import { Roboto } from '@next/font/google'
 const roboto = Roboto({
     weight: '400',
     subsets: ['latin'],
+    variable: '--font-roboto',
     display: 'swap',
 })
 
@@ -77,7 +78,7 @@ export default async function RootLayout({
     showResume = res[0].showResume
 
     return (
-        <html lang="en" className={roboto.className}>
+        <html lang="en" className={roboto.variable}>
             <head />
 
             <body className="bg-gray-50 dark:bg-bgDark dark:text-textDark">
@@ -91,9 +92,6 @@ export default async function RootLayout({
                     </div>
                     <Footer />
                 </div>
-                <Script src='./theme.js' />
-
-           
             </body>
         </html>
     )
