@@ -1,8 +1,8 @@
 {
 	"trailingComma": "es5",
-	"tabWidth": 2,
+	"tabWidth": 4,
 	"semi": false,
 	"singleQuote": true,
-	"plugins": ["prettier-plugin-astro", "prettier-plugin-tailwindcss"],
+	"plugins": ["prettier-plugin-tailwindcss"],
   "pluginSearchDirs": false
 }

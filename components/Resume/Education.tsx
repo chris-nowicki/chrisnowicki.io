@@ -1,0 +1,53 @@
+export default function Education({ education }) {
+    return (
+        <div className="flex w-full flex-col gap-4">
+            <div className="mb-1">
+                <h1 className="mb-2 text-center text-xl uppercase text-purple-600 dark:text-purpleDark md:text-left md:text-2xl">
+                    Education
+                </h1>
+
+                <div className="flex w-full flex-col rounded border border-neutral-200 p-4 dark:border-gray-900">
+                    {education.map((school: any, index: number) => (
+                        <>
+                            <div
+                                key={index}
+                                className="text-md mb-1 w-full border-b border-neutral-200 pb-2 dark:border-gray-900 md:text-lg"
+                            >
+                                <div className="flex flex-col justify-between md:flex-row">
+                                    <div className="flex flex-col gap-0 md:flex-row md:gap-1">
+                                        <p className="flex gap-1">
+                                            <b>{school.school}</b>{' '}
+                                            <span className="hidden md:block">
+                                                |
+                                            </span>{' '}
+                                        </p>
+                                        <p>
+                                            <em>{school.degree}</em>
+                                        </p>
+                                    </div>
+                                    {school.displayDate && (
+                                        <span className="hidden text-purple-600 dark:text-purpleDark md:block">
+                                            {' '}
+                                            {new Date(
+                                                school.dateEarned
+                                            ).getFullYear()}
+                                        </span>
+                                    )}
+                                </div>
+                                {school.details && (
+                                    <ul className="ml-6 mt-2 list-outside list-disc marker:text-purple-600 dark:marker:text-purpleDark md:mt-0">
+                                        {school.details.map(
+                                            (detail: string, index: number) => (
+                                                <li key={index}>{detail}</li>
+                                            )
+                                        )}
+                                    </ul>
+                                )}
+                            </div>
+                        </>
+                    ))}
+                </div>
+            </div>
+        </div>
+    )
+}
