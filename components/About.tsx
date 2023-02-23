@@ -28,7 +28,7 @@ export default function About({ image }: { image: string }) {
                 <div className="flex w-full flex-row justify-center md:justify-start">
                     <a
                         href="http://www.linkedin.com/in/chris-nowicki"
-                        className="mt-8 mr-4 flex items-center gap-2 rounded border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-gray-900 dark:hover:bg-gray-900/25"
+                        className="mt-8 mr-4 flex items-center gap-2 rounded border border-neutral-200 px-4 py-43text-lg hover:bg-neutral-100 dark:border-gray-900 dark:hover:bg-gray-900/25"
                         target="_blank"
                     >
                         <Linkedin size={24} />
@@ -37,7 +37,7 @@ export default function About({ image }: { image: string }) {
 
                     <a
                         href="https://github.com/chris-nowicki"
-                        className="mt-8 flex items-center gap-2 rounded border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-gray-900 dark:hover:bg-gray-900/25"
+                        className="mt-8 flex items-center gap-2 rounded border border-neutral-200 px-4 py-3 text-lg hover:bg-neutral-100 dark:border-gray-900 dark:hover:bg-gray-900/25"
                         target="_blank"
                     >
                         <GitHub size={24} />
