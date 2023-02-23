@@ -26,13 +26,7 @@ export default defineConfig({
         sitemap(),
         react(),
         prefetch(),
-        compress({
-            css: true,
-            html: false,
-            img: true,
-            js: true,
-            svg: true,
-        }),
+        compress(),
     ],
     output: 'server',
     adapter: vercel({
