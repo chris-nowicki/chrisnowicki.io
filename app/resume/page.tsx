@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import TechSkills from 'components/TechSkills/TechSkills'
 import TechnicalProjects from 'components/Resume/TechnicalProjects'
 import ProfessionalExperience from 'components/Resume/ProfessionalExperience'
@@ -39,7 +41,7 @@ export default async function Resume() {
             {/* name and email */}
             <div className="mb-4 flex gap-4 rounded border border-neutral-200 p-2 text-center dark:border-gray-900 md:text-left">
                 <div className="flex w-1/4">
-                    <img src={chrisnowicki} width="200px" className="rounded" />
+                    <Image src={chrisnowicki} width={200} height={200} className="rounded" priority alt="chris nowicki" />
                 </div>
                 <div className="flex w-3/4 flex-col items-center justify-center">
                     <h1 className="text-2xl md:text-5xl">{resume.name}</h1>

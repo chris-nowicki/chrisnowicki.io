@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 // icons
 import { Linkedin, GitHub, ArrowIcon } from './Icons'
 
@@ -28,7 +30,7 @@ export default function About({ image }: { image: string }) {
                 <div className="flex w-full flex-row justify-center md:justify-start">
                     <a
                         href="http://www.linkedin.com/in/chris-nowicki"
-                        className="mt-8 mr-4 flex items-center gap-2 rounded border border-neutral-200 px-4 py-43text-lg hover:bg-neutral-100 dark:border-gray-900 dark:hover:bg-gray-900/25"
+                        className="py-43text-lg mt-8 mr-4 flex items-center gap-2 rounded border border-neutral-200 px-4 hover:bg-neutral-100 dark:border-gray-900 dark:hover:bg-gray-900/25"
                         target="_blank"
                     >
                         <Linkedin size={24} />
@@ -47,12 +49,13 @@ export default function About({ image }: { image: string }) {
             </div>
 
             <div className="flex w-[200px] flex-col items-center sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
-                <img
+                <Image
                     className="w-full rounded shadow-lg md:w-auto"
-                    width="400px"
-                    height="400px"
+                    width={400}
+                    height={400}
                     src={image}
                     alt="chris nowicki"
+                    priority
                 />
             </div>
         </div>
