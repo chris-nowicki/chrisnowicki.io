@@ -1,12 +1,11 @@
 'use client'
-
-import { useEffect, useState } from 'react'
-
-// sanity client and query
-import { fetchSanity, tech as query } from '../../lib/sanity'
+import { useState } from 'react'
 
 // Components
 import Button from './Button'
+
+// button data
+import { btn } from './Names'
 
 // types
 import { Technologies } from '../../ts/types'
@@ -36,48 +35,15 @@ export default function TechSkills({ tech }) {
         <div className="mb-16 flex w-full flex-col items-center">
             <div className="flex w-full items-center sm:flex-col md:flex-row md:items-start">
                 <div className="mr-0 mb-4 flex w-full flex-row flex-wrap justify-center gap-2 md:mr-4 md:w-1/2 md:flex-col md:justify-start">
-                    <Button
-                        name="All"
-                        activeCheck="all"
-                        handleClick={() => handleFilter('all')}
-                        currentFilter={currentFilter}
-                    />
-                    <Button
-                        name="Languages"
-                        activeCheck="lang"
-                        handleClick={() => handleFilter('lang')}
-                        currentFilter={currentFilter}
-                    />
-                    <Button
-                        name="Frameworks/Libraries"
-                        activeCheck="framelib"
-                        handleClick={() => handleFilter('framelib')}
-                        currentFilter={currentFilter}
-                    />
-                    <Button
-                        name="Databases"
-                        activeCheck="db"
-                        handleClick={() => handleFilter('db')}
-                        currentFilter={currentFilter}
-                    />
-                    <Button
-                        name="Cloud/Serverless"
-                        activeCheck="cloud"
-                        handleClick={() => handleFilter('cloud')}
-                        currentFilter={currentFilter}
-                    />
-                    <Button
-                        name="Operating Systems"
-                        activeCheck="os"
-                        handleClick={() => handleFilter('os')}
-                        currentFilter={currentFilter}
-                    />
-                    <Button
-                        name="Tools"
-                        activeCheck="tools"
-                        handleClick={() => handleFilter('tools')}
-                        currentFilter={currentFilter}
-                    />
+                    {btn.map((btn) => (
+                        <Button
+                            key={btn.name}
+                            name={btn.name}
+                            activeCheck={btn.active}
+                            handleClick={() => handleFilter(btn.active)}
+                            currentFilter={currentFilter}
+                        />
+                    ))}
                 </div>
                 <div
                     className={`flex w-full flex-col rounded bg-bgDark shadow-lg shadow-bgDark/50 dark:bg-gray-900 dark:shadow-gray-900/50`}
@@ -89,7 +55,7 @@ export default function TechSkills({ tech }) {
                             (tech, index) =>
                                 tech.show && (
                                     <li
-                                        key={index}
+                                        key={tech.name}
                                         className="flex flex-wrap px-4"
                                     >
                                         {tech.link ? (

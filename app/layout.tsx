@@ -1,8 +1,10 @@
 import './globals.css'
 import Nav from '../components/NavBar/Nav'
 import Footer from 'components/Footer'
+import type { Metadata } from 'next'
+
+// vercel analytics
 import { AnalyticsWrapper } from 'components/Analytics'
-import Script from 'next/script'
 
 // fonts
 import { Roboto } from '@next/font/google'
@@ -14,55 +16,53 @@ const roboto = Roboto({
     display: 'swap',
 })
 
-// types
-import { Links } from '../ts/types'
-
 // sanity.io client & query
-import { fetchSanity, links as query } from '../lib/sanity'
+import { getSettings, getSEO, urlFor } from '../lib/sanity'
 
-export const metadata = {
-    title: {
-        default: 'Chris Nowicki',
-        template: '%s | Chris Nowicki',
-    },
-    description: 'Full-Stack Developer & Technology Nerd.',
-    openGraph: {
-        title: 'Chris Nowicki',
-        description: 'Full-Stack Developer & Technology Nerd.',
-        url: 'https://chrisnowicki.io',
-        siteName: 'Chris Nowicki',
-        // images: [
-        //   {
-        //     url: 'https://leerob.io/og.jpg',
-        //     width: 1920,
-        //     height: 1080,
-        //   },
-        // ],
-        locale: 'en-US',
-        type: 'website',
-    },
-    robots: {
-        index: true,
-        follow: true,
-        googleBot: {
+export async function generateMetadata(): Promise<Metadata | undefined> {
+    const seo = await getSEO()
+    const OG = urlFor(seo.image).url()
+
+    return {
+        title: {
+            default: seo.name,
+            template: `%s | ${seo.name}`,
+        },
+        description: seo.description,
+        openGraph: {
+            title: seo.name,
+            description: seo.description,
+            url: seo.url,
+            siteName: seo.siteName,
+            images: [
+                {
+                    url: OG,
+                    width: 1920,
+                    height: 1080,
+                },
+            ],
+            locale: 'en-US',
+            type: seo.type,
+        },
+        robots: {
             index: true,
             follow: true,
-            'max-video-preview': -1,
-            'max-image-preview': 'large',
-            'max-snippet': -1,
+            googleBot: {
+                index: true,
+                follow: true,
+                'max-video-preview': -1,
+                'max-image-preview': 'large',
+                'max-snippet': -1,
+            },
         },
-    },
-    twitter: {
-        title: 'Chris NOwicki',
-        card: 'summary_large_image',
-    },
-    icons: {
-        shortcut: '/favicon.ico',
-    },
-    // verification: {
-    //   google:
-    //   yandex:
-    // },
+        twitter: {
+            title: seo.name,
+            card: 'summary_large_image',
+        },
+        icons: {
+            shortcut: '/favicon.ico',
+        },
+    }
 }
 
 export default async function RootLayout({
@@ -70,19 +70,18 @@ export default async function RootLayout({
 }: {
     children: React.ReactNode
 }) {
-    let links: Links[]
-    let showResume: boolean
-
-    const res = await fetchSanity(query)
-    links = res[0].links
-    showResume = res[0].showResume
+    const settingData = getSettings()
+    const [settings] = await Promise.all([settingData])
 
     return (
         <html lang="en" className={roboto.variable}>
             <body className="bg-gray-50 dark:bg-bgDark dark:text-textDark">
                 <div className="flex h-screen flex-col items-center justify-between">
                     <div className="w-full max-w-3xl">
-                        <Nav links={links} showResume={showResume} />
+                        <Nav
+                            links={settings.links}
+                            showResume={settings.showResume}
+                        />
                         <main>
                             {children}
                             <AnalyticsWrapper />

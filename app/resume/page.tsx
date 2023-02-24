@@ -3,6 +3,13 @@ import TechnicalProjects from 'components/Resume/TechnicalProjects'
 import ProfessionalExperience from 'components/Resume/ProfessionalExperience'
 import Education from 'components/Resume/Education'
 
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Resume',
+    description: 'Read through my resume if you are interested in hiring me!',
+}
+
 // icons
 import {
     Location,

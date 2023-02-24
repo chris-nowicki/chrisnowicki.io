@@ -44,7 +44,6 @@ export async function getFeaturedProjects() {
     const res = await fetchSanity(query)
     return res[0]
 }
-export const tech: string = groq`*[_type == "tech"] {name, category, link, show} | order(name asc)`
 
 export const projects: string = groq`*[_type == "projects"] {
     projectName,
@@ -56,10 +55,31 @@ export const projects: string = groq`*[_type == "projects"] {
     liveSiteUrl
 }`
 
-export const links = groq`*[_type == "settings"] {
-    "links": navigation.links,
-    "showResume": navigation.showResume,
-}`
+export async function getSettings() {
+    const query = groq`*[_type == "settings"] {
+        "links": navigation.links,
+        "showResume": navigation.showResume,
+    }`
+
+    const res = await fetchSanity(query)
+    return res[0]
+}
+export async function getSEO() {
+    const query = groq`*[_type == "settings"] {
+        seo {
+            name,
+            siteName,
+            url,
+            description,
+            type,
+            "image": image.asset._ref,
+            twitter
+        }
+    }`
+
+    const res = await fetchSanity(query)
+    return res[0].seo
+}
 
 export async function getResume() {
     const query = groq`*[_type == "resume"] {
@@ -102,7 +122,7 @@ export async function getResume() {
 }
 
 export async function getTechData() {
-    const query = groq`*[_type == "tech"] {name, category, link, show} | order(name asc)`
+    const query = groq`*[_type == "tech"] {name, category, link, show} | order(lower(name) asc)`
 
     const res = await fetchSanity(query)
     return res
@@ -116,14 +136,3 @@ export async function getImage() {
     const image = res[0].chrisnowicki
     return urlFor(image).url()
 }
-
-export const seo = groq`*[_type == "settings"] {
-    seo {
-        name,
-        url,
-        description,
-        type,
-        "image": image.asset._ref,
-        twitter
-    }
-}`
