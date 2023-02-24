@@ -24,7 +24,7 @@ export default function Nav({
     }
 
     return (
-        <nav id="home" className="mb-6 flex flex-col items-center">
+        <nav id="home" className="mb-6 flex flex-col items-center w-full">
             <div className="flex w-full flex-row items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none">
                 <div className="items-center sm:hidden md:flex">
                     {links.map(
