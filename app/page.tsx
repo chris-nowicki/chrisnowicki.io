@@ -18,7 +18,7 @@ export default async function Home() {
     ])
 
     return (
-        <div className="px-10 lg:px-0">
+        <div className="px-10 md:px-0">
             <About image={chrisnowicki} />
             <div className="flex w-full flex-col items-center">
                 <span className="mb-3 mt-16 w-full rounded bg-bgDark p-2 text-center text-2xl text-purpleDark dark:bg-gray-900 md:px-0 md:text-4xl">
