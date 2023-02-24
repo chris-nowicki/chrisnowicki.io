@@ -35,6 +35,7 @@ export default function Contact({ showProjects }) {
                 >
                     Say Hello
                 </a>
+                <span className="text-md text-textDark mt-2">chris@chrisnowicki.io</span>
             </div>
         </div>
     )
