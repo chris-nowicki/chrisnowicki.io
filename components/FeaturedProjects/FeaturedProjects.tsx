@@ -6,7 +6,7 @@ export default function FeaturedProjects({ projects }) {
         <div className="mb-16 flex w-full flex-col items-center lg:items-center">
             <h1
                 id="projects"
-                className="mt-1 text-center text-2xl text-purple-600 dark:text-purpleDark md:text-4xl"
+                className="mt-1 text-center text-2xl text-purple-light dark:text-purple-dark md:text-4xl"
             >
                 Featured Projects
             </h1>
@@ -28,7 +28,7 @@ export default function FeaturedProjects({ projects }) {
                     />
                 ))}
             </div>
-            <span className="mt-8 flex w-1/2 border-b-2 border-purple-600 border-opacity-50 dark:border-purpleDark dark:border-opacity-50"></span>
+            <span className="mt-8 flex w-1/2 border-b-2 border-purple-light border-opacity-50 dark:border-purple-dark dark:border-opacity-50"></span>
         </div>
     )
 }

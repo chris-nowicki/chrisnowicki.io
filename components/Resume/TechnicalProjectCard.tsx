@@ -2,8 +2,8 @@ import { GitBranchOutline, OpenOutline } from 'components/Icons'
 
 export default function TechnicalProjectCard({ project }) {
     return (
-        <div className="text-md flex flex-col rounded border border-neutral-200 dark:border-gray-900 md:text-lg">
-            <div className="flex flex-wrap border-b border-neutral-200 bg-neutral-100 p-4 dark:border-gray-900 dark:bg-gray-900/25 md:flex-nowrap">
+        <div className="text-md flex flex-col rounded border border-neutral-200 dark:border-background-dark md:text-lg">
+            <div className="flex flex-wrap border-b border-neutral-200 bg-neutral-100 p-4 dark:border-background-dark dark:bg-background-dark/25 md:flex-nowrap">
                 <div className="flex w-full flex-col items-center md:items-start">
                     <div className="flex flex-col">
                         <p className="mb-1 flex gap-1 text-center md:text-left">
@@ -34,7 +34,7 @@ export default function TechnicalProjectCard({ project }) {
                     <a
                         href={project.gitHubURL}
                         target="_blank"
-                        className="text-md flex items-center gap-1 rounded border p-2 hover:text-purple-600 dark:border-gray-900 dark:hover:text-purpleDark md:border-0 md:p-0"
+                        className="text-md flex items-center gap-1 rounded border p-2 hover:text-purple-light dark:border-background-dark dark:hover:text-purple-dark md:border-0 md:p-0"
                     >
                         <GitBranchOutline size={24} />
                         <span className="block md:hidden">Code</span>
@@ -43,7 +43,7 @@ export default function TechnicalProjectCard({ project }) {
                         <a
                             href={project.liveSiteURL}
                             target="_blank"
-                            className="text-md flex items-center gap-1 rounded border p-2 hover:text-purple-600 dark:border-gray-900 dark:hover:text-purpleDark md:border-0 md:p-0"
+                            className="text-md flex items-center gap-1 rounded border p-2 hover:text-purple-light dark:border-background-dark dark:hover:text-purple-dark md:border-0 md:p-0"
                         >
                             <>
                                 <OpenOutline size={24} />
@@ -58,9 +58,13 @@ export default function TechnicalProjectCard({ project }) {
             <div className="p-4">
                 {project.projectDetails.map(
                     (project: any, index: number) =>
-                        index == 0 && <p key={index} className="italic">{project}</p>
+                        index == 0 && (
+                            <p key={index} className="italic">
+                                {project}
+                            </p>
+                        )
                 )}
-                <ul className="text-md ml-6 list-outside list-disc marker:text-purple-600 dark:marker:text-purpleDark md:text-lg">
+                <ul className="text-md ml-6 list-outside list-disc marker:text-purple-light dark:marker:text-purple-dark md:text-lg">
                     {project.projectDetails.map(
                         (project: any, index: number) =>
                             index !== 0 && <li key={index}>{project}</li>

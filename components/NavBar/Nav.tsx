@@ -30,7 +30,7 @@ export default function Nav({
                                 <a
                                     key={index}
                                     href={link.reference}
-                                    className={`mr-4 text-xl hover:text-purple-600 dark:text-textDark dark:hover:text-purpleDark `}
+                                    className={`mr-4 text-xl hover:text-purple-light dark:text-foreground dark:hover:text-purple-dark `}
                                 >
                                     {link.title}
                                 </a>
@@ -43,15 +43,15 @@ export default function Nav({
                     id="menu-btn"
                     onClick={() => handleMenu()}
                 >
-                    <span className="hamburger-top bg-black dark:bg-textDark"></span>
-                    <span className="hamburger-middle bg-black dark:bg-textDark"></span>
-                    <span className="hamburger-bottom bg-black dark:bg-textDark"></span>
+                    <span className="hamburger-top bg-black dark:bg-foreground"></span>
+                    <span className="hamburger-middle bg-black dark:bg-foreground"></span>
+                    <span className="hamburger-bottom bg-black dark:bg-foreground"></span>
                 </button>
 
                 <div className="md:hidden">
                     <div
                         id="menu"
-                        className="absolute left-6 right-6 z-10 -ml-6 mt-10 hidden h-1/4 flex-col items-center justify-center space-y-2 self-end bg-bgDark py-4 text-textDark opacity-95 drop-shadow-md dark:bg-gray-900 sm:w-full sm:self-center"
+                        className="absolute left-6 right-6 z-10 -ml-6 mt-10 hidden h-1/4 flex-col items-center justify-center space-y-2 self-end bg-background-light py-4 text-foreground opacity-95 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
                     >
                         {links.map(
                             (link, index) =>
@@ -59,7 +59,7 @@ export default function Nav({
                                     <a
                                         key={index}
                                         href={link.reference}
-                                        className="text-3xl text-textDark hover:text-purpleDark"
+                                        className="text-3xl text-foreground hover:text-purple-dark"
                                     >
                                         {link.title}
                                     </a>
@@ -73,7 +73,7 @@ export default function Nav({
                         <div className="flex flex-row">
                             <a
                                 href="/resume"
-                                className={`flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50  dark:text-textDark hover:dark:bg-neutral-900/20`}
+                                className={`flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50  dark:text-foreground hover:dark:bg-neutral-900/20`}
                             >
                                 <div className="mr-2 flex items-center gap-2 md:mr-6">
                                     <PDF

@@ -76,7 +76,7 @@ export default async function RootLayout({
 
     return (
         <html lang="en" className={roboto.variable} suppressHydrationWarning>
-            <body className="bg-gray-50 dark:bg-bgDark dark:text-textDark">
+            <body className="bg-gray-50 dark:bg-background-light dark:text-foreground">
                 <div className="flex h-screen flex-col items-center justify-between">
                     <div className="w-full max-w-3xl">
                         <Nav

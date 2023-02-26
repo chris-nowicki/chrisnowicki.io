@@ -39,15 +39,22 @@ export default async function Resume() {
     return (
         <div className="px-5 lg:px-0">
             {/* name and email */}
-            <div className="mb-4 flex gap-4 rounded border border-neutral-200 p-2 text-center dark:border-gray-900 md:text-left">
+            <div className="mb-4 flex gap-4 rounded border border-neutral-200 p-2 text-center dark:border-background-dark md:text-left">
                 <div className="flex w-1/4">
-                    <Image src={chrisnowicki} width={200} height={200} className="rounded" priority alt="chris nowicki" />
+                    <Image
+                        src={chrisnowicki}
+                        width={200}
+                        height={200}
+                        className="rounded"
+                        priority
+                        alt="chris nowicki"
+                    />
                 </div>
                 <div className="flex w-3/4 flex-col items-center justify-center">
                     <h1 className="text-2xl md:text-5xl">{resume.name}</h1>
                     <a
                         href="mailto:chris@chrisnowicki.io"
-                        className="ml-1 text-lg text-purple-600 hover:underline dark:text-purpleDark md:text-2xl"
+                        className="ml-1 text-lg text-purple-light hover:underline dark:text-purple-dark md:text-2xl"
                     >
                         {resume.email}
                     </a>
@@ -63,7 +70,7 @@ export default async function Resume() {
                 {/* resume link */}
                 <a
                     href={`${resume.resumeURL}?dl=`}
-                    className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-gray-900 hover:dark:bg-gray-900/25"
+                    className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/25"
                 >
                     <div className="flex items-center gap-2">
                         <PDF size={24} />
@@ -75,7 +82,7 @@ export default async function Resume() {
                 {/* linkedin link */}
                 <a
                     href={resume.linkedin}
-                    className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-gray-900 hover:dark:bg-gray-900/25"
+                    className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/25"
                     target="_blank"
                 >
                     <div className="flex items-center gap-2">
@@ -88,7 +95,7 @@ export default async function Resume() {
                 {/* github Link */}
                 <a
                     href={resume.github}
-                    className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-gray-900 hover:dark:bg-gray-900/20"
+                    className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/20"
                     target="_blank"
                 >
                     <div className="flex items-center gap-2">
@@ -104,7 +111,7 @@ export default async function Resume() {
                 {/* Technical Skills */}
                 <div className="-mb-8 flex w-full flex-col gap-4">
                     <div className="mb-1">
-                        <h1 className="mb-2 text-center text-xl uppercase text-purple-600 dark:text-purpleDark md:text-left md:text-2xl">
+                        <h1 className="mb-2 text-center text-xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-2xl">
                             Technical Skills
                         </h1>
                         <TechSkills tech={tech} />

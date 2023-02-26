@@ -21,7 +21,7 @@ export default async function Home() {
         <div className="px-10 md:px-0">
             <About image={chrisnowicki} />
             <div className="flex w-full flex-col items-center">
-                <span className="mb-3 mt-16 w-full rounded bg-bgDark p-2 text-center text-2xl text-purpleDark dark:bg-gray-900 md:px-0 md:text-4xl">
+                <span className="mb-3 mt-16 w-full rounded bg-background-light p-2 text-center text-2xl text-purple-dark dark:bg-background-dark md:px-0 md:text-4xl">
                     Technical Skills
                 </span>
 

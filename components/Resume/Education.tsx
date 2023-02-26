@@ -2,16 +2,16 @@ export default function Education({ education }) {
     return (
         <div className="flex w-full flex-col gap-4">
             <div className="mb-1">
-                <h1 className="mb-2 text-center text-xl uppercase text-purple-600 dark:text-purpleDark md:text-left md:text-2xl">
+                <h1 className="mb-2 text-center text-xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-2xl">
                     Education
                 </h1>
 
-                <div className="flex w-full flex-col rounded border border-neutral-200 p-4 dark:border-gray-900">
+                <div className="flex w-full flex-col rounded border border-neutral-200 p-4 dark:border-background-dark">
                     {education.map((school: any, index: number) => (
                         <>
                             <div
                                 key={index}
-                                className="text-md mb-1 w-full border-b border-neutral-200 pb-2 dark:border-gray-900 md:text-lg"
+                                className="text-md mb-1 w-full border-b border-neutral-200 pb-2 dark:border-background-dark md:text-lg"
                             >
                                 <div className="flex flex-col justify-between md:flex-row">
                                     <div className="flex flex-col gap-0 md:flex-row md:gap-1">
@@ -26,7 +26,7 @@ export default function Education({ education }) {
                                         </p>
                                     </div>
                                     {school.displayDate && (
-                                        <span className="hidden text-purple-600 dark:text-purpleDark md:block">
+                                        <span className="hidden text-purple-light dark:text-purple-dark md:block">
                                             {' '}
                                             {new Date(
                                                 school.dateEarned
@@ -35,7 +35,7 @@ export default function Education({ education }) {
                                     )}
                                 </div>
                                 {school.details && (
-                                    <ul className="ml-6 mt-2 list-outside list-disc marker:text-purple-600 dark:marker:text-purpleDark md:mt-0">
+                                    <ul className="ml-6 mt-2 list-outside list-disc marker:text-purple-light dark:marker:text-purple-dark md:mt-0">
                                         {school.details.map(
                                             (detail: string, index: number) => (
                                                 <li key={index}>{detail}</li>

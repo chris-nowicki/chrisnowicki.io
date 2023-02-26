@@ -9,7 +9,7 @@ export default function About({ image }: { image: string }) {
             <div className="flex w-full flex-col items-center text-center text-xl md:mr-6 md:items-start md:text-left">
                 <p className="mb-3 md:mt-0 md:text-3xl">
                     Hello, I'm{' '}
-                    <span className="text-purple-600 dark:text-purpleDark">
+                    <span className="text-purple-light dark:text-purple-dark">
                         Chris Nowicki
                     </span>
                     .
@@ -23,14 +23,14 @@ export default function About({ image }: { image: string }) {
                     I excel at bringing web designs to life and am passionate
                     about backend development.
                 </p>
-                <p className="mt-4 font-mono text-lg font-bold text-purple-600 dark:text-purpleDark md:mr-4">
+                <p className="mt-4 font-mono text-lg font-bold text-purple-light dark:text-purple-dark md:mr-4">
                     I'm currently looking for a new role as a full-stack
                     engineer.
                 </p>
                 <div className="flex w-full flex-row justify-center md:justify-start">
                     <a
                         href="http://www.linkedin.com/in/chris-nowicki"
-                        className="py-43text-lg mt-8 mr-4 flex items-center gap-2 rounded border border-neutral-200 px-4 hover:bg-neutral-100 dark:border-gray-900 dark:hover:bg-gray-900/25"
+                        className="py-43text-lg mt-8 mr-4 flex items-center gap-2 rounded border border-neutral-200 px-4 hover:bg-neutral-100 dark:border-background-dark dark:hover:bg-background-dark/25"
                         target="_blank"
                     >
                         <Linkedin size={24} />
@@ -39,7 +39,7 @@ export default function About({ image }: { image: string }) {
 
                     <a
                         href="https://github.com/chris-nowicki"
-                        className="mt-8 flex items-center gap-2 rounded border border-neutral-200 px-4 py-3 text-lg hover:bg-neutral-100 dark:border-gray-900 dark:hover:bg-gray-900/25"
+                        className="mt-8 flex items-center gap-2 rounded border border-neutral-200 px-4 py-3 text-lg hover:bg-neutral-100 dark:border-background-dark dark:hover:bg-background-dark/25"
                         target="_blank"
                     >
                         <GitHub size={24} />

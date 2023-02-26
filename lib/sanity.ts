@@ -1,3 +1,4 @@
+import 'server-only'
 import { createClient, groq } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
 import { cache } from 'react'

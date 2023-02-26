@@ -14,7 +14,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #bd93f9;
+    background-light-color: #bd93f9;
     transform: scaleX(0);
     transform-origin: top left;
     transition: transform 0.3s ease;
@@ -79,11 +79,11 @@
 }
 ::-webkit-scrollbar-thumb {
     min-height: 50px;
-    background-color: #bd93f9;
+    background-light-color: #bd93f9;
     height: 50px;
 }
 ::-webkit-scrollbar-track {
-    background: #e3e3e3;
+    background-light: #e3e3e3;
 }
 .parent {
     width: calc(100% - 10px);
@@ -103,7 +103,7 @@
 /* featured project card */
 
 .flip-card {
-    background-color: transparent;
+    background-light-color: transparent;
     height: 235px;
     perspective: 1000px;
 }
@@ -134,7 +134,7 @@
 }
 
 .flip-card-front {
-    background-color: #bbb;
+    background-light-color: #bbb;
     color: black;
 }
 

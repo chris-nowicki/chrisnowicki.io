@@ -8,8 +8,8 @@ type TechFilterButton = {
     handleClick: any
 }
 
-const activeCSS = `rounded border border-neutral-200 p-2 text-sm dark:border-gray-900 dark:text-textDark md:text-lg dark:border-bg-gray-900 bg-bgDark text-textDark dark:bg-gray-900 dark:text-[#bd93f9]`
-const css = `rounded border border-neutral-200 p-2 text-sm hover:bg-neutral-100 dark:border-gray-900 dark:text-textDark dark:hover:bg-gray-900/25 md:text-lg`
+const activeCSS = `rounded border border-neutral-200 p-2 text-sm dark:border-background-dark dark:text-foreground md:text-lg dark:border-bg-background-dark bg-background-light text-foreground dark:bg-background-dark dark:text-[#bd93f9]`
+const css = `rounded border border-neutral-200 p-2 text-sm hover:bg-neutral-100 dark:border-background-dark dark:text-foreground dark:hover:bg-background-dark/25 md:text-lg`
 
 export default function Button({
     name,

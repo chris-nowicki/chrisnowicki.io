@@ -33,10 +33,10 @@ export default function ProjectCard({
                         className="w-[400px] md:w-[375px]"
                     />
                 </div>
-                <div className="flip-card-back flex cursor-default flex-col justify-start bg-bgDark shadow-md shadow-black/25 dark:bg-gray-900">
+                <div className="flip-card-back flex cursor-default flex-col justify-start bg-background-light shadow-md shadow-black/25 dark:bg-background-dark">
                     <div className="mt-4">
-                        <span className="text-lg text-purpleDark">{name}</span>
-                        <p className="mt-2 px-4 text-lg text-textDark">
+                        <span className="text-lg text-purple-dark">{name}</span>
+                        <p className="mt-2 px-4 text-lg text-foreground">
                             {excerpt}
                         </p>
                     </div>

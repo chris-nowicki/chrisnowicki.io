@@ -14,7 +14,7 @@ export default function Link({
         <>
             <a
                 href={url}
-                className="hover:bg-purple-60 flex w-1/3 items-center justify-center rounded border border-purpleDark p-1 text-textDark hover:bg-purpleDark md:w-1/2"
+                className="hover:bg-purple-60 flex w-1/3 items-center justify-center rounded border border-purple-dark p-1 text-foreground hover:bg-purple-dark md:w-1/2"
                 target="_blank"
             >
                 {icon == 'github' ? (

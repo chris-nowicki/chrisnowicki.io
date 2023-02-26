@@ -46,10 +46,10 @@ export default function TechSkills({ tech }) {
                     ))}
                 </div>
                 <div
-                    className={`flex w-full flex-col rounded bg-bgDark shadow-lg shadow-bgDark/50 dark:bg-gray-900 dark:shadow-gray-900/50`}
+                    className={`flex w-full flex-col rounded bg-background-light shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50`}
                 >
                     <ul
-                        className={`link-animate flex h-[450px] w-full flex-col flex-wrap py-4 text-sm text-textDark md:text-lg `}
+                        className={`link-animate flex h-[450px] w-full flex-col flex-wrap py-4 text-sm text-foreground md:text-lg `}
                     >
                         {filteredTech.map(
                             (tech, index) =>
@@ -62,7 +62,7 @@ export default function TechSkills({ tech }) {
                                             <a
                                                 href={tech.link}
                                                 target="_blank"
-                                                className="text-textDark hover:text-purpleDark"
+                                                className="text-foreground hover:text-purple-dark"
                                             >
                                                 {tech.name}
                                             </a>
