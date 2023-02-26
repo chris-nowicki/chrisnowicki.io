@@ -13,8 +13,7 @@ export default function Nav({
 }: {
     links: Links[]
     showResume: boolean
-    }) {
-
+}) {
     const handleMenu = () => {
         const btn = document.getElementById('menu-btn')
         const nav = document.getElementById('menu')
@@ -24,7 +23,7 @@ export default function Nav({
     }
 
     return (
-        <nav id="home" className="mb-6 flex flex-col items-center w-full">
+        <nav id="home" className="mb-6 flex w-full flex-col items-center">
             <div className="flex w-full flex-row items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none">
                 <div className="items-center sm:hidden md:flex">
                     {links.map(
@@ -54,7 +53,7 @@ export default function Nav({
                 <div className="md:hidden">
                     <div
                         id="menu"
-                        className="absolute left-6 right-6 z-10 -mx-6 mt-10 hidden h-1/4 flex-col items-center justify-center space-y-2 self-end bg-bgDark py-4 text-textDark opacity-95 drop-shadow-md dark:bg-gray-900 sm:w-full sm:self-center"
+                        className="absolute left-6 right-6 z-10 -ml-6 mt-10 hidden h-1/4 flex-col items-center justify-center space-y-2 self-end bg-bgDark py-4 text-textDark opacity-95 drop-shadow-md dark:bg-gray-900 sm:w-full sm:self-center"
                     >
                         {links.map(
                             (link, index) =>
@@ -90,7 +89,7 @@ export default function Nav({
                         </div>
                     )}
 
-                    {/* <ThemeToggle /> */}
+                    <ThemeToggle />
                 </div>
             </div>
         </nav>

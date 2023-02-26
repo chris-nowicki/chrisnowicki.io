@@ -2,6 +2,7 @@ import './globals.css'
 import Nav from '../components/NavBar/Nav'
 import Footer from 'components/Footer'
 import type { Metadata } from 'next'
+import { Providers } from './Providers'
 
 // vercel analytics
 import { AnalyticsWrapper } from 'components/Analytics'
@@ -74,21 +75,23 @@ export default async function RootLayout({
     const [settings] = await Promise.all([settingData])
 
     return (
-        <html lang="en" className={roboto.variable}>
+        <html lang="en" className={roboto.variable} suppressHydrationWarning>
             <body className="bg-gray-50 dark:bg-bgDark dark:text-textDark">
-                <div className="flex h-screen flex-col items-center justify-between">
-                    <div className="w-full max-w-3xl">
-                        <Nav
-                            links={settings.links}
-                            showResume={settings.showResume}
-                        />
-                        <main>
-                            {children}
-                            <AnalyticsWrapper />
-                        </main>
+                <Providers>
+                    <div className="flex h-screen flex-col items-center justify-between">
+                        <div className="w-full max-w-3xl">
+                            <Nav
+                                links={settings.links}
+                                showResume={settings.showResume}
+                            />
+                            <main>
+                                {children}
+                                <AnalyticsWrapper />
+                            </main>
+                        </div>
+                        <Footer />
                     </div>
-                    <Footer />
-                </div>
+                </Providers>
             </body>
         </html>
     )
