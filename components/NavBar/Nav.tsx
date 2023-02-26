@@ -30,7 +30,7 @@ export default function Nav({
                                 <a
                                     key={index}
                                     href={link.reference}
-                                    className={`mr-4 text-xl hover:text-purple-600 dark:text-textDark dark:hover:text-purpleDark `}
+                                    className={`mr-4 text-xl dark:text-textDark p-2 hover:border rounded-md hover:border-neutral-200 `}
                                 >
                                     {link.title}
                                 </a>
