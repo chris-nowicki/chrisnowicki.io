@@ -1,6 +1,4 @@
 'use client'
-import ThemeToggle from './ThemeToggle'
-
 //type
 import { Links } from 'ts/types'
 
@@ -89,7 +87,7 @@ export default function Nav({
                         </div>
                     )}
 
-                    <ThemeToggle />
+                    {/* <ThemeToggle /> */}
                 </div>
             </div>
         </nav>

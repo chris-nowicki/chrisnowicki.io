@@ -5,7 +5,6 @@ module.exports = {
         './components/**/*.{ts,tsx}',
         './content/**/*.mdx',
     ],
-    darkMode: 'class',
     theme: {
         screens: {
             sm: '375px',
