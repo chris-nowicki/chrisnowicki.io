@@ -8,7 +8,6 @@ export default function ThemeToggle() {
     const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
-        setMounted(true)
         window
             .matchMedia('(prefers-color-scheme: dark)')
             .addEventListener('change', ({ matches }) => {
@@ -22,6 +21,10 @@ export default function ThemeToggle() {
                     }
                 }
             })
+    }, [])
+
+    useEffect(() => {
+        setMounted(true)
     }, [])
 
     return (
