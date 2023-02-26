@@ -26,6 +26,7 @@ export default async function Home() {
                 </span>
 
                 <TechSkills tech={tech} />
+
                 {projects.showProjects && (
                     <FeaturedProjects projects={projects.projects} />
                 )}

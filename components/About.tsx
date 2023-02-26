@@ -48,7 +48,7 @@ export default function About({ image }: { image: string }) {
                 </div>
             </div>
 
-            <div className="flex w-[200px] flex-col items-center sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
+            <div className="flex w-[200px] flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
                 <Image
                     className="w-full rounded shadow-lg md:w-auto"
                     width={400}

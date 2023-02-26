@@ -6,7 +6,7 @@ export default function Contact({ showProjects }) {
                 showProjects
                     ? 'mb-16 bg-background-light py-8 text-foreground shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50'
                     : 'text-black dark:text-foreground'
-            }   px-16 `}
+            }   px-8 md:px-16 `}
         >
             <div className="flex flex-col items-center">
                 <h1
@@ -25,7 +25,7 @@ export default function Contact({ showProjects }) {
                 </p>
                 <a
                     href="mailto:chris@chrisnowicki.io"
-                    className={`mt-8 rounded-lg border-2 px-6 py-2 ${
+                    className={`mt-8 flex flex-col items-center rounded-lg border-2 px-6 py-2 ${
                         showProjects
                             ? 'border-purple-dark  text-purple-dark hover:bg-purple-dark hover:text-foreground'
                             : 'dark:hover:text-foreground`  border-purple-light text-purple-light hover:bg-purple-light hover:text-foreground dark:border-purple-dark dark:text-purple-dark dark:hover:bg-purple-dark'
@@ -33,9 +33,6 @@ export default function Contact({ showProjects }) {
                 >
                     Say Hello
                 </a>
-                <span className="text-md mt-2 text-foreground">
-                    chris@chrisnowicki.io
-                </span>
             </div>
         </div>
     )

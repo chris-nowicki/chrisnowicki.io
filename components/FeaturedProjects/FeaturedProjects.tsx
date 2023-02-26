@@ -28,7 +28,6 @@ export default function FeaturedProjects({ projects }) {
                     />
                 ))}
             </div>
-            <span className="mt-8 flex w-1/2 border-b-2 border-purple-light border-opacity-50 dark:border-purple-dark dark:border-opacity-50"></span>
         </div>
     )
 }

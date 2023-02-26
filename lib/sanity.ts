@@ -137,3 +137,16 @@ export async function getImage() {
     const image = res[0].chrisnowicki
     return urlFor(image).url()
 }
+
+export async function getContactInfo() {
+    const query = groq`*[_type == "resume"] {
+    name,
+    email,
+    github,
+    linkedin,
+    location
+    }`
+
+    const res = await fetchSanity(query)
+    return res[0]
+}

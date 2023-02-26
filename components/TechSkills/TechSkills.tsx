@@ -49,10 +49,10 @@ export default function TechSkills({ tech }) {
                     className={`flex w-full flex-col rounded bg-background-light shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50`}
                 >
                     <ul
-                        className={`link-animate flex h-[450px] w-full flex-col flex-wrap py-4 text-sm text-foreground md:text-lg `}
+                        className={`link-animate flex h-[450px] w-full flex-col flex-wrap py-4 text-md text-foreground md:text-lg `}
                     >
                         {filteredTech.map(
-                            (tech, index) =>
+                            (tech) =>
                                 tech.show && (
                                     <li
                                         key={tech.name}

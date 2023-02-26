@@ -1,4 +1,7 @@
 'use client'
+import { usePathname } from 'next/navigation'
+import Link from 'next/link'
+
 //type
 import { Links } from 'ts/types'
 
@@ -12,6 +15,8 @@ export default function Nav({
     links: Links[]
     showResume: boolean
 }) {
+    const pathname = usePathname()
+
     const handleMenu = () => {
         const btn = document.getElementById('menu-btn')
         const nav = document.getElementById('menu')
@@ -23,17 +28,22 @@ export default function Nav({
     return (
         <nav id="home" className="mb-6 flex w-full flex-col items-center">
             <div className="flex w-full flex-row items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none">
-                <div className="items-center sm:hidden md:flex">
+                <div className="sm:hidden md:block">
                     {links.map(
-                        (link, index) =>
+                        (link) =>
                             link.show && (
-                                <a
-                                    key={index}
+                                <Link
                                     href={link.reference}
-                                    className={`mr-4 text-xl hover:text-purple-light dark:text-foreground dark:hover:text-purple-dark `}
+                                    className={`rounded-md border px-2 py-1  text-center text-xl hover:text-purple-light dark:text-foreground dark:hover:text-purple-dark 
+                                        ${
+                                            pathname == link.reference
+                                                ? ' border-neutral-200 bg-neutral-100 hover:text-black'
+                                                : 'border-transparent'
+                                        }
+                                        `}
                                 >
                                     {link.title}
-                                </a>
+                                </Link>
                             )
                     )}
                 </div>
@@ -56,24 +66,25 @@ export default function Nav({
                         {links.map(
                             (link, index) =>
                                 link.show && (
-                                    <a
-                                        key={index}
+                                    <Link
                                         href={link.reference}
                                         className="text-3xl text-foreground hover:text-purple-dark"
                                     >
                                         {link.title}
-                                    </a>
+                                    </Link>
                                 )
                         )}
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center justify-center gap-1">
+                <div className="flex flex-row items-center justify-end">
                     {showResume && (
                         <div className="flex flex-row">
-                            <a
+                            <Link
                                 href="/resume"
-                                className={`flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50  dark:text-foreground hover:dark:bg-neutral-900/20`}
+                                className={`flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50  dark:text-foreground hover:dark:bg-neutral-900/20
+                                ${pathname == '/resume' ? 'bg-neutral-100' : ''}
+                                `}
                             >
                                 <div className="mr-2 flex items-center gap-2 md:mr-6">
                                     <PDF
@@ -83,7 +94,7 @@ export default function Nav({
                                     resumé
                                 </div>
                                 <ArrowIcon size={12} />
-                            </a>
+                            </Link>
                         </div>
                     )}
 

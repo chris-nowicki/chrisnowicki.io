@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from './Link'
 import { urlFor } from 'lib/sanity'
 
@@ -24,7 +25,7 @@ export default function ProjectCard({
         <div className="flip-card h-[400px] w-[400px] md:h-[235px] md:w-[375px]">
             <div className="flip-card-inner">
                 <div className="flip-card-front rounded shadow-lg shadow-black/25">
-                    <img
+                    <Image
                         src={projectImage}
                         width={375}
                         height={235}
@@ -71,5 +72,3 @@ export default function ProjectCard({
         </div>
     )
 }
-
-;<style></style>
