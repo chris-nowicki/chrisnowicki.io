@@ -10,10 +10,8 @@ import { ArrowIcon, PDF } from '../Icons'
 
 export default function Nav({
     links,
-    showResume,
 }: {
     links: Links[]
-    showResume: boolean
 }) {
     const pathname = usePathname()
 

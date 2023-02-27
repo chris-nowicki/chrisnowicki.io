@@ -34,12 +34,6 @@ export interface Technologies {
     show: boolean
 }
 
-export interface getLinks {
-    links: string[]
-    showResume: boolean
-    resumeURL: string
-}
-
 export interface Links {
     title: string
     reference: string

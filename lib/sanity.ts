@@ -59,7 +59,6 @@ export const projects: string = groq`*[_type == "projects"] {
 export async function getSettings() {
     const query = groq`*[_type == "settings"] {
         "links": navigation.links,
-        "showResume": navigation.showResume,
     }`
 
     const res = await fetchSanity(query)

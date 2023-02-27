@@ -81,7 +81,6 @@ export default async function RootLayout({
                     <div className="flex w-full max-w-3xl flex-col">
                         <Nav
                             links={settings.links}
-                            showResume={settings.showResume}
                         />
                         <main>
                             {children}
