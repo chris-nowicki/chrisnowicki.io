@@ -73,10 +73,10 @@ export default async function Resume() {
                         target="_blank"
                     >
                         <div className="flex items-center gap-2">
-                            <Linkedin size={24} />
-                            Linkedin
+                            <ArrowIcon size={12} />
+                            follow me on linkedin
                         </div>
-                        <ArrowIcon size={12} />
+                        <Linkedin size={24} />
                     </a>
 
                     {/* github Link */}
@@ -86,10 +86,10 @@ export default async function Resume() {
                         target="_blank"
                     >
                         <div className="flex items-center gap-2">
-                            <GitHub size={24} />
-                            GitHub
+                            <ArrowIcon size={12} />
+                            follow me on github
                         </div>
-                        <ArrowIcon size={12} />
+                        <GitHub size={24} />
                     </a>
                     <a
                         href="http://twitter.com/iamwix"
@@ -97,10 +97,10 @@ export default async function Resume() {
                         target="_blank"
                     >
                         <div className="flex items-center gap-2">
-                            <Twitter size={24} />
-                            Twitter
+                            <ArrowIcon size={12} />
+                            follow me on twitter
                         </div>
-                        <ArrowIcon size={12} />
+                        <Twitter size={24} />
                     </a>
                     <a
                         href="http://www.instagram.com/iamwix"
@@ -108,10 +108,10 @@ export default async function Resume() {
                         target="_blank"
                     >
                         <div className="flex items-center gap-2">
-                            <Instagram size={24} />
-                            Instagram
+                            <ArrowIcon size={12} />
+                            follow me on instagram
                         </div>
-                        <ArrowIcon size={12} />
+                        <Instagram size={24} />
                     </a>
                 </div>
             </div>
