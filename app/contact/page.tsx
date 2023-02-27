@@ -63,7 +63,7 @@ export default async function Resume() {
             <div className="flex w-full flex-col-reverse md:flex-row md:gap-4">
                 {/* resume and social links */}
                 <div className="flex w-full flex-col  items-center gap-4 md:w-1/2 md:flex-row">
-                    <Contact showProjects={true} />
+                    <Contact />
                 </div>
                 <div className="mb-4 flex w-full flex-col justify-between gap-2 md:mb-0 md:w-1/2 md:gap-4">
                     {/* linkedin link */}
