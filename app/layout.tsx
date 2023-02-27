@@ -3,7 +3,7 @@ import Nav from '../components/NavBar/Nav'
 import type { Metadata } from 'next'
 
 // vercel analytics
-import { AnalyticsWrapper } from 'components/Analytics'
+import { AnalyticsWrapper } from './Analytics'
 
 // fonts
 import { Roboto } from '@next/font/google'
