@@ -38,7 +38,7 @@ export default function Nav({
                                     ${
                                         pathname === link.reference
                                             ? 'border-neutral-200 bg-neutral-100 text-purple-light dark:border-neutral-900/50 dark:bg-neutral-900/20 dark:text-purple-dark'
-                                            : 'hover:text-purple-light border-transparent dark:hover:text-purple-dark'
+                                            : 'border-transparent hover:text-purple-light dark:hover:text-purple-dark'
                                     }
                                     `}
                                 >
@@ -78,29 +78,24 @@ export default function Nav({
                 </div>
 
                 <div className="flex flex-row items-center">
-                    {showResume && (
-                        <div className="flex flex-row">
-                            <Link
-                                href="/resume"
-                                className={`flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50  dark:text-foreground hover:dark:bg-neutral-900/20
+                    <div className="flex flex-row">
+                        <Link
+                            href="/resume"
+                            className={`flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50  dark:text-foreground hover:dark:bg-neutral-900/20
                                 ${
                                     pathname === '/resume'
-                                        ? 'bg-neutral-100 dark:bg-neutral-900/20 text-purple-light dark:text-purple-dark'
+                                        ? 'bg-neutral-100 text-purple-light dark:bg-neutral-900/20 dark:text-purple-dark'
                                         : ''
                                 }
                                 `}
-                            >
-                                <div className="mr-2 flex items-center gap-2 md:mr-6">
-                                    <PDF
-                                        size={24}
-                                        classProps="hidden md:block"
-                                    />
-                                    resumé
-                                </div>
-                                <ArrowIcon size={12} />
-                            </Link>
-                        </div>
-                    )}
+                        >
+                            <div className="mr-2 flex items-center gap-2 md:mr-6">
+                                <PDF size={24} classProps="hidden md:block" />
+                                resumé
+                            </div>
+                            <ArrowIcon size={12} />
+                        </Link>
+                    </div>
                 </div>
             </div>
         </nav>
