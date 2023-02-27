@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 // icons
-import { Location } from 'components/Icons'
+import { Location, GitHub, Linkedin, ArrowIcon, Twitter, Instagram } from 'components/Icons'
 
 // sanity.io client & query
 import { getImage, getContactInfo } from '../../lib/sanity'
@@ -53,11 +53,61 @@ export default async function Resume() {
                 </div>
             </div>
 
-            {/* resume and social links */}
-            <div className="mb-12 flex w-full flex-col items-center gap-4 md:flex-row">
-                <Contact showProjects={true} />
+            <div className="flex w-full gap-4">
+                {/* resume and social links */}
+                <div className="mb-12 flex w-1/2 flex-col items-center gap-4 md:flex-row">
+                    <Contact showProjects={true} />
+                </div>
+                <div className="flex w-1/2 flex-col gap-4">
+                    {/* linkedin link */}
+                    <a
+                        href={contact.linkedin}
+                        className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/25"
+                        target="_blank"
+                    >
+                        <div className="flex items-center gap-2">
+                            <Linkedin size={24} />
+                            Linkedin
+                        </div>
+                        <ArrowIcon size={12} />
+                    </a>
+
+                    {/* github Link */}
+                    <a
+                        href={contact.github}
+                        className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/20"
+                        target="_blank"
+                    >
+                        <div className="flex items-center gap-2">
+                            <GitHub size={24} />
+                            GitHub
+                        </div>
+                        <ArrowIcon size={12} />
+                    </a>
+                    <a
+                        href='http://twitter.com/iamwix'
+                        className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/20"
+                        target="_blank"
+                    >
+                        <div className="flex items-center gap-2">
+                            <Twitter size={24} />
+                            Twitter
+                        </div>
+                        <ArrowIcon size={12} />
+                    </a>
+                    <a
+                        href='http://www.instagram.com/iamwix'
+                        className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/20"
+                        target="_blank"
+                    >
+                        <div className="flex items-center gap-2">
+                            <Instagram size={24} />
+                            Instagram
+                        </div>
+                        <ArrowIcon size={12} />
+                    </a>
+                </div>
             </div>
-            <div className="mb-8 flex w-full flex-col gap-4"></div>
         </div>
     )
 }
