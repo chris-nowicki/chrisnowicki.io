@@ -10,7 +10,14 @@ export const metadata: Metadata = {
 }
 
 // icons
-import { Location, GitHub, Linkedin, ArrowIcon, Twitter, Instagram } from 'components/Icons'
+import {
+    Location,
+    GitHub,
+    Linkedin,
+    ArrowIcon,
+    Twitter,
+    Instagram,
+} from 'components/Icons'
 
 // sanity.io client & query
 import { getImage, getContactInfo } from '../../lib/sanity'
@@ -53,12 +60,12 @@ export default async function Resume() {
                 </div>
             </div>
 
-            <div className="flex w-full gap-4">
+            <div className="flex w-full flex-col-reverse md:flex-row md:gap-4">
                 {/* resume and social links */}
-                <div className="mb-12 flex w-1/2 flex-col items-center gap-4 md:flex-row">
+                <div className="flex w-full flex-col  items-center gap-4 md:w-1/2 md:flex-row">
                     <Contact showProjects={true} />
                 </div>
-                <div className="flex w-1/2 flex-col gap-4">
+                <div className="mb-4 flex w-full flex-col justify-between gap-2 md:mb-0 md:w-1/2 md:gap-4">
                     {/* linkedin link */}
                     <a
                         href={contact.linkedin}
@@ -85,7 +92,7 @@ export default async function Resume() {
                         <ArrowIcon size={12} />
                     </a>
                     <a
-                        href='http://twitter.com/iamwix'
+                        href="http://twitter.com/iamwix"
                         className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/20"
                         target="_blank"
                     >
@@ -96,7 +103,7 @@ export default async function Resume() {
                         <ArrowIcon size={12} />
                     </a>
                     <a
-                        href='http://www.instagram.com/iamwix'
+                        href="http://www.instagram.com/iamwix"
                         className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/20"
                         target="_blank"
                     >

@@ -4,7 +4,7 @@ export default function Contact({ showProjects }) {
             id="contact"
             className={` flex w-full flex-col items-center justify-center rounded ${
                 showProjects
-                    ? 'mb-16 bg-background-light py-8 text-foreground shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50'
+                    ? ' bg-background-light py-8 text-foreground shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50'
                     : 'text-black dark:text-foreground'
             }   px-8 md:px-16 `}
         >
