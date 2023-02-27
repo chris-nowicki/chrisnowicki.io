@@ -1,25 +1,22 @@
 import Image from 'next/image'
 
-import Contact from 'components/Contact'
+// components
+import Contact from './Contact'
+import SocialLink from './SocialLink'
 
+// meta data
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
     title: 'Contact',
-    description: 'Contact me via email or through one of my social media channels!',
+    description:
+        'Contact me via email or through one of my social media channels!',
 }
 
 // icons
-import {
-    Location,
-    GitHub,
-    Linkedin,
-    ArrowIcon,
-    Twitter,
-    Instagram,
-} from 'components/Icons'
+import { Location } from 'components/Icons'
 
-// sanity.io client & query
+// sanity.io query
 import { getImage, getContactInfo } from '../../lib/sanity'
 
 export default async function Resume() {
@@ -30,6 +27,13 @@ export default async function Resume() {
         pictureData,
         contactData,
     ])
+
+    const links = [
+        { name: 'linkedin', href: contact.linkedin },
+        { name: 'github', href: contact.github },
+        { name: 'twitter', href: 'http://twitter.com/iamwix' },
+        { name: 'instagram', href: 'http://www.instagram.com/iamwix' },
+    ]
 
     return (
         <div className="flex w-full flex-col px-5 lg:px-0">
@@ -65,54 +69,10 @@ export default async function Resume() {
                 <div className="flex w-full flex-col  items-center gap-4 md:w-1/2 md:flex-row">
                     <Contact />
                 </div>
-                <div className="mb-4 flex w-full flex-col justify-between gap-2 md:mb-0 md:w-1/2 md:gap-4">
-                    {/* linkedin link */}
-                    <a
-                        href={contact.linkedin}
-                        className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/25"
-                        target="_blank"
-                    >
-                        <div className="flex items-center gap-2">
-                            <ArrowIcon size={12} />
-                            follow me on linkedin
-                        </div>
-                        <Linkedin size={24} />
-                    </a>
-
-                    {/* github Link */}
-                    <a
-                        href={contact.github}
-                        className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/20"
-                        target="_blank"
-                    >
-                        <div className="flex items-center gap-2">
-                            <ArrowIcon size={12} />
-                            follow me on github
-                        </div>
-                        <GitHub size={24} />
-                    </a>
-                    <a
-                        href="http://twitter.com/iamwix"
-                        className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/20"
-                        target="_blank"
-                    >
-                        <div className="flex items-center gap-2">
-                            <ArrowIcon size={12} />
-                            follow me on twitter
-                        </div>
-                        <Twitter size={24} />
-                    </a>
-                    <a
-                        href="http://www.instagram.com/iamwix"
-                        className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/20"
-                        target="_blank"
-                    >
-                        <div className="flex items-center gap-2">
-                            <ArrowIcon size={12} />
-                            follow me on instagram
-                        </div>
-                        <Instagram size={24} />
-                    </a>
+                <div className="mb-4 flex w-full flex-col justify-between gap-2 rounded border border-neutral-200 p-4 dark:border-neutral-900/20 md:mb-0 md:w-1/2 md:gap-4">
+                    {links.map((link) => (
+                        <SocialLink name={link.name} href={link.href} />
+                    ))}
                 </div>
             </div>
         </div>
