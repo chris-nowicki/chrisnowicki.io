@@ -5,8 +5,8 @@ import Contact from 'components/Contact'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Resume',
-    description: 'Read through my resume if you are interested in hiring me!',
+    title: 'Contact',
+    description: 'Contact me via email or through one of my social media channels!',
 }
 
 // icons

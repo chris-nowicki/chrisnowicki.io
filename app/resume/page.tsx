@@ -8,7 +8,7 @@ import Education from 'components/Resume/Education'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-    title: 'Resume',
+    title: 'Resumé',
     description: 'Read through my resume if you are interested in hiring me!',
 }
 
