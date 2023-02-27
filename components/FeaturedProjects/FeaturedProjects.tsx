@@ -3,10 +3,9 @@ import ProjectCard from './ProjectCard'
 
 export default function FeaturedProjects({ projects }) {
     return (
-        <div className="mb-16 flex w-full flex-col items-center lg:items-center">
+        <div id='projects' className="mb-16 flex w-full flex-col items-center lg:items-start max-w-3xl">
             <h1
-                id="projects"
-                className="mt-1 text-center text-2xl text-purple-light dark:text-purple-dark md:text-4xl"
+                className="mt-1 text-2xl text-purple-light dark:text-purple-dark md:text-4xl"
             >
                 Featured Projects
             </h1>

@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 34px;
+}
+
+body {
+    overflow-y: scroll;
+}
+
 .link-animate a {
     position: relative;
 }
@@ -14,7 +23,7 @@
     height: 2px;
     bottom: 0;
     left: 0;
-    background-light-color: #bd93f9;
+    background-color: #bd93f9;
     transform: scaleX(0);
     transform-origin: top left;
     transition: transform 0.3s ease;
@@ -79,12 +88,13 @@
 }
 ::-webkit-scrollbar-thumb {
     min-height: 50px;
-    background-light-color: #bd93f9;
+    background-color: #bd93f9;
     height: 50px;
 }
 ::-webkit-scrollbar-track {
-    background-light: #e3e3e3;
+    background-color: #e3e3e3;
 }
+
 .parent {
     width: calc(100% - 10px);
     max-height: 200px;
@@ -103,7 +113,7 @@
 /* featured project card */
 
 .flip-card {
-    background-light-color: transparent;
+    background-color: transparent;
     height: 235px;
     perspective: 1000px;
 }
@@ -134,7 +144,7 @@
 }
 
 .flip-card-front {
-    background-light-color: #bbb;
+    background-color: #bbb;
     color: black;
 }
 

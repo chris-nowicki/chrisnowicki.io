@@ -1,38 +1,48 @@
 import About from '../components/About'
-import TechSkills from 'components/TechSkills/TechSkills'
-import FeaturedProjects from 'components/FeaturedProjects/FeaturedProjects'
-import Contact from 'components/Contact'
 
 // sanity.io client & query
-import { getImage, getTechData, getFeaturedProjects } from '../lib/sanity'
+import { getImage } from '../lib/sanity'
+
+import {
+    NEXTJS,
+    TS,
+    JS,
+    MDB,
+    ASTRO,
+    MYSQL,
+    TAILWIND,
+    SANITY,
+} from 'components/Icons'
+import Link from 'next/link'
 
 export default async function Home() {
     const imageData = getImage()
-    const techData = getTechData()
-    const projectData = getFeaturedProjects()
 
-    const [chrisnowicki, tech, projects] = await Promise.all([
-        imageData,
-        techData,
-        projectData,
-    ])
+    const [chrisnowicki] = await Promise.all([imageData])
 
     return (
         <div className="px-10 md:px-0">
             <About image={chrisnowicki} />
-            <div className="flex w-full flex-col items-center">
-                <span className="mb-3 mt-16 w-full rounded bg-background-light p-2 text-center text-2xl text-purple-dark dark:bg-background-dark md:px-0 md:text-4xl">
-                    Technical Skills
-                </span>
-
-                <TechSkills tech={tech} />
-
-                {projects.showProjects && (
-                    <FeaturedProjects projects={projects.projects} />
-                )}
-            </div>
-
-            <Contact showProjects={projects.showProjects} />
+            {/* <div className="mt-3 flex w-3/4 flex-col">
+                <div className="flex w-3/4 flex-col rounded-t border border-neutral-200 bg-neutral-100 uppercase text-foreground">
+                    <span className="border-b border-neutral-200 bg-background-light p-1 text-center">
+                        made with
+                    </span>
+                    <div className="flex flex-wrap items-center gap-2 p-.5 justify-evenly">
+                        <JS size={24} />
+                        <TS size={24} />
+                        <Link href="https://nextjs.org" target="_blank">
+                            <NEXTJS />
+                        </Link>
+                        <Link href="https://sanity.io" target="_blank">
+                            <SANITY />
+                        </Link>
+                        <Link href="https://tailwindcss.com" target="_blank">
+                            <TAILWIND />
+                        </Link>
+                    </div>
+                </div>
+            </div> */}
         </div>
     )
 }

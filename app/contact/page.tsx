@@ -1,19 +1,33 @@
 import Image from 'next/image'
+
+import Contact from 'components/Contact'
+
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+    title: 'Resume',
+    description: 'Read through my resume if you are interested in hiring me!',
+}
+
+// icons
+import { Location } from 'components/Icons'
+
 // sanity.io client & query
 import { getImage, getContactInfo } from '../../lib/sanity'
 
-import { Location } from 'components/Icons'
-
-export default async function Contact() {
-    const imageData = getImage()
+export default async function Resume() {
+    const pictureData = getImage()
     const contactData = getContactInfo()
 
-    const [chrisnowicki, contact] = await Promise.all([imageData, contactData])
+    const [chrisnowicki, contact] = await Promise.all([
+        pictureData,
+        contactData,
+    ])
 
     return (
-        <>
+        <div className="flex w-full flex-col px-5 lg:px-0">
             {/* name and email */}
-            <div className="mb-4 flex gap-4 rounded border border-neutral-200 p-2 text-center dark:border-background-dark md:text-left">
+            <div className="mb-4 flex w-full gap-4 rounded border border-neutral-200 p-2 text-center dark:border-background-dark md:text-left">
                 <div className="flex w-1/4">
                     <Image
                         src={chrisnowicki}
@@ -38,27 +52,12 @@ export default async function Contact() {
                     </p>
                 </div>
             </div>
-            <div
-                id="contact"
-                className="mb-16 flex w-full flex-col items-center justify-center  rounded bg-background-light py-8 px-8 text-foreground shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50 md:px-16 "
-            >
-                <div className="flex flex-col items-center">
-                    <h1 className="mb-4 text-4xl text-purple-dark">
-                        Get In Touch
-                    </h1>
-                    <p className="text-center text-lg">
-                        I am currently looking for new work. Contact me to say
-                        hello, talk about an opportunity, or ask me a question!
-                        My inbox is always open.
-                    </p>
-                    <a
-                        href="mailto:chris@chrisnowicki.io"
-                        className="mt-8 flex flex-col items-center rounded-lg border-2 border-purple-dark px-6 py-2  text-purple-dark hover:bg-purple-dark hover:text-foreground"
-                    >
-                        Say Hello
-                    </a>
-                </div>
+
+            {/* resume and social links */}
+            <div className="mb-12 flex w-full flex-col items-center gap-4 md:flex-row">
+                <Contact showProjects={true} />
             </div>
-        </>
+            <div className="mb-8 flex w-full flex-col gap-4"></div>
+        </div>
     )
 }

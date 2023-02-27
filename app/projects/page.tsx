@@ -7,8 +7,10 @@ export default async function Projects() {
     const [projects] = await Promise.all([projectData])
 
     return (
-        <div className='px-2'>
-            <FeaturedProjects projects={projects.projects} />
+        <div className="px-10 md:px-0 w-full">
+            <div className="flex w-full flex-col items-center">
+                <FeaturedProjects projects={projects.projects} />
+            </div>
         </div>
     )
 }

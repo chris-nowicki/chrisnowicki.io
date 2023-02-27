@@ -28,19 +28,19 @@ export default function Nav({
     return (
         <nav id="home" className="mb-6 flex w-full flex-col items-center">
             <div className="flex w-full flex-row items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none">
-                <div className="sm:hidden md:block">
+                <div className="items-center sm:hidden md:flex">
                     {links.map(
                         (link) =>
                             link.show && (
                                 <Link
                                     href={link.reference}
-                                    className={`rounded-md border px-2 py-1  text-center text-xl hover:text-purple-light dark:text-foreground dark:hover:text-purple-dark 
-                                        ${
-                                            pathname == link.reference
-                                                ? ' border-neutral-200 bg-neutral-100 hover:text-black'
-                                                : 'border-transparent'
-                                        }
-                                        `}
+                                    className={`dark:text-textDark  rounded-md border px-2 py-1 text-xl 
+                                    ${
+                                        pathname === link.reference
+                                            ? 'border-neutral-200 bg-neutral-100 text-purple-light dark:border-neutral-900/50 dark:bg-neutral-900/20 dark:text-purple-dark'
+                                            : 'hover:text-purple-light border-transparent dark:hover:text-purple-dark'
+                                    }
+                                    `}
                                 >
                                     {link.title}
                                 </Link>
@@ -64,7 +64,7 @@ export default function Nav({
                         className="absolute left-6 right-6 z-10 -ml-6 mt-10 hidden h-1/4 flex-col items-center justify-center space-y-2 self-end bg-background-light py-4 text-foreground opacity-95 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
                     >
                         {links.map(
-                            (link, index) =>
+                            (link) =>
                                 link.show && (
                                     <Link
                                         href={link.reference}
@@ -77,13 +77,17 @@ export default function Nav({
                     </div>
                 </div>
 
-                <div className="flex flex-row items-center justify-end">
+                <div className="flex flex-row items-center">
                     {showResume && (
                         <div className="flex flex-row">
                             <Link
                                 href="/resume"
                                 className={`flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50  dark:text-foreground hover:dark:bg-neutral-900/20
-                                ${pathname == '/resume' ? 'bg-neutral-100' : ''}
+                                ${
+                                    pathname === '/resume'
+                                        ? 'bg-neutral-100 dark:bg-neutral-900/20 text-purple-light dark:text-purple-dark'
+                                        : ''
+                                }
                                 `}
                             >
                                 <div className="mr-2 flex items-center gap-2 md:mr-6">
@@ -97,8 +101,6 @@ export default function Nav({
                             </Link>
                         </div>
                     )}
-
-                    {/* <ThemeToggle /> */}
                 </div>
             </div>
         </nav>

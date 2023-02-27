@@ -47,7 +47,7 @@ export interface Links {
 }
 
 export type Icon = {
-    size: number
+    size?: number
     classProps?: string
 }
 
