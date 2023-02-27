@@ -1,4 +1,5 @@
 'use client'
+import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
@@ -8,24 +9,19 @@ import { Links } from 'ts/types'
 // icons
 import { ArrowIcon, PDF } from '../Icons'
 
-export default function Nav({
-    links,
-}: {
-    links: Links[]
-}) {
+export default function Nav({ links }: { links: Links[] }) {
+    const [showMenu, setShowMenu] = useState(false)
     const pathname = usePathname()
 
     const handleMenu = () => {
         const btn = document.getElementById('menu-btn')
-        const nav = document.getElementById('menu')
         btn.classList.toggle('open')
-        nav.classList.toggle('flex')
-        nav.classList.toggle('hidden')
+        setShowMenu(showMenu === false ? true : false)
     }
 
     return (
         <nav id="home" className="mb-6 flex w-full flex-col items-center">
-            <div className="flex w-full flex-row items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none">
+            <div className="relative flex w-full flex-row items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none">
                 <div className="items-center sm:hidden md:flex">
                     {links.map(
                         (link) =>
@@ -56,24 +52,27 @@ export default function Nav({
                     <span className="hamburger-bottom bg-black dark:bg-foreground"></span>
                 </button>
 
-                <div className="md:hidden">
-                    <div
-                        id="menu"
-                        className="absolute left-6 right-6 z-10 -ml-6 mt-10 hidden h-1/4 flex-col items-center justify-center space-y-2 self-end bg-background-light py-4 text-foreground opacity-95 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
-                    >
-                        {links.map(
-                            (link) =>
-                                link.show && (
-                                    <Link
-                                        href={link.reference}
-                                        className="text-3xl text-foreground hover:text-purple-dark"
-                                    >
-                                        {link.title}
-                                    </Link>
-                                )
-                        )}
+                {showMenu && (
+                    <div>
+                        <div
+                            id="menu"
+                            className="absolute left-6 right-6 z-10 -ml-6 mt-10 flex flex-col items-center justify-center space-y-2 self-end bg-background-light py-4 text-foreground opacity-95 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
+                        >
+                            {links.map(
+                                (link) =>
+                                    link.show && (
+                                        <Link
+                                            href={link.reference}
+                                            className="text-2xl text-foreground hover:text-purple-dark"
+                                            onClick={() => handleMenu()}
+                                        >
+                                            {link.title}
+                                        </Link>
+                                    )
+                            )}
+                        </div>
                     </div>
-                </div>
+                )}
 
                 <div className="flex flex-row items-center">
                     <div className="flex flex-row">

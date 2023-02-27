@@ -28,7 +28,7 @@ export default function About({ image }: { image: string }) {
                     I'm currently looking for a new role as a full-stack
                     engineer.
                 </p>
-                <div className="mt-6 flex w-full flex-row justify-center gap-2 md:justify-start">
+                <div className="mt-4 flex w-full flex-row justify-center gap-2 md:justify-start">
                     <Link
                         href="http://www.linkedin.com/in/chris-nowicki"
                         className="flex items-center justify-between gap-2 rounded border border-neutral-200 py-3 px-4 text-lg hover:bg-neutral-100 dark:border-background-dark dark:hover:bg-background-dark/25"
