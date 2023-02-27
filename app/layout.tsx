@@ -1,8 +1,6 @@
 import './globals.css'
 import Nav from '../components/NavBar/Nav'
-import Footer from 'components/Footer'
 import type { Metadata } from 'next'
-import { Providers } from './Providers'
 
 // vercel analytics
 import { AnalyticsWrapper } from 'components/Analytics'
@@ -79,9 +77,7 @@ export default async function RootLayout({
             <body className="bg-gray-50 dark:bg-background-light dark:text-foreground">
                 <div className="flex flex-col items-center">
                     <div className="flex w-full max-w-3xl flex-col">
-                        <Nav
-                            links={settings.links}
-                        />
+                        <Nav links={settings.links} />
                         <main>
                             {children}
                             <AnalyticsWrapper />
