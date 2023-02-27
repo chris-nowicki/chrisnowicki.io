@@ -1,9 +1,9 @@
-import Image from 'next/image'
-
-import TechSkills from 'components/TechSkills/TechSkills'
-import TechnicalProjects from 'components/Resume/TechnicalProjects'
-import ProfessionalExperience from 'components/Resume/ProfessionalExperience'
-import Education from 'components/Resume/Education'
+import Header from './Header'
+import ResumeLink from './ResumeLink'
+import TechSkills from './TechSkills/TechSkills'
+import TechnicalProjects from './TechnicalProjects'
+import ProfessionalExperience from './ProfessionalExperience'
+import Education from 'app/resume/Education'
 
 import type { Metadata } from 'next'
 
@@ -11,16 +11,6 @@ export const metadata: Metadata = {
     title: 'Resumé',
     description: 'Read through my resume if you are interested in hiring me!',
 }
-
-// icons
-import {
-    Location,
-    Linkedin,
-    GitHub,
-    ArrowIcon,
-    Download,
-    PDF,
-} from 'components/Icons'
 
 // sanity.io client & query
 import { getImage, getTechData, getResume } from '../../lib/sanity'
@@ -36,74 +26,27 @@ export default async function Resume() {
         resumeData,
     ])
 
+    const headerData = {
+        name: resume.name,
+        email: resume.email,
+        location: resume.location,
+    }
+
+    const links = [
+        { name: 'pdf', url: resume.resumeURL },
+        { name: 'Linkedin', url: resume.linkedin },
+        { name: 'GitHib', url: resume.github },
+    ]
+
     return (
         <div className="px-5 lg:px-0">
-            {/* name and email */}
-            <div className="mb-4 flex gap-4 rounded border border-neutral-200 p-2 text-center dark:border-background-dark md:text-left">
-                <div className="flex w-1/4">
-                    <Image
-                        src={chrisnowicki}
-                        width={200}
-                        height={200}
-                        className="rounded"
-                        priority
-                        alt="chris nowicki"
-                    />
-                </div>
-                <div className="flex w-3/4 flex-col items-center justify-center">
-                    <h1 className="text-2xl md:text-5xl">{resume.name}</h1>
-                    <a
-                        href="mailto:chris@chrisnowicki.io"
-                        className="ml-1 text-lg text-purple-light hover:underline dark:text-purple-dark md:text-2xl"
-                    >
-                        {resume.email}
-                    </a>
-                    <p className="text-md mt-1 flex items-center md:text-xl">
-                        <Location size={24} />
-                        {resume.location}
-                    </p>
-                </div>
-            </div>
+            <Header image={chrisnowicki} data={headerData} />
 
             {/* resume and social links */}
             <div className="mb-12 flex w-full flex-col items-center gap-4 md:flex-row">
-                {/* resume link */}
-                <a
-                    href={`${resume.resumeURL}?dl=`}
-                    className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/25"
-                >
-                    <div className="flex items-center gap-2">
-                        <PDF size={24} />
-                        Download Resumé
-                    </div>
-                    <Download size={24} />
-                </a>
-
-                {/* linkedin link */}
-                <a
-                    href={resume.linkedin}
-                    className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/25"
-                    target="_blank"
-                >
-                    <div className="flex items-center gap-2">
-                        <Linkedin size={24} />
-                        Linkedin
-                    </div>
-                    <ArrowIcon size={12} />
-                </a>
-
-                {/* github Link */}
-                <a
-                    href={resume.github}
-                    className="flex w-full items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/20"
-                    target="_blank"
-                >
-                    <div className="flex items-center gap-2">
-                        <GitHub size={24} />
-                        GitHub
-                    </div>
-                    <ArrowIcon size={12} />
-                </a>
+                {links.map((link) => (
+                    <ResumeLink name={link.name} url={link.url} />
+                ))}
             </div>
 
             {/* technical skills, projects, professional experience, and education */}

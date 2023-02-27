@@ -5,10 +5,10 @@ import { useState } from 'react'
 import Button from './Button'
 
 // button data
-import { btn } from './Names'
+import { btn } from './info'
 
 // types
-import { Technologies } from '../../ts/types'
+import { Technologies } from '../../../ts/types'
 
 export default function TechSkills({ tech }) {
     const [filteredTech, setFilteredTech] = useState<Technologies[] | null>(
@@ -49,7 +49,7 @@ export default function TechSkills({ tech }) {
                     className={`flex w-full flex-col rounded bg-background-light shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50`}
                 >
                     <ul
-                        className={`link-animate flex h-[450px] w-full flex-col flex-wrap py-4 text-md text-foreground md:text-lg `}
+                        className={`link-animate text-md flex h-[450px] w-full flex-col flex-wrap py-4 text-foreground md:text-lg `}
                     >
                         {filteredTech.map(
                             (tech) =>

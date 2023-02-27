@@ -1,4 +1,4 @@
-import { useActive } from '../../hooks/useActive'
+import { useActive } from '../../../hooks/useActive'
 
 // Types
 type TechFilterButton = {

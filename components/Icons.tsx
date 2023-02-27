@@ -86,7 +86,6 @@ export function Instagram({ size }: Icon) {
 }
 
 // non-social or logo icons
-
 export function ArrowIcon({ size }: Icon) {
     return (
         <svg
@@ -227,6 +226,7 @@ export function Location({ size = 24, classProps }: Icon) {
         </svg>
     )
 }
+
 export function NEXTJS({ size = 124, classProps }: Icon) {
     return (
         <svg
@@ -273,6 +273,7 @@ export function TS({ size = 32, classProps }: Icon) {
         </svg>
     )
 }
+
 export function MDB({ size = 121.37, classProps }: Icon) {
     return (
         <svg
@@ -292,6 +293,7 @@ export function MDB({ size = 121.37, classProps }: Icon) {
         </svg>
     )
 }
+
 export function ASTRO({ size = 31.04, classProps }: Icon) {
     return (
         <svg
@@ -333,6 +335,7 @@ export function ASTRO({ size = 31.04, classProps }: Icon) {
         </svg>
     )
 }
+
 export function MYSQL({ size = 46.95, classProps }: Icon) {
     return (
         <svg
@@ -356,6 +359,7 @@ export function MYSQL({ size = 46.95, classProps }: Icon) {
         </svg>
     )
 }
+
 export function TAILWIND({ size = 46.95, classProps }: Icon) {
     return (
         <svg
@@ -383,6 +387,7 @@ export function TAILWIND({ size = 46.95, classProps }: Icon) {
         </svg>
     )
 }
+
 export function SANITY({ size = 46.95, classProps }: Icon) {
     return (
         <svg
