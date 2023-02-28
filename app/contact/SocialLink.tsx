@@ -11,7 +11,6 @@ import {
 export default function SocialLink({ href, name }) {
     return (
         <Link
-            key={name}
             href={href}
             className="flex w-full cursor-pointer items-center justify-between rounded-md border border-neutral-200 p-4 hover:bg-neutral-100 dark:border-background-dark hover:dark:bg-background-dark/25"
             target="_blank"

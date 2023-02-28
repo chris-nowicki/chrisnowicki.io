@@ -27,6 +27,7 @@ export default function Nav({ links }: { links: Links[] }) {
                         (link) =>
                             link.show && (
                                 <Link
+                                    key={link.title}
                                     href={link.reference}
                                     className={`dark:text-textDark  rounded-md border px-2 py-1 text-xl 
                                     ${
@@ -62,6 +63,7 @@ export default function Nav({ links }: { links: Links[] }) {
                                 (link) =>
                                     link.show && (
                                         <Link
+                                            key={link.title}
                                             href={link.reference}
                                             className="text-2xl text-foreground hover:text-purple-dark"
                                             onClick={() => handleMenu()}

@@ -52,7 +52,7 @@ export default async function Resume() {
             {/* resume and social links */}
             <div className="mb-12 flex w-full flex-col items-center gap-4 md:flex-row">
                 {links.map((link) => (
-                    <ResumeLink name={link.name} url={link.url} />
+                    <ResumeLink key={link.name} name={link.name} url={link.url} />
                 ))}
             </div>
 

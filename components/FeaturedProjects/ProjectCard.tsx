@@ -30,8 +30,8 @@ export default function ProjectCard({
                         width={375}
                         height={235}
                         alt="Avatar"
-                        loading={'lazy'}
                         className="w-[400px] md:w-[375px]"
+                        priority
                     />
                 </div>
                 <div className="flip-card-back flex cursor-default flex-col justify-start bg-background-light shadow-md shadow-black/25 dark:bg-background-dark">

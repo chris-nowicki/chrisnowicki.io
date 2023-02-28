@@ -6,7 +6,7 @@ import { cache } from 'react'
 const client = createClient({
     projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-    apiVersion: '2023-02-04', // use current UTC date - see "specifying API version"!
+    apiVersion: '2023-02-28', // use current UTC date - see "specifying API version"!
     useCdn: false, // if you're using ISR or only static generation at build time then you can set this to `false` to guarantee no stale content
 })
 
@@ -27,35 +27,6 @@ export function urlFor(source: string) {
 }
 
 // GROQ Queries
-export async function getFeaturedProjects() {
-    const query = groq`*[_type == "settings"] {
-        "showProjects": featuredProjects.showProjects,
-        "projects": featuredProjects.featured[]->{
-            "name": projectName,
-            excerpt,
-            gitHubUrl,
-            liveSiteUrl,
-            "image": image.asset._ref,
-            "tags": tags[]->{
-                name
-            },
-        },
-    }`
-
-    const res = await fetchSanity(query)
-    return res[0]
-}
-
-export const projects: string = groq`*[_type == "projects"] {
-    projectName,
-    dateCreated,
-    "tags": tags[]->{
-        name
-    },
-    gitHubUrl,
-    liveSiteUrl
-}`
-
 export async function getSettings() {
     const query = groq`*[_type == "settings"] {
         "links": navigation.links,
@@ -64,6 +35,7 @@ export async function getSettings() {
     const res = await fetchSanity(query)
     return res[0]
 }
+
 export async function getSEO() {
     const query = groq`*[_type == "settings"] {
         seo {
@@ -154,6 +126,35 @@ export async function getSocialLinks() {
         "github": socialLinks.github,
         "twitter": socialLinks.twitter,
         "instagram": socialLinks.instagram,
+    }`
+
+    const res = await fetchSanity(query)
+    return res[0]
+}
+
+export async function getProjects() {
+    const query = groq`*[_type == "settings"] {
+        "featuredProjects": featuredProjects.featured[]->{
+            _id,  
+            "name": projectName,
+            excerpt,
+            gitHubUrl,
+            liveSiteUrl,
+            "image": image.asset._ref,
+            "tags": tags[]->{
+                name
+            },
+        },
+        "projects": *[_type == 'projects' && !(_id in ^.featuredProjects.featured[]._ref)] {
+            projectName,
+            dateCreated,
+            role,
+            "liveSiteURL": liveSiteUrl,
+            "gitHubURL": gitHubUrl,
+            "tags": tags[]->{
+                name
+            },
+        },
     }`
 
     const res = await fetchSanity(query)
