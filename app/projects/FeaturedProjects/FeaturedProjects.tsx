@@ -5,7 +5,7 @@ export default function FeaturedProjects({ projects }) {
     return (
         <div
             id="projects"
-            className="mb-8 flex w-full max-w-3xl flex-col items-center lg:items-start"
+            className="mb-16 flex w-full max-w-3xl flex-col items-center lg:items-start"
         >
             <h1 className="mt-1 text-2xl uppercase text-purple-light dark:text-purple-dark md:text-3xl">
                 Featured Projects
