@@ -129,11 +129,14 @@ export async function getTechData() {
 }
 
 export async function getImage() {
-    const query = groq`*[_type == "settings"] {
-        "chrisnowicki": profilePicture.asset._ref
+    const query = groq`*[_type == 'settings'] {
+        bio {
+            "chrisnowicki": profilePicture.asset._ref
+        }
     }`
+
     const res = await fetchSanity(query)
-    const image = res[0].chrisnowicki
+    const image = res[0].bio.chrisnowicki
     return urlFor(image).url()
 }
 
