@@ -73,7 +73,6 @@ export async function getSEO() {
             description,
             type,
             "image": image.asset._ref,
-            twitter
         }
     }`
 
@@ -85,8 +84,6 @@ export async function getResume() {
     const query = groq`*[_type == "resume"] {
     name,
     email,
-    github,
-    linkedin,
     location,
     "resumeURL": resume.asset->url,
     professionalExperience[]->{
@@ -144,8 +141,6 @@ export async function getContactInfo() {
     const query = groq`*[_type == "resume"] {
     name,
     email,
-    github,
-    linkedin,
     location
     }`
 
