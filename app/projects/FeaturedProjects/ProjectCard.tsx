@@ -22,7 +22,7 @@ export default function ProjectCard({
     let projectImage
     image ? (projectImage = urlFor(image).url()) : null
     return (
-        <div className="flex h-[276px] w-[375px] rounded border border-neutral-200 bg-foreground p-2 shadow-md shadow-black/25">
+        <div className="flex h-[276px] w-[375px] rounded border border-neutral-200 dark:border-background-dark p-2 shadow-md shadow-black/25 dark:shadow-background-dark/25">
             <div className="flex w-full gap-2">
                 <div className="flex cursor-default flex-col rounded  bg-background-light p-2 dark:bg-background-dark">
                     <div className="mb-3 flex flex-col items-center">
