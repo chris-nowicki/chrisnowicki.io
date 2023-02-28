@@ -18,18 +18,15 @@ export default async function Projects() {
 
     return (
         <div className="flex w-full flex-col items-center px-10 md:items-start md:px-0">
-            <div>
-                <div className="flex w-full flex-col items-center">
-                    <FeaturedProjects projects={projects.featuredProjects} />
-                </div>
-            </div>
+            <FeaturedProjects projects={projects.featuredProjects} />
+
             <span className="text-center text-2xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-3xl">
                 Project Archive
             </span>
             <div className="mt-4 mb-8 flex w-full flex-col md:mb-0">
                 <table className="w-full">
-                    <thead className="dark:border-foreground/25 border-b border-neutral-200">
-                        <tr className="text-md dark:text-foreground w-full uppercase text-gray-900">
+                    <thead className="border-b border-neutral-200 dark:border-foreground/25">
+                        <tr className="text-md w-full uppercase text-gray-900 dark:text-foreground">
                             <th className="pr-2 text-left">year</th>
                             <th className="pr-2 text-left">title</th>
                             <th className="text-left">tech stack</th>
@@ -42,9 +39,9 @@ export default async function Projects() {
                         {projects.projects.map((project: any) => (
                             <tr
                                 key={project.projectName}
-                                className="dark:border-foreground/25 dark:text-foreground dark:hover:bg-foreground/25 border-b border-neutral-200 align-top text-sm text-gray-900  hover:bg-gray-900/25"
+                                className="border-b border-neutral-200 align-top text-sm text-gray-900 hover:bg-gray-900/25 dark:border-foreground/25 dark:text-foreground  dark:hover:bg-foreground/25"
                             >
-                                <td className="dark:text-purple-dark pr-2 pt-2 text-purple-light">
+                                <td className="pr-2 pt-2 text-purple-light dark:text-purple-dark">
                                     {new Date(
                                         project.dateCreated
                                     ).getFullYear()}
@@ -77,7 +74,7 @@ export default async function Projects() {
                                         <Link
                                             href={project.gitHubURL}
                                             target="_blank"
-                                            className="dark:hover:text-purple-dark cursor-pointer hover:text-purple-light dark:text-foreground"
+                                            className="cursor-pointer hover:text-purple-light dark:text-foreground dark:hover:text-purple-dark"
                                             prefetch={true}
                                         >
                                             <GitBranchOutline size={24} />
@@ -86,7 +83,7 @@ export default async function Projects() {
                                             <Link
                                                 href={project.liveSiteURL}
                                                 target="_blank"
-                                                className="dark:hover:text-purple-dark cursor-pointer hover:text-purple-light dark:text-foreground" 
+                                                className="cursor-pointer hover:text-purple-light dark:text-foreground dark:hover:text-purple-dark"
                                                 prefetch={false}
                                             >
                                                 <OpenOutline size={24} />
