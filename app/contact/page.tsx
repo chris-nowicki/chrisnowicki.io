@@ -43,9 +43,13 @@ export default async function Resume() {
                 <div className="flex w-full flex-col  items-center gap-4 md:w-1/2 md:flex-row">
                     <Contact />
                 </div>
-                <div className="mb-4 flex w-full flex-col justify-between gap-2 rounded border border-neutral-200 p-4 dark:border-neutral-900/20 md:mb-0 md:w-1/2 md:gap-4">
+                <div className="mb-4 flex w-full flex-col justify-between gap-2 rounded border border-neutral-200 p-4 dark:border-background-dark md:mb-0 md:w-1/2 md:gap-4">
                     {links.map((link) => (
-                        <SocialLink key={link.name} name={link.name} href={link.href} />
+                        <SocialLink
+                            key={link.name}
+                            name={link.name}
+                            href={link.href}
+                        />
                     ))}
                 </div>
             </div>

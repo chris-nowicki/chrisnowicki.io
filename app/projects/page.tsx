@@ -28,8 +28,8 @@ export default async function Projects() {
             </span>
             <div className="mt-4 mb-8 flex w-full flex-col md:mb-0">
                 <table className="w-full">
-                    <thead className="dark:border-textDark/25 border-b border-neutral-200">
-                        <tr className="text-md dark:text-textDark w-full uppercase text-gray-900">
+                    <thead className="dark:border-foreground/25 border-b border-neutral-200">
+                        <tr className="text-md dark:text-foreground w-full uppercase text-gray-900">
                             <th className="pr-2 text-left">year</th>
                             <th className="pr-2 text-left">title</th>
                             <th className="text-left">tech stack</th>
@@ -42,9 +42,9 @@ export default async function Projects() {
                         {projects.projects.map((project: any) => (
                             <tr
                                 key={project.projectName}
-                                className="dark:border-textDark/25 dark:text-textDark dark:hover:bg-textDark/25 border-b border-neutral-200 align-top text-sm text-gray-900 hover:bg-purple-400 hover:bg-gray-900/25"
+                                className="dark:border-foreground/25 dark:text-foreground dark:hover:bg-foreground/25 border-b border-neutral-200 align-top text-sm text-gray-900  hover:bg-gray-900/25"
                             >
-                                <td className="dark:text-purpleDark pr-2 pt-2 text-purple-600">
+                                <td className="dark:text-purple-dark pr-2 pt-2 text-purple-light">
                                     {new Date(
                                         project.dateCreated
                                     ).getFullYear()}
@@ -77,7 +77,7 @@ export default async function Projects() {
                                         <Link
                                             href={project.gitHubURL}
                                             target="_blank"
-                                            className="dark:hover:text-purpleDark cursor-pointer hover:text-purple-600"
+                                            className="dark:hover:text-purple-dark cursor-pointer hover:text-purple-light dark:text-foreground"
                                             prefetch={true}
                                         >
                                             <GitBranchOutline size={24} />
@@ -86,7 +86,7 @@ export default async function Projects() {
                                             <Link
                                                 href={project.liveSiteURL}
                                                 target="_blank"
-                                                className="dark:hover:text-purpleDark cursor-pointer hover:text-purple-600"
+                                                className="dark:hover:text-purple-dark cursor-pointer hover:text-purple-light dark:text-foreground" 
                                                 prefetch={false}
                                             >
                                                 <OpenOutline size={24} />
