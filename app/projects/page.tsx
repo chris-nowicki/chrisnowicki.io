@@ -17,13 +17,13 @@ export default async function Projects() {
     const [projects] = await Promise.all([projectData])
 
     return (
-        <div className="flex w-full flex-col items-center px-10 md:items-start md:px-0">
+        <div className="mb-16 flex w-full flex-col items-center px-10 md:items-start md:px-0">
             <FeaturedProjects projects={projects.featuredProjects} />
 
             <span className="text-center text-2xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-3xl">
                 Project Archive
             </span>
-            <div className="mt-4 mb-8 flex w-full flex-col md:mb-0">
+            <div className="mt-4 flex w-full flex-col md:mb-0">
                 <table className="w-full">
                     <thead className="border-b border-neutral-200 dark:border-foreground/25">
                         <tr className="text-md w-full uppercase text-gray-900 dark:text-foreground">
@@ -75,7 +75,7 @@ export default async function Projects() {
                                             href={project.gitHubURL}
                                             target="_blank"
                                             className="cursor-pointer hover:text-purple-light dark:text-foreground dark:hover:text-purple-dark"
-                                            prefetch={true}
+                                            prefetch={false}
                                         >
                                             <GitBranchOutline size={24} />
                                         </Link>
