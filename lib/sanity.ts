@@ -152,3 +152,15 @@ export async function getContactInfo() {
     const res = await fetchSanity(query)
     return res[0]
 }
+
+export async function getSocialLinks() {
+    const query = groq`*[_type == "settings"] {
+        "linkedin": socialLinks.linkedin,
+        "github": socialLinks.github,
+        "twitter": socialLinks.twitter,
+        "instagram": socialLinks.instagram,
+    }`
+
+    const res = await fetchSanity(query)
+    return res[0]
+}

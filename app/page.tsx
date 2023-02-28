@@ -2,15 +2,16 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 // sanity.io client & query
-import { getImage } from '../lib/sanity'
+import { getImage, getSocialLinks } from '../lib/sanity'
 
 // icons
 import { GitHub, Linkedin, ArrowIcon } from 'components/Icons'
 
 export default async function Home() {
     const imageData = getImage()
+    const socialLinkData = getSocialLinks()
 
-    const [chrisnowicki] = await Promise.all([imageData])
+    const [chrisnowicki, socialLink] = await Promise.all([imageData, socialLinkData])
 
     return (
         <div className="px-10 md:px-0">
@@ -38,7 +39,7 @@ export default async function Home() {
                     </p>
                     <div className="mt-4 flex w-full flex-row justify-center gap-2 md:justify-start">
                         <Link
-                            href="http://www.linkedin.com/in/chris-nowicki"
+                            href={socialLink.linkedin}
                             className="flex w-full items-center justify-between gap-2 rounded border border-neutral-200 py-3 px-4 text-lg hover:bg-neutral-100 dark:border-background-dark dark:hover:bg-background-dark/25 md:w-auto"
                             target="_blank"
                             prefetch={false}
@@ -51,7 +52,7 @@ export default async function Home() {
                         </Link>
 
                         <Link
-                            href="https://github.com/chris-nowicki"
+                            href={socialLink.github}
                             className="flex w-full items-center justify-between gap-2 rounded border border-neutral-200 px-4 py-3 text-lg hover:bg-neutral-100 dark:border-background-dark dark:hover:bg-background-dark/25 md:w-auto"
                             target="_blank"
                             prefetch={false}

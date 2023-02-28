@@ -15,22 +15,24 @@ export const metadata: Metadata = {
 }
 
 // sanity.io query
-import { getImage, getContactInfo } from '../../lib/sanity'
+import { getImage, getContactInfo, getSocialLinks } from '../../lib/sanity'
 
 export default async function Resume() {
     const pictureData = getImage()
     const contactData = getContactInfo()
+    const socialLinkData = getSocialLinks()
 
-    const [chrisnowicki, contact] = await Promise.all([
+    const [chrisnowicki, contact, socialLink] = await Promise.all([
         pictureData,
         contactData,
+        socialLinkData
     ])
 
     const links = [
-        { name: 'linkedin', href: contact.linkedin },
-        { name: 'github', href: contact.github },
-        { name: 'twitter', href: 'http://twitter.com/iamwix' },
-        { name: 'instagram', href: 'http://www.instagram.com/iamwix' },
+        { name: 'linkedin', href: socialLink.linkedin },
+        { name: 'github', href: socialLink.github },
+        { name: 'twitter', href: socialLink.twitter },
+        { name: 'instagram', href: socialLink.instagram },
     ]
 
     return (
