@@ -148,13 +148,12 @@ export async function getProjects() {
         "projects": *[_type == 'projects' && !(_id in ^.featuredProjects.featured[]._ref)] {
             projectName,
             dateCreated,
-            role,
             "liveSiteURL": liveSiteUrl,
             "gitHubURL": gitHubUrl,
             "tags": tags[]->{
                 name
             },
-        },
+        } | order(dateCreated desc),
     }`
 
     const res = await fetchSanity(query)

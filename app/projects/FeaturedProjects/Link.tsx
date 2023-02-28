@@ -1,5 +1,5 @@
 // icons
-import { GitHub, OpenOutline } from '../Icons'
+import { GitHub, OpenOutline } from '../../../components/Icons'
 
 export default function Link({
     url,

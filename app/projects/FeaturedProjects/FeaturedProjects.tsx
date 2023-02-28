@@ -3,18 +3,17 @@ import ProjectCard from './ProjectCard'
 
 export default function FeaturedProjects({ projects }) {
     return (
-        <div id='projects' className="mb-16 flex w-full flex-col items-center lg:items-start max-w-3xl">
+        <div id='projects' className="mb-8 flex w-full flex-col items-center lg:items-start max-w-3xl">
             <h1
-                className="mt-1 text-2xl text-purple-light dark:text-purple-dark md:text-4xl"
+                className="mt-1 text-2xl text-purple-light dark:text-purple-dark md:text-3xl uppercase"
             >
                 Featured Projects
             </h1>
-            <p className="px-10 text-center text-lg md:mt-0 md:px-0">
-                Take a look at some of my favorite projects that I've worked on
-                below!
+            <p className="px-10 text-lg md:mt-0 md:px-0">
+                Take a look at some of my favorite projects that I've worked on!
             </p>
 
-            <div className="mt-6 flex w-full flex-col items-center gap-4 md:flex-row lg:items-start">
+            <div className="mt-4 flex w-full flex-col items-center gap-4 md:flex-row lg:items-start">
                 {projects.map((project, index: number) => (
                     <ProjectCard
                         key={index}
