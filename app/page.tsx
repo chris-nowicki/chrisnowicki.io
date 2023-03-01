@@ -1,13 +1,10 @@
-import Link from 'next/link'
 import Image from 'next/image'
 
+// components
 import SocialLink from 'components/SocialLink'
 
 // sanity.io client & query
 import { getImage, getSocialLinks } from '../lib/sanity'
-
-// icons
-import { GitHub, Linkedin, ArrowIcon } from 'components/Icons'
 
 export default async function Home() {
     const imageData = getImage()
@@ -17,6 +14,11 @@ export default async function Home() {
         imageData,
         socialLinkData,
     ])
+
+    const links = [
+        { name: 'Linkedin', url: socialLink.linkedin },
+        { name: 'GitHub', url: socialLink.github },
+    ]
 
     return (
         <div className="px-10 md:px-0">
@@ -43,20 +45,16 @@ export default async function Home() {
                         engineer.
                     </p>
                     <div className="mt-4 flex w-full flex-row justify-center gap-2 md:justify-start">
-                        <SocialLink
-                            icon="linkedin"
-                            content="Linkedin"
-                            url={socialLink.linkedin}
-                            width='w-auto'
-                            fontSize='lg'
-                        />
-                        <SocialLink
-                            icon="github"
-                            content="GitHub"
-                            url={socialLink.linkedin}
-                            width='w-auto'
-                            fontSize='lg'
-                        />
+                        {links.map((link) => (
+                            <SocialLink
+                                key={link.name}
+                                icon={link.name.toLowerCase()}
+                                content={link.name}
+                                url={link.url}
+                                width="w-auto"
+                                fontSize="lg"
+                            />
+                        ))}
                     </div>
                 </div>
 

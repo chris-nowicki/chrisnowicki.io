@@ -3,18 +3,18 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
-//type
+//types
 import { Links } from 'ts/types'
 
 // icons
 import { ArrowIcon } from './Icons'
 
 export default function Nav({ links }: { links: Links[] }) {
-    const [showMenu, setShowMenu] = useState(false)
+    const [showMenu, setShowMenu] = useState<boolean>(false)
     const pathname = usePathname()
 
     const handleMenu = () => {
-        const btn = document.getElementById('menu-btn')
+        const btn: HTMLElement = document.getElementById('menu-btn')
         btn.classList.toggle('open')
         setShowMenu(showMenu === false ? true : false)
     }
@@ -55,7 +55,7 @@ export default function Nav({ links }: { links: Links[] }) {
                     <span className="hamburger-bottom bg-black dark:bg-foreground"></span>
                 </button>
 
-                {/* mobile menu when hamburger button is selected */}
+                {/* mobile nav menu when hamburger button is selected */}
                 {showMenu && (
                     <div>
                         <div
@@ -63,7 +63,7 @@ export default function Nav({ links }: { links: Links[] }) {
                             className="absolute left-6 right-6 z-10 -ml-6 mt-10 flex flex-col items-center justify-center space-y-2 self-end bg-background-light py-4 text-foreground opacity-95 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
                         >
                             {links.map(
-                                (link) =>
+                                (link: Links) =>
                                     link.show && (
                                         <Link
                                             key={link.title}
@@ -79,10 +79,10 @@ export default function Nav({ links }: { links: Links[] }) {
                     </div>
                 )}
 
-                {/* link to resume */}
+                {/* link to resume page */}
                 <Link
                     href="/resume"
-                    className={`flex items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50  dark:text-foreground hover:dark:bg-neutral-900/20
+                    className={`flex items-center justify-between gap-2 rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50 dark:text-foreground  hover:dark:bg-neutral-900/20 md:gap-6
                                 ${
                                     pathname === '/resume'
                                         ? 'bg-neutral-100 text-purple-light dark:bg-neutral-900/20 dark:text-purple-dark'
@@ -90,7 +90,7 @@ export default function Nav({ links }: { links: Links[] }) {
                                 }
                                 `}
                 >
-                    <div className="mr-2 flex items-center md:mr-6">resumé</div>
+                    resumé
                     <ArrowIcon size={12} />
                 </Link>
             </div>
