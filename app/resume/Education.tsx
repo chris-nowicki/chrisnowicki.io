@@ -37,8 +37,8 @@ export default function Education({ education }) {
                                 {school.details && (
                                     <ul className="ml-6 mt-2 list-outside list-disc marker:text-purple-light dark:marker:text-purple-dark md:mt-0">
                                         {school.details.map(
-                                            (detail: string, index: number) => (
-                                                <li key={index}>{detail}</li>
+                                            (detail: string) => (
+                                                <li key={detail}>{detail}</li>
                                             )
                                         )}
                                     </ul>

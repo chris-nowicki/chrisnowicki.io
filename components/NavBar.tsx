@@ -2,14 +2,13 @@
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
-
-//types
-import { Links } from 'ts/types'
+import { motion } from 'framer-motion'
+import clsx from 'clsx'
 
 // icons
 import { ArrowIcon } from './Icons'
 
-export default function Nav({ links }: { links: Links[] }) {
+export default function NavBar() {
     const [showMenu, setShowMenu] = useState<boolean>(false)
     const pathname = usePathname()
 
@@ -19,29 +18,78 @@ export default function Nav({ links }: { links: Links[] }) {
         setShowMenu(showMenu === false ? true : false)
     }
 
+    const navItems = {
+        '/': {
+            name: 'home',
+            x: 0,
+            w: '67.5px',
+        },
+        '/projects': {
+            name: 'projects',
+            x: 67.6,
+            w: '89px',
+        },
+        '/contact': {
+            name: 'contact',
+            x: 156.5,
+            w: '84.5px',
+        },
+        '/resume': {
+            name: 'resume',
+            x: 654,
+            w: '114px',
+        },
+    }
+
     return (
         <nav id="home" className="mb-6">
             <div className="relative flex w-full items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none">
+                
+                {/* motion settings for active links*/}
+                {navItems[pathname] && (
+                    <div className="hidden md:block">
+                        <motion.div
+                            className="absolute top-4 z-[-1] h-[38px] rounded-lg border border-borderColor-light bg-neutral-100 px-2 py-1 dark:border-neutral-900/50 dark:bg-neutral-900/20"
+                            layoutId="test"
+                            initial={{ opacity: 0, x: navItems[pathname].x }}
+                            animate={{
+                                opacity: 1,
+                                x: navItems[pathname].x,
+                                width: navItems[pathname].w,
+                            }}
+                            transition={{
+                                type: 'spring',
+                                stiffness: 350,
+                                damping: 30,
+                            }}
+                        />
+                    </div>
+                )}
+
                 {/* regular nav menu */}
-                <div className="sm:hidden md:flex">
-                    {links.map(
-                        (link) =>
-                            link.show && (
+                <div className="absolute sm:hidden md:flex">
+                    {Object.entries(navItems).map(([path, { name }]) => {
+                        const isActive = path === pathname
+                        return (
+                            path != '/resume' && (
                                 <Link
-                                    key={link.title}
-                                    href={link.reference}
-                                    className={`dark:text-textDark rounded-lg border px-2 py-1 text-xl 
-                                    ${
-                                        pathname === link.reference
-                                            ? 'border-neutral-200 bg-neutral-100 text-purple-light dark:border-neutral-900/50 dark:bg-neutral-900/20 dark:text-purple-dark'
-                                            : 'border-transparent hover:text-purple-light dark:hover:text-purple-dark'
-                                    }
-                                    `}
+                                    key={path}
+                                    href={path}
+                                    className={clsx(
+                                        'dark:text-textDark rounded-lg border border-transparent px-2 py-1 text-xl',
+                                        {
+                                            'hover:text-purple-light dark:hover:text-purple-dark':
+                                                !isActive,
+                                            'text-purple-light dark:text-purple-dark':
+                                                isActive,
+                                        }
+                                    )}
                                 >
-                                    {link.title}
+                                    {name}
                                 </Link>
                             )
-                    )}
+                        )
+                    })}
                 </div>
 
                 {/* hamburger menu for mobile */}
@@ -60,20 +108,23 @@ export default function Nav({ links }: { links: Links[] }) {
                     <div>
                         <div
                             id="menu"
-                            className="absolute left-6 right-6 z-10 -ml-6 mt-10 flex flex-col items-center justify-center space-y-2 self-end bg-background-light py-4 text-foreground opacity-95 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
+                            className="absolute left-6 right-6 z-10 -ml-6 mt-9 flex flex-col items-center justify-center space-y-2 self-end bg-background-light py-4 text-foreground opacity-95 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
                         >
-                            {links.map(
-                                (link: Links) =>
-                                    link.show && (
-                                        <Link
-                                            key={link.title}
-                                            href={link.reference}
-                                            className="text-2xl text-foreground hover:text-purple-dark"
-                                            onClick={() => handleMenu()}
-                                        >
-                                            {link.title}
-                                        </Link>
+                            {Object.entries(navItems).map(
+                                ([path, { name }]) => {
+                                    return (
+                                        path != '/resume' && (
+                                            <Link
+                                                key={path}
+                                                href={path}
+                                                className="text-2xl text-foreground hover:text-purple-dark"
+                                                onClick={() => handleMenu()}
+                                            >
+                                                {name}
+                                            </Link>
+                                        )
                                     )
+                                }
                             )}
                         </div>
                     </div>
@@ -82,11 +133,11 @@ export default function Nav({ links }: { links: Links[] }) {
                 {/* link to resume page */}
                 <Link
                     href="/resume"
-                    className={`flex items-center justify-between gap-2 rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50 dark:text-foreground  hover:dark:bg-neutral-900/20 md:gap-6
+                    className={`flex items-center justify-between gap-2 rounded-lg border border-neutral-200 px-2 py-1 text-lg  dark:border-neutral-900/50 dark:text-foreground   md:gap-6
                                 ${
                                     pathname === '/resume'
-                                        ? 'bg-neutral-100 text-purple-light dark:bg-neutral-900/20 dark:text-purple-dark'
-                                        : ''
+                                        ? ' text-purple-light dark:text-purple-dark'
+                                        : 'hover:bg-neutral-100 hover:dark:bg-neutral-900/20'
                                 }
                                 `}
                 >

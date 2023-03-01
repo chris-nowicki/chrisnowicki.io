@@ -16,7 +16,7 @@ const roboto = Roboto({
 })
 
 // sanity.io client & query
-import { getSettings, getSEO, urlFor } from '../lib/sanity'
+import { getSEO, urlFor } from '../lib/sanity'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
     const seo = await getSEO()
@@ -69,15 +69,12 @@ export default async function RootLayout({
 }: {
     children: React.ReactNode
 }) {
-    const settingData = getSettings()
-    const [settings] = await Promise.all([settingData])
-
     return (
         <html lang="en" className={roboto.variable} suppressHydrationWarning>
             <body className="bg-gray-50 dark:bg-background-light dark:text-foreground">
                 <div className="flex flex-col items-center">
                     <div className="flex w-full max-w-3xl flex-col">
-                        <Nav links={settings.links} />
+                        <Nav />
                         <main>
                             {children}
                             <AnalyticsWrapper />

@@ -27,15 +27,6 @@ export function urlFor(source: string) {
 }
 
 // GROQ Queries
-export async function getSettings() {
-    const query = groq`*[_type == "settings"] {
-        "links": navigation.links,
-    }`
-
-    const res = await fetchSanity(query)
-    return res[0]
-}
-
 export async function getSEO() {
     const query = groq`*[_type == "settings"] {
         seo {
