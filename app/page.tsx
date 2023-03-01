@@ -21,7 +21,7 @@ export default async function Home() {
     ]
 
     return (
-        <div className="px-10 md:px-0">
+        <div className="px-5 md:px-0">
             <div className="flex flex-row flex-wrap-reverse rounded border border-borderColor-light p-4 dark:border-borderColor-dark md:flex-nowrap">
                 <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
                     <p className="mb-4 text-2xl md:mt-0 md:text-3xl">
@@ -44,7 +44,7 @@ export default async function Home() {
                         I'm currently looking for a new role as a full-stack
                         engineer.
                     </p>
-                    <div className="mt-4 flex w-full flex-row justify-center gap-2 md:justify-start">
+                    <div className="mt-4 flex-col flex w-full md:flex-row justify-center gap-2 md:justify-start">
                         {links.map((link) => (
                             <SocialLink
                                 key={link.name}
