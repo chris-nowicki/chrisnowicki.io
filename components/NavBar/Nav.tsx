@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { Links } from 'ts/types'
 
 // icons
-import { ArrowIcon, PDF } from '../Icons'
+import { ArrowIcon } from '../Icons'
 
 export default function Nav({ links }: { links: Links[] }) {
     const [showMenu, setShowMenu] = useState(false)
@@ -22,6 +22,7 @@ export default function Nav({ links }: { links: Links[] }) {
     return (
         <nav id="home" className="mb-6 flex w-full flex-col items-center">
             <div className="relative flex w-full flex-row items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none">
+                {/* regular nav menu */}
                 <div className="items-center sm:hidden md:flex">
                     {links.map(
                         (link) =>
@@ -43,6 +44,7 @@ export default function Nav({ links }: { links: Links[] }) {
                     )}
                 </div>
 
+                {/* hamburger menu for mobile */}
                 <button
                     className="hamburger block shadow-2xl focus:outline-none md:hidden"
                     id="menu-btn"
@@ -53,6 +55,7 @@ export default function Nav({ links }: { links: Links[] }) {
                     <span className="hamburger-bottom bg-black dark:bg-foreground"></span>
                 </button>
 
+                {/* mobile menu when hamburger button is selected */}
                 {showMenu && (
                     <div>
                         <div
@@ -76,26 +79,20 @@ export default function Nav({ links }: { links: Links[] }) {
                     </div>
                 )}
 
-                <div className="flex flex-row items-center">
-                    <div className="flex flex-row">
-                        <Link
-                            href="/resume"
-                            className={`flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50  dark:text-foreground hover:dark:bg-neutral-900/20
+                {/* link to resume */}
+                <Link
+                    href="/resume"
+                    className={`flex items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100 dark:border-neutral-900/50  dark:text-foreground hover:dark:bg-neutral-900/20
                                 ${
                                     pathname === '/resume'
                                         ? 'bg-neutral-100 text-purple-light dark:bg-neutral-900/20 dark:text-purple-dark'
                                         : ''
                                 }
                                 `}
-                        >
-                            <div className="mr-2 flex items-center gap-2 md:mr-6">
-                                <PDF size={24} classProps="hidden md:block" />
-                                resumé
-                            </div>
-                            <ArrowIcon size={12} />
-                        </Link>
-                    </div>
-                </div>
+                >
+                    <div className="mr-2 flex items-center md:mr-6">resumé</div>
+                    <ArrowIcon size={12} />
+                </Link>
             </div>
         </nav>
     )

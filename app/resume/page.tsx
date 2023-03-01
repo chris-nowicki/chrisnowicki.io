@@ -1,9 +1,9 @@
 import Header from './Header'
-import ResumeLink from './ResumeLink'
 import TechSkills from './TechSkills/TechSkills'
 import TechnicalProjects from './TechnicalProjects'
 import ProfessionalExperience from './ProfessionalExperience'
 import Education from 'app/resume/Education'
+import SocialLink from 'components/SocialLink'
 
 import type { Metadata } from 'next'
 
@@ -42,7 +42,7 @@ export default async function Resume() {
     const links = [
         { name: 'pdf', url: resume.resumeURL },
         { name: 'Linkedin', url: socialLink.linkedin },
-        { name: 'GitHib', url: socialLink.github },
+        { name: 'GitHub', url: socialLink.github },
     ]
 
     return (
@@ -52,7 +52,14 @@ export default async function Resume() {
             {/* resume and social links */}
             <div className="mb-12 flex w-full flex-col items-center gap-4 md:flex-row">
                 {links.map((link) => (
-                    <ResumeLink key={link.name} name={link.name} url={link.url} />
+                    <SocialLink
+                        key={link.name}
+                        content={link.name}
+                        icon={link.name.toLowerCase()}
+                        url={link.url}
+                        padding={4}
+                        fontSize={'md'}
+                    />
                 ))}
             </div>
 

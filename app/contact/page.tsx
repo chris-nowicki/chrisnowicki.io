@@ -3,7 +3,7 @@ import Header from '../resume/Header'
 
 // components
 import Contact from './Contact'
-import SocialLink from './SocialLink'
+import SocialLink from 'components/SocialLink'
 
 // meta data
 import type { Metadata } from 'next'
@@ -25,14 +25,14 @@ export default async function Resume() {
     const [chrisnowicki, contact, socialLink] = await Promise.all([
         pictureData,
         contactData,
-        socialLinkData
+        socialLinkData,
     ])
 
     const links = [
-        { name: 'linkedin', href: socialLink.linkedin },
-        { name: 'github', href: socialLink.github },
-        { name: 'twitter', href: socialLink.twitter },
-        { name: 'instagram', href: socialLink.instagram },
+        { name: 'linkedin', href: socialLink.linkedin, arrow: 'before' },
+        { name: 'github', href: socialLink.github, arrow: 'before' },
+        { name: 'twitter', href: socialLink.twitter, arrow: 'before' },
+        { name: 'instagram', href: socialLink.instagram, arrow: 'before' },
     ]
 
     return (
@@ -47,8 +47,11 @@ export default async function Resume() {
                     {links.map((link) => (
                         <SocialLink
                             key={link.name}
-                            name={link.name}
-                            href={link.href}
+                            arrowPlacement={link.arrow}
+                            content={`follow me on ${link.name}`}
+                            icon={link.name}
+                            padding={4}
+                            url={link.href}
                         />
                     ))}
                 </div>

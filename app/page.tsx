@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import Image from 'next/image'
 
+import SocialLink from 'components/SocialLink'
+
 // sanity.io client & query
 import { getImage, getSocialLinks } from '../lib/sanity'
 
@@ -11,11 +13,14 @@ export default async function Home() {
     const imageData = getImage()
     const socialLinkData = getSocialLinks()
 
-    const [chrisnowicki, socialLink] = await Promise.all([imageData, socialLinkData])
+    const [chrisnowicki, socialLink] = await Promise.all([
+        imageData,
+        socialLinkData,
+    ])
 
     return (
         <div className="px-10 md:px-0">
-            <div className="mt-0 flex flex-row flex-wrap-reverse md:mt-6 md:flex-nowrap">
+            <div className="flex flex-row flex-wrap-reverse rounded border border-borderColor-light p-4 dark:border-borderColor-dark md:flex-nowrap">
                 <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
                     <p className="mb-4 text-2xl md:mt-0 md:text-3xl">
                         Hello, I'm{' '}
@@ -38,31 +43,20 @@ export default async function Home() {
                         engineer.
                     </p>
                     <div className="mt-4 flex w-full flex-row justify-center gap-2 md:justify-start">
-                        <Link
-                            href={socialLink.linkedin}
-                            className="flex w-full items-center justify-between gap-2 rounded border border-neutral-200 py-3 px-4 text-lg hover:bg-neutral-100 dark:border-background-dark dark:hover:bg-background-dark/25 md:w-auto"
-                            target="_blank"
-                            prefetch={false}
-                        >
-                            <div className="flex items-center gap-2">
-                                <Linkedin size={24} />
-                                Linkedin
-                            </div>
-                            <ArrowIcon size={12} />
-                        </Link>
-
-                        <Link
-                            href={socialLink.github}
-                            className="flex w-full items-center justify-between gap-2 rounded border border-neutral-200 px-4 py-3 text-lg hover:bg-neutral-100 dark:border-background-dark dark:hover:bg-background-dark/25 md:w-auto"
-                            target="_blank"
-                            prefetch={false}
-                        >
-                            <div className="flex items-center gap-2">
-                                <GitHub size={24} />
-                                GitHub
-                            </div>
-                            <ArrowIcon size={12} />
-                        </Link>
+                        <SocialLink
+                            icon="linkedin"
+                            content="Linkedin"
+                            url={socialLink.linkedin}
+                            width='w-auto'
+                            fontSize='lg'
+                        />
+                        <SocialLink
+                            icon="github"
+                            content="GitHub"
+                            url={socialLink.linkedin}
+                            width='w-auto'
+                            fontSize='lg'
+                        />
                     </div>
                 </div>
 

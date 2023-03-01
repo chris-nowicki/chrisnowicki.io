@@ -85,3 +85,16 @@ export type SEO = {
     image: string
     twitter: string
 }
+
+export type SocialLinks = {
+    arrowPlacement?: string
+    arrowSize?: number
+    icon: string
+    content: any
+    width?: string
+    paddingX?: number
+    paddingY?: number
+    padding?: number
+    fontSize?: string
+    url: string
+}
