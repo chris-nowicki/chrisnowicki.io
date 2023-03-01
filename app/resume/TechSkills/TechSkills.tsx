@@ -32,7 +32,10 @@ export default function TechSkills({ tech }) {
     }
 
     return (
-        <div className="mb-16 flex w-full flex-col items-center">
+        <div className="mb-8 flex w-full flex-col">
+            <h1 className="mb-2 text-center text-xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-2xl">
+                Technical Skills
+            </h1>
             <div className="flex w-full items-center sm:flex-col md:flex-row md:items-start">
                 <div className="mr-0 mb-4 flex w-full flex-row flex-wrap justify-center gap-2 md:mr-4 md:w-1/2 md:flex-col md:justify-start">
                     {btn.map((btn) => (

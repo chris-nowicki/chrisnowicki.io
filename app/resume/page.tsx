@@ -48,7 +48,7 @@ export default async function Resume() {
     return (
         <div className="px-5 lg:px-0">
             <Header image={chrisnowicki} data={headerData} />
-
+            
             {/* resume and social links */}
             <div className="mb-12 flex w-full flex-col items-center gap-4 md:flex-row">
                 {links.map((link) => (
@@ -63,27 +63,12 @@ export default async function Resume() {
                 ))}
             </div>
 
-            {/* technical skills, projects, professional experience, and education */}
-            <div>
-                {/* Technical Skills */}
-                <div className="-mb-8 flex w-full flex-col gap-4">
-                    <div className="mb-1">
-                        <h1 className="mb-2 text-center text-xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-2xl">
-                            Technical Skills
-                        </h1>
-                        <TechSkills tech={tech} />
-                    </div>
-                </div>
-
-                <TechnicalProjects projects={resume.projects} />
-                {/* Professional Experience  */}
-                <ProfessionalExperience
-                    experience={resume.professionalExperience[0]}
-                />
-
-                {/* Education */}
-                <Education education={resume.education} />
-            </div>
+            <TechSkills tech={tech} />
+            <TechnicalProjects projects={resume.projects} />
+            <ProfessionalExperience
+                experience={resume.professionalExperience[0]}
+            />
+            <Education education={resume.education} />
         </div>
     )
 }

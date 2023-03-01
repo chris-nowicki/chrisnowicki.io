@@ -1,5 +1,5 @@
 import './globals.css'
-import Nav from '../components/NavBar/Nav'
+import Nav from '../components/NavBar'
 import type { Metadata } from 'next'
 
 // vercel analytics

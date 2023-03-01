@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { Links } from 'ts/types'
 
 // icons
-import { ArrowIcon } from '../Icons'
+import { ArrowIcon } from './Icons'
 
 export default function Nav({ links }: { links: Links[] }) {
     const [showMenu, setShowMenu] = useState(false)
@@ -20,17 +20,17 @@ export default function Nav({ links }: { links: Links[] }) {
     }
 
     return (
-        <nav id="home" className="mb-6 flex w-full flex-col items-center">
-            <div className="relative flex w-full flex-row items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none">
+        <nav id="home" className="mb-6">
+            <div className="relative flex w-full items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none">
                 {/* regular nav menu */}
-                <div className="items-center sm:hidden md:flex">
+                <div className="sm:hidden md:flex">
                     {links.map(
                         (link) =>
                             link.show && (
                                 <Link
                                     key={link.title}
                                     href={link.reference}
-                                    className={`dark:text-textDark  rounded-md border px-2 py-1 text-xl 
+                                    className={`dark:text-textDark rounded-lg border px-2 py-1 text-xl 
                                     ${
                                         pathname === link.reference
                                             ? 'border-neutral-200 bg-neutral-100 text-purple-light dark:border-neutral-900/50 dark:bg-neutral-900/20 dark:text-purple-dark'

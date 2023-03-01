@@ -26,7 +26,7 @@ export default function SocialLink({
     return (
         <Link
             href={url}
-            className={`flex w-full md:${width} cursor-pointer gap-2 items-center justify-between rounded-md border border-borderColor-light hover:bg-activeColor-light dark:border-borderColor-dark dark:hover:bg-activeColor-dark/25
+            className={`flex w-full md:${width} cursor-pointer gap-2 items-center justify-between rounded-lg border border-borderColor-light hover:bg-activeColor-light dark:border-borderColor-dark dark:hover:bg-activeColor-dark/25
         ${
             padding ? `p-${padding}` : `px-${paddingX} py-${paddingY}`
         } ${`text-${fontSize}`}    
