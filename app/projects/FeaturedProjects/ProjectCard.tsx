@@ -67,7 +67,7 @@ export default function ProjectCard({
                                         ))}
                                     </div>
                                 </div>
-                                <p className="mt-2 px-2 text-md md:text-lg text-foreground">
+                                <p className="text-md mt-2 px-2 text-foreground md:text-lg">
                                     {excerpt}
                                 </p>
                             </div>
