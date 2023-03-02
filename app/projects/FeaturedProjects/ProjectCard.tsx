@@ -1,6 +1,5 @@
-import Image from 'next/image'
 import Link from './Link'
-import { urlFor } from 'lib/sanity'
+import { urlFor } from 'lib/sanityClient'
 
 export interface Props {
     name: string
@@ -22,7 +21,7 @@ export default function ProjectCard({
     let projectImage
     image ? (projectImage = urlFor(image).url()) : null
     return (
-        <div className="flex h-[276px] w-[375px] rounded border border-neutral-200 dark:border-background-dark p-2 shadow-md shadow-black/25 dark:shadow-background-dark/25">
+        <div className="flex h-[276px] w-[375px] rounded border border-neutral-200 p-2 shadow-md shadow-black/25 dark:border-background-dark dark:shadow-background-dark/25">
             <div className="flex w-full gap-2">
                 <div className="flex cursor-default flex-col rounded  bg-background-light p-2 dark:bg-background-dark">
                     <div className="mb-3 flex flex-col items-center">
@@ -32,7 +31,7 @@ export default function ProjectCard({
                         </p>
                     </div>
                     <div className="mb-4 flex flex-wrap justify-center gap-1">
-                        <div className="flex w-full justify-center gap-2 px-0 md:px-12 pb-2">
+                        <div className="flex w-full justify-center gap-2 px-0 pb-2 md:px-12">
                             <Link url={gitHubUrl} icon="github" name="code" />
                             {liveSiteUrl && (
                                 <Link

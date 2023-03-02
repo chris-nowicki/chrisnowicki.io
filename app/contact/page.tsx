@@ -15,7 +15,11 @@ export const metadata: Metadata = {
 }
 
 // sanity.io query
-import { getImage, getContactInfo, getSocialLinks } from '../../lib/sanity'
+import {
+    getImage,
+    getContactInfo,
+    getSocialLinks,
+} from '../../lib/sanityQuery'
 
 export default async function Resume() {
     const pictureData = getImage()

@@ -1,5 +1,5 @@
 import FeaturedProjects from 'app/projects/FeaturedProjects/FeaturedProjects'
-import { getProjects } from 'lib/sanity'
+import { getProjects } from 'lib/sanityQuery'
 import Link from 'next/link'
 
 import { GitBranchOutline, OpenOutline } from 'components/Icons'

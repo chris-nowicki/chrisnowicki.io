@@ -4,7 +4,7 @@ import Image from 'next/image'
 import SocialLink from 'components/SocialLink'
 
 // sanity.io client & query
-import { getImage, getSocialLinks } from '../lib/sanity'
+import { getImage, getSocialLinks } from '../lib/sanityQuery'
 
 export default async function Home() {
     const imageData = getImage()
@@ -44,7 +44,7 @@ export default async function Home() {
                         I'm currently looking for a new role as a full-stack
                         engineer.
                     </p>
-                    <div className="mt-4 flex-col flex w-full md:flex-row justify-center gap-2 md:justify-start">
+                    <div className="mt-4 flex w-full flex-col justify-center gap-2 md:flex-row md:justify-start">
                         {links.map((link) => (
                             <SocialLink
                                 key={link.name}

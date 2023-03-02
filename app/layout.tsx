@@ -16,7 +16,8 @@ const roboto = Roboto({
 })
 
 // sanity.io client & query
-import { getSEO, urlFor } from '../lib/sanity'
+import { getSEO } from '../lib/sanityQuery'
+import { urlFor } from 'lib/sanityClient'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
     const seo = await getSEO()

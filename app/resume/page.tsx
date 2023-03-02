@@ -18,7 +18,7 @@ import {
     getTechData,
     getResume,
     getSocialLinks,
-} from '../../lib/sanity'
+} from '../../lib/sanityQuery'
 
 export default async function Resume() {
     const pictureData = getImage()
@@ -48,7 +48,7 @@ export default async function Resume() {
     return (
         <div className="px-5 lg:px-0">
             <Header image={chrisnowicki} data={headerData} />
-            
+
             {/* resume and social links */}
             <div className="mb-12 flex w-full flex-col items-center gap-4 md:flex-row">
                 {links.map((link) => (
