@@ -3,7 +3,7 @@ import Link from './Link'
 import { urlFor } from 'lib/sanityClient'
 import { motion } from 'framer-motion'
 
-export interface Props {
+export type Props = {
     name: string
     excerpt: string
     image: string
