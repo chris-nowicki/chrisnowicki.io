@@ -107,4 +107,6 @@ export interface ProjectCardProps {
     gitHubUrl: string
     liveSiteUrl: string
     isSelected: boolean
+    direction: any
+    page: any
 }

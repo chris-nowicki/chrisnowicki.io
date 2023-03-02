@@ -14,7 +14,7 @@ export default function FeaturedProjects({ projects }) {
                 Take a look at some of my favorite projects that I've worked on!
             </p>
 
-            <div className="mt-4 flex w-full flex-col items-center gap-4 px-10 md:flex-row md:flex-wrap md:items-start md:px-0">
+            <div className="mt-4 flex w-full flex-col items-center gap-4  md:flex-row md:flex-wrap md:items-start ">
                 <ContentCarousel contents={projects} />
             </div>
         </div>

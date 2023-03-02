@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 
 // components
 import Link from '../Link'
@@ -18,27 +18,53 @@ export default function ProjectCard({
     gitHubUrl,
     liveSiteUrl,
     isSelected,
+    direction,
+    page,
 }: ProjectCardProps) {
     let projectImage: string
     image && (projectImage = urlFor(image).url())
+
+    const variants = {
+        enter: (direction: number) => {
+            return {
+                x: direction > 0 ? 600 : -600,
+                opacity: 1,
+            }
+        },
+        center: {
+            zIndex: 1,
+            x: 0,
+            opacity: 1,
+        },
+        exit: (direction: number) => {
+            return {
+                zIndex: 0,
+                x: direction < 0 ? 800 : -800,
+                opacity: 1,
+            }
+        },
+    }
 
     return (
         <>
             {isSelected && (
                 <motion.div
-                    initial={{ x: 1000, opacity: 1 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -1000, opacity: 0 }}
+                    key={page}
+                    custom={direction}
+                    variants={variants}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
                     transition={{
                         x: {
                             type: 'spring',
-                            stiffness: 300,
-                            damping: 30,
-                            duration: 2,
+                            duration: 0.3,
                         },
                     }}
                 >
-                    <div className="relative flex h-[290px] max-h-[290px] w-full flex-col gap-2 md:h-[271px] md:max-h-[271px] md:flex-row">
+                    <div
+                        className={`flex h-[290px] max-h-[290px] flex-col gap-2 md:h-[271px] md:max-h-[271px] md:flex-row`}
+                    >
                         {/* featured project info */}
                         <div className="flex h-full w-full cursor-default flex-col justify-between rounded bg-background-light p-2  dark:bg-background-dark md:w-1/2 md:justify-start">
                             <div className="mb-3 flex flex-col items-center">
@@ -93,7 +119,7 @@ export default function ProjectCard({
                         <div className="hidden flex-col gap-2 md:flex">
                             {image && (
                                 <Image
-                                    className="border border-borderColor-dark object-contain shadow-md"
+                                    className="border border-borderColor-dark shadow-md"
                                     width={367}
                                     height={227}
                                     src={projectImage}
