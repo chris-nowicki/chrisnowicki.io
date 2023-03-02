@@ -1,17 +1,14 @@
 import Image from 'next/image'
-import Link from '../Link'
-import { urlFor } from 'lib/sanityClient'
 import { motion } from 'framer-motion'
 
-export type Props = {
-    name: string
-    excerpt: string
-    image: string
-    tags: string[]
-    gitHubUrl: string
-    liveSiteUrl: string
-    isSelected: boolean
-}
+// components
+import Link from '../Link'
+
+// sanity cms function to create URL for image
+import { urlFor } from 'lib/sanityClient'
+
+// types
+import { ProjectCardProps } from 'ts/types'
 
 export default function ProjectCard({
     name,
@@ -21,7 +18,7 @@ export default function ProjectCard({
     gitHubUrl,
     liveSiteUrl,
     isSelected,
-}: Props) {
+}: ProjectCardProps) {
     let projectImage: string
     image && (projectImage = urlFor(image).url())
 
@@ -42,6 +39,7 @@ export default function ProjectCard({
                     }}
                 >
                     <div className="relative flex h-[290px] max-h-[290px] w-full flex-col gap-2 md:h-[271px] md:max-h-[271px] md:flex-row">
+                        {/* featured project info */}
                         <div className="flex h-full w-full cursor-default flex-col justify-between rounded bg-background-light p-2  dark:bg-background-dark md:w-1/2 md:justify-start">
                             <div className="mb-3 flex flex-col items-center">
                                 <span className="text-lg text-purple-dark">
@@ -71,6 +69,8 @@ export default function ProjectCard({
                                     {excerpt}
                                 </p>
                             </div>
+
+                            {/* show github/livesite links in info card for mobile view only */}
                             <div className="flex w-full gap-1 md:hidden">
                                 <Link
                                     url={gitHubUrl}
@@ -88,6 +88,8 @@ export default function ProjectCard({
                                 )}
                             </div>
                         </div>
+
+                        {/* featured project image, and github/livesite links to display in desktop/tablet mode only */}
                         <div className="hidden flex-col gap-2 md:flex">
                             {image && (
                                 <Image

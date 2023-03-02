@@ -98,3 +98,13 @@ export type SocialLinks = {
     fontSize?: string
     url: string
 }
+
+export interface ProjectCardProps {
+    name: string
+    excerpt: string
+    image: string
+    tags: string[]
+    gitHubUrl: string
+    liveSiteUrl: string
+    isSelected: boolean
+}

@@ -1,7 +1,5 @@
-'use client'
-
 // components
-import ContentCarousel from 'components/ContentCarousel'
+import ContentCarousel from 'app/projects/FeaturedProjects/ContentCarousel'
 
 export default function FeaturedProjects({ projects }) {
     return (

@@ -1,12 +1,12 @@
 'use client'
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { AnimatePresence } from 'framer-motion'
 
-// component
+// components
 import ProjectCard from 'app/projects/FeaturedProjects/ProjectCard'
 
 // icons
-import { CHEVRON_LEFT, CHEVRON_RIGHT } from './Icons'
+import { CHEVRON_LEFT, CHEVRON_RIGHT } from '../../../components/Icons'
 
 function ContentCarousel({ contents }) {
     const [activeIndex, setActiveIndex] = useState(0)
