@@ -28,12 +28,12 @@ function ContentCarousel({ contents }) {
 
     return (
         <div className="relative rounded border border-borderColor-light p-4 shadow-lg dark:border-borderColor-dark">
-            <div className="absolute top-[125px] -left-8 hidden items-center justify-center bg-background-light p-1 text-foreground hover:text-purple-dark dark:bg-background-dark md:flex">
+            <div className="absolute shadow-xl top-[125px] -left-8 hidden items-center justify-center bg-background-light p-1 text-foreground hover:text-purple-dark dark:bg-background-dark md:flex">
                 <button onClick={() => handlePrevClick()}>
                     <CHEVRON_LEFT size={32} />
                 </button>
             </div>
-            <div className="absolute top-[125px] -right-8 hidden items-center justify-center bg-background-light p-1 text-foreground hover:text-purple-dark dark:bg-background-dark md:flex">
+            <div className="absolute shadow-xl top-[125px] -right-8 hidden items-center justify-center bg-background-light p-1 text-foreground hover:text-purple-dark dark:bg-background-dark md:flex">
                 <button onClick={() => handleNextClick()}>
                     <CHEVRON_RIGHT size={32} />
                 </button>
