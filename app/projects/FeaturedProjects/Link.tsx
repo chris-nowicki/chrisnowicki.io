@@ -5,16 +5,18 @@ export default function Link({
     url,
     icon,
     name,
+    liveSiteUrl,
 }: {
     url: string
     icon: string
     name: string
+    liveSiteUrl: boolean
 }) {
     return (
         <>
             <a
                 href={url}
-                className="hover:bg-purple-60 flex w-1/3 items-center justify-center rounded border border-purple-dark p-1 text-foreground hover:bg-purple-dark md:w-1/2"
+                className={`hover:bg-activeColor-dark/85 flex ${liveSiteUrl ? 'w-1/2' : 'w-full'} cursor-pointer items-center p-2 md:p-0  justify-center border border-borderColor-dark md:bg-background-dark text-foreground  hover:text-purple-dark`}
                 target="_blank"
             >
                 {icon == 'github' ? (

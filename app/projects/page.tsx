@@ -20,7 +20,7 @@ export default async function Projects() {
         <div className="mb-16 flex w-full flex-col items-center px-10 md:items-start md:px-0">
             <FeaturedProjects projects={projects.featuredProjects} />
 
-            <span className="text-center text-2xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-3xl">
+            <span className="text-center text-xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-3xl">
                 Project Archive
             </span>
             <div className="mt-4 flex w-full flex-col md:mb-0">
@@ -29,8 +29,8 @@ export default async function Projects() {
                         <tr className="text-md w-full uppercase text-gray-900 dark:text-foreground">
                             <th className="pr-2 text-left">year</th>
                             <th className="pr-2 text-left">title</th>
-                            <th className="text-left">tech stack</th>
-                            <th className="pr-2 sm:text-center md:text-right">
+                            <th className="text-left hidden md:block">tech stack</th>
+                            <th className="pr-2 text-right">
                                 links
                             </th>
                         </tr>
@@ -49,7 +49,7 @@ export default async function Projects() {
                                 <td className="overflow-hidden pr-2 pt-2">
                                     {project.projectName}
                                 </td>
-                                <td className="mb-2 flex flex-wrap gap-1 pt-2">
+                                <td className="mb-2 md:flex flex-wrap gap-1 pt-2 hidden">
                                     {project.tags.map(
                                         (tag: any, index: number) => (
                                             <span

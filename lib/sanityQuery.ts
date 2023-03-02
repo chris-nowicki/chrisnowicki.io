@@ -1,4 +1,3 @@
-'server-only'
 import { fetchSanity, urlFor } from './sanityClient'
 import { groq } from 'next-sanity'
 

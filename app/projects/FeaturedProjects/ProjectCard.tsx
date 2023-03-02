@@ -1,5 +1,7 @@
+import Image from 'next/image'
 import Link from './Link'
 import { urlFor } from 'lib/sanityClient'
+import { motion } from 'framer-motion'
 
 export interface Props {
     name: string
@@ -8,6 +10,7 @@ export interface Props {
     tags: string[]
     gitHubUrl: string
     liveSiteUrl: string
+    isSelected: boolean
 }
 
 export default function ProjectCard({
@@ -17,35 +20,39 @@ export default function ProjectCard({
     tags,
     gitHubUrl,
     liveSiteUrl,
+    isSelected,
 }: Props) {
-    let projectImage
-    image ? (projectImage = urlFor(image).url()) : null
+    let projectImage: string
+    image && (projectImage = urlFor(image).url())
+
     return (
-        <div className="flex h-[276px] w-[375px] rounded border border-neutral-200 p-2 shadow-md shadow-black/25 dark:border-background-dark dark:shadow-background-dark/25">
-            <div className="flex w-full gap-2">
-                <div className="flex cursor-default flex-col rounded  bg-background-light p-2 dark:bg-background-dark">
-                    <div className="mb-3 flex flex-col items-center">
-                        <span className="text-lg text-purple-dark">{name}</span>
-                        <p className="mt-2 px-4 text-lg text-foreground">
-                            {excerpt}
-                        </p>
-                    </div>
-                    <div className="mb-4 flex flex-wrap justify-center gap-1">
-                        <div className="flex w-full justify-center gap-2 px-0 pb-2 md:px-12">
-                            <Link url={gitHubUrl} icon="github" name="code" />
-                            {liveSiteUrl && (
-                                <Link
-                                    url={liveSiteUrl}
-                                    icon="open-outline"
-                                    name="live site"
-                                />
-                            )}
-                        </div>
-                        <div className="flex flex-row gap-1">
-                            {tags.map((tag, index) => (
-                                <span
-                                    key={index}
-                                    className={`inline-flex items-center rounded px-1.5 py-0.5 text-xs
+        <>
+            {isSelected && (
+                <motion.div
+                    initial={{ x: 1000, opacity: 1 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -1000, opacity: 0 }}
+                    transition={{
+                        x: {
+                            type: 'spring',
+                            stiffness: 300,
+                            damping: 30,
+                            duration: 2,
+                        },
+                    }}
+                >
+                    <div className="relative flex h-[290px] max-h-[290px] w-full flex-col gap-2 md:h-[271px] md:max-h-[271px] md:flex-row">
+                        <div className="flex h-full w-full cursor-default flex-col justify-between rounded bg-background-light p-2  dark:bg-background-dark md:w-1/2 md:justify-start">
+                            <div className="mb-3 flex flex-col items-center">
+                                <span className="text-lg text-purple-dark">
+                                    {name}
+                                </span>
+                                <div className="mt-2 mb-2 flex flex-wrap justify-center gap-1">
+                                    <div className="flex flex-row gap-1">
+                                        {tags.map((tag, index) => (
+                                            <span
+                                                key={tag['name']}
+                                                className={`inline-flex items-center rounded px-1.5 py-0.5 text-xs
                                     ${
                                         index == 0
                                             ? 'bg-green-100  text-green-800'
@@ -54,14 +61,64 @@ export default function ProjectCard({
                                             : 'bg-blue-100 text-blue-800'
                                     }
                                 `}
-                                >
-                                    {tag['name']}
-                                </span>
-                            ))}
+                                            >
+                                                {tag['name']}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <p className="mt-2 px-2 text-md md:text-lg text-foreground">
+                                    {excerpt}
+                                </p>
+                            </div>
+                            <div className="flex w-full gap-1 md:hidden">
+                                <Link
+                                    url={gitHubUrl}
+                                    icon="github"
+                                    name="code"
+                                    liveSiteUrl={liveSiteUrl ? true : false}
+                                />
+                                {liveSiteUrl && (
+                                    <Link
+                                        url={liveSiteUrl}
+                                        icon="open-outline"
+                                        name="live site"
+                                        liveSiteUrl={liveSiteUrl ? true : false}
+                                    />
+                                )}
+                            </div>
+                        </div>
+                        <div className="hidden flex-col gap-2 md:flex">
+                            {image && (
+                                <Image
+                                    className="border border-borderColor-dark object-contain shadow-md"
+                                    width={367}
+                                    height={227}
+                                    src={projectImage}
+                                    alt="featured projects"
+                                    priority
+                                />
+                            )}
+                            <div className="flex h-full w-full gap-1">
+                                <Link
+                                    url={gitHubUrl}
+                                    icon="github"
+                                    name="code"
+                                    liveSiteUrl={liveSiteUrl ? true : false}
+                                />
+                                {liveSiteUrl && (
+                                    <Link
+                                        url={liveSiteUrl}
+                                        icon="open-outline"
+                                        name="live site"
+                                        liveSiteUrl={liveSiteUrl ? true : false}
+                                    />
+                                )}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </motion.div>
+            )}
+        </>
     )
 }

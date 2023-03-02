@@ -429,3 +429,37 @@ export function SANITY({ size = 46.95, classProps }: Icon) {
         </svg>
     )
 }
+
+export function CHEVRON_LEFT({ size = 32, classProps }: Icon) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={size}
+            height={size}
+            viewBox="0 0 32 32"
+            className={classProps}
+        >
+            <path
+                fill="currentColor"
+                d="M10 16L20 6l1.4 1.4l-8.6 8.6l8.6 8.6L20 26z"
+            />
+        </svg>
+    )
+}
+
+export function CHEVRON_RIGHT({ size = 32, classProps }: Icon) {
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width={size}
+            height={size}
+            viewBox="0 0 32 32"
+            className={classProps}
+        >
+            <path
+                fill="currentColor"
+                d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z"
+            />
+        </svg>
+    )
+}
