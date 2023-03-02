@@ -1,5 +1,5 @@
 // icons
-import { GitHub, OpenOutline } from '../../../components/Icons'
+import { GitHub, OpenOutline } from '../../components/Icons'
 
 export default function Link({
     url,
@@ -16,7 +16,9 @@ export default function Link({
         <>
             <a
                 href={url}
-                className={`hover:bg-activeColor-dark/85 flex ${liveSiteUrl ? 'w-1/2' : 'w-full'} cursor-pointer items-center p-2 md:p-0  justify-center border border-borderColor-dark md:bg-background-dark text-foreground  hover:text-purple-dark`}
+                className={`hover:bg-activeColor-dark/85 flex ${
+                    liveSiteUrl ? 'w-1/2' : 'w-full'
+                } cursor-pointer items-center justify-center border  border-borderColor-dark p-2 text-foreground hover:text-purple-dark md:bg-background-dark  md:p-0`}
                 target="_blank"
             >
                 {icon == 'github' ? (

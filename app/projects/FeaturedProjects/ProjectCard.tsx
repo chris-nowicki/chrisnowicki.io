@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Link from './Link'
+import Link from '../Link'
 import { urlFor } from 'lib/sanityClient'
 import { motion } from 'framer-motion'
 

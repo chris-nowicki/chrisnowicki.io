@@ -1,10 +1,9 @@
 'use client'
+
 // components
-import ProjectCard from './ProjectCard'
 import ContentCarousel from 'components/ContentCarousel'
 
 export default function FeaturedProjects({ projects }) {
-    const contents = ['Content 1', 'Content 2', 'Content 3']
     return (
         <div
             id="projects"
