@@ -6,7 +6,7 @@ import { GitBranchOutline, OpenOutline } from 'components/Icons'
 export default function ProjectArchive({ projects }) {
     return (
         <>
-            <span className="text-center text-xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-3xl mt-12">
+            <span className="text-center text-xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-3xl mt-6">
                 Project Archive
             </span>
             <div className="mt-4 flex w-full flex-col md:mb-0">
