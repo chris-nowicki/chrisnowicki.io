@@ -29,7 +29,7 @@ function ContentCarousel({ contents }) {
     }
 
     return (
-        <div className="relative rounded border border-borderColor-light p-4 shadow-lg dark:border-borderColor-dark">
+        <div className="relative rounded border border-borderColor-light p-2 md:p-4 shadow-lg dark:border-borderColor-dark w-full">
             <div className="absolute top-[125px] -left-8 hidden items-center justify-center bg-background-light p-1 text-foreground shadow-xl hover:text-purple-dark dark:bg-background-dark md:flex">
                 <button
                     onClick={() => {
@@ -51,7 +51,7 @@ function ContentCarousel({ contents }) {
                 </button>
             </div>
 
-            <div className="flex overflow-hidden">
+            <div className="flex overflow-hidden w-full">
                 <AnimatePresence initial={false} custom={direction} mode="wait">
                     <div key={page}>
                         {contents.map((project: any, index: number) => (

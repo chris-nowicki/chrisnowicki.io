@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 // components
 import Link from '../Link'
@@ -63,7 +63,7 @@ export default function ProjectCard({
                     }}
                 >
                     <div
-                        className={`flex h-[290px] max-h-[290px] flex-col gap-2 md:h-[271px] md:max-h-[271px] md:flex-row`}
+                        className={`flex h-[290px] max-h-[290px] flex-col gap-2 md:h-[271px] md:max-h-[271px] md:flex-row w-full`}
                     >
                         {/* featured project info */}
                         <div className="flex h-full w-full cursor-default flex-col justify-between rounded bg-background-light p-2  dark:bg-background-dark md:w-1/2 md:justify-start">
@@ -91,7 +91,7 @@ export default function ProjectCard({
                                         ))}
                                     </div>
                                 </div>
-                                <p className="text-md mt-2 px-2 text-foreground md:text-lg">
+                                <p className="text-md mt-2 px-2 text-foreground md:text-lg flex-wrap">
                                     {excerpt}
                                 </p>
                             </div>
