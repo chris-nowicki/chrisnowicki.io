@@ -4,13 +4,13 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 34px;
 }
 
 body {
     overflow-y: scroll;
 }
 
+/* animated links with purple underline from left to right */
 .link-animate a {
     position: relative;
 }
@@ -34,7 +34,6 @@ body {
 }
 
 /* hamburger menu */
-
 .hamburger {
     cursor: pointer;
     width: 24px;
@@ -81,7 +80,6 @@ body {
 }
 
 /* scroll bar customization */
-
 ::-webkit-scrollbar {
     width: 10px;
     padding: 0px;
