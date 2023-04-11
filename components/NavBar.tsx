@@ -18,6 +18,29 @@ export default function NavBar() {
         setShowMenu(showMenu === false ? true : false)
     }
 
+    // const navItems = {
+    //     '/': {
+    //         name: 'home',
+    //         x: 0,
+    //         w: '60px',
+    //     },
+    //     '/projects': {
+    //         name: 'projects',
+    //         x: 58,
+    //         w: '79px',
+    //     },
+    //     '/contact': {
+    //         name: 'contact',
+    //         x: 138,
+    //         w: '72.43px',
+    //     },
+    //     '/resume': {
+    //         name: 'resume',
+    //         x: 570,
+    //         w: '102px',
+    //     },
+    // }
+
     const navItems = {
         '/': {
             name: 'home',
@@ -43,8 +66,7 @@ export default function NavBar() {
 
     return (
         <nav id="home" className="mb-6">
-            <div className="relative flex w-full items-center justify-between px-5 pt-4 pb-4 sm:shadow md:px-0 md:shadow-none">
-                
+            <div className="relative flex w-full items-center justify-between px-5 pb-4 pt-4 sm:shadow md:px-0 md:shadow-none">
                 {/* motion settings for active links*/}
                 {navItems[pathname] && (
                     <div className="hidden md:block">
