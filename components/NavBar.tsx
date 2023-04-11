@@ -46,21 +46,25 @@ export default function NavBar() {
             name: 'home',
             x: 0,
             w: '67.5px',
+            h: '37px',
         },
         '/projects': {
             name: 'projects',
             x: 67.6,
             w: '89px',
+            h: '37px',
         },
         '/contact': {
             name: 'contact',
             x: 156.5,
             w: '84.5px',
+            h: '37px',
         },
         '/resume': {
             name: 'resume',
             x: 654,
             w: '114px',
+            h: '42px',
         },
     }
 
@@ -71,13 +75,14 @@ export default function NavBar() {
                 {navItems[pathname] && (
                     <div className="hidden md:block">
                         <motion.div
-                            className="absolute top-4 z-[-1] h-[38px] rounded-lg border border-borderColor-light bg-neutral-100 px-2 py-1 dark:border-neutral-900/50 dark:bg-neutral-900/20"
+                            className="absolute top-4 z-[-1] rounded-lg border border-borderColor-light bg-neutral-100 px-2 py-1 dark:border-neutral-900/50 dark:bg-neutral-900/20"
                             layoutId="test"
                             initial={{ opacity: 0, x: navItems[pathname].x }}
                             animate={{
                                 opacity: 1,
                                 x: navItems[pathname].x,
                                 width: navItems[pathname].w,
+                                height: navItems[pathname].h,
                             }}
                             transition={{
                                 type: 'spring',
