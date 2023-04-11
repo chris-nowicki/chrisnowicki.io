@@ -45,22 +45,22 @@ export default function NavBar() {
         '/': {
             name: 'home',
             x: 0,
-            w: '60px',
+            w: '67.5px',
         },
         '/projects': {
             name: 'projects',
-            x: 58,
-            w: '79px',
+            x: 67.6,
+            w: '89px',
         },
         '/contact': {
             name: 'contact',
-            x: 138,
-            w: '72.43px',
+            x: 156.5,
+            w: '84.5px',
         },
         '/resume': {
             name: 'resume',
-            x: 570,
-            w: '102px',
+            x: 654,
+            w: '114px',
         },
     }
 
