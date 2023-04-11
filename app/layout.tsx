@@ -6,7 +6,7 @@ import type { Metadata } from 'next'
 import { AnalyticsWrapper } from './Analytics'
 
 // fonts
-import { Roboto } from "next/font/google"
+import { Roboto } from 'next/font/google'
 
 const roboto = Roboto({
     weight: '400',
@@ -73,8 +73,8 @@ export default async function RootLayout({
     return (
         <html lang="en" className={roboto.variable} suppressHydrationWarning>
             <body className="bg-gray-50 dark:bg-background-light dark:text-foreground">
-                <div className="flex flex-col items-center">
-                    <div className="flex w-full max-w-3xl flex-col">
+                <div className="flex flex-col items-center w-full">
+                    <div className="flex w-full max-w-3xl  flex-col">
                         <Nav />
                         <main>
                             {children}

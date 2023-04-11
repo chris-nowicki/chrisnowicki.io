@@ -8,6 +8,7 @@ html {
 
 body {
     overflow-y: scroll;
+    font-family: 'Roboto', sans-serif;
 }
 
 /* animated links with purple underline from left to right */

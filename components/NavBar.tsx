@@ -22,22 +22,22 @@ export default function NavBar() {
         '/': {
             name: 'home',
             x: 0,
-            w: '67.5px',
+            w: '60px',
         },
         '/projects': {
             name: 'projects',
-            x: 67.6,
-            w: '89px',
+            x: 58,
+            w: '79px',
         },
         '/contact': {
             name: 'contact',
-            x: 156.5,
-            w: '84.5px',
+            x: 138,
+            w: '72.43px',
         },
         '/resume': {
             name: 'resume',
-            x: 654,
-            w: '114px',
+            x: 570,
+            w: '102px',
         },
     }
 
@@ -133,7 +133,7 @@ export default function NavBar() {
                 {/* link to resume page */}
                 <Link
                     href="/resume"
-                    className={`flex items-center justify-between gap-2 rounded-lg border border-neutral-200 px-2 py-1 text-lg  dark:border-neutral-900/50 dark:text-foreground   md:gap-6
+                    className={`flex items-center justify-between gap-2 rounded-lg border border-neutral-200 px-2 py-1.5 text-lg  dark:border-neutral-900/50 dark:text-foreground   md:gap-6
                                 ${
                                     pathname === '/resume'
                                         ? ' text-purple-light dark:text-purple-dark'
