@@ -36,7 +36,7 @@ export default function ProjectArchive({ projects }) {
                                     {project.projectName}
                                 </td>
                                 <td className="mb-2 hidden flex-wrap gap-1 pt-2 md:flex">
-                                    {project.tags.map(
+                                    {project.tags && project.tags.map(
                                         (tag: any, index: number) => (
                                             <span
                                                 key={tag.name}

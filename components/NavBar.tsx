@@ -18,29 +18,6 @@ export default function NavBar() {
         setShowMenu(showMenu === false ? true : false)
     }
 
-    // const navItems = {
-    //     '/': {
-    //         name: 'home',
-    //         x: 0,
-    //         w: '60px',
-    //     },
-    //     '/projects': {
-    //         name: 'projects',
-    //         x: 58,
-    //         w: '79px',
-    //     },
-    //     '/contact': {
-    //         name: 'contact',
-    //         x: 138,
-    //         w: '72.43px',
-    //     },
-    //     '/resume': {
-    //         name: 'resume',
-    //         x: 570,
-    //         w: '102px',
-    //     },
-    // }
-
     const navItems = {
         '/': {
             name: 'home',
