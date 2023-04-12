@@ -9,7 +9,7 @@
         "lint": "next lint"
     },
     "dependencies": {
-        "@portabletext/react": "^2.0.1",
+        "@portabletext/react": "^2.0.2",
         "@sanity/image-url": "^1.0.2",
         "@vercel/analytics": "^0.1.10",
         "clsx": "^1.2.1",

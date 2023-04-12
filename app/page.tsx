@@ -1,18 +1,21 @@
 import Image from 'next/image'
+import { PortableText, PortableTextComponents } from '@portabletext/react'
 
 // components
 import SocialLink from 'components/SocialLink'
 
 // sanity.io client & query
-import { getImage, getSocialLinks } from '../lib/sanityQuery'
+import { getImage, getSocialLinks, getAboutMe } from '../lib/sanityQuery'
 
 export default async function Home() {
     const imageData = getImage()
     const socialLinkData = getSocialLinks()
+    const aboutMeData = getAboutMe()
 
-    const [chrisnowicki, socialLink] = await Promise.all([
+    const [chrisnowicki, socialLink, aboutMe] = await Promise.all([
         imageData,
         socialLinkData,
+        aboutMeData,
     ])
 
     const links = [
@@ -20,11 +23,22 @@ export default async function Home() {
         { name: 'GitHub', url: socialLink.github },
     ]
 
+    const components: PortableTextComponents = {
+        block: {
+            normal: ({ children }) => (
+                <p className="mt-4 md:mr-4">{children}</p>
+            ),
+            h1: ({ children }) => (
+                <h1 className="text-2xl md:mt-0 md:text-3xl">{children}</h1>
+            ),
+        },
+    }
+
     return (
         <div className="px-5 md:px-0">
             <div className="flex flex-row flex-wrap-reverse rounded border border-borderColor-light p-4 dark:border-borderColor-dark md:flex-nowrap">
                 <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
-                    <p className="mb-4 text-2xl md:mt-0 md:text-3xl">
+                    {/* <p className="mb-4 text-2xl md:mt-0 md:text-3xl">
                         Hello, I'm{' '}
                         <span className="text-purple-light dark:text-purple-dark">
                             Chris Nowicki
@@ -43,7 +57,11 @@ export default async function Home() {
                     <p className="mt-4 font-mono text-lg text-purple-light dark:text-purple-dark md:mr-4">
                         I'm currently looking for a new role as a full-stack
                         engineer.
-                    </p>
+                    </p> */}
+                    <PortableText
+                        value={aboutMe.about}
+                        components={components}
+                    />
                     <div className="mt-4 flex w-full flex-col justify-center gap-2 md:flex-row md:justify-start">
                         {links.map((link) => (
                             <SocialLink

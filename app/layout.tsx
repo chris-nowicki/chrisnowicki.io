@@ -15,7 +15,7 @@ const roboto = Roboto({
     display: 'swap',
 })
 
-// sanity.io client & query
+// sanity cms query and image builder
 import { getSEO } from '../lib/sanityQuery'
 import { urlFor } from 'lib/sanityClient'
 
@@ -73,7 +73,7 @@ export default async function RootLayout({
     return (
         <html lang="en" className={roboto.variable} suppressHydrationWarning>
             <body className="bg-gray-50 dark:bg-background-light dark:text-foreground">
-                <div className="flex flex-col items-center w-full">
+                <div className="flex w-full flex-col items-center">
                     <div className="flex w-full max-w-3xl  flex-col">
                         <Nav />
                         <main>

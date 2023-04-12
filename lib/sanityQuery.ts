@@ -125,3 +125,12 @@ export async function getProjects() {
     const res = await fetchSanity(query)
     return res[0]
 }
+
+export async function getAboutMe() {
+    const query = groq`*[_type == 'settings'] {
+        'about': bio.about
+    }`
+
+    const res = await fetchSanity(query)
+    return res[0]
+}
