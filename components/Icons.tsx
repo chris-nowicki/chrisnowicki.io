@@ -1,4 +1,7 @@
-import { Icon } from '../ts/types'
+type Icon = {
+    size?: number
+    classProps?: string
+}
 
 // social media icons
 export function GitHub({ size }: Icon) {

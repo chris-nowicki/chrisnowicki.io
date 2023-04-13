@@ -1,7 +1,18 @@
 import Link from 'next/link'
 
 // types
-import { SocialLinks } from 'ts/types'
+type SocialLinks = {
+    arrowPlacement?: string
+    arrowSize?: number
+    icon: string
+    content: any
+    width?: string
+    paddingX?: number
+    paddingY?: number
+    padding?: number
+    fontSize?: string
+    url: string
+}
 
 // icons
 import {

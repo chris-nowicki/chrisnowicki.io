@@ -5,12 +5,25 @@ import { useState } from 'react'
 import Button from './Button'
 
 // button data
-import { btn } from './info'
+export const btn = [
+    { name: 'All', active: 'all' },
+    { name: 'Languages', active: 'lang' },
+    { name: 'Frameworks/Libraries', active: 'framelib' },
+    { name: 'Databases', active: 'db' },
+    { name: 'Cloud/Serverless', active: 'cloud' },
+    { name: 'Operating Systems', active: 'os' },
+    { name: 'Tools', active: 'tools' },
+]
 
 // types
-import { Technologies } from '../../../ts/types'
+type Technologies = {
+    name: string
+    category: string
+    link?: string
+    show: boolean
+}
 
-export default function TechSkills({ tech }) {
+export default function TechSkills({ tech }: { tech: Technologies[] }) {
     const [filteredTech, setFilteredTech] = useState<Technologies[] | null>(
         tech
     )
@@ -37,7 +50,7 @@ export default function TechSkills({ tech }) {
                 Technical Skills
             </h1>
             <div className="flex w-full items-center sm:flex-col md:flex-row md:items-start">
-                <div className="mr-0 mb-4 flex w-full flex-row flex-wrap justify-center gap-2 md:mr-4 md:w-1/2 md:flex-col md:justify-start">
+                <div className="mb-4 mr-0 flex w-full flex-row flex-wrap justify-center gap-2 md:mr-4 md:w-1/2 md:flex-col md:justify-start">
                     {btn.map((btn) => (
                         <Button
                             key={btn.name}
@@ -52,7 +65,7 @@ export default function TechSkills({ tech }) {
                     className={`flex w-full flex-col rounded bg-background-light shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50`}
                 >
                     <ul
-                        className={`link-animate text-md flex h-[550px] md:h-[450px] w-full flex-col flex-wrap py-4 text-foreground md:text-lg px-4 overflow-hidden`}
+                        className={`link-animate text-md flex h-[550px] w-full flex-col flex-wrap overflow-hidden px-4 py-4 text-foreground md:h-[450px] md:text-lg`}
                     >
                         {filteredTech.map(
                             (tech) =>

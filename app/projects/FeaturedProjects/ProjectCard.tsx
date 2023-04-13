@@ -8,7 +8,17 @@ import Link from '../Link'
 import { urlFor } from 'lib/sanityClient'
 
 // types
-import { ProjectCardProps } from 'ts/types'
+type ProjectCardProps = {
+    name: string
+    excerpt: string
+    image: string
+    tags: string[]
+    gitHubUrl: string
+    liveSiteUrl: string
+    isSelected: boolean
+    direction: any
+    page: any
+}
 
 export default function ProjectCard({
     name,
