@@ -3,7 +3,7 @@ import './globals.css'
 import Nav from '../components/NavBar'
 
 // vercel analytics
-import { AnalyticsWrapper } from './Analytics'
+import { AnalyticsWrapper } from '../components/Analytics'
 
 // font
 import { Roboto } from 'next/font/google'
