@@ -1,11 +1,11 @@
+import type { Metadata } from 'next'
 import './globals.css'
 import Nav from '../components/NavBar'
-import type { Metadata } from 'next'
 
 // vercel analytics
 import { AnalyticsWrapper } from './Analytics'
 
-// fonts
+// font
 import { Roboto } from 'next/font/google'
 
 const roboto = Roboto({

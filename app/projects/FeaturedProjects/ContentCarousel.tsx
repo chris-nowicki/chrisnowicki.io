@@ -56,7 +56,7 @@ function ContentCarousel({ contents }) {
                     <div key={page}>
                         {contents.map((project: any, index: number) => (
                             <ProjectCard
-                                key={page}
+                                key={index + project.name}
                                 name={project.name}
                                 excerpt={project.excerpt}
                                 image={project.image}

@@ -10,7 +10,7 @@ import { ArrowIcon } from './Icons'
 
 export default function NavBar() {
     const [showMenu, setShowMenu] = useState<boolean>(false)
-    const pathname = usePathname()
+    const pathname: string = usePathname()
 
     const handleMenu = () => {
         const btn: HTMLElement = document.getElementById('menu-btn')
@@ -22,24 +22,28 @@ export default function NavBar() {
         '/': {
             name: 'home',
             x: 0,
+            y: 2,
             w: '67.5px',
             h: '37px',
         },
         '/projects': {
             name: 'projects',
             x: 67.6,
+            y: 2,
             w: '89px',
             h: '37px',
         },
         '/contact': {
             name: 'contact',
             x: 156.5,
+            y: 2,
             w: '84.5px',
             h: '37px',
         },
         '/resume': {
             name: 'resume',
             x: 654,
+            y: 0,
             w: '114px',
             h: '42px',
         },
@@ -54,10 +58,17 @@ export default function NavBar() {
                         <motion.div
                             className="absolute top-4 z-[-1] rounded-lg border border-borderColor-light bg-neutral-100 px-2 py-1 dark:border-neutral-900/50 dark:bg-neutral-900/20"
                             layoutId="test"
-                            initial={{ opacity: 0, x: navItems[pathname].x }}
+                            initial={{
+                                opacity: 0,
+                                x: navItems[pathname].x,
+                                y: navItems[pathname].y,
+                                width: 0,
+                                height: 0,
+                            }}
                             animate={{
                                 opacity: 1,
                                 x: navItems[pathname].x,
+                                y: navItems[pathname].y,
                                 width: navItems[pathname].w,
                                 height: navItems[pathname].h,
                             }}

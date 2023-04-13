@@ -36,11 +36,12 @@ export default function ProjectArchive({ projects }) {
                                     {project.projectName}
                                 </td>
                                 <td className="mb-2 hidden flex-wrap gap-1 pt-2 md:flex">
-                                    {project.tags && project.tags.map(
-                                        (tag: any, index: number) => (
-                                            <span
-                                                key={tag.name}
-                                                className={`inline-flex items-center rounded px-2.5 py-0.5 text-xs
+                                    {project.tags &&
+                                        project.tags.map(
+                                            (tag: any, index: number) => (
+                                                <span
+                                                    key={tag.name}
+                                                    className={`inline-flex items-center rounded px-2.5 py-0.5 text-xs
                                     ${
                                         index == 0
                                             ? 'bg-green-100  text-green-800'
@@ -49,11 +50,11 @@ export default function ProjectArchive({ projects }) {
                                             : 'bg-blue-100 text-blue-800'
                                     }
                                 `}
-                                            >
-                                                {tag['name']}
-                                            </span>
-                                        )
-                                    )}
+                                                >
+                                                    {tag['name']}
+                                                </span>
+                                            )
+                                        )}
                                 </td>
                                 <td className="pr-2 pt-2">
                                     <div className="flex w-full items-center justify-end">
