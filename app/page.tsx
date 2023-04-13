@@ -1,13 +1,11 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
 // components
 import SocialLink from 'components/SocialLink'
 
-// types
-
-
-// sanity.io client & query
+// sanity cms queries
 import { getImage, getSocialLinks, getAboutMe } from '../lib/sanityQuery'
 
 export default async function Home() {
@@ -60,14 +58,16 @@ export default async function Home() {
                 </div>
 
                 <div className="flex w-[200px] flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
-                    <Image
-                        className="w-full rounded shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0 md:w-auto"
-                        width={400}
-                        height={400}
-                        src={chrisnowicki}
-                        alt="chris nowicki"
-                        priority
-                    />
+                    <Link href={'/'} className="cursor-pointer">
+                        <Image
+                            className="w-full rounded shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0 md:w-auto"
+                            width={400}
+                            height={400}
+                            src={chrisnowicki}
+                            alt="chris nowicki"
+                            priority
+                        />
+                    </Link>
                 </div>
             </div>
         </div>

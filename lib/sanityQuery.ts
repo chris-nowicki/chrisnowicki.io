@@ -128,7 +128,8 @@ export async function getProjects() {
 
 export async function getAboutMe() {
     const query = groq`*[_type == 'settings'] {
-        'about': bio.about
+        'about': bio.about,
+        'bio': bio.bio,
     }`
 
     const res = await fetchSanity(query)
