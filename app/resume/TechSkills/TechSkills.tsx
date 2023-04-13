@@ -61,12 +61,8 @@ export default function TechSkills({ tech }: { tech: Technologies[] }) {
                         />
                     ))}
                 </div>
-                <div
-                    className={`flex w-full flex-col rounded bg-background-light shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50`}
-                >
-                    <ul
-                        className={`link-animate text-md flex h-[550px] w-full flex-col flex-wrap overflow-hidden px-4 py-4 text-foreground md:h-[450px] md:text-lg`}
-                    >
+                <div className="flex w-full flex-col rounded bg-background-light shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50">
+                    <ul className="link-animate text-md flex h-[550px] w-full flex-col flex-wrap overflow-hidden px-4 py-4 text-foreground md:h-[450px] md:text-lg">
                         {filteredTech.map(
                             (tech) =>
                                 tech.show && (

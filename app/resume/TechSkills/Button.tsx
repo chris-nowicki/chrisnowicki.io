@@ -1,6 +1,9 @@
+import clsx from 'clsx'
+
+// hooks
 import { useActive } from '../../../hooks/useActive'
 
-// Types
+// types
 type TechFilterButton = {
     name: string
     currentFilter: string
@@ -20,7 +23,7 @@ export default function Button({
     const isActive = useActive(activeCheck, currentFilter)
     return (
         <button
-            className={isActive ? activeCSS : css}
+            className={clsx(isActive ? activeCSS : css)}
             onClick={() => handleClick()}
         >
             {name}

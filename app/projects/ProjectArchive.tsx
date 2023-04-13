@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import clsx from 'clsx'
 
 // icons
 import { GitBranchOutline, OpenOutline } from 'components/Icons'
@@ -41,15 +42,15 @@ export default function ProjectArchive({ projects }) {
                                             (tag: any, index: number) => (
                                                 <span
                                                     key={tag.name}
-                                                    className={`inline-flex items-center rounded px-2.5 py-0.5 text-xs
-                                    ${
-                                        index == 0
-                                            ? 'bg-green-100  text-green-800'
-                                            : index == 1
-                                            ? 'bg-purple-100 text-purple-800'
-                                            : 'bg-blue-100 text-blue-800'
-                                    }
-                                `}
+                                                    className={clsx(
+                                                        'inline-flex items-center rounded px-2.5 py-0.5 text-xs',
+
+                                                        index == 0
+                                                            ? 'bg-green-100  text-green-800'
+                                                            : index == 1
+                                                            ? 'bg-purple-100 text-purple-800'
+                                                            : 'bg-blue-100 text-blue-800'
+                                                    )}
                                                 >
                                                     {tag['name']}
                                                 </span>

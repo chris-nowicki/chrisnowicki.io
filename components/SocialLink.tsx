@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import clsx from 'clsx'
 
 // types
 type SocialLinks = {
@@ -40,11 +41,12 @@ export default function SocialLink({
     return (
         <Link
             href={url}
-            className={`flex w-full md:${width} cursor-pointer items-center justify-between gap-2 rounded-lg border border-borderColor-light hover:bg-activeColor-light dark:border-borderColor-dark dark:hover:bg-activeColor-dark/25
-        ${
-            padding ? `p-${padding}` : `px-${paddingX} py-${paddingY}`
-        } ${`text-${fontSize}`}    
-        `}
+            className={clsx(
+                'flex w-full cursor-pointer items-center justify-between gap-2 rounded-lg border border-borderColor-light hover:bg-activeColor-light dark:border-borderColor-dark dark:hover:bg-activeColor-dark/25',
+                padding ? `p-${padding}` : `px-${paddingX} py-${paddingY}`,
+                `text-${fontSize}`,
+                `md:${width}`
+            )}
             target="_blank"
             prefetch={false}
         >

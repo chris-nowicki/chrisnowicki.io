@@ -1,18 +1,22 @@
 import Header from './Header'
 import TechSkills from './TechSkills/TechSkills'
-import TechnicalProjects from './TechnicalProjects'
+import TechnicalProjects from './TechnicalProjects/TechnicalProjects'
 import ProfessionalExperience from './ProfessionalExperience'
 import Education from 'app/resume/Education'
+
+// components
 import SocialLink from 'components/SocialLink'
 
+// types
 import type { Metadata } from 'next'
 
+// metadata
 export const metadata: Metadata = {
     title: 'Resumé',
     description: 'Read through my resume if you are interested in hiring me!',
 }
 
-// sanity.io client & query
+// sanity cms queries
 import {
     getImage,
     getTechData,

@@ -148,13 +148,12 @@ export default function NavBar() {
                 {/* link to resume page */}
                 <Link
                     href="/resume"
-                    className={`flex items-center justify-between gap-2 rounded-lg border border-neutral-200 px-2 py-1.5 text-lg  dark:border-neutral-900/50 dark:text-foreground   md:gap-6
-                                ${
-                                    pathname === '/resume'
-                                        ? ' text-purple-light dark:text-purple-dark'
-                                        : 'hover:bg-neutral-100 hover:dark:bg-neutral-900/20'
-                                }
-                                `}
+                    className={clsx(
+                        'flex items-center justify-between gap-2 rounded-lg border border-neutral-200 px-2 py-1.5 text-lg  dark:border-neutral-900/50 dark:text-foreground md:gap-6',
+                        pathname === '/resume'
+                            ? ' text-purple-light dark:text-purple-dark'
+                            : 'hover:bg-neutral-100 hover:dark:bg-neutral-900/20'
+                    )}
                 >
                     resumé
                     <ArrowIcon size={12} />
