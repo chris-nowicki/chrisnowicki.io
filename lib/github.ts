@@ -23,6 +23,9 @@ export async function getCommits() {
             {
                 owner: repo.owner.login,
                 repo: repo.name,
+                headers: {
+                    'X-GitHub-Api-Version': '2022-11-28',
+                },
             }
         )
 
