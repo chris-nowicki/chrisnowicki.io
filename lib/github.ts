@@ -1,20 +1,22 @@
-'server-only'
-import { Octokit } from 'octokit'
+import 'server-only'
 
-const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN,
-})
+import { Octokit } from '@octokit/rest'
+import { cache } from 'react'
 
-export async function getCommits() {
+export const getCommits = cache(async () => {
+    const octokit = new Octokit({
+        auth: process.env.GITHUB_TOKEN,
+    })
+
+    // retrieve all repos
     const repos = await octokit.request('GET /user/repos', {
         per_page: 100,
         affiliation: 'owner',
-        headers: {
-            'X-GitHub-Api-Version': '2022-11-28',
-        },
     })
 
-    let totalRepos = repos.data.length
+    const totalRepos = repos.data.length
+
+    // retrieve all commits and count them
     let totalCommits = 0
 
     for (const repo of repos.data) {
@@ -23,9 +25,6 @@ export async function getCommits() {
             {
                 owner: repo.owner.login,
                 repo: repo.name,
-                headers: {
-                    'X-GitHub-Api-Version': '2022-11-28',
-                },
             }
         )
 
@@ -33,4 +32,4 @@ export async function getCommits() {
     }
 
     return { repos: repos.data, totalCommits, totalRepos }
-}
+})

@@ -1,4 +1,3 @@
-'server-only'
 import Image from 'next/image'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
