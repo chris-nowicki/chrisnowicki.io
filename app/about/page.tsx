@@ -1,22 +1,30 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
 // components
 import SocialLink from 'components/SocialLink'
 
+// icons
+import { GitHub, Twitter } from 'components/Icons'
+
 // sanity cms queries
 import { getImage, getSocialLinks, getAboutMe } from '../../lib/sanityQuery'
+
+import { getTweetCount } from 'lib/twitter'
+import { getCommits } from 'lib/github'
 
 export default async function Home() {
     const imageData = getImage()
     const socialLinkData = getSocialLinks()
     const aboutMeData = getAboutMe()
+    const gitHubUserData = getCommits()
+    // const tweetCountData = getTweetCount()
 
-    const [chrisnowicki, socialLink, aboutMe] = await Promise.all([
+    const [chrisnowicki, socialLink, aboutMe, gitHubUser] = await Promise.all([
         imageData,
         socialLinkData,
         aboutMeData,
+        gitHubUserData,
     ])
 
     const links = [
@@ -37,37 +45,40 @@ export default async function Home() {
 
     return (
         <div className="px-5 md:px-0">
-            <div className="flex flex-wrap-reverse rounded border border-borderColor-light p-4 dark:border-borderColor-dark md:flex-nowrap">
-                <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
-                    <PortableText
-                        value={aboutMe.about}
-                        components={components}
-                    />
-                    {/* <div className="mt-4 flex w-full flex-col justify-center gap-2 md:flex-row md:justify-start">
-                        {links.map((link) => (
-                            <SocialLink
-                                key={link.name}
-                                icon={link.name.toLowerCase()}
-                                content={link.name}
-                                url={link.url}
-                                width="w-auto"
-                                fontSize="lg"
-                            />
-                        ))}
-                    </div> */}
-                </div>
+            <div className="flex flex-col rounded border border-borderColor-light p-4 dark:border-borderColor-dark ">
+                <div className="flex flex-wrap-reverse md:flex-nowrap">
+                    <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
+                        <PortableText
+                            value={aboutMe.bio}
+                            components={components}
+                        />
+                    </div>
 
-                <div className="flex w-[200px] flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
-                    <Link href={'/'} className="cursor-pointer">
+                    <div className="flex w-[200px] flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
                         <Image
-                            className="w-full rounded shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0 md:w-auto"
+                            className="w-full rounded shadow-lg transition-all duration-150 ease-in-out hover:grayscale-0 md:w-auto"
                             width={400}
                             height={400}
                             src={chrisnowicki}
                             alt="chris nowicki"
                             priority
                         />
-                    </Link>
+                        <div className="mt-2 flex w-full justify-center">
+                            <a href="https://www.buymeacoffee.com/chrisnowicki">
+                                <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=chrisnowicki&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" />
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div className="mt-4 flex w-full flex-col gap-2 rounded border border-borderColor-light p-2 text-base">
+                    <div className="flex items-center gap-2 opacity-50">
+                        <Twitter size={20} /> 2,996 all-time tweets
+                    </div>
+                    <div className="flex items-center gap-2 opacity-50">
+                        <GitHub size={20} />{' '}
+                        {gitHubUser.totalCommits.toLocaleString()} all-time
+                        commits / {gitHubUser.totalRepos} Repositories
+                    </div>
                 </div>
             </div>
         </div>

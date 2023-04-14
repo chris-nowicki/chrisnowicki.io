@@ -58,9 +58,9 @@ export default async function Home() {
                 </div>
 
                 <div className="flex w-[200px] flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
-                    <Link href={'/'} className="cursor-pointer">
+                    <Link href={'/about'} className="flex w-full">
                         <Image
-                            className="w-full rounded shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0 md:w-auto"
+                            className="rounded shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
                             width={400}
                             height={400}
                             src={chrisnowicki}
