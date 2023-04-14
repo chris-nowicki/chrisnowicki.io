@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
 // components
@@ -63,21 +64,25 @@ export default async function Home() {
                             alt="chris nowicki"
                             priority
                         />
-                        <div className="mt-2 flex w-full justify-center">
-                            <a href="https://www.buymeacoffee.com/chrisnowicki">
+                        <div className="mt-2 flex w-full justify-center rounded border p-2">
+                            <Link href="https://www.buymeacoffee.com/chrisnowicki">
                                 <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=chrisnowicki&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" />
-                            </a>
+                            </Link>
                         </div>
-                    </div>
-                </div>
-                <div className="mt-4 flex w-full flex-col gap-2 rounded border border-borderColor-light p-2 text-base">
-                    <div className="flex items-center gap-2 opacity-50">
-                        <Twitter size={20} /> 2,996 all-time tweets
-                    </div>
-                    <div className="flex items-center gap-2 opacity-50">
-                        <GitHub size={20} />{' '}
-                        {gitHubUser.totalCommits.toLocaleString()} all-time
-                        commits / {gitHubUser.totalRepos} repositories
+                        <div className="mt-2 flex w-full flex-col gap-2 rounded border border-borderColor-light p-2 text-base opacity-50">
+                            <div className="flex items-center gap-2 ">
+                                <Twitter size={20} /> 2,996 all-time tweets
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <GitHub size={20} />{' '}
+                                {gitHubUser.totalCommits.toLocaleString()}{' '}
+                                all-time commits
+                            </div>
+                            <div className="flex items-center gap-2">
+                                <GitHub size={20} /> {gitHubUser.totalRepos}{' '}
+                                repositories
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
