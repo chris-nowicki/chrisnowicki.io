@@ -1,3 +1,4 @@
+'server-only'
 import Image from 'next/image'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
@@ -77,7 +78,7 @@ export default async function Home() {
                     <div className="flex items-center gap-2 opacity-50">
                         <GitHub size={20} />{' '}
                         {gitHubUser.totalCommits.toLocaleString()} all-time
-                        commits / {gitHubUser.totalRepos} Repositories
+                        commits / {gitHubUser.totalRepos} repositories
                     </div>
                 </div>
             </div>
