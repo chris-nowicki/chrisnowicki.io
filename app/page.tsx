@@ -6,15 +6,13 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import SocialLink from 'components/SocialLink'
 
 // sanity cms queries
-import { getImage, getSocialLinks, getAboutMe } from '../lib/sanityQueries'
+import { getSocialLinks, getAboutMe } from '../lib/sanityQueries'
 
 export default async function Home() {
-    const imageData = getImage()
     const socialLinkData = getSocialLinks()
     const aboutMeData = getAboutMe()
 
-    const [chrisnowicki, socialLink, aboutMe] = await Promise.all([
-        imageData,
+    const [socialLink, aboutMe] = await Promise.all([
         socialLinkData,
         aboutMeData,
     ])
@@ -63,7 +61,7 @@ export default async function Home() {
                             className="rounded shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
                             width={400}
                             height={400}
-                            src={chrisnowicki}
+                            src={aboutMe.profilePicture}
                             alt="chris nowicki"
                             priority
                         />

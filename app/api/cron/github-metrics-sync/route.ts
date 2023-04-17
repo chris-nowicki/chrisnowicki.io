@@ -1,8 +1,9 @@
-
 import { Octokit } from '@octokit/rest'
 import { cache } from 'react'
+import { NextResponse } from 'next/server'
+import { updateGithubMetrics } from '../../../../lib/planetscale'
 
-export const getCommits = cache(async () => {
+export async function GET() {
     const octokit = new Octokit({
         auth: process.env.GITHUB_TOKEN,
     })
@@ -30,5 +31,11 @@ export const getCommits = cache(async () => {
         totalCommits += commits.data.length
     }
 
-    return { repos: repos.data, totalCommits, totalRepos }
-})
+    try {
+        updateGithubMetrics(totalCommits, totalRepos)
+        NextResponse.json({ totalCommits, totalRepos })
+    } catch (error) {
+        console.error(error)
+        NextResponse.json({ error })
+    }
+}

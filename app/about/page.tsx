@@ -9,24 +9,22 @@ import SocialLink from 'components/SocialLink'
 import { GitHub, Twitter } from 'components/Icons'
 
 // sanity cms queries
-import { getImage, getSocialLinks, getAboutMe } from '../../lib/sanityQueries'
-import { getTweetCount } from 'lib/planetscale'
+import { getSocialLinks, getAboutMe } from '../../lib/sanityQueries'
+import { getTweetCount, getGithubMetrics } from 'lib/planetscale'
 
-import { getCommits } from 'lib/github'
+export const revalidate = 60 // In seconds
 
 export default async function Home() {
-    const imageData = getImage()
     const socialLinkData = getSocialLinks()
     const aboutMeData = getAboutMe()
-    const gitHubUserData = getCommits()
     const tweetCountData = getTweetCount()
+    const githubMetricsData = getGithubMetrics()
 
-    const [chrisnowicki, socialLink, aboutMe, gitHubUser, tweetCount] = await Promise.all([
-        imageData,
+    const [socialLink, aboutMe, tweetCount, githubMetrics] = await Promise.all([
         socialLinkData,
         aboutMeData,
-        gitHubUserData,
         tweetCountData,
+        githubMetricsData,
     ])
 
     const links = [
@@ -63,7 +61,7 @@ export default async function Home() {
                             className="w-full rounded shadow-lg transition-all duration-150 ease-in-out hover:grayscale-0 md:w-auto"
                             width={400}
                             height={400}
-                            src={chrisnowicki}
+                            src={aboutMe.profilePicture}
                             alt="chris nowicki"
                             priority
                         />
@@ -72,19 +70,30 @@ export default async function Home() {
                                 <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=chrisnowicki&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" />
                             </Link>
                         </div>
-                        <div className="mt-2 flex w-full flex-col gap-2 rounded border border-borderColor-light p-2 text-base">
-                            <div className="flex items-center gap-2 ">
-                                <Twitter size={20} />{' '}
-                                {tweetCount.toLocaleString()} all-time tweets
-                            </div>
+                        <div className="mt-2 flex w-full flex-col rounded border border-borderColor-light text-base">
                             <div className="flex items-center gap-2">
-                                <GitHub size={20} />{' '}
-                                {gitHubUser.totalCommits.toLocaleString()}{' '}
-                                all-time commits
+                                <div className="flex flex-col justify-center border-r border-borderColor-light p-2">
+                                    <Twitter size={20} />
+                                </div>
+                                <div>
+                                    {tweetCount.toLocaleString()} all-time
+                                    tweets
+                                </div>
                             </div>
-                            <div className="flex items-center gap-2">
-                                <GitHub size={20} /> {gitHubUser.totalRepos}{' '}
-                                repositories
+                            <div className="flex w-full items-center gap-2 border-t border-borderColor-light">
+                                <div className="flex h-full flex-col justify-center border-r border-borderColor-light p-2">
+                                    <GitHub size={20} />
+                                </div>
+                                <div className="flex flex-col">
+                                    <p>
+                                        {githubMetrics.commits.toLocaleString()}{' '}
+                                        all-time commits
+                                    </p>
+                                    <p>
+                                        {githubMetrics.repos.toLocaleString()}{' '}
+                                        repositories
+                                    </p>
+                                </div>
                             </div>
                         </div>
                         <div className="mt-4 flex w-full flex-col justify-center gap-2 ">

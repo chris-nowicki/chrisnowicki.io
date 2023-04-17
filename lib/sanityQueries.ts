@@ -130,8 +130,14 @@ export async function getAboutMe() {
     const query = groq`*[_type == 'settings'] {
         'about': bio.about,
         'bio': bio.bio,
+        'profilePicture': bio.profilePicture.asset._ref,
     }`
 
     const res = await fetchSanity(query)
-    return res[0]
+    const profilePicture = urlFor(res[0].profilePicture).url()
+    return {
+        about: res[0].about,
+        bio: res[0].bio,
+        profilePicture: profilePicture,
+    }
 }
