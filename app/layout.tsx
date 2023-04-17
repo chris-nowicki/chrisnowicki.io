@@ -16,7 +16,7 @@ const roboto = Roboto({
 })
 
 // sanity cms query and image builder
-import { getSEO } from '../lib/sanityQuery'
+import { getSEO } from '../lib/sanityQueries'
 import { urlFor } from 'lib/sanityClient'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {

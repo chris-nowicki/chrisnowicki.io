@@ -19,7 +19,7 @@ import {
     getImage,
     getContactInfo,
     getSocialLinks,
-} from '../../lib/sanityQuery'
+} from '../../lib/sanityQueries'
 
 export default async function Resume() {
     const pictureData = getImage()

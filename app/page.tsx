@@ -6,7 +6,7 @@ import { PortableText, PortableTextComponents } from '@portabletext/react'
 import SocialLink from 'components/SocialLink'
 
 // sanity cms queries
-import { getImage, getSocialLinks, getAboutMe } from '../lib/sanityQuery'
+import { getImage, getSocialLinks, getAboutMe } from '../lib/sanityQueries'
 
 export default async function Home() {
     const imageData = getImage()

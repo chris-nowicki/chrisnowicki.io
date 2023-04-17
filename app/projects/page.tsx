@@ -1,6 +1,6 @@
 import ProjectArchive from './ProjectArchive'
 import FeaturedProjects from 'app/projects/FeaturedProjects/FeaturedProjects'
-import { getProjects } from 'lib/sanityQuery'
+import { getProjects } from 'lib/sanityQueries'
 
 // types
 import type { Metadata } from 'next'
