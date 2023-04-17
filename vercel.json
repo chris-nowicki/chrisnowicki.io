@@ -1,7 +1,7 @@
 {
     "crons": [
         {
-            "path": "/api/cron",
+            "path": "/api/cron/tweet-count-sync",
             "schedule": "0 * * * *"
         }
     ]
