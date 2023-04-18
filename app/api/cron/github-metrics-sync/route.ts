@@ -21,13 +21,14 @@ export async function GET() {
 
     for (const repo of repos.data) {
         const commits = await octokit.request(
-            'GET /repos/{owner}/{repo}/stats/contributors',
+            'GET /repos/{owner}/{repo}/commits',
             {
                 owner: repo.owner.login,
                 repo: repo.name,
             }
         )
-        totalCommits += commits[0].total
+
+        totalCommits += commits.data.length
     }
 
     try {
