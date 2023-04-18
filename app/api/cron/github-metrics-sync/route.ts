@@ -21,21 +21,20 @@ export async function GET() {
 
     for (const repo of repos.data) {
         const commits = await octokit.request(
-            'GET /repos/{owner}/{repo}/commits',
+            'GET /repos/{owner}/{repo}/stats/contributors',
             {
                 owner: repo.owner.login,
                 repo: repo.name,
             }
         )
-
-        totalCommits += commits.data.length
+        totalCommits += commits[0].total
     }
 
     try {
         updateGithubMetrics(totalCommits, totalRepos)
-        NextResponse.json({ totalCommits, totalRepos })
+        return NextResponse.json({ totalCommits, totalRepos })
     } catch (error) {
         console.error(error)
-        NextResponse.json({ error })
+        return NextResponse.json({ error })
     }
 }

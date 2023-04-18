@@ -49,7 +49,7 @@ export default async function Home() {
         <div className="px-5 md:px-0">
             <div className="flex flex-col rounded border border-borderColor-light p-4 dark:border-borderColor-dark ">
                 <div className="flex flex-wrap-reverse md:flex-nowrap">
-                    <div className="flex w-full flex-col items-start text-left text-xl md:mr-1">
+                    <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
                         <PortableText
                             value={aboutMe.bio}
                             components={components}
@@ -65,14 +65,14 @@ export default async function Home() {
                             alt="chris nowicki"
                             priority
                         />
-                        <div className="mt-2 flex w-full justify-center rounded border p-2">
+                        <div className="mt-2 flex w-full justify-center rounded border border-borderColor-light p-2 dark:border-borderColor-dark">
                             <Link href="https://www.buymeacoffee.com/chrisnowicki">
                                 <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=chrisnowicki&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff" />
                             </Link>
                         </div>
-                        <div className="mt-2 flex w-full flex-col rounded border border-borderColor-light text-base">
+                        <div className="mt-2 flex w-full flex-col rounded border border-borderColor-light text-base dark:border-borderColor-dark">
                             <div className="flex items-center gap-2">
-                                <div className="flex flex-col justify-center border-r border-borderColor-light p-2">
+                                <div className="flex flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 p-2 dark:bg-borderColor-dark/30 dark:border-borderColor-dark">
                                     <Twitter size={20} />
                                 </div>
                                 <div>
@@ -80,8 +80,8 @@ export default async function Home() {
                                     tweets
                                 </div>
                             </div>
-                            <div className="flex w-full items-center gap-2 border-t border-borderColor-light">
-                                <div className="flex h-full flex-col justify-center border-r border-borderColor-light p-2">
+                            <div className="flex w-full items-center gap-2 border-t dark:border-borderColor-dark">
+                                <div className="flex h-full flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 p-2 dark:bg-borderColor-dark/30 dark:border-borderColor-dark">
                                     <GitHub size={20} />
                                 </div>
                                 <div className="flex flex-col">
@@ -95,18 +95,6 @@ export default async function Home() {
                                     </p>
                                 </div>
                             </div>
-                        </div>
-                        <div className="mt-4 flex w-full flex-col justify-center gap-2 ">
-                            {links.map((link) => (
-                                <SocialLink
-                                    key={link.name}
-                                    icon={link.name.toLowerCase()}
-                                    content={link.name}
-                                    url={link.url}
-                                    width="w-auto"
-                                    fontSize="lg"
-                                />
-                            ))}
                         </div>
                     </div>
                 </div>

@@ -5,6 +5,11 @@ import { updateTweetCount } from '../../../../lib/planetscale'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
     const response = await fetch(url, { headers }).then((res) => res.json())
+
+    if (response.status === 429) {
+        return response
+    }
+
     return response.data.public_metrics.tweet_count
 }
 
@@ -42,10 +47,15 @@ export async function GET() {
 
     try {
         const tweetCount = await getTweetCount(url, headers)
+
+        if (tweetCount.status === 429) {
+            return NextResponse.json({ error: 'Rate limit exceeded' })
+        }
+        
         updateTweetCount(tweetCount)
-        NextResponse.json({ tweetCount })
+        return NextResponse.json({ tweetCount })
     } catch (error) {
         console.error(error)
-        NextResponse.json({ error })
+        return NextResponse.json({ error })
     }
 }

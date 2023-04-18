@@ -6,7 +6,7 @@
         },
         {
             "path": "/api/cron/github-metrics-sync",
-            "schedule": "* * * * *"
+            "schedule": "*/5 * * * *"
         }
     ]
 }
