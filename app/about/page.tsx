@@ -37,13 +37,20 @@ export default async function Home() {
     const components: PortableTextComponents = {
         types: {
             image: ({ value }) => (
-                <Image
-                    src={urlFor(value).url()}
-                    width={400}
-                    height={400}
-                    alt="wedding picture"
-                    className="mt-4 rounded-lg shadow-md sm:w-[250px] md:w-auto"
-                />
+                <>
+                    <div className="flex flex-col rounded-lg border border-borderColor-light px-8 py-8 pb-4 mt-4">
+                        <Image
+                            src={urlFor(value).url()}
+                            width={400}
+                            height={400}
+                            alt="wedding picture"
+                            className="rounded-lg sm:w-[250px] md:w-auto"
+                        />
+                        <p className="mt-2 text-center text-sm">
+                            <b>2/22/22 </b>- Telluride, CO
+                        </p>
+                    </div>
+                </>
             ),
         },
         block: {
