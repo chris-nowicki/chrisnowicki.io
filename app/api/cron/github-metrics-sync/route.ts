@@ -27,7 +27,6 @@ export async function GET() {
             }
         )
 
-        // only count commits if there are any along with only counting my commits
         if (commits.data.length > 0) {
             for (const contributor of commits.data) {
                 if (contributor.login === 'chris-nowicki') {
