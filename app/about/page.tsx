@@ -77,10 +77,8 @@ export default async function Home() {
                         />
                         <div className="mt-2 flex w-full justify-center rounded border border-borderColor-light p-2 dark:border-borderColor-dark">
                             <Link href="https://www.buymeacoffee.com/chrisnowicki">
-                                <Image
+                                <img
                                     src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=chrisnowicki&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff"
-                                    width={232.44}
-                                    height={49.5}
                                     alt="buy me a coffee"
                                 />
                             </Link>
