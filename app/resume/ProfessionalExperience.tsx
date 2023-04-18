@@ -26,7 +26,7 @@ export default function ProfessionalExperience({ experience }) {
                             {experience.accomplishments.map(
                                 (accomplishment: string, index: number) =>
                                     index !== 0 && (
-                                        <li key={accomplishment}>{accomplishment}</li>
+                                        <li key={index + accomplishment}>{accomplishment}</li>
                                     )
                             )}
                         </ul>

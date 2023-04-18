@@ -17,7 +17,7 @@ export default function TechnicalProjectCard({ project }) {
                     <div className="flex gap-1 md:mt-1">
                         {project.tags.map((tag: string, index: number) => (
                             <span
-                                key={index}
+                                key={index + tag['name']}
                                 className={clsx(
                                     'inline-flex items-center rounded px-2.5 py-0.5 text-xs',
 
@@ -62,7 +62,7 @@ export default function TechnicalProjectCard({ project }) {
                 {project.projectDetails.map(
                     (project: any, index: number) =>
                         index == 0 && (
-                            <p key={index} className="italic">
+                            <p key={index + project} className="italic">
                                 {project}
                             </p>
                         )
@@ -70,7 +70,7 @@ export default function TechnicalProjectCard({ project }) {
                 <ul className="text-md ml-6 list-outside list-disc marker:text-purple-light dark:marker:text-purple-dark md:text-lg">
                     {project.projectDetails.map(
                         (project: any, index: number) =>
-                            index !== 0 && <li key={index}>{project}</li>
+                            index !== 0 && <li key={index + project}>{project}</li>
                     )}
                 </ul>
             </div>

@@ -10,7 +10,7 @@ export default function Education({ education }) {
                     {education.map((school: any, index: number) => (
                         <>
                             <div
-                                key={index}
+                                key={index + school.school}
                                 className="text-md mb-1 w-full border-b border-neutral-200 pb-2 dark:border-background-dark md:text-lg"
                             >
                                 <div className="flex flex-col justify-between md:flex-row">

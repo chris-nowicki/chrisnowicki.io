@@ -1,5 +1,4 @@
 import { Octokit } from '@octokit/rest'
-import { cache } from 'react'
 import { NextResponse } from 'next/server'
 import { updateGithubMetrics } from '../../../../lib/planetscale'
 

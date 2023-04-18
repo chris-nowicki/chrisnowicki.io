@@ -10,6 +10,7 @@ import { GitHub, Twitter } from 'components/Icons'
 
 // sanity cms queries
 import { getSocialLinks, getAboutMe } from '../../lib/sanityQueries'
+import { urlFor } from 'lib/sanityClient'
 import { getTweetCount, getGithubMetrics } from 'lib/planetscale'
 
 export const revalidate = 60 // In seconds
@@ -31,10 +32,20 @@ export default async function Home() {
         { name: 'Linkedin', url: socialLink.linkedin },
         { name: 'GitHub', url: socialLink.github },
         { name: 'twitter', url: socialLink.twitter },
-        { name: 'instagram', url: socialLink.instagram },
     ]
 
     const components: PortableTextComponents = {
+        types: {
+            image: ({ value }) => (
+                <Image
+                    src={urlFor(value).url()}
+                    width={400}
+                    height={400}
+                    alt="wedding picture"
+                    className="mt-4 rounded-lg shadow-md sm:w-[250px] md:w-auto"
+                />
+            ),
+        },
         block: {
             normal: ({ children }) => (
                 <p className="mt-4 md:mr-4">{children}</p>
@@ -46,19 +57,18 @@ export default async function Home() {
     }
 
     return (
-        <div className="px-5 md:px-0">
+        <div className="mb-12 px-5 md:px-0">
             <div className="flex flex-col rounded border border-borderColor-light p-4 dark:border-borderColor-dark ">
-                <div className="flex flex-wrap-reverse md:flex-nowrap">
-                    <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
+                <div className="flex flex-wrap md:flex-nowrap">
+                    <div className="flex w-full flex-col items-start text-left text-lg md:mr-6">
                         <PortableText
                             value={aboutMe.bio}
                             components={components}
                         />
                     </div>
-
-                    <div className="flex w-[200px] flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
+                    <div className="flex w-full flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
                         <Image
-                            className="w-full rounded shadow-lg transition-all duration-150 ease-in-out hover:grayscale-0 md:w-auto"
+                            className="w-full rounded shadow-lg sm:hidden md:block"
                             width={400}
                             height={400}
                             src={aboutMe.profilePicture}
@@ -72,8 +82,8 @@ export default async function Home() {
                         </div>
                         <div className="mt-2 flex w-full flex-col rounded border border-borderColor-light text-base dark:border-borderColor-dark">
                             <div className="flex items-center gap-2">
-                                <div className="flex flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 p-2 dark:bg-borderColor-dark/30 dark:border-borderColor-dark">
-                                    <Twitter size={20} />
+                                <div className="flex flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 px-4 py-2 dark:border-borderColor-dark dark:bg-borderColor-dark/30">
+                                    <Twitter size={24} />
                                 </div>
                                 <div>
                                     {tweetCount.toLocaleString()} all-time
@@ -81,20 +91,32 @@ export default async function Home() {
                                 </div>
                             </div>
                             <div className="flex w-full items-center gap-2 border-t dark:border-borderColor-dark">
-                                <div className="flex h-full flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 p-2 dark:bg-borderColor-dark/30 dark:border-borderColor-dark">
-                                    <GitHub size={20} />
+                                <div className="flex h-full flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 px-4 py-2 dark:border-borderColor-dark dark:bg-borderColor-dark/30">
+                                    <GitHub size={24} />
                                 </div>
                                 <div className="flex flex-col">
                                     <p>
                                         {githubMetrics.commits.toLocaleString()}{' '}
                                         all-time commits
                                     </p>
-                                    <p>
+                                    <p className="border-t border-borderColor-light dark:border-borderColor-dark">
                                         {githubMetrics.repos.toLocaleString()}{' '}
                                         repositories
                                     </p>
                                 </div>
                             </div>
+                        </div>
+                        <div className="mt-2 flex w-full flex-col justify-between gap-2 rounded md:mb-0">
+                            {links.map((link) => (
+                                <SocialLink
+                                    key={link.name}
+                                    icon={link.name.toLowerCase()}
+                                    content={link.name}
+                                    url={link.url}
+                                    width="w-auto"
+                                    fontSize="md"
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
