@@ -20,14 +20,20 @@ export async function GET() {
 
     for (const repo of repos.data) {
         const commits = await octokit.request(
-            'GET /repos/{owner}/{repo}/commits',
+            'GET /repos/{owner}/{repo}/contributors',
             {
                 owner: repo.owner.login,
                 repo: repo.name,
             }
         )
 
-        totalCommits += commits.data.length
+        if (commits.data.length > 0) {
+            for (const contributor of commits.data) {
+                if (contributor.login === 'chris-nowicki') {
+                    totalCommits += contributor.contributions
+                }
+            }
+        }
     }
 
     try {
