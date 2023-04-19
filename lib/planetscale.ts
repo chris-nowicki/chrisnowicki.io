@@ -2,8 +2,6 @@
 import { Kysely } from 'kysely'
 import { PlanetScaleDialect } from 'kysely-planetscale'
 
-import {env}  from '../env'
-
 interface TweetCountTable {
     count: number
     updated_at?: string
@@ -21,7 +19,7 @@ interface Database {
 
 export const queryBuilder = new Kysely<Database>({
     dialect: new PlanetScaleDialect({
-        url: env.DATABASE_URL,
+        url: process.env.DATABASE_URL,
     }),
 })
 

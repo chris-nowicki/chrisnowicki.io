@@ -2,11 +2,9 @@ import { Octokit } from '@octokit/rest'
 import { NextResponse } from 'next/server'
 import { updateGithubMetrics } from '../../../../lib/planetscale'
 
-import { env } from '../../../../env'
-
 export async function GET() {
     const octokit = new Octokit({
-        auth: env.GITHUB_TOKEN,
+        auth: process.env.GITHUB_TOKEN,
     })
 
     // retrieve all repos
