@@ -3,6 +3,8 @@ import crypto from 'crypto'
 import { NextResponse } from 'next/server'
 import { updateTweetCount } from '../../../../lib/planetscale'
 
+import { env } from 'env'
+
 const getTweetCount = async (url: string, headers: HeadersInit) => {
     const response = await fetch(url, { headers }).then((res) => res.json())
 
@@ -14,10 +16,10 @@ const getTweetCount = async (url: string, headers: HeadersInit) => {
 }
 
 export async function GET() {
-    const consumerKey = process.env.TWITTER_API_KEY as string
-    const consumerSecret = process.env.TWITTER_API_KEY_SECRET as string
-    const accessToken = process.env.TWITTER_ACCESS_TOKEN as string
-    const accessTokenSecret = process.env.TWITTER_ACCESS_TOKEN_SECRET as string
+    const consumerKey = env.TWITTER_CONSUMER_KEY
+    const consumerSecret = env.TWITTER_CONSUMER_SECRET
+    const accessToken = env.TWITTER_ACCESS_TOKEN
+    const accessTokenSecret = env.TWITTER_ACCESS_TOKEN_SECRET
     const url = 'https://api.twitter.com/2/users/me?user.fields=public_metrics'
 
     const oauth = new OAuth({
@@ -51,7 +53,7 @@ export async function GET() {
         if (tweetCount.status === 429) {
             return NextResponse.json({ error: 'Rate limit exceeded' })
         }
-        
+
         updateTweetCount(tweetCount)
         return NextResponse.json({ tweetCount })
     } catch (error) {
