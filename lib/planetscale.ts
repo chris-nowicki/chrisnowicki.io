@@ -2,7 +2,7 @@
 import { Kysely } from 'kysely'
 import { PlanetScaleDialect } from 'kysely-planetscale'
 
-import { env } from 'env'
+import {env}  from '../env'
 
 interface TweetCountTable {
     count: number
