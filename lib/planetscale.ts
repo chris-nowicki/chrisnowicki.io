@@ -1,7 +1,8 @@
-// import 'server-only' not working with API routes yet
+import 'server-only'
 import { Kysely } from 'kysely'
 import { PlanetScaleDialect } from 'kysely-planetscale'
 
+// zod env type checking
 import { env } from 'env'
 
 interface TweetCountTable {

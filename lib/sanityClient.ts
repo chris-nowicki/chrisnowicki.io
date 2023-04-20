@@ -2,6 +2,7 @@ import { createClient } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
 import { cache } from 'react'
 
+// zod env type checking
 import { env } from 'env'
 
 const client = createClient({
