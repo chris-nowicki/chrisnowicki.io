@@ -83,10 +83,12 @@ export default async function Home() {
                             alt="chris nowicki"
                             priority
                         />
-                        <div className="mt-2 flex w-full justify-center rounded border border-borderColor-light p-2 dark:border-borderColor-dark">
+                        <div className="mt-2 flex w-full justify-center rounded border border-borderColor-light p-2 dark:border-borderColor-dark hover:bg-borderColor-light/40 cursor-pointer">
                             <Link href="https://www.buymeacoffee.com/chrisnowicki">
-                                <img
-                                    src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=chrisnowicki&button_colour=FFDD00&font_colour=000000&font_family=Inter&outline_colour=000000&coffee_colour=ffffff"
+                                <Image
+                                    src="/bmc.png"
+                                    width={200}
+                                    height={49.45}
                                     alt="buy me a coffee"
                                 />
                             </Link>
