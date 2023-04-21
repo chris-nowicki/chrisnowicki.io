@@ -1,12 +1,11 @@
 import { Octokit } from '@octokit/rest'
 import { NextResponse } from 'next/server'
-import { NextApiRequest, NextApiResponse } from 'next'
 import { updateGithubMetrics } from '../../../../lib/planetscale'
 
 // zod env type checking
 import { env } from 'env'
 
-export async function GET(request: NextApiRequest, response: NextApiResponse) {
+export async function GET() {
     const octokit = new Octokit({
         auth: env.GITHUB_TOKEN,
     })
@@ -18,7 +17,7 @@ export async function GET(request: NextApiRequest, response: NextApiResponse) {
             affiliation: 'owner',
         })
         .catch((err: any) => {
-            return response.status(400).json({ error: err })
+            return NextResponse.json({ error: err })
         })
 
     // count all repos
@@ -48,7 +47,7 @@ export async function GET(request: NextApiRequest, response: NextApiResponse) {
 
     // update the planetscale database with new metrics
     if (totalCommits === 0 || totalRepos === 0) {
-        return response.status(400).json({ error: 'No commits or repos found' })
+        return NextResponse.json({ error: 'No commits or repos found' })
     }
 
     updateGithubMetrics(totalCommits, totalRepos)
