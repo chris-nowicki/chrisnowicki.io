@@ -83,7 +83,7 @@ export default async function Home() {
                             alt="chris nowicki"
                             priority
                         />
-                        <div className="mt-2 flex w-full cursor-pointer justify-center rounded border border-borderColor-light p-2 hover:bg-borderColor-light/40 dark:border-borderColor-dark">
+                        {/* <div className="mt-2 flex w-full cursor-pointer justify-center rounded border border-borderColor-light p-2 hover:bg-borderColor-light/40 dark:border-borderColor-dark">
                             <Link href="https://www.buymeacoffee.com/chrisnowicki">
                                 <Image
                                     src="/bmc.webp"
@@ -92,7 +92,7 @@ export default async function Home() {
                                     alt="buy me a coffee"
                                 />
                             </Link>
-                        </div>
+                        </div> */}
                         <div className="mt-2 flex w-full flex-col rounded border border-borderColor-light text-base dark:border-borderColor-dark">
                             <div className="flex items-center gap-2">
                                 <div className="flex flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 px-4 py-2 dark:border-borderColor-dark dark:bg-borderColor-dark/30">
