@@ -10,7 +10,7 @@
     },
     "dependencies": {
         "@octokit/rest": "^19.0.7",
-        "@portabletext/react": "^2.0.2",
+        "@portabletext/react": "^2.0.3",
         "@sanity/image-url": "^1.0.2",
         "@vercel/analytics": "^1.0.0",
         "clsx": "^1.2.1",
