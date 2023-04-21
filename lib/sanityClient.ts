@@ -3,7 +3,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import { cache } from 'react'
 
 // zod env type checking
-import { env } from 'env'
+import { env } from 'ts/env'
 
 const client = createClient({
     projectId: env.NEXT_PUBLIC_SANITY_PROJECT_ID,

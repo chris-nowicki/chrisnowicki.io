@@ -3,7 +3,7 @@ import { Kysely } from 'kysely'
 import { PlanetScaleDialect } from 'kysely-planetscale'
 
 // zod env type checking
-import { env } from 'env'
+import { env } from 'ts/env'
 
 interface TweetCountTable {
     count: number

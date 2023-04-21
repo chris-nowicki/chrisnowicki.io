@@ -3,8 +3,7 @@ import crypto from 'crypto'
 import { NextResponse } from 'next/server'
 import { updateTweetCount } from '../../../../lib/planetscale'
 
-
-import { env } from 'env'
+import { env } from 'ts/env'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
     const response = await fetch(url, { headers }).then((res) => res.json())
