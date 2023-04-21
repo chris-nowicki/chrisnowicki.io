@@ -38,13 +38,14 @@ export default async function Home() {
         types: {
             image: ({ value }) => (
                 <>
-                    <div className="flex flex-col rounded-lg border border-borderColor-light px-8 py-8 pb-4 mt-4">
+                    <div className="mt-4 flex flex-col rounded-lg border border-borderColor-light px-8 py-8 pb-4">
                         <Image
                             src={urlFor(value).url()}
                             width={400}
                             height={400}
                             alt="wedding picture"
                             className="rounded-lg sm:w-[250px] md:w-auto"
+                            priority
                         />
                         <p className="mt-2 text-center text-sm">
                             <b>2/22/22 </b>- Telluride, CO
