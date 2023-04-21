@@ -1,12 +1,12 @@
 import { Octokit } from '@octokit/rest'
 import { NextResponse } from 'next/server'
-import { NextApiResponse } from 'next'
+import { NextApiRequest, NextApiResponse } from 'next'
 import { updateGithubMetrics } from '../../../../lib/planetscale'
 
 // zod env type checking
 import { env } from 'env'
 
-export async function GET(response: NextApiResponse) {
+export async function GET(request: NextApiRequest, response: NextApiResponse) {
     const octokit = new Octokit({
         auth: env.GITHUB_TOKEN,
     })
