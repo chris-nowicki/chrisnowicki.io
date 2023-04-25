@@ -1,8 +1,8 @@
 import { z } from 'zod'
 
 const envSchema = z.object({
-    NEXT_PUBLIC_SANITY_PROJECT_ID: z.string(),
-    NEXT_PUBLIC_SANITY_DATASET: z.string(),
+    NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().optional(),
+    NEXT_PUBLIC_SANITY_DATASET: z.string().optional(),
     TWITTER_CONSUMER_KEY: z.string().optional(),
     TWITTER_CONSUMER_SECRET: z.string().optional(),
     TWITTER_ACCESS_TOKEN: z.string().optional(),
