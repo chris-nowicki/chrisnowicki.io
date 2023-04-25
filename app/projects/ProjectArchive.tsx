@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import clsx from 'clsx'
-import format from 'date-fns/format'
 
 // icons
 import { GitBranchOutline, OpenOutline } from 'components/Icons'
@@ -30,10 +29,9 @@ export default function ProjectArchive({ projects }) {
                                 className="border-b border-neutral-200 align-top text-sm text-gray-900 hover:bg-gray-900/25 dark:border-foreground/25 dark:text-foreground  dark:hover:bg-foreground/25"
                             >
                                 <td className="pr-2 pt-2 text-purple-light dark:text-purple-dark">
-                                    {format(
-                                        new Date(project.dateCreated),
-                                        'yyyy'
-                                    )}
+                                    {new Date(
+                                        project.dateCreated
+                                    ).getFullYear()}
                                 </td>
                                 <td className="overflow-hidden pr-2 pt-2">
                                     {project.projectName}
