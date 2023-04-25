@@ -1,12 +1,1 @@
-{
-    "crons": [
-        {
-            "path": "/api/cron/tweet-count-sync",
-            "schedule": "0 * * * *"
-        },
-        {
-            "path": "/api/cron/github-metrics-sync",
-            "schedule": "*/10 * * * *"
-        }
-    ]
-}
+
