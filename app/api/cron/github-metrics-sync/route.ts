@@ -16,9 +16,7 @@ export async function GET() {
             per_page: 100,
             affiliation: 'owner',
         })
-        .catch((err: any) => {
-            return NextResponse.json({ error: err })
-        })
+
 
     // count all repos
     const totalRepos = repos.data.length
