@@ -17,7 +17,6 @@ export async function GET() {
             affiliation: 'owner',
         })
 
-
     // count all repos
     const totalRepos = repos.data.length
 

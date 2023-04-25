@@ -47,12 +47,17 @@ export async function GET() {
         oauth.authorize(requestData, token)
     ) as unknown as Headers
 
-    const tweetCount = await getTweetCount(url, headers)
+    try {
+        const tweetCount = await getTweetCount(url, headers)
 
-    if (tweetCount.status === 429) {
-        return NextResponse.json({ error: 'Rate limit exceeded' })
+        if (tweetCount.status === 429) {
+            return NextResponse.json({ error: 'Rate limit exceeded' })
+        }
+
+        updateTweetCount(tweetCount)
+        return NextResponse.json({ tweetCount })
+    } catch (error) {
+        console.error(error)
+        return NextResponse.json({ error })
     }
-
-    updateTweetCount(tweetCount)
-    return NextResponse.json({ tweetCount })
 }
