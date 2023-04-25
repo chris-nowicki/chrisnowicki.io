@@ -6,46 +6,46 @@ import { updateGithubMetrics } from '../../../../lib/planetscale'
 import { env } from '../../../../ts/env'
 
 export async function GET() {
-    const octokit = new Octokit({
-        auth: env.GITHUB_TOKEN,
-    })
+  const octokit = new Octokit({
+    auth: env.GITHUB_TOKEN,
+  })
 
-    // retrieve all repos from my account
-    const repos = await octokit.request('GET /user/repos', {
-        per_page: 100,
-        affiliation: 'owner',
-    })
+  // retrieve all repos from my account
+  const repos = await octokit.request('GET /user/repos', {
+    per_page: 100,
+    affiliation: 'owner',
+  })
 
-    // count all repos
-    const totalRepos = repos.data.length
+  // count all repos
+  const totalRepos = repos.data.length
 
-    // retrieve all commits and count them
-    let totalCommits = 0
+  // retrieve all commits and count them
+  let totalCommits = 0
 
-    for (const repo of repos.data) {
-        const commits = await octokit.request(
-            'GET /repos/{owner}/{repo}/contributors',
-            {
-                owner: repo.owner.login,
-                repo: repo.name,
-            }
-        )
+  for (const repo of repos.data) {
+    const commits = await octokit.request(
+      'GET /repos/{owner}/{repo}/contributors',
+      {
+        owner: repo.owner.login,
+        repo: repo.name,
+      }
+    )
 
-        // only count commits from my account
-        if (commits.data.length > 0) {
-            for (const contributor of commits.data) {
-                if (contributor.login === repo.owner.login) {
-                    totalCommits += contributor.contributions
-                }
-            }
+    // only count commits from my account
+    if (commits.data.length > 0) {
+      for (const contributor of commits.data) {
+        if (contributor.login === repo.owner.login) {
+          totalCommits += contributor.contributions
         }
+      }
     }
+  }
 
-    // update the planetscale database with new metrics
-    if (totalCommits === 0 || totalRepos === 0) {
-        return NextResponse.json({ error: 'No commits or repos found' })
-    }
+  // update the planetscale database with new metrics
+  if (totalCommits === 0 || totalRepos === 0) {
+    return NextResponse.json({ error: 'No commits or repos found' })
+  }
 
-    updateGithubMetrics(totalCommits, totalRepos)
-    return NextResponse.json({ totalCommits, totalRepos })
+  updateGithubMetrics(totalCommits, totalRepos)
+  return NextResponse.json({ totalCommits, totalRepos })
 }

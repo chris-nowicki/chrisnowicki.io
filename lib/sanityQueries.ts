@@ -3,7 +3,7 @@ import { groq } from 'next-sanity'
 
 // GROQ Queries
 export async function getSEO() {
-    const query = groq`*[_type == "settings"] {
+  const query = groq`*[_type == "settings"] {
         seo {
             name,
             siteName,
@@ -14,12 +14,12 @@ export async function getSEO() {
         }
     }`
 
-    const res = await fetchSanity(query)
-    return res[0].seo
+  const res = await fetchSanity(query)
+  return res[0].seo
 }
 
 export async function getResume() {
-    const query = groq`*[_type == "resume"] {
+  const query = groq`*[_type == "resume"] {
     name,
     email,
     location,
@@ -52,54 +52,54 @@ export async function getResume() {
     }
 }`
 
-    const res = await fetchSanity(query)
-    return res[0]
+  const res = await fetchSanity(query)
+  return res[0]
 }
 
 export async function getTechData() {
-    const query = groq`*[_type == "tech"] {name, category, link, show} | order(lower(name) asc)`
+  const query = groq`*[_type == "tech"] {name, category, link, show} | order(lower(name) asc)`
 
-    const res = await fetchSanity(query)
-    return res
+  const res = await fetchSanity(query)
+  return res
 }
 
 export async function getImage() {
-    const query = groq`*[_type == 'settings'] {
+  const query = groq`*[_type == 'settings'] {
         bio {
             "chrisnowicki": profilePicture.asset._ref
         }
     }`
 
-    const res = await fetchSanity(query)
-    const image = res[0].bio.chrisnowicki
-    return urlFor(image).url()
+  const res = await fetchSanity(query)
+  const image = res[0].bio.chrisnowicki
+  return urlFor(image).url()
 }
 
 export async function getContactInfo() {
-    const query = groq`*[_type == "resume"] {
+  const query = groq`*[_type == "resume"] {
     name,
     email,
     location
     }`
 
-    const res = await fetchSanity(query)
-    return res[0]
+  const res = await fetchSanity(query)
+  return res[0]
 }
 
 export async function getSocialLinks() {
-    const query = groq`*[_type == "settings"] {
+  const query = groq`*[_type == "settings"] {
         "linkedin": socialLinks.linkedin,
         "github": socialLinks.github,
         "twitter": socialLinks.twitter,
         "instagram": socialLinks.instagram,
     }`
 
-    const res = await fetchSanity(query)
-    return res[0]
+  const res = await fetchSanity(query)
+  return res[0]
 }
 
 export async function getProjects() {
-    const query = groq`*[_type == "settings"] {
+  const query = groq`*[_type == "settings"] {
         "featuredProjects": featuredProjects.featured[]->{
             _id,  
             "name": projectName,
@@ -122,22 +122,22 @@ export async function getProjects() {
         } | order(dateCreated desc),
     }`
 
-    const res = await fetchSanity(query)
-    return res[0]
+  const res = await fetchSanity(query)
+  return res[0]
 }
 
 export async function getAboutMe() {
-    const query = groq`*[_type == 'settings'] {
+  const query = groq`*[_type == 'settings'] {
         'about': bio.about,
         'bio': bio.bio,
         'profilePicture': bio.profilePicture.asset._ref,
     }`
 
-    const res = await fetchSanity(query)
-    const profilePicture = urlFor(res[0].profilePicture).url()
-    return {
-        about: res[0].about,
-        bio: res[0].bio,
-        profilePicture: profilePicture,
-    }
+  const res = await fetchSanity(query)
+  const profilePicture = urlFor(res[0].profilePicture).url()
+  return {
+    about: res[0].about,
+    bio: res[0].bio,
+    profilePicture: profilePicture,
+  }
 }
