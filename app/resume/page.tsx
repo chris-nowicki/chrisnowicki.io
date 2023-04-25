@@ -55,9 +55,9 @@ export default async function Resume() {
 
       {/* resume and social links */}
       <div className="mb-12 flex w-full flex-col items-center gap-4 md:flex-row">
-        {links.map((link) => (
+        {links.map((link, index) => (
           <SocialLink
-            key={link.name}
+            key={index + link.name}
             content={link.name}
             icon={link.name.toLowerCase()}
             url={link.url}

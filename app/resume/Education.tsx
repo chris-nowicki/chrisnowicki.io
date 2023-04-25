@@ -8,9 +8,8 @@ export default function Education({ education }) {
 
         <div className="flex w-full flex-col rounded border border-neutral-200 p-4 dark:border-background-dark">
           {education.map((school: any, index: number) => (
-            <>
+            <div key={index + school.school}>
               <div
-                key={index + school.school}
                 className="text-md mb-1 w-full border-b border-neutral-200 pb-2 dark:border-background-dark md:text-lg"
               >
                 <div className="flex flex-col justify-between md:flex-row">
@@ -38,7 +37,7 @@ export default function Education({ education }) {
                   </ul>
                 )}
               </div>
-            </>
+            </div>
           ))}
         </div>
       </div>
