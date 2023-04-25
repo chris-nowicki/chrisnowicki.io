@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import { updateGithubMetrics } from '../../../../lib/planetscale'
 
 // zod env type checking
-import { env } from '../../../../ts/env'
+import { env } from 'ts/env'
 
 export async function GET() {
     const octokit = new Octokit({
@@ -16,7 +16,6 @@ export async function GET() {
             per_page: 100,
             affiliation: 'owner',
         })
-
 
     // count all repos
     const totalRepos = repos.data.length

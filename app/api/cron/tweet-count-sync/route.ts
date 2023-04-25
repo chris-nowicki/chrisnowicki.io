@@ -3,7 +3,7 @@ import crypto from 'crypto'
 import { NextResponse } from 'next/server'
 import { updateTweetCount } from '../../../../lib/planetscale'
 
-import { env } from '../../../../ts/env'
+import { env } from 'ts/env'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
     const response = await fetch(url, { headers }).then((res) => res.json())
@@ -47,12 +47,17 @@ export async function GET() {
         oauth.authorize(requestData, token)
     ) as unknown as Headers
 
-    const tweetCount = await getTweetCount(url, headers)
+    try {
+        const tweetCount = await getTweetCount(url, headers)
 
-    if (tweetCount.status === 429) {
-        return NextResponse.json({ error: 'Rate limit exceeded' })
+        if (tweetCount.status === 429) {
+            return NextResponse.json({ error: 'Rate limit exceeded' })
+        }
+
+        updateTweetCount(tweetCount)
+        return NextResponse.json({ tweetCount })
+    } catch (error) {
+        console.error(error)
+        return NextResponse.json({ error })
     }
-
-    updateTweetCount(tweetCount)
-    return NextResponse.json({ tweetCount })
 }
