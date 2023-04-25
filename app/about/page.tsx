@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
 // components
@@ -37,7 +38,7 @@ export default async function Home() {
         types: {
             image: ({ value }) => (
                 <>
-                    <div className="mt-4 flex flex-col rounded-lg border border-borderColor-light px-8 py-8 pb-4">
+                    <div className="mt-4 flex flex-col rounded-lg border border-borderColor-light px-4 py-4 pb-4 dark:border-borderColor-dark">
                         <Image
                             src={urlFor(value).url()}
                             width={400}
