@@ -38,7 +38,7 @@ export default async function Home() {
         types: {
             image: ({ value }) => (
                 <>
-                    <div className="mt-4 flex flex-col rounded-lg border border-borderColor-light px-4 py-4 pb-4 dark:border-borderColor-dark">
+                    <div className="mt-4 flex flex-col rounded-lg border border-borderColor-light px-8 py-8 pb-4">
                         <Image
                             src={urlFor(value).url()}
                             width={400}

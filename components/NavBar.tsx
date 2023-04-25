@@ -49,9 +49,9 @@ export default function NavBar() {
         },
         '/resume': {
             name: 'resume',
-            x: 638,
+            x: 654,
             y: 0,
-            w: '130px',
+            w: '114px',
             h: '42px',
         },
     }
@@ -156,7 +156,7 @@ export default function NavBar() {
                 <Link
                     href="/resume"
                     className={clsx(
-                        'flex items-center justify-between gap-2 rounded-lg border border-neutral-200 px-4 py-1.5 text-lg  dark:border-neutral-900/50 dark:text-foreground md:gap-6',
+                        'flex items-center justify-between gap-2 rounded-lg border border-neutral-200 px-2 py-1.5 text-lg  dark:border-neutral-900/50 dark:text-foreground md:gap-6',
                         pathname === '/resume'
                             ? ' text-purple-light dark:text-purple-dark'
                             : 'hover:bg-neutral-100 hover:dark:bg-neutral-900/20'
