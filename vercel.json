@@ -1,4 +1,3 @@
-<<<<<<< main
 {
     "crons": [
         {
@@ -11,5 +10,3 @@
         }
     ]
 }
-=======
->>>>>>> (no branch): Auto stash before revert of "added date-fns library and updated code to date-fns format"
