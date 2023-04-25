@@ -1,5 +1,5 @@
 // components
-import ContentCarousel from 'app/projects/FeaturedProjects/Carousel/ContentCarousel'
+import ContentCarousel from "./Carousel/ContentCarousel"
 
 export default function FeaturedProjects({ projects }) {
     return (

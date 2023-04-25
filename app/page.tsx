@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
 // components
-import SocialLink from 'components/SocialLink'
+import SocialLink from '../components/SocialLink'
 
 // sanity cms queries
 import { getSocialLinks, getAboutMe } from '../lib/sanityQueries'

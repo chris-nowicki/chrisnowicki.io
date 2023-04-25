@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 // icons
-import { Location } from 'components/Icons'
+import { Location } from '../../components/Icons'
 
 export default function Header({ image, data }) {
     return (

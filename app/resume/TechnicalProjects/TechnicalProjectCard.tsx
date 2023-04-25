@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 
 // icons
-import { GitBranchOutline, OpenOutline } from 'components/Icons'
+import { GitBranchOutline, OpenOutline } from '../../../components/Icons'
 
 export default function TechnicalProjectCard({ project }) {
     return (
@@ -70,7 +70,9 @@ export default function TechnicalProjectCard({ project }) {
                 <ul className="text-md ml-6 list-outside list-disc marker:text-purple-light dark:marker:text-purple-dark md:text-lg">
                     {project.projectDetails.map(
                         (project: any, index: number) =>
-                            index !== 0 && <li key={index + project}>{project}</li>
+                            index !== 0 && (
+                                <li key={index + project}>{project}</li>
+                            )
                     )}
                 </ul>
             </div>

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 
 // components
-import ProjectCard from 'app/projects/FeaturedProjects/Carousel/ProjectCard'
+import ProjectCard from './ProjectCard'
 
 // icons
 import { CHEVRON_LEFT, CHEVRON_RIGHT } from '../../../../components/Icons'

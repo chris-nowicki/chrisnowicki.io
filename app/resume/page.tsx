@@ -2,10 +2,10 @@ import Header from './Header'
 import TechSkills from './TechSkills/TechSkills'
 import TechnicalProjects from './TechnicalProjects/TechnicalProjects'
 import ProfessionalExperience from './ProfessionalExperience'
-import Education from 'app/resume/Education'
+import Education from './Education'
 
 // components
-import SocialLink from 'components/SocialLink'
+import SocialLink from '../../components/SocialLink'
 
 // types
 import type { Metadata } from 'next'
