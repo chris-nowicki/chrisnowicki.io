@@ -4,6 +4,9 @@ import { visionTool } from '@sanity/vision'
 import { schemaTypes } from './sanity/schemas'
 import { myStructure } from './sanity/deskStructure'
 
+// env variables
+import { env } from './ts/env'
+
 // plugins
 import { keysToolbarPlugin } from './sanity/plugins/keysToolbarPlugin'
 
@@ -41,8 +44,8 @@ const myLogoPlugin = definePlugin({
 })
 
 const config = defineConfig({
-  projectId: '4zd5l3k5',
-  dataset: 'production',
+  projectId: env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+  dataset: env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: '2021-03-25',
   basePath: '/studio',
   theme,
