@@ -1,0 +1,62 @@
+import { useState } from 'react'
+import { Card, Flex, TextInput, Stack, Text, Box } from '@sanity/ui'
+import { StringFieldProps, set } from 'sanity'
+import {
+  RiTwitterFill,
+  RiLinkedinFill,
+  RiInstagramFill,
+  RiGithubFill,
+} from 'react-icons/ri'
+
+export const SocialLinkInput = (props: StringFieldProps) => {
+  const { title, description, inputProps, value } = props
+  const [link, setLink] = useState(value ? value.split('/').slice(-1) : '')
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setLink(event.target.value)
+    inputProps.onChange(set(description + event.target.value))
+  }
+
+  return (
+    <>
+      <Stack>
+        <Box paddingBottom={2}>
+          <Text size={1} weight="bold">
+            {title}
+          </Text>
+        </Box>
+        <Flex align={'center'}>
+          <Card>
+            <Flex align={'center'}>
+              <Card
+                size={2}
+                border={true}
+                borderRight={false}
+                sizing={'border'}
+                padding={3}
+                tone="primary"
+              >
+                <Flex align={'center'} gap={2}>
+                  {title === 'Linkedin' ? (
+                    <RiLinkedinFill size={18} />
+                  ) : title === 'GitHub' ? (
+                    <RiGithubFill size={18} />
+                  ) : title === 'Twitter' ? (
+                    <RiTwitterFill size={18} />
+                  ) : (
+                    <RiInstagramFill size={18} />
+                  )}
+                  {description}
+                </Flex>
+              </Card>
+            </Flex>
+          </Card>
+
+          <Card flex={1} border={true} padding={1} sizing={'border'}>
+            <TextInput onChange={handleChange} value={link} border={false} />
+          </Card>
+        </Flex>
+      </Stack>
+    </>
+  )
+}
