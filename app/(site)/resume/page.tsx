@@ -5,7 +5,7 @@ import ProfessionalExperience from './ProfessionalExperience'
 import Education from './Education'
 
 // components
-import SocialLink from '../../components/SocialLink'
+import SocialLink from '../../../components/SocialLink'
 
 // types
 import type { Metadata } from 'next'
@@ -22,7 +22,7 @@ import {
   getTechData,
   getResume,
   getSocialLinks,
-} from '../../lib/sanityQueries'
+} from '../../../lib/sanityQueries'
 
 export default async function Resume() {
   const pictureData = getImage()

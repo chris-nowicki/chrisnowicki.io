@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import Link from '../../Link'
 
 // sanity cms function to create URL for image
-import { urlFor } from '../../../../lib/sanityClient'
+import { urlFor } from '../../../../../lib/sanityClient'
 
 // types
 type ProjectCardProps = {

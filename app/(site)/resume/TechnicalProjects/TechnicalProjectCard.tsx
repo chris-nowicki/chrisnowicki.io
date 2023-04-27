@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 
 // icons
-import { GitBranchOutline, OpenOutline } from '../../../components/Icons'
+import { GitBranchOutline, OpenOutline } from '../../../../components/Icons'
 
 export default function TechnicalProjectCard({ project }) {
   return (

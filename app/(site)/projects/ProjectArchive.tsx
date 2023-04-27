@@ -3,7 +3,7 @@ import clsx from 'clsx'
 import format from 'date-fns/format'
 
 // icons
-import { GitBranchOutline, OpenOutline } from '../../components/Icons'
+import { GitBranchOutline, OpenOutline } from '../../../components/Icons'
 
 export default function ProjectArchive({ projects }) {
   return (

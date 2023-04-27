@@ -3,15 +3,15 @@ import Link from 'next/link'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
 // components
-import SocialLink from '../../components/SocialLink'
+import SocialLink from '../../../components/SocialLink'
 
 // icons
-import { GitHub, Twitter } from '../../components/Icons'
+import { GitHub, Twitter } from '../../../components/Icons'
 
 // sanity cms queries
-import { getSocialLinks, getAboutMe } from '../../lib/sanityQueries'
-import { urlFor } from '../../lib/sanityClient'
-import { getTweetCount, getGithubMetrics } from '../../lib/planetscale'
+import { getSocialLinks, getAboutMe } from '../../../lib/sanityQueries'
+import { urlFor } from '../../../lib/sanityClient'
+import { getTweetCount, getGithubMetrics } from '../../../lib/planetscale'
 
 export const revalidate = 60 // In seconds
 

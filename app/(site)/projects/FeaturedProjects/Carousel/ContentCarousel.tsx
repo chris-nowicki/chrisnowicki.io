@@ -6,7 +6,7 @@ import { AnimatePresence } from 'framer-motion'
 import ProjectCard from './ProjectCard'
 
 // icons
-import { CHEVRON_LEFT, CHEVRON_RIGHT } from '../../../../components/Icons'
+import { CHEVRON_LEFT, CHEVRON_RIGHT } from '../../../../../components/Icons'
 
 function ContentCarousel({ contents }) {
   const [activeIndex, setActiveIndex] = useState(0)

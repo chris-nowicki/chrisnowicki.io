@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 
 // icons
-import { GitHub, OpenOutline } from '../../components/Icons'
+import { GitHub, OpenOutline } from '../../../components/Icons'
 
 export default function Link({
   url,

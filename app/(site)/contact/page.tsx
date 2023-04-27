@@ -3,7 +3,7 @@ import Header from '../resume/Header'
 
 // components
 import Contact from './Contact'
-import SocialLink from '../../components/SocialLink'
+import SocialLink from '../../../components/SocialLink'
 
 // meta data
 import type { Metadata } from 'next'
@@ -19,7 +19,7 @@ import {
   getImage,
   getContactInfo,
   getSocialLinks,
-} from '../../lib/sanityQueries'
+} from '../../../lib/sanityQueries'
 
 export default async function Resume() {
   const pictureData = getImage()

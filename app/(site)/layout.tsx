@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import './globals.css'
-import Nav from '../components/NavBar'
+import '../globals.css'
+import Nav from '../../components/NavBar'
 
 // vercel analytics
-import { AnalyticsWrapper } from '../components/Analytics'
+import { AnalyticsWrapper } from '../../components/Analytics'
 
 // font
 import { Roboto } from 'next/font/google'
@@ -16,8 +16,8 @@ const roboto = Roboto({
 })
 
 // sanity cms query and image builder
-import { getSEO } from '../lib/sanityQueries'
-import { urlFor } from '../lib/sanityClient'
+import { getSEO } from '../../lib/sanityQueries'
+import { urlFor } from '../../lib/sanityClient'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   const seo = await getSEO()
