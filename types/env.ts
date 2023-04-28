@@ -9,6 +9,7 @@ const envSchema = z.object({
   TWITTER_ACCESS_TOKEN_SECRET: z.string().optional(),
   GITHUB_TOKEN: z.string().optional(),
   DATABASE_URL: z.string().optional(),
+  DEVTO_API_KEY: z.string().optional(),
 })
 
 export type Env = z.infer<typeof envSchema>
@@ -22,6 +23,7 @@ export const env: Env = {
   TWITTER_ACCESS_TOKEN_SECRET: process.env.TWITTER_ACCESS_TOKEN_SECRET,
   GITHUB_TOKEN: process.env.GITHUB_TOKEN,
   DATABASE_URL: process.env.DATABASE_URL,
+  DEVTO_API_KEY: process.env.DEVTO_API_KEY,
 }
 
 envSchema.parse(env)

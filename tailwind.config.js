@@ -12,10 +12,10 @@ module.exports = {
       lg: '976px',
       xl: '2000px',
     },
-    fontFamily: {
-      serif: ['var(--font-roboto)'],
-    },
     extend: {
+      fontFamily: {
+        serif: ['var(--font-roboto)'],
+      },
       colors: {
         'background-dark': '#111827',
         'background-light': '#282a36',
