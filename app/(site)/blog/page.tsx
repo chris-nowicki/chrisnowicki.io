@@ -32,7 +32,7 @@ export default async function Blog() {
             prefetch={false}
             className="hover:outline-offset-3 hover:rounded hover:outline hover:outline-2"
           >
-            <DEVTO size={32} />
+            <DEVTO size={32} classProps='dark:text-white text-black'/>
           </Link>
           Blog
         </h1>
@@ -46,7 +46,7 @@ export default async function Blog() {
               className="flex flex-col"
             >
               <span className="text-sm md:text-base">{article.title}</span>
-              <span className="font-mono text-sm -tracking-[.08em] text-borderColor-dark/40 md:text-base">
+              <span className="font-mono text-sm -tracking-[.08em] text-borderColor-dark/50 dark:text-white/40 md:text-base">
                 {Number(article.page_views_count).toLocaleString()} views /{' '}
                 {article.reading_time_minutes} min read
               </span>
