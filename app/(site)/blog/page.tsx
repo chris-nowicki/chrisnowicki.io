@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import format from 'date-fns/format'
 
 // types
 import { env } from '../../../types/env'
@@ -30,27 +31,32 @@ export default async function Blog() {
           <Link
             href="https://www.dev.to/chrisnowicki/"
             prefetch={false}
-            className="hover:outline-offset-3 hover:rounded hover:outline hover:outline-2"
+            className="text-black hover:text-purple-light dark:text-white dark:hover:text-purple-dark"
           >
-            <DEVTO size={32} classProps='dark:text-white text-black'/>
+            <DEVTO size={32} />
           </Link>
           Blog
         </h1>
-        <div className="mt-4">
+        <div className="mt-4 flex flex-col text-sm md:flex-row md:gap-3 md:text-base">
           {articles.map((article) => (
-            <Link
-              key={article.id}
-              href={article.url}
-              prefetch={false}
-              target="_blank"
-              className="flex flex-col"
-            >
-              <span className="text-sm md:text-base">{article.title}</span>
-              <span className="font-mono text-sm -tracking-[.08em] text-borderColor-dark/50 dark:text-white/40 md:text-base">
-                {Number(article.page_views_count).toLocaleString()} views /{' '}
-                {article.reading_time_minutes} min read
+            <>
+              <span className="font-bold text-purple-light dark:text-purple-dark">
+                {format(new Date(article.published_at), 'MM.dd.yy')}
               </span>
-            </Link>
+              <Link
+                key={article.id}
+                href={article.url}
+                prefetch={false}
+                target="_blank"
+                className="flex flex-col"
+              >
+                <span className="text-sm md:text-base">{article.title}</span>
+                <span className="font-mono text-sm -tracking-[.08em] text-borderColor-dark/50 dark:text-white/40 md:text-base">
+                  {Number(article.page_views_count).toLocaleString()} views /{' '}
+                  {article.reading_time_minutes} min read
+                </span>
+              </Link>
+            </>
           ))}
         </div>
       </div>
