@@ -2,10 +2,13 @@ import Link from 'next/link'
 import clsx from 'clsx'
 import format from 'date-fns/format'
 
+// types
+import { Project } from '../../../types/projects'
+
 // icons
 import { GitBranchOutline, OpenOutline } from '../../../components/Icons'
 
-export default function ProjectArchive({ projects }) {
+export default function ProjectArchive({ projects }: { projects: Project[] }) {
   return (
     <>
       <span className="mt-4 text-center text-xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-3xl">

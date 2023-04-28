@@ -1,9 +1,10 @@
 import ProjectArchive from './ProjectArchive'
 import FeaturedProjects from './FeaturedProjects/FeaturedProjects'
-import { getProjects } from '../../../lib/sanityQueries'
+import { getProjects } from '../../../sanity/sanity-queries'
 
 // types
 import type { Metadata } from 'next'
+import { Projects } from '../../../types/projects'
 
 // meta data
 export const metadata: Metadata = {
@@ -15,7 +16,7 @@ export const metadata: Metadata = {
 export const revalidate = 60
 
 export default async function Projects() {
-  const projects = await getProjects()
+  const projects: Projects = await getProjects()
 
   return (
     <div className="mb-16 flex w-full flex-col items-center px-10 md:items-start md:px-0">

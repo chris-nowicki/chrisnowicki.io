@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import { updateGithubMetrics } from '../../../../lib/planetscale'
 
 // zod env type checking
-import { env } from '../../../../ts/env'
+import { env } from '../../../../types/env'
 
 export async function GET() {
   const octokit = new Octokit({

@@ -16,12 +16,10 @@ const roboto = Roboto({
 })
 
 // sanity cms query and image builder
-import { getSEO } from '../../lib/sanityQueries'
-import { urlFor } from '../../lib/sanityClient'
+import { getSEO } from '../../sanity/sanity-queries'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   const seo = await getSEO()
-  const OG = urlFor(seo.image).url()
 
   return {
     title: {
@@ -30,19 +28,19 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
     },
     description: seo.description,
     openGraph: {
+      type: 'website',
       title: seo.name,
       description: seo.description,
       url: seo.url,
       siteName: seo.siteName,
       images: [
         {
-          url: OG,
+          url: seo.image,
           width: 1920,
           height: 1080,
         },
       ],
       locale: 'en-US',
-      type: seo.type,
     },
     robots: {
       index: true,

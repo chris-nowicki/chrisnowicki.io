@@ -5,6 +5,9 @@ import Link from 'next/link'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
 
+// types
+import { NavItems } from '../types/navBar'
+
 // icons
 import { ArrowIcon } from './Icons'
 
@@ -18,7 +21,7 @@ export default function NavBar() {
     setShowMenu(showMenu === false ? true : false)
   }
 
-  const navItems = {
+  const navItems: NavItems = {
     '/': {
       name: 'home',
       x: 0,

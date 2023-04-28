@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 
 // components
@@ -9,23 +8,23 @@ import SocialLink from '../../../components/SocialLink'
 import { GitHub, Twitter } from '../../../components/Icons'
 
 // sanity cms queries
-import { getSocialLinks, getAboutMe } from '../../../lib/sanityQueries'
-import { urlFor } from '../../../lib/sanityClient'
-import { getTweetCount, getGithubMetrics } from '../../../lib/planetscale'
+import { urlFor } from '../../../sanity/sanity-utils'
+import { getSocialLinks, getAboutMe } from '../../../sanity/sanity-queries'
+
+// planetscale query
+import { getMetrics } from '../../../lib/planetscale'
 
 export const revalidate = 60 // In seconds
 
 export default async function Home() {
   const socialLinkData = getSocialLinks()
   const aboutMeData = getAboutMe()
-  const tweetCountData = getTweetCount()
-  const githubMetricsData = getGithubMetrics()
+  const getMetricsData = getMetrics()
 
-  const [socialLink, aboutMe, tweetCount, githubMetrics] = await Promise.all([
+  const [socialLink, aboutMe, metrics] = await Promise.all([
     socialLinkData,
     aboutMeData,
-    tweetCountData,
-    githubMetricsData,
+    getMetricsData,
   ])
 
   const links = [
@@ -83,7 +82,7 @@ export default async function Home() {
                 <div className="flex flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 px-4 py-2 dark:border-borderColor-dark dark:bg-borderColor-dark/30">
                   <Twitter size={24} />
                 </div>
-                <div>{tweetCount.toLocaleString()} all-time tweets</div>
+                <div>{metrics.tweetCount.toLocaleString()} all-time tweets</div>
               </div>
               <div className="flex w-full items-center gap-2 border-t dark:border-borderColor-dark">
                 <div className="flex h-full flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 px-4 py-2 dark:border-borderColor-dark dark:bg-borderColor-dark/30">
@@ -91,10 +90,10 @@ export default async function Home() {
                 </div>
                 <div className="flex flex-col">
                   <p>
-                    {githubMetrics.commits.toLocaleString()} all-time commits
+                    {metrics.githubCommits.toLocaleString()} all-time commits
                   </p>
                   <p className="border-t border-borderColor-light dark:border-borderColor-dark">
-                    {githubMetrics.repos.toLocaleString()} repositories
+                    {metrics.githubRepos.toLocaleString()} repositories
                   </p>
                 </div>
               </div>

@@ -1,8 +1,17 @@
-import { fetchSanity, urlFor } from './sanityClient'
+import { fetchSanity } from './sanity-utils'
 import { groq } from 'next-sanity'
 
+// types
+import { Seo } from '../types/seo'
+import { Resume } from '../types/resume'
+import { TechData } from '../types/techData'
+import { Contact } from '../types/contact'
+import { SocialLinks } from '../types/socialLinks'
+import { Projects } from '../types/projects'
+import { About } from '../types/about'
+
 // GROQ Queries
-export async function getSEO() {
+export async function getSEO(): Promise<Seo> {
   const query = groq`*[_type == "settings"] {
         seo {
             name,
@@ -10,7 +19,7 @@ export async function getSEO() {
             url,
             description,
             type,
-            "image": image.asset._ref,
+            "image": image.asset->url,
         }
     }`
 
@@ -18,7 +27,7 @@ export async function getSEO() {
   return res[0].seo
 }
 
-export async function getResume() {
+export async function getResume(): Promise<Resume> {
   const query = groq`*[_type == "resume"] {
     name,
     email,
@@ -56,26 +65,25 @@ export async function getResume() {
   return res[0]
 }
 
-export async function getTechData() {
+export async function getTechData(): Promise<TechData[]> {
   const query = groq`*[_type == "tech"] {name, category, link, show} | order(lower(name) asc)`
 
   const res = await fetchSanity(query)
   return res
 }
 
-export async function getImage() {
+export async function getImage(): Promise<string> {
   const query = groq`*[_type == 'settings'] {
         bio {
-            "chrisnowicki": profilePicture.asset._ref
+            "chrisnowicki": profilePicture.asset->url
         }
     }`
 
   const res = await fetchSanity(query)
-  const image = res[0].bio.chrisnowicki
-  return urlFor(image).url()
+  return res[0].bio.chrisnowicki
 }
 
-export async function getContactInfo() {
+export async function getContactInfo(): Promise<Contact> {
   const query = groq`*[_type == "resume"] {
     name,
     email,
@@ -86,7 +94,7 @@ export async function getContactInfo() {
   return res[0]
 }
 
-export async function getSocialLinks() {
+export async function getSocialLinks(): Promise<SocialLinks> {
   const query = groq`*[_type == "settings"] {
         "linkedin": socialLinks.linkedin,
         "github": socialLinks.github,
@@ -98,7 +106,7 @@ export async function getSocialLinks() {
   return res[0]
 }
 
-export async function getProjects() {
+export async function getProjects(): Promise<Projects> {
   const query = groq`*[_type == "settings"] {
         "featuredProjects": featuredProjects.featured[]->{
             _id,  
@@ -106,7 +114,7 @@ export async function getProjects() {
             excerpt,
             gitHubUrl,
             liveSiteUrl,
-            "image": image.asset._ref,
+            "image": image.asset->url,
             "tags": tags[]->{
                 name
             },
@@ -126,18 +134,18 @@ export async function getProjects() {
   return res[0]
 }
 
-export async function getAboutMe() {
+export async function getAboutMe(): Promise<About> {
   const query = groq`*[_type == 'settings'] {
         'about': bio.about,
         'bio': bio.bio,
-        'profilePicture': bio.profilePicture.asset._ref,
+        'profilePicture': bio.profilePicture.asset->url,
     }`
 
   const res = await fetchSanity(query)
-  const profilePicture = urlFor(res[0].profilePicture).url()
+
   return {
     about: res[0].about,
     bio: res[0].bio,
-    profilePicture: profilePicture,
+    profilePicture: res[0].profilePicture,
   }
 }

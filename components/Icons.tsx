@@ -1,3 +1,4 @@
+// types
 type Icon = {
   size?: number
   classProps?: string

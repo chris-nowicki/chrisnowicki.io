@@ -1,24 +1,11 @@
-import 'server-only'
 import { Kysely } from 'kysely'
 import { PlanetScaleDialect } from 'kysely-planetscale'
 
 // zod env type checking
-import { env } from '../ts/env'
+import { env } from '../types/env'
 
-interface TweetCountTable {
-  count: number
-  updated_at?: string
-}
-
-interface GitHubMetricsTable {
-  commits: number
-  repos: number
-}
-
-interface Database {
-  tweetCount: TweetCountTable
-  githubMetrics: GitHubMetricsTable
-}
+// types
+import { Database, Metrics } from '../types/planetscale'
 
 export const queryBuilder = new Kysely<Database>({
   dialect: new PlanetScaleDialect({
@@ -26,13 +13,17 @@ export const queryBuilder = new Kysely<Database>({
   }),
 })
 
-// query to fetch tweet count
-export async function getTweetCount() {
+// query to fetch tweet count and github metrics
+export async function getMetrics(): Promise<Metrics> {
   const res = await queryBuilder
-    .selectFrom('tweetCount')
-    .select('count')
+    .selectFrom(['tweetCount', 'githubMetrics'])
+    .select([
+      'tweetCount.count as tweetCount',
+      'githubMetrics.commits as githubCommits',
+      'githubMetrics.repos as githubRepos',
+    ])
     .execute()
-  return res[0].count
+  return res[0]
 }
 
 // query to update tweet count
@@ -42,15 +33,6 @@ export const updateTweetCount = (tweetCount: number) => {
     .values({ count: tweetCount })
     .onDuplicateKeyUpdate({ count: tweetCount })
     .execute()
-}
-
-// query to fetch github metrics
-export async function getGithubMetrics() {
-  const res = await queryBuilder
-    .selectFrom('githubMetrics')
-    .select(['commits', 'repos'])
-    .execute()
-  return res[0]
 }
 
 // update github metrics

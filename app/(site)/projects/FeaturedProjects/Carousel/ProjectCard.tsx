@@ -5,9 +5,6 @@ import clsx from 'clsx'
 // components
 import Link from '../../Link'
 
-// sanity cms function to create URL for image
-import { urlFor } from '../../../../../lib/sanityClient'
-
 // types
 type ProjectCardProps = {
   name: string
@@ -32,9 +29,6 @@ export default function ProjectCard({
   direction,
   page,
 }: ProjectCardProps) {
-  let projectImage: string
-  image && (projectImage = urlFor(image).url())
-
   const variants = {
     enter: (direction: number) => {
       return {
@@ -128,7 +122,7 @@ export default function ProjectCard({
                   className="border border-borderColor-dark shadow-md"
                   width={367}
                   height={227}
-                  src={projectImage}
+                  src={image}
                   alt="featured projects"
                   priority
                 />
