@@ -47,7 +47,7 @@ const config = defineConfig({
   projectId: env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: env.NEXT_PUBLIC_SANITY_DATASET,
   apiVersion: '2021-03-25',
-  basePath: '/studio',
+  basePath: '/admin',
   theme,
   title: 'cdn-portfolio',
 

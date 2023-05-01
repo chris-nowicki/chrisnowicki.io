@@ -15,9 +15,10 @@ async function getArticles(): Promise<Article[]> {
   return articles
 }
 
-// icon
+// icons
 import { DEVTO } from '../../../components/Icons'
 
+// revalidate every minute
 export const revalidate = 60 // In seconds
 
 export default async function Blog() {
@@ -35,25 +36,23 @@ export default async function Blog() {
           </a>
           Blog
         </h1>
-        <div className="mt-4 flex flex-col text-sm md:flex-row md:gap-3 md:text-base">
-          {articles.map((article) => (
-            <>
+        <div className="mt-4">
+          {articles.map((article: Article) => (
+            <div
+              key={article.id}
+              className="flex flex-col text-sm md:flex-row md:gap-3 md:text-base"
+            >
               <span className="font-bold text-purple-light dark:text-purple-dark">
                 {format(new Date(article.published_at), 'MM.dd.yy')}
               </span>
-              <a
-                key={article.id}
-                href={article.url}
-                target="_blank"
-                className="flex flex-col"
-              >
+              <a href={article.url} target="_blank" className="flex flex-col">
                 <span className="text-sm md:text-base">{article.title}</span>
                 <span className="font-mono text-sm -tracking-[.08em] text-borderColor-dark/50 dark:text-white/40 md:text-base">
                   {Number(article.page_views_count).toLocaleString()} views /{' '}
                   {article.reading_time_minutes} min read
                 </span>
               </a>
-            </>
+            </div>
           ))}
         </div>
       </div>
