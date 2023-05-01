@@ -49,7 +49,7 @@ const config = defineConfig({
   apiVersion: '2021-03-25',
   basePath: '/admin',
   theme,
-  title: 'cdn-portfolio',
+  title: 'chrisnowicki.io',
 
   studio: {
     components: {
