@@ -1,3 +1,4 @@
+import 'server-only'
 import { createKysely } from '@vercel/postgres-kysely'
 
 // types

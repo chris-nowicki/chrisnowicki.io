@@ -29,36 +29,34 @@ export default async function Home() {
   }
 
   return (
-    <div className="px-5 md:px-0">
-      <div className="flex flex-wrap-reverse rounded border border-borderColor-light p-4 dark:border-borderColor-dark md:flex-nowrap">
-        <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
-          <PortableText value={aboutMe.about} components={components} />
-          <div className="mt-4 flex w-full flex-col justify-center gap-2 md:flex-row md:justify-start">
-            {links.map((link) => (
-              <SocialLink
-                key={link.name}
-                icon={link.name.toLowerCase()}
-                content={link.name}
-                url={link.url}
-                width="w-auto"
-                fontSize="lg"
-              />
-            ))}
-          </div>
-        </div>
-
-        <div className="flex w-[200px] flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
-          <Link href={'/about'} className="flex w-full">
-            <Image
-              className="rounded shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
-              width={400}
-              height={400}
-              src={aboutMe.profilePicture}
-              alt="chris nowicki"
-              priority
+    <div className="mx-5 flex flex-wrap-reverse rounded border border-borderColor-light p-4 dark:border-borderColor-dark md:mx-0 md:flex-nowrap">
+      <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
+        <PortableText value={aboutMe.about} components={components} />
+        <div className="mt-4 flex w-full flex-col justify-center gap-2 md:flex-row md:justify-start">
+          {links.map((link) => (
+            <SocialLink
+              key={link.name}
+              icon={link.name.toLowerCase()}
+              content={link.name}
+              url={link.url}
+              width="w-auto"
+              fontSize="lg"
             />
-          </Link>
+          ))}
         </div>
+      </div>
+
+      <div className="flex w-[200px] flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
+        <Link href={'/about'} className="flex w-full">
+          <Image
+            className="rounded shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
+            width={400}
+            height={400}
+            src={aboutMe.profilePicture}
+            alt="chris nowicki"
+            priority
+          />
+        </Link>
       </div>
     </div>
   )

@@ -69,10 +69,10 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={roboto.variable} suppressHydrationWarning>
+    <html lang="en" className={roboto.variable}>
       <body className="bg-gray-50 dark:bg-background-light dark:text-foreground">
-        <div className="flex w-full flex-col items-center">
-          <div className="flex w-full max-w-3xl  flex-col">
+        <div className="flex flex-col items-center">
+          <div className="w-full max-w-3xl">
             <Nav />
             <main>
               {children}
