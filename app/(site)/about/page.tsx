@@ -12,7 +12,7 @@ import { urlFor } from '../../../sanity/sanity-utils'
 import { getSocialLinks, getAboutMe } from '../../../sanity/sanity-queries'
 
 // planetscale query
-import { getMetrics } from '../../../lib/vercel'
+import { getMetrics } from '../../../lib/vercel-storage'
 
 export const revalidate = 60 // In seconds
 
@@ -43,7 +43,7 @@ export default async function Home() {
               width={400}
               height={400}
               alt="wedding picture"
-              className="sm:w-[250px] rounded-lg md:w-auto"
+              className="rounded-lg sm:w-[250px] md:w-auto"
               priority
             />
             <p className="mt-2 text-center text-sm">
@@ -68,7 +68,7 @@ export default async function Home() {
           <div className="flex w-full flex-col items-start text-left text-lg md:mr-6">
             <PortableText value={aboutMe.bio} components={components} />
           </div>
-          <div className="md:w-[400px] flex w-full flex-col sm:mb-4 md:mb-0 md:mt-0">
+          <div className="flex w-full flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
             <Image
               className="w-full rounded shadow-lg sm:hidden md:block"
               width={400}
@@ -79,13 +79,13 @@ export default async function Home() {
             />
             <div className="mt-4 flex w-full flex-col rounded border border-borderColor-light text-base dark:border-borderColor-dark">
               <div className="flex items-center gap-2">
-                <div className="dark:bg-borderColor-dark/30 flex flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 px-4 py-2 dark:border-borderColor-dark">
+                <div className="flex flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 px-4 py-2 dark:border-borderColor-dark dark:bg-borderColor-dark/30">
                   <Twitter size={24} />
                 </div>
                 <div>{metrics.tweetCount.toLocaleString()} all-time tweets</div>
               </div>
               <div className="flex w-full items-center gap-2 border-t dark:border-borderColor-dark">
-                <div className="dark:bg-borderColor-dark/30 flex h-full flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 px-4 py-2 dark:border-borderColor-dark">
+                <div className="flex h-full flex-col justify-center border-r border-borderColor-light bg-borderColor-light/40 px-4 py-2 dark:border-borderColor-dark dark:bg-borderColor-dark/30">
                   <GitHub size={24} />
                 </div>
                 <div className="flex flex-col">
