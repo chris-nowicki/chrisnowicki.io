@@ -1,7 +1,7 @@
 import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
 import { NextResponse } from 'next/server'
-import { updateTweetCount } from '../../../../lib/planetscale'
+import { updateTweetCount } from '../../../../lib/vercel'
 
 import { env } from '../../../../types/env'
 

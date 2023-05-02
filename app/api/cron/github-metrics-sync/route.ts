@@ -1,6 +1,6 @@
 import { Octokit } from 'octokit'
 import { NextResponse } from 'next/server'
-import { updateGithubMetrics } from '../../../../lib/planetscale'
+import { updateGithubMetrics } from '../../../../lib/vercel'
 
 // zod env type checking
 import { env } from '../../../../types/env'
