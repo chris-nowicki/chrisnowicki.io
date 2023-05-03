@@ -29,11 +29,9 @@ export const SocialLinkInput = (props: StringFieldProps) => {
           <Card>
             <Flex align={'center'}>
               <Card
-                size={2}
-                border={true}
-                borderRight={false}
+                border={false}
                 sizing={'border'}
-                padding={3}
+                padding={2}
                 tone="primary"
               >
                 <Flex align={'center'} gap={2}>
@@ -52,8 +50,13 @@ export const SocialLinkInput = (props: StringFieldProps) => {
             </Flex>
           </Card>
 
-          <Card flex={1} border={true} padding={1} sizing={'border'}>
-            <TextInput onChange={handleChange} value={link} border={false} />
+          <Card flex={1} border={true} padding={2} sizing={'border'} borderLeft={false} radius={1}>
+            <TextInput
+              onChange={handleChange}
+              value={link}
+              border={false}
+              padding={0}
+            />
           </Card>
         </Flex>
       </Stack>
