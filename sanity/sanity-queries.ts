@@ -5,7 +5,7 @@ import { groq } from 'next-sanity'
 import { Seo } from '../types/seo'
 import { Resume } from '../types/resume'
 import { TechData } from '../types/techData'
-import { Contact } from '../types/contact'
+import { ContactInfo } from '../types/contact'
 import { SocialLinks } from '../types/socialLinks'
 import { Projects } from '../types/projects'
 import { About } from '../types/about'
@@ -83,7 +83,7 @@ export async function getImage(): Promise<string> {
   return res[0].bio.chrisnowicki
 }
 
-export async function getContactInfo(): Promise<Contact> {
+export async function getContactInfo(): Promise<ContactInfo> {
   const query = groq`*[_type == "resume"] {
     name,
     email,

@@ -3,14 +3,8 @@ import Nav from '../../components/NavBar'
 import { AnalyticsWrapper } from '../../components/Analytics'
 import '../globals.css'
 
-type Seo = {
-  name: string
-  siteName: string
-  url: string
-  description: string
-  type: string
-  image: string
-}
+// types
+import { Seo } from '../../types/seo'
 
 // font
 import { Roboto } from 'next/font/google'
