@@ -47,7 +47,7 @@ export default async function Home() {
               priority
             />
             <p className="mt-2 text-center text-sm">
-              <b>2/22/22 </b>- Telluride, CO
+              <b>2/22/22 </b>- Telluride, Colorado
             </p>
           </div>
         </>
