@@ -1,9 +1,16 @@
 import type { Metadata } from 'next'
-import '../globals.css'
 import Nav from '../../components/NavBar'
-
-// vercel analytics
 import { AnalyticsWrapper } from '../../components/Analytics'
+import '../globals.css'
+
+type Seo = {
+  name: string
+  siteName: string
+  url: string
+  description: string
+  type: string
+  image: string
+}
 
 // font
 import { Roboto } from 'next/font/google'
@@ -15,11 +22,11 @@ const roboto = Roboto({
   display: 'swap',
 })
 
-// sanity cms query and image builder
+// sanity cms query
 import { getSEO } from '../../sanity/sanity-queries'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
-  const seo = await getSEO()
+  const seo: Seo = await getSEO()
 
   return {
     title: {

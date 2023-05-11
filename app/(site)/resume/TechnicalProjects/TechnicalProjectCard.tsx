@@ -1,9 +1,18 @@
 import clsx from 'clsx'
-
-// icons
 import { GitBranchOutline, OpenOutline } from '../../../../components/Icons'
 
-export default function TechnicalProjectCard({ project }) {
+// types
+import { TechnicalProject } from '../../../../types/resume'
+
+type Tag = {
+  name: string
+}
+
+export default function TechnicalProjectCard({
+  project,
+}: {
+  project: TechnicalProject
+}) {
   return (
     <div className="text-md flex flex-col rounded border border-neutral-200 dark:border-background-dark md:text-lg">
       <div className="flex flex-wrap border-b border-neutral-200 bg-neutral-100 p-4 dark:border-background-dark dark:bg-background-dark/25 md:flex-nowrap">
@@ -15,9 +24,9 @@ export default function TechnicalProjectCard({ project }) {
             </p>
           </div>
           <div className="flex gap-1 md:mt-1">
-            {project.tags.map((tag: string, index: number) => (
+            {project.tags.map((tag: Tag, index: number) => (
               <span
-                key={index + tag['name']}
+                key={index + tag.name}
                 className={clsx(
                   'inline-flex items-center rounded px-2.5 py-0.5 text-xs',
 
@@ -28,7 +37,7 @@ export default function TechnicalProjectCard({ project }) {
                     : 'bg-blue-100 text-blue-800'
                 )}
               >
-                {tag['name']}
+                {tag.name}
               </span>
             ))}
           </div>
@@ -58,7 +67,7 @@ export default function TechnicalProjectCard({ project }) {
       </div>
       <div className="p-4">
         {project.projectDetails.map(
-          (project: any, index: number) =>
+          (project: string, index: number) =>
             index == 0 && (
               <p key={index + project} className="italic">
                 {project}
@@ -67,7 +76,7 @@ export default function TechnicalProjectCard({ project }) {
         )}
         <ul className="text-md ml-6 list-outside list-disc marker:text-purple-light dark:marker:text-purple-dark md:text-lg">
           {project.projectDetails.map(
-            (project: any, index: number) =>
+            (project: string, index: number) =>
               index !== 0 && <li key={index + project}>{project}</li>
           )}
         </ul>

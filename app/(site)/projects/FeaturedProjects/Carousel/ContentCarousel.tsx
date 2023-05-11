@@ -1,11 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
-
-// components
 import ProjectCard from './ProjectCard'
-
-// icons
 import { CHEVRON_LEFT, CHEVRON_RIGHT } from '../../../../../components/Icons'
 
 function ContentCarousel({ contents }) {

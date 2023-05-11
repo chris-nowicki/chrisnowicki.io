@@ -1,16 +1,18 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
-
-// components
 import SocialLink from '../../components/SocialLink'
+
+// types
+import { SocialLinks } from '../../types/socialLinks'
+import { About } from '../../types/about'
 
 // sanity cms queries
 import { getSocialLinks, getAboutMe } from '../../sanity/sanity-queries'
 
 export default async function Home() {
-  const socialLinkData = getSocialLinks()
-  const aboutMeData = getAboutMe()
+  const socialLinkData: Promise<SocialLinks> = getSocialLinks()
+  const aboutMeData: Promise<About> = getAboutMe()
 
   const [socialLink, aboutMe] = await Promise.all([socialLinkData, aboutMeData])
 

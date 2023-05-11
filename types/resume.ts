@@ -8,7 +8,7 @@ export type Resume = {
   education: Education[]
 }
 
-type ProfessionalExperience = {
+export type ProfessionalExperience = {
   company: string
   companyURL: string
   position: string
@@ -17,7 +17,7 @@ type ProfessionalExperience = {
   accomplishments: string[]
 }
 
-type TechnicalProject = {
+export type TechnicalProject = {
   projectName: string
   role: string
   liveSiteURL: string
@@ -26,7 +26,7 @@ type TechnicalProject = {
   projectDetails: string[]
 }
 
-type Education = {
+export type Education = {
   school: string
   schoolURL: string
   degree: string

@@ -1,7 +1,13 @@
-// components
 import TechnicalProjectCard from './TechnicalProjectCard'
 
-export default function TechnicalProjects({ projects }) {
+// types
+import { TechnicalProject } from '../../../../types/resume'
+
+type TechnicalProjectProps = {
+  projects: TechnicalProject[]
+}
+
+export default function TechnicalProjects({ projects }: TechnicalProjectProps) {
   return (
     <div className="mb-8 flex w-full flex-col gap-4">
       <div className="mb-1">
@@ -12,7 +18,7 @@ export default function TechnicalProjects({ projects }) {
           Technical Projects
         </h1>
         <div className="flex flex-col gap-2">
-          {projects.map((project: any, index: number) => (
+          {projects.map((project: TechnicalProject, index: number) => (
             <TechnicalProjectCard key={index} project={project} />
           ))}
         </div>

@@ -1,6 +1,6 @@
 export type TechData = {
   name: string
   category: string
-  link: string
+  link?: string
   show: boolean
 }

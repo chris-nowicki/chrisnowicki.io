@@ -1,8 +1,6 @@
 import Image from 'next/image'
 import { motion } from 'framer-motion'
 import clsx from 'clsx'
-
-// components
 import Link from '../../Link'
 
 // types

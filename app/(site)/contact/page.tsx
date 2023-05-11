@@ -1,12 +1,10 @@
-// components
 import Header from '../resume/Header'
-
-// components
-import Contact from './Contact'
 import SocialLink from '../../../components/SocialLink'
 
-// meta data
+// types
 import type { Metadata } from 'next'
+import { ContactInfo } from '../../../types/contact'
+import { SocialLinks } from '../../../types/socialLinks'
 
 export const metadata: Metadata = {
   title: 'Contact',
@@ -14,7 +12,7 @@ export const metadata: Metadata = {
     'Contact me via email or through one of my social media channels!',
 }
 
-// sanity.io query
+// sanity cms query
 import {
   getImage,
   getContactInfo,
@@ -22,11 +20,11 @@ import {
 } from '../../../sanity/sanity-queries'
 
 export default async function Resume() {
-  const pictureData = getImage()
-  const contactData = getContactInfo()
-  const socialLinkData = getSocialLinks()
+  const pictureData: Promise<string> = getImage()
+  const contactData: Promise<ContactInfo> = getContactInfo()
+  const socialLinkData: Promise<SocialLinks> = getSocialLinks()
 
-  const [chrisnowicki, contact, socialLink] = await Promise.all([
+  const [chrisnowicki, contactInfo, socialLink] = await Promise.all([
     pictureData,
     contactData,
     socialLinkData,
@@ -41,12 +39,27 @@ export default async function Resume() {
 
   return (
     <div className="flex w-full flex-col px-5 lg:px-0">
-      <Header image={chrisnowicki} data={contact} />
+      <Header image={chrisnowicki} data={contactInfo} />
       <div className="flex w-full flex-col-reverse md:flex-row md:gap-4">
-        {/* resume and social links */}
+        {/* get in touch */}
         <div className="flex w-full flex-col  items-center gap-4 md:w-1/2 md:flex-row">
-          <Contact />
+          <div className="flex w-full flex-col items-center justify-center rounded bg-background-light px-8 py-8 text-foreground shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50 md:px-16">
+            <h1 className="mb-4 text-4xl text-purple-dark">Get In Touch</h1>
+            <p className="text-center text-lg">
+              I am currently looking for new work. Contact me to say hello, talk
+              about an opportunity, or ask me a question! My inbox is always
+              open.
+            </p>
+            <a
+              href="mailto:chris@chrisnowicki.io"
+              className="mt-8 flex flex-col items-center rounded-lg border-2 border-purple-dark px-6 py-2  text-purple-dark hover:bg-purple-dark hover:text-foreground"
+            >
+              Say Hello
+            </a>
+          </div>
         </div>
+
+        {/* social links */}
         <div className="mb-4 flex w-full flex-col justify-between gap-2 rounded border border-neutral-200 p-4 dark:border-background-dark md:mb-0 md:w-1/2 md:gap-4">
           {links.map((link) => (
             <SocialLink

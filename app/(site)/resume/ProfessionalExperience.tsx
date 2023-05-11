@@ -1,4 +1,10 @@
-export default function ProfessionalExperience({ experience }) {
+import { ProfessionalExperience as ProfessionalExperienceType } from '../../../types/resume'
+
+export default function ProfessionalExperience({
+  experience,
+}: {
+  experience: ProfessionalExperienceType
+}) {
   return (
     <div className="mb-8 flex w-full flex-col gap-4">
       <div className="mb-1">

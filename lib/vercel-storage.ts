@@ -2,7 +2,24 @@ import 'server-only'
 import { createKysely } from '@vercel/postgres-kysely'
 
 // types
-import { Database, Metrics } from '../types/vercel'
+import { Metrics } from '../types/metrics'
+
+type Database = {
+  tweetcount: TweetCountTable
+  githubmetrics: GitHubMetricsTable
+}
+
+type TweetCountTable = {
+  id: number
+  count: number
+  updated_at?: string
+}
+
+type GitHubMetricsTable = {
+  id: number
+  commits: number
+  repos: number
+}
 
 const db = createKysely<Database>()
 

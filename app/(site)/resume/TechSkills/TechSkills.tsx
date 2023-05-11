@@ -1,11 +1,17 @@
 'use client'
 import { useState } from 'react'
-
-// Components
 import Button from './Button'
 
+// types
+import { TechData } from '../../../../types/techData'
+
+type Button = {
+  name: string
+  active: string
+}
+
 // button data
-export const btn = [
+export const btn: Button[] = [
   { name: 'All', active: 'all' },
   { name: 'Languages', active: 'lang' },
   { name: 'Frameworks/Libraries', active: 'framelib' },
@@ -15,16 +21,8 @@ export const btn = [
   { name: 'Tools', active: 'tools' },
 ]
 
-// types
-type Technologies = {
-  name: string
-  category: string
-  link?: string
-  show: boolean
-}
-
-export default function TechSkills({ tech }: { tech: Technologies[] }) {
-  const [filteredTech, setFilteredTech] = useState<Technologies[] | null>(tech)
+export default function TechSkills({ tech }: { tech: TechData[] }) {
+  const [filteredTech, setFilteredTech] = useState<TechData[] | null>(tech)
   const [currentFilter, setCurrentFilter] = useState<string>('all')
 
   const handleFilter = (category: string) => {
@@ -47,7 +45,7 @@ export default function TechSkills({ tech }: { tech: Technologies[] }) {
       </h1>
       <div className="flex w-full items-center sm:flex-col md:flex-row md:items-start">
         <div className="mb-4 mr-0 flex w-full flex-row flex-wrap justify-center gap-2 md:mr-4 md:w-1/2 md:flex-col md:justify-start">
-          {btn.map((btn) => (
+          {btn.map((btn: Button) => (
             <Button
               key={btn.name}
               name={btn.name}
@@ -60,7 +58,7 @@ export default function TechSkills({ tech }: { tech: Technologies[] }) {
         <div className="flex w-full flex-col rounded bg-background-light shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50">
           <ul className="link-animate text-md flex h-[550px] w-full flex-col flex-wrap overflow-hidden px-4 py-4 text-foreground md:h-[450px] md:text-lg">
             {filteredTech.map(
-              (tech) =>
+              (tech: TechData) =>
                 tech.show && (
                   <li key={tech.name} className="flex flex-wrap md:px-4">
                     {tech.link ? (

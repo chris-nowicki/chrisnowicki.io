@@ -1,8 +1,17 @@
 import format from 'date-fns/format'
+import { DEVTO } from '../../../components/Icons'
 
 // types
 import { env } from '../../../types/env'
-import { Article } from '../../../types/blog'
+
+type Article = {
+  id: string
+  title: string
+  url: string
+  published_at: string
+  page_views_count: number
+  reading_time_minutes: number
+}
 
 // query dev.to for published articles
 async function getArticles(): Promise<Article[]> {
@@ -14,9 +23,6 @@ async function getArticles(): Promise<Article[]> {
   const articles = await res.json()
   return articles
 }
-
-// icons
-import { DEVTO } from '../../../components/Icons'
 
 // revalidate every minute
 export const revalidate = 60 // In seconds

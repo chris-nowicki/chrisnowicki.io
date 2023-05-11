@@ -1,25 +1,26 @@
 import Image from 'next/image'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
-
-// components
 import SocialLink from '../../../components/SocialLink'
-
-// icons
 import { GitHub, Twitter } from '../../../components/Icons'
+
+// types
+import { SocialLinks } from '../../../types/socialLinks'
+import { About } from '../../../types/about'
+import { Metrics } from '../../../types/metrics'
 
 // sanity cms queries
 import { urlFor } from '../../../sanity/sanity-utils'
 import { getSocialLinks, getAboutMe } from '../../../sanity/sanity-queries'
 
-// planetscale query
+// vercel db query
 import { getMetrics } from '../../../lib/vercel-storage'
 
 export const revalidate = 60 // In seconds
 
 export default async function Home() {
-  const socialLinkData = getSocialLinks()
-  const aboutMeData = getAboutMe()
-  const getMetricsData = getMetrics()
+  const socialLinkData: Promise<SocialLinks> = getSocialLinks()
+  const aboutMeData: Promise<About> = getAboutMe()
+  const getMetricsData: Promise<Metrics> = getMetrics()
 
   const [socialLink, aboutMe, metrics] = await Promise.all([
     socialLinkData,

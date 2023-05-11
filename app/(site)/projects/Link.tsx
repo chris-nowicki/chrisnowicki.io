@@ -1,19 +1,14 @@
 import clsx from 'clsx'
-
-// icons
 import { GitHub, OpenOutline } from '../../../components/Icons'
 
-export default function Link({
-  url,
-  icon,
-  name,
-  liveSiteUrl,
-}: {
+type ProjectLink = {
   url: string
   icon: string
   name: string
   liveSiteUrl: boolean
-}) {
+}
+
+export default function Link({ url, icon, name, liveSiteUrl }: ProjectLink) {
   return (
     <>
       <a

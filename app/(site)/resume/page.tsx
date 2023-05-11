@@ -3,12 +3,13 @@ import TechSkills from './TechSkills/TechSkills'
 import TechnicalProjects from './TechnicalProjects/TechnicalProjects'
 import ProfessionalExperience from './ProfessionalExperience'
 import Education from './Education'
-
-// components
 import SocialLink from '../../../components/SocialLink'
 
 // types
 import type { Metadata } from 'next'
+import { Resume } from '../../../types/resume'
+import { SocialLinks } from '../../../types/socialLinks'
+import { TechData } from '../../../types/techData'
 
 // metadata
 export const metadata: Metadata = {
@@ -25,10 +26,10 @@ import {
 } from '../../../sanity/sanity-queries'
 
 export default async function Resume() {
-  const pictureData = getImage()
-  const techData = getTechData()
-  const resumeData = getResume()
-  const socialLinkData = getSocialLinks()
+  const pictureData: Promise<string> = getImage()
+  const techData: Promise<TechData[]> = getTechData()
+  const resumeData: Promise<Resume> = getResume()
+  const socialLinkData: Promise<SocialLinks> = getSocialLinks()
 
   const [chrisnowicki, tech, resume, socialLink] = await Promise.all([
     pictureData,

@@ -1,4 +1,10 @@
-export default function Education({ education }) {
+import { Education as EducationType } from '../../../types/resume'
+
+export default function Education({
+  education,
+}: {
+  education: EducationType[]
+}) {
   return (
     <div className="flex w-full flex-col gap-4">
       <div className="mb-1">
@@ -7,7 +13,7 @@ export default function Education({ education }) {
         </h1>
 
         <div className="flex w-full flex-col rounded border border-neutral-200 p-4 dark:border-background-dark">
-          {education.map((school: any, index: number) => (
+          {education.map((school: EducationType, index: number) => (
             <div key={index + school.school}>
               <div className="text-md mb-1 w-full border-b border-neutral-200 pb-2 dark:border-background-dark md:text-lg">
                 <div className="flex flex-col justify-between md:flex-row">
