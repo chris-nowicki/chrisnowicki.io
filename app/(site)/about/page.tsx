@@ -1,5 +1,6 @@
 import Image from 'next/image'
-import { PortableText, PortableTextComponents } from '@portabletext/react'
+import { PortableText } from '@portabletext/react'
+import { aboutMePortableText } from './portableText'
 import SocialLink from '../../../components/SocialLink'
 import { GitHub, Twitter } from '../../../components/Icons'
 
@@ -9,7 +10,6 @@ import { About } from '../../../types/about'
 import { Metrics } from '../../../types/metrics'
 
 // sanity cms queries
-import { urlFor } from '../../../sanity/sanity-utils'
 import { getSocialLinks, getAboutMe } from '../../../sanity/sanity-queries'
 
 // vercel db query
@@ -34,40 +34,15 @@ export default async function Home() {
     { name: 'twitter', url: socialLink.twitter },
   ]
 
-  const components: PortableTextComponents = {
-    types: {
-      image: ({ value }) => (
-        <>
-          <div className="mt-4 flex flex-col rounded-lg border border-borderColor-light px-4 py-4 pb-4 dark:border-borderColor-dark">
-            <Image
-              src={urlFor(value).url()}
-              width={400}
-              height={400}
-              alt="wedding picture"
-              className="rounded-lg sm:w-[250px] md:w-auto"
-              priority
-            />
-            <p className="mt-2 text-center text-sm">
-              <b>2/22/22 </b>- Telluride, CO
-            </p>
-          </div>
-        </>
-      ),
-    },
-    block: {
-      normal: ({ children }) => <p className="mt-4 md:mr-4">{children}</p>,
-      h1: ({ children }) => (
-        <h1 className="text-2xl md:mt-0 md:text-3xl">{children}</h1>
-      ),
-    },
-  }
-
   return (
     <div className="mb-12 px-5 md:px-0">
       <div className="flex flex-col rounded border border-borderColor-light p-4 dark:border-borderColor-dark ">
         <div className="flex flex-wrap md:flex-nowrap">
           <div className="flex w-full flex-col items-start text-left text-lg md:mr-6">
-            <PortableText value={aboutMe.bio} components={components} />
+            <PortableText
+              value={aboutMe.bio}
+              components={aboutMePortableText}
+            />
           </div>
           <div className="flex w-full flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
             <Image

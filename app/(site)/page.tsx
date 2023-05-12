@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { PortableText, PortableTextComponents } from '@portabletext/react'
+import { PortableText } from '@portabletext/react'
+import {homePortableText} from './portableText'
 import SocialLink from '../../components/SocialLink'
 
 // types
@@ -21,19 +22,10 @@ export default async function Home() {
     { name: 'GitHub', url: socialLink.github },
   ]
 
-  const components: PortableTextComponents = {
-    block: {
-      normal: ({ children }) => <p className="mt-4 md:mr-4">{children}</p>,
-      h1: ({ children }) => (
-        <h1 className="text-2xl md:mt-0 md:text-3xl">{children}</h1>
-      ),
-    },
-  }
-
   return (
     <div className="mx-5 flex flex-wrap-reverse rounded border border-borderColor-light p-4 dark:border-borderColor-dark md:mx-0 md:flex-nowrap">
       <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
-        <PortableText value={aboutMe.about} components={components} />
+        <PortableText value={aboutMe.about} components={homePortableText} />
         <div className="mt-4 flex w-full flex-col justify-center gap-2 md:flex-row md:justify-start">
           {links.map((link) => (
             <SocialLink
