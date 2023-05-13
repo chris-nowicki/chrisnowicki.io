@@ -2,7 +2,7 @@ import format from 'date-fns/format'
 import { DEVTO } from '../../../components/Icons'
 
 // types
-import { env } from '../../../types/env'
+import { env } from '../../../types/private_env'
 
 type Article = {
   id: string

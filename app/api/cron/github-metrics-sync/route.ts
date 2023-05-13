@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 import { updateGithubMetrics } from '../../../../lib/vercel-storage'
 
 // zod env type checking
-import { env } from '../../../../types/env'
+import { env } from '../../../../types/private_env'
 
 export async function GET() {
   const octokit = new Octokit({

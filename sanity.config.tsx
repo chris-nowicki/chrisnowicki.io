@@ -5,7 +5,7 @@ import { schemaTypes } from './sanity/schemas'
 import { myStructure } from './sanity/deskStructure'
 
 // env variables
-import { env } from './types/env'
+import { env } from './types/private_env'
 
 // plugins
 import { keysToolbarPlugin } from './sanity/plugins/keysToolbarPlugin'
