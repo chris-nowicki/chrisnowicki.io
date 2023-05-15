@@ -9,12 +9,6 @@ const nextConfig = {
         port: '',
         pathname: '/images/**',
       },
-      {
-        protocol: 'https',
-        hostname: 'img.buymeacoffee.com',
-        port: '',
-        pathname: '/button-api/**',
-      },
     ],
   },
   experimental: {
