@@ -40,7 +40,7 @@ export async function getMetrics(): Promise<Metrics> {
 // update tweet count
 export const updateTweetCount = (tweetCount: number) => {
   db.updateTable('tweetcount')
-    .set({ count: tweetCount, updated_at: new Date() })
+    .set({ count: tweetCount })
     .where('tweetcount.id', '=', 1)
     .executeTakeFirst()
 }
