@@ -1,4 +1,4 @@
-import 'server-only'
+import { Generated, ColumnType } from 'kysely'
 import { createKysely } from '@vercel/postgres-kysely'
 
 // types
@@ -10,15 +10,16 @@ type Database = {
 }
 
 type TweetCountTable = {
-  id: number
+  id: Generated<number>
   count: number
-  updated_at?: string
+  updated_at: ColumnType<Date, string | undefined>
 }
 
 type GitHubMetricsTable = {
-  id: number
+  id: Generated<number>
   commits: number
   repos: number
+  updated_at: ColumnType<Date, string | undefined>
 }
 
 const db = createKysely<Database>()
@@ -36,7 +37,7 @@ export async function getMetrics(): Promise<Metrics> {
   return res[0]
 }
 
-// query to update tweet count
+// update tweet count
 export const updateTweetCount = (tweetCount: number) => {
   db.updateTable('tweetcount')
     .set({ count: tweetCount })

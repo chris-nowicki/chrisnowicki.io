@@ -41,7 +41,7 @@ export async function GET() {
     }
   }
 
-  // update the planetscale database with new metrics
+  // update vercel database with new metrics
   if (totalCommits === 0 || totalRepos === 0) {
     return NextResponse.json({ error: 'No commits or repos found' })
   }

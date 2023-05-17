@@ -24,6 +24,7 @@
     "date-fns": "^2.30.0",
     "encoding": "^0.1.13",
     "framer-motion": "^10.12.12",
+    "kysely": "^0.24.2",
     "next": "^13.4.2",
     "next-sanity": "^4.3.2",
     "oauth-1.0a": "^2.2.6",

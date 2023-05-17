@@ -31,7 +31,7 @@ export default async function Blog() {
   const articles: Article[] = await getArticles()
 
   return (
-    <div className="mb-12 px-5 md:px-0">
+  
       <div className="flex flex-col rounded border border-borderColor-light p-4 dark:border-borderColor-dark ">
         <h1 className="flex items-center gap-1 text-2xl md:text-3xl">
           <a
@@ -62,6 +62,5 @@ export default async function Blog() {
           ))}
         </div>
       </div>
-    </div>
   )
 }
