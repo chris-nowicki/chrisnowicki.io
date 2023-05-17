@@ -40,7 +40,7 @@ export async function getMetrics(): Promise<Metrics> {
 // update tweet count
 export const updateTweetCount = (tweetCount: number) => {
   db.updateTable('tweetcount')
-    .set({ count: tweetCount })
+    .set({ count: tweetCount, updated_at: new Date() })
     .where('tweetcount.id', '=', 1)
     .executeTakeFirst()
 }
@@ -48,7 +48,7 @@ export const updateTweetCount = (tweetCount: number) => {
 // update github metrics
 export const updateGithubMetrics = (commits: number, repos: number) => {
   db.updateTable('githubmetrics')
-    .set({ commits: commits, repos: repos })
+    .set({ commits: commits, repos: repos, updated_at: new Date() })
     .where('githubmetrics.id', '=', 1)
     .executeTakeFirst()
 }
