@@ -3,12 +3,16 @@ import clsx from 'clsx'
 import format from 'date-fns/format'
 
 // types
-import { Project } from '../../../types/projects'
+import { ProjectType, TagType } from '../../../types/projects'
 
 // icons
 import { GitBranchOutline, OpenOutline } from '../../components/Icons'
 
-export default function ProjectArchive({ projects }: { projects: Project[] }) {
+export default function ProjectArchive({
+  projects,
+}: {
+  projects: ProjectType[]
+}) {
   return (
     <>
       <span className="mt-4 text-center text-xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-3xl">
@@ -25,7 +29,7 @@ export default function ProjectArchive({ projects }: { projects: Project[] }) {
             </tr>
           </thead>
           <tbody>
-            {projects.map((project: any) => (
+            {projects.map((project: ProjectType) => (
               <tr
                 key={project.projectName}
                 className="border-b border-neutral-200 align-top text-sm text-gray-900 hover:bg-gray-900/25 dark:border-foreground/25 dark:text-foreground  dark:hover:bg-foreground/25"
@@ -38,7 +42,7 @@ export default function ProjectArchive({ projects }: { projects: Project[] }) {
                 </td>
                 <td className="mb-2 hidden flex-wrap gap-1 pt-2 md:flex">
                   {project.tags &&
-                    project.tags.map((tag: any, index: number) => (
+                    project.tags.map((tag: TagType, index: number) => (
                       <span
                         key={tag.name}
                         className={clsx(

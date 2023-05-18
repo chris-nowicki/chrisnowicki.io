@@ -1,6 +1,6 @@
 export type ProjectsType = {
   featuredProjects: FeaturedProject[]
-  projects: Project[]
+  projects: ProjectType[]
 }
 
 type FeaturedProject = {
@@ -13,7 +13,7 @@ type FeaturedProject = {
   tags: TagType[]
 }
 
-type Project = {
+export type ProjectType = {
   projectName: string
   dateCreated: string
   liveSiteURL: string
