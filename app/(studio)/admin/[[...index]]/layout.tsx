@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import '../../../globals.css'
+import '@/globals.css'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   return {

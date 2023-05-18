@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Button from './Button'
 
 // types
-import { TechDataType } from '../../../../types'
+import { TechDataType } from 'types'
 
 type Button = {
   name: string

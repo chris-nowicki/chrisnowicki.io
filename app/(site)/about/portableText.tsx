@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { PortableTextComponents } from '@portabletext/react'
 
 // sanity image builder
-import { urlFor } from '../../../sanity/sanity-utils'
+import { urlFor } from '@/sanity/sanity-utils'
 
 export const aboutMePortableText: PortableTextComponents = {
   types: {

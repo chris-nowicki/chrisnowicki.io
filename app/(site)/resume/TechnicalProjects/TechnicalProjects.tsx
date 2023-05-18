@@ -1,7 +1,7 @@
 import TechnicalProjectCard from './TechnicalProjectCard'
 
 // types
-import { TechnicalProjectType } from '../../../../types/resume'
+import { TechnicalProjectType } from '@/types/resume'
 
 type TechnicalProjectProps = {
   projects: TechnicalProjectType[]

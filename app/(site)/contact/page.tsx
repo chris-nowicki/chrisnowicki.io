@@ -1,6 +1,6 @@
 import Header from '../resume/Header'
-import SocialLink from '../../components/SocialLink'
-import ogImageURL from '../../../lib/og-image-url'
+import SocialLink from '@/components/SocialLink'
+import ogImageURL from '@/lib/og-image-url'
 
 // types
 import type { Metadata } from 'next'
@@ -32,7 +32,7 @@ import {
   getImage,
   getContactInfo,
   getSocialLinks,
-} from '../../../sanity/sanity-queries'
+} from '@/sanity/sanity-queries'
 
 export default async function Resume() {
   const pictureData: Promise<string> = getImage()

@@ -2,7 +2,7 @@ import { Generated, ColumnType } from 'kysely'
 import { createKysely } from '@vercel/postgres-kysely'
 
 // types
-import { MetricsType } from '../types'
+import { MetricsType } from 'types'
 
 type Database = {
   tweetcount: TweetCountTable

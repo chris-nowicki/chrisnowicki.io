@@ -1,9 +1,9 @@
 import { Octokit } from 'octokit'
 import { NextResponse } from 'next/server'
-import { updateGithubMetrics } from '../../../../lib/vercel-storage'
+import { updateGithubMetrics } from '@/lib/vercel-storage'
 
 // zod env type checking
-import { env } from '../../../../types/env-private'
+import { env } from '@/types/env-private'
 
 export async function GET() {
   const octokit = new Octokit({

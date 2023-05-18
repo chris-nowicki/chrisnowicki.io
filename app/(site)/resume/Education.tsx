@@ -1,4 +1,4 @@
-import { EducationType } from '../../../types/resume'
+import { EducationType } from '@/types/resume'
 
 export default function Education({
   education,

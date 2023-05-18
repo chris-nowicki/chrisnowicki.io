@@ -3,10 +3,10 @@ import clsx from 'clsx'
 import format from 'date-fns/format'
 
 // types
-import { ProjectType, TagType } from '../../../types/projects'
+import { ProjectType, TagType } from '@/types/projects'
 
 // icons
-import { GitBranchOutline, OpenOutline } from '../../components/Icons'
+import { GitBranchOutline, OpenOutline } from '@/components/Icons'
 
 export default function ProjectArchive({
   projects,

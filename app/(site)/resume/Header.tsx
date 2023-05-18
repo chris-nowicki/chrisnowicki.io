@@ -1,8 +1,8 @@
 import Image from 'next/image'
-import { Location } from '../../components/Icons'
+import { Location } from '@/components/Icons'
 
 // types
-import { ContactInfoType } from '../../../types'
+import { ContactInfoType } from 'types'
 
 type HeaderProps = {
   image: string

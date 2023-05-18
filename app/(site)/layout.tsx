@@ -1,10 +1,10 @@
-import Nav from '../components/NavBar'
-import { AnalyticsWrapper } from '../components/Analytics'
-import '../globals.css'
+import Nav from '@/components/NavBar'
+import { AnalyticsWrapper } from '@/components/Analytics'
+import '@/globals.css'
 
 // types
 import type { Metadata } from 'next'
-import { SeoType } from '../../types'
+import { SeoType } from 'types'
 
 // font
 import { Roboto } from 'next/font/google'
@@ -17,7 +17,7 @@ const roboto = Roboto({
 })
 
 // sanity cms query
-import { getSEO } from '../../sanity/sanity-queries'
+import { getSEO } from '@/sanity/sanity-queries'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   const seo: SeoType = await getSEO()

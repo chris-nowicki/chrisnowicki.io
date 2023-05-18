@@ -3,13 +3,13 @@ import TechSkills from './TechSkills/TechSkills'
 import TechnicalProjects from './TechnicalProjects/TechnicalProjects'
 import ProfessionalExperience from './ProfessionalExperience'
 import Education from './Education'
-import SocialLink from '../../components/SocialLink'
-import ogImageURL from '../../../lib/og-image-url'
+import SocialLink from '@/components/SocialLink'
+import ogImageURL from '@/lib/og-image-url'
 
 // types
 import type { Metadata } from 'next'
-import { ResumeType } from '../../../types/resume'
-import { OGImageType, SocialLinksType, TechDataType } from '../../../types'
+import { ResumeType } from '@/types/resume'
+import { OGImageType, SocialLinksType, TechDataType } from 'types'
 
 // metadata
 const title: string = 'Resumé'
@@ -37,7 +37,7 @@ import {
   getTechData,
   getResume,
   getSocialLinks,
-} from '../../../sanity/sanity-queries'
+} from '@/sanity/sanity-queries'
 
 export default async function Resume() {
   const pictureData: Promise<string> = getImage()

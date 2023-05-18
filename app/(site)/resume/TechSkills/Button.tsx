@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 
 // hooks
-import { useActive } from '../../../hooks/useActive'
+import { useActive } from '@/hooks/useActive'
 
 // types
 type TechFilterButton = {

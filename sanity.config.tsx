@@ -1,17 +1,17 @@
 import { defineConfig, definePlugin } from 'sanity'
-import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
-import { schemaTypes } from './sanity/schemas'
-import { myStructure } from './sanity/deskStructure'
+import { deskTool } from 'sanity/desk'
+import { schemaTypes } from 'sanity/schemas'
+import { myStructure } from 'sanity/deskStructure'
 
 // env variables
-import { env } from './types/env-public'
+import { env } from 'types/env-public'
 
 // plugins
-import { keysToolbarPlugin } from './sanity/plugins/keysToolbarPlugin'
+import { keysToolbarPlugin } from 'sanity/plugins/keysToolbarPlugin'
 
 // custom studio theme
-import { theme as _theme } from './sanity/theme'
+import { theme as _theme } from 'sanity/theme'
 const theme = _theme as import('sanity').StudioTheme
 
 // custom logo component

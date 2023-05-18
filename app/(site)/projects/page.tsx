@@ -1,12 +1,12 @@
 import ProjectArchive from './ProjectArchive'
 import FeaturedProjects from './FeaturedProjects/FeaturedProjects'
-import ogImageURL from '../../../lib/og-image-url'
-import { getProjects } from '../../../sanity/sanity-queries'
+import ogImageURL from '@/lib/og-image-url'
+import { getProjects } from '@/sanity/sanity-queries'
 
 // types
 import type { Metadata } from 'next'
-import { OGImageType } from '../../../types'
-import { ProjectsType } from '../../../types/projects'
+import { OGImageType } from 'types'
+import { ProjectsType } from '@/types/projects'
 
 // metadata
 const title: string = 'Projects'

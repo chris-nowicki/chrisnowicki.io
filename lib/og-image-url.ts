@@ -1,4 +1,4 @@
-import { env } from '../types/env-private'
+import { env } from '@/types/env-private'
 
 export default function ogImageURL(description: string) {
   const url =

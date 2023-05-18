@@ -1,9 +1,9 @@
 import clsx from 'clsx'
-import { GitBranchOutline, OpenOutline } from '../../../components/Icons'
+import { GitBranchOutline, OpenOutline } from '@/components/Icons'
 
 // types
-import { TechnicalProjectType } from '../../../../types/resume'
-import { TagType } from '../../../../types/projects'
+import { TechnicalProjectType } from '@/types/resume'
+import { TagType } from '@/types/projects'
 
 export default function TechnicalProjectCard({
   project,

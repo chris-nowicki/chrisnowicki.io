@@ -1,18 +1,13 @@
 import Image from 'next/image'
-import SocialLink from '../../components/SocialLink'
-import ogImageURL from '../../../lib/og-image-url'
+import SocialLink from '@/components/SocialLink'
+import ogImageURL from '@/lib/og-image-url'
 import { PortableText } from '@portabletext/react'
 import { aboutMePortableText } from './portableText'
-import { GitHub, Twitter } from '../../components/Icons'
+import { GitHub, Twitter } from '@/components/Icons'
 
 // types
 import { Metadata } from 'next'
-import {
-  OGImageType,
-  MetricsType,
-  AboutMeType,
-  SocialLinksType,
-} from '../../../types'
+import { OGImageType, MetricsType, AboutMeType, SocialLinksType } from 'types'
 
 // metadata
 const title: string = 'About'
@@ -35,10 +30,10 @@ export const metadata: Metadata = {
 }
 
 // sanity cms queries
-import { getSocialLinks, getAboutMe } from '../../../sanity/sanity-queries'
+import { getSocialLinks, getAboutMe } from '@/sanity/sanity-queries'
 
 // vercel db query
-import { getMetrics } from '../../../lib/vercel-storage'
+import { getMetrics } from '@/lib/vercel-storage'
 
 export const revalidate = 60 // In seconds
 

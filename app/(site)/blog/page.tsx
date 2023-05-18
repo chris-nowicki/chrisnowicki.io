@@ -1,11 +1,11 @@
 import format from 'date-fns/format'
-import ogImageURL from '../../../lib/og-image-url'
-import { DEVTO } from '../../components/Icons'
+import ogImageURL from '@/lib/og-image-url'
+import { DEVTO } from '@/components/Icons'
 
 // types
 import { Metadata } from 'next'
-import { env } from '../../../types/env-private'
-import { OGImageType } from '../../../types'
+import { env } from '@/types/env-private'
+import { OGImageType } from 'types'
 
 type Article = {
   id: string
