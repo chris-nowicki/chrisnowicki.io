@@ -2,7 +2,7 @@ import { Generated, ColumnType } from 'kysely'
 import { createKysely } from '@vercel/postgres-kysely'
 
 // types
-import { Metrics } from '../types/metrics'
+import { MetricsType } from '../types'
 
 type Database = {
   tweetcount: TweetCountTable
@@ -25,7 +25,7 @@ type GitHubMetricsTable = {
 const db = createKysely<Database>()
 
 // query to fetch tweet count and github metrics
-export async function getMetrics(): Promise<Metrics> {
+export async function getMetrics(): Promise<MetricsType> {
   const res = await db
     .selectFrom(['tweetcount', 'githubmetrics'])
     .select([

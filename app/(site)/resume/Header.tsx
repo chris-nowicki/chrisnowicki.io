@@ -2,11 +2,11 @@ import Image from 'next/image'
 import { Location } from '../../components/Icons'
 
 // types
-import { ContactInfo } from '../../../types/contact'
+import { ContactInfoType } from '../../../types'
 
 type HeaderProps = {
   image: string
-  data: ContactInfo
+  data: ContactInfoType
 }
 
 export default function Header({ image, data }: HeaderProps) {

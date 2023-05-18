@@ -1,4 +1,4 @@
-export type Projects = {
+export type ProjectsType = {
   featuredProjects: FeaturedProject[]
   projects: Project[]
 }
@@ -10,17 +10,17 @@ type FeaturedProject = {
   gitHubUrl: string
   liveSiteUrl: string
   image: string
-  tags: Tag[]
+  tags: TagType[]
 }
 
-export type Project = {
+type Project = {
   projectName: string
   dateCreated: string
   liveSiteURL: string
   gitHubURL: string
-  tags: Tag[]
+  tags: TagType[]
 }
 
-type Tag = {
+export type TagType = {
   name: string
 }

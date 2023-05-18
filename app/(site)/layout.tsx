@@ -1,10 +1,10 @@
-import type { Metadata } from 'next'
 import Nav from '../components/NavBar'
 import { AnalyticsWrapper } from '../components/Analytics'
 import '../globals.css'
 
 // types
-import { Seo } from '../../types/seo'
+import type { Metadata } from 'next'
+import { SeoType } from '../../types'
 
 // font
 import { Roboto } from 'next/font/google'
@@ -20,7 +20,7 @@ const roboto = Roboto({
 import { getSEO } from '../../sanity/sanity-queries'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
-  const seo: Seo = await getSEO()
+  const seo: SeoType = await getSEO()
 
   return {
     title: {

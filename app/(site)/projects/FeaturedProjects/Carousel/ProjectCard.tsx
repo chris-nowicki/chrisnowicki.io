@@ -1,7 +1,7 @@
 import Image from 'next/image'
-import { motion } from 'framer-motion'
 import clsx from 'clsx'
 import Link from '../../Link'
+import { motion } from 'framer-motion'
 
 // types
 type ProjectCardProps = {

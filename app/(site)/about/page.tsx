@@ -1,13 +1,38 @@
 import Image from 'next/image'
+import SocialLink from '../../components/SocialLink'
+import ogImageURL from '../../../lib/og-image-url'
 import { PortableText } from '@portabletext/react'
 import { aboutMePortableText } from './portableText'
-import SocialLink from '../../components/SocialLink'
 import { GitHub, Twitter } from '../../components/Icons'
 
 // types
-import { SocialLinks } from '../../../types/socialLinks'
-import { About } from '../../../types/about'
-import { Metrics } from '../../../types/metrics'
+import { Metadata } from 'next'
+import {
+  OGImageType,
+  MetricsType,
+  AboutMeType,
+  SocialLinksType,
+} from '../../../types'
+
+// metadata
+const title: string = 'About'
+const description: string = `Read more about me and my life!`
+const ogImage: OGImageType = ogImageURL(description)
+
+export const metadata: Metadata = {
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    url: 'https://chrisnowicki.io/about',
+    images: [ogImage],
+  },
+  twitter: {
+    title: title,
+    card: 'summary_large_image',
+  },
+}
 
 // sanity cms queries
 import { getSocialLinks, getAboutMe } from '../../../sanity/sanity-queries'
@@ -18,9 +43,9 @@ import { getMetrics } from '../../../lib/vercel-storage'
 export const revalidate = 60 // In seconds
 
 export default async function Home() {
-  const socialLinkData: Promise<SocialLinks> = getSocialLinks()
-  const aboutMeData: Promise<About> = getAboutMe()
-  const getMetricsData: Promise<Metrics> = getMetrics()
+  const socialLinkData: Promise<SocialLinksType> = getSocialLinks()
+  const aboutMeData: Promise<AboutMeType> = getAboutMe()
+  const getMetricsData: Promise<MetricsType> = getMetrics()
 
   const [socialLink, aboutMe, metrics] = await Promise.all([
     socialLinkData,

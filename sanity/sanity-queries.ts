@@ -2,16 +2,18 @@ import { fetchSanity } from './sanity-utils'
 import { groq } from 'next-sanity'
 
 // types
-import { Seo } from '../types/seo'
-import { Resume } from '../types/resume'
-import { TechData } from '../types/techData'
-import { ContactInfo } from '../types/contact'
-import { SocialLinks } from '../types/socialLinks'
-import { Projects } from '../types/projects'
-import { About } from '../types/about'
+import { ResumeType } from '../types/resume'
+import { ProjectsType } from '../types/projects'
+import {
+  ContactInfoType,
+  SocialLinksType,
+  AboutMeType,
+  SeoType,
+  TechDataType,
+} from '../types'
 
 // GROQ Queries
-export async function getSEO(): Promise<Seo> {
+export async function getSEO(): Promise<SeoType> {
   const query = groq`*[_type == "settings"] {
         seo {
             name,
@@ -27,7 +29,7 @@ export async function getSEO(): Promise<Seo> {
   return res[0].seo
 }
 
-export async function getResume(): Promise<Resume> {
+export async function getResume(): Promise<ResumeType> {
   const query = groq`*[_type == "resume"] {
     name,
     email,
@@ -65,7 +67,7 @@ export async function getResume(): Promise<Resume> {
   return res[0]
 }
 
-export async function getTechData(): Promise<TechData[]> {
+export async function getTechData(): Promise<TechDataType[]> {
   const query = groq`*[_type == "tech"] {name, category, link, show} | order(lower(name) asc)`
 
   const res = await fetchSanity(query)
@@ -83,7 +85,7 @@ export async function getImage(): Promise<string> {
   return res[0].bio.chrisnowicki
 }
 
-export async function getContactInfo(): Promise<ContactInfo> {
+export async function getContactInfo(): Promise<ContactInfoType> {
   const query = groq`*[_type == "resume"] {
     name,
     email,
@@ -94,7 +96,7 @@ export async function getContactInfo(): Promise<ContactInfo> {
   return res[0]
 }
 
-export async function getSocialLinks(): Promise<SocialLinks> {
+export async function getSocialLinks(): Promise<SocialLinksType> {
   const query = groq`*[_type == "settings"] {
         "linkedin": socialLinks.linkedin,
         "github": socialLinks.github,
@@ -106,7 +108,7 @@ export async function getSocialLinks(): Promise<SocialLinks> {
   return res[0]
 }
 
-export async function getProjects(): Promise<Projects> {
+export async function getProjects(): Promise<ProjectsType> {
   const query = groq`*[_type == "settings"] {
         "featuredProjects": featuredProjects.featured[]->{
             _id,  
@@ -134,7 +136,7 @@ export async function getProjects(): Promise<Projects> {
   return res[0]
 }
 
-export async function getAboutMe(): Promise<About> {
+export async function getAboutMe(): Promise<AboutMeType> {
   const query = groq`*[_type == 'settings'] {
         'about': bio.about,
         'bio': bio.bio,

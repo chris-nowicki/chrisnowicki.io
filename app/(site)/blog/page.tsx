@@ -1,8 +1,11 @@
 import format from 'date-fns/format'
+import ogImageURL from '../../../lib/og-image-url'
 import { DEVTO } from '../../components/Icons'
 
 // types
-import { env } from '../../../types/private_env'
+import { Metadata } from 'next'
+import { env } from '../../../types/env-private'
+import { OGImageType } from '../../../types'
 
 type Article = {
   id: string
@@ -11,6 +14,26 @@ type Article = {
   published_at: string
   page_views_count: number
   reading_time_minutes: number
+}
+
+// metadata
+const title: string = 'Blog'
+const description: string = `Checkout my latest articles that I've published on dev.to!`
+const ogImage: OGImageType = ogImageURL(description)
+
+export const metadata: Metadata = {
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    url: 'https://chrisnowicki.io/blog',
+    images: [ogImage],
+  },
+  twitter: {
+    title: title,
+    card: 'summary_large_image',
+  },
 }
 
 // query dev.to for published articles

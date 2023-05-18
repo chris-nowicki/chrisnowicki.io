@@ -1,15 +1,28 @@
 'use client'
+import Link from 'next/link'
+import clsx from 'clsx'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import Link from 'next/link'
 import { motion } from 'framer-motion'
-import clsx from 'clsx'
+import { ArrowIcon } from './Icons'
 
 // types
-import { NavItems } from '../../types/navBar'
+type NavItems = {
+  '/': Path
+  '/about': Path
+  '/blog': Path
+  '/contact': Path
+  '/projects': Path
+  '/resume': Path
+}
 
-// icons
-import { ArrowIcon } from './Icons'
+type Path = {
+  name: string
+  x: number
+  y: number
+  w: string
+  h: string
+}
 
 export default function NavBar() {
   const [showMenu, setShowMenu] = useState<boolean>(false)

@@ -1,10 +1,10 @@
 import TechnicalProjectCard from './TechnicalProjectCard'
 
 // types
-import { TechnicalProject } from '../../../../types/resume'
+import { TechnicalProjectType } from '../../../../types/resume'
 
 type TechnicalProjectProps = {
-  projects: TechnicalProject[]
+  projects: TechnicalProjectType[]
 }
 
 export default function TechnicalProjects({ projects }: TechnicalProjectProps) {
@@ -18,7 +18,7 @@ export default function TechnicalProjects({ projects }: TechnicalProjectProps) {
           Technical Projects
         </h1>
         <div className="flex flex-col gap-2">
-          {projects.map((project: TechnicalProject, index: number) => (
+          {projects.map((project: TechnicalProjectType, index: number) => (
             <TechnicalProjectCard key={index} project={project} />
           ))}
         </div>

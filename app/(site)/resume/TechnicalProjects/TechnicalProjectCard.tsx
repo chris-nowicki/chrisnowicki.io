@@ -2,16 +2,13 @@ import clsx from 'clsx'
 import { GitBranchOutline, OpenOutline } from '../../../components/Icons'
 
 // types
-import { TechnicalProject } from '../../../../types/resume'
-
-type Tag = {
-  name: string
-}
+import { TechnicalProjectType } from '../../../../types/resume'
+import { TagType } from '../../../../types/projects'
 
 export default function TechnicalProjectCard({
   project,
 }: {
-  project: TechnicalProject
+  project: TechnicalProjectType
 }) {
   return (
     <div className="text-md flex flex-col rounded border border-neutral-200 dark:border-background-dark md:text-lg">
@@ -24,7 +21,7 @@ export default function TechnicalProjectCard({
             </p>
           </div>
           <div className="flex gap-1 md:mt-1">
-            {project.tags.map((tag: Tag, index: number) => (
+            {project.tags.map((tag: TagType, index: number) => (
               <span
                 key={index + tag.name}
                 className={clsx(

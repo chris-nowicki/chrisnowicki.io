@@ -61,6 +61,6 @@
       }
     ]
   },
-  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx", "sanity/theme.js"],
+  "include": ["next-env.d.ts", ".next/types/**/*.ts", "**/*.ts", "**/*.tsx", "sanity/theme.js", "app/api/og/route.tsx"],
   "exclude": ["node_modules"]
 }

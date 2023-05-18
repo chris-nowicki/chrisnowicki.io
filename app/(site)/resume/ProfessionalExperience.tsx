@@ -1,4 +1,4 @@
-import { ProfessionalExperience as ProfessionalExperienceType } from '../../../types/resume'
+import { ProfessionalExperienceType } from '../../../types/resume'
 
 export default function ProfessionalExperience({
   experience,

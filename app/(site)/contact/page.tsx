@@ -1,15 +1,30 @@
 import Header from '../resume/Header'
 import SocialLink from '../../components/SocialLink'
+import ogImageURL from '../../../lib/og-image-url'
 
 // types
 import type { Metadata } from 'next'
-import { ContactInfo } from '../../../types/contact'
-import { SocialLinks } from '../../../types/socialLinks'
+import { SocialLinksType, OGImageType, ContactInfoType } from '../../../types'
+
+// metadata
+const title: string = 'Contact'
+const description: string =
+  'Contact me via email or through one of my social media channels.'
+const ogImage: OGImageType = ogImageURL(description)
 
 export const metadata: Metadata = {
-  title: 'Contact',
-  description:
-    'Contact me via email or through one of my social media channels!',
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    url: 'https://chrisnowicki.io/contact',
+    images: [ogImage],
+  },
+  twitter: {
+    title: title,
+    card: 'summary_large_image',
+  },
 }
 
 // sanity cms query
@@ -21,8 +36,8 @@ import {
 
 export default async function Resume() {
   const pictureData: Promise<string> = getImage()
-  const contactData: Promise<ContactInfo> = getContactInfo()
-  const socialLinkData: Promise<SocialLinks> = getSocialLinks()
+  const contactData: Promise<ContactInfoType> = getContactInfo()
+  const socialLinkData: Promise<SocialLinksType> = getSocialLinks()
 
   const [chrisnowicki, contactInfo, socialLink] = await Promise.all([
     pictureData,

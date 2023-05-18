@@ -3,7 +3,7 @@ import imageUrlBuilder from '@sanity/image-url'
 import { cache } from 'react'
 
 // zod env type checking
-import { env } from '../types/public_env'
+import { env } from '../types/env-public'
 
 // sanity create client and fetch functions
 const client = createClient({

@@ -3,7 +3,7 @@ import { useState } from 'react'
 import Button from './Button'
 
 // types
-import { TechData } from '../../../../types/techData'
+import { TechDataType } from '../../../../types'
 
 type Button = {
   name: string
@@ -21,8 +21,8 @@ export const btn: Button[] = [
   { name: 'Tools', active: 'tools' },
 ]
 
-export default function TechSkills({ tech }: { tech: TechData[] }) {
-  const [filteredTech, setFilteredTech] = useState<TechData[] | null>(tech)
+export default function TechSkills({ tech }: { tech: TechDataType[] }) {
+  const [filteredTech, setFilteredTech] = useState<TechDataType[] | null>(tech)
   const [currentFilter, setCurrentFilter] = useState<string>('all')
 
   const handleFilter = (category: string) => {
@@ -58,7 +58,7 @@ export default function TechSkills({ tech }: { tech: TechData[] }) {
         <div className="flex w-full flex-col rounded bg-background-light shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50">
           <ul className="link-animate text-md flex h-[550px] w-full flex-col flex-wrap overflow-hidden px-4 py-4 text-foreground md:h-[450px] md:text-lg">
             {filteredTech.map(
-              (tech: TechData) =>
+              (tech: TechDataType) =>
                 tech.show && (
                   <li key={tech.name} className="flex flex-wrap md:px-4">
                     {tech.link ? (
