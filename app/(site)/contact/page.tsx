@@ -1,10 +1,10 @@
-import Header from '../resume/Header'
+import ContactHeader from '@/components/ContactHeader'
 import SocialLink from '@/components/SocialLink'
 import ogImageURL from '@/lib/og-image-url'
 
 // types
 import type { Metadata } from 'next'
-import { SocialLinksType, OGImageType, ContactInfoType } from '../../../types'
+import { SocialLinksType, OGImageType, ContactInfoType } from 'types'
 
 // metadata
 const title: string = 'Contact'
@@ -54,7 +54,7 @@ export default async function Resume() {
 
   return (
     <div className="flex w-full flex-col px-5 lg:px-0">
-      <Header image={chrisnowicki} data={contactInfo} />
+      <ContactHeader image={chrisnowicki} data={contactInfo} />
       <div className="flex w-full flex-col-reverse md:flex-row md:gap-4">
         {/* get in touch */}
         <div className="flex w-full flex-col  items-center gap-4 md:w-1/2 md:flex-row">

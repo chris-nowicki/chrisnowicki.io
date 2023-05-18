@@ -1,4 +1,4 @@
-import Header from './Header'
+import ContactHeader from '../../components/ContactHeader'
 import TechSkills from './TechSkills/TechSkills'
 import TechnicalProjects from './TechnicalProjects/TechnicalProjects'
 import ProfessionalExperience from './ProfessionalExperience'
@@ -52,7 +52,7 @@ export default async function Resume() {
     socialLinkData,
   ])
 
-  const headerData = {
+  const contactInfo = {
     name: resume.name,
     email: resume.email,
     location: resume.location,
@@ -66,7 +66,7 @@ export default async function Resume() {
 
   return (
     <div className="px-5 lg:px-0">
-      <Header image={chrisnowicki} data={headerData} />
+      <ContactHeader image={chrisnowicki} data={contactInfo} />
 
       {/* resume and social links */}
       <div className="mb-12 flex w-full flex-col items-center gap-4 md:flex-row">
