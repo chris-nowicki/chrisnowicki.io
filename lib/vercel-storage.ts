@@ -48,7 +48,7 @@ export const updateTweetCount = (tweetCount: number) => {
 // update github metrics
 export const updateGithubMetrics = (commits: number, repos: number) => {
   db.updateTable('githubmetrics')
-    .set({ commits: commits, repos: repos, updated_at: new Date() })
+    .set({ commits: commits, repos: repos })
     .where('githubmetrics.id', '=', 1)
     .executeTakeFirst()
 }
