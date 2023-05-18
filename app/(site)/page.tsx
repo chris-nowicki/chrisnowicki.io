@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
-import {homePortableText} from './portableText'
-import SocialLink from '../../components/SocialLink'
+import { homePortableText } from './portableText'
+import SocialLink from '../components/SocialLink'
 
 // types
 import { SocialLinks } from '../../types/socialLinks'

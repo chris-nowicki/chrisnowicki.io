@@ -6,7 +6,7 @@ import format from 'date-fns/format'
 import { Project } from '../../../types/projects'
 
 // icons
-import { GitBranchOutline, OpenOutline } from '../../../components/Icons'
+import { GitBranchOutline, OpenOutline } from '../../components/Icons'
 
 export default function ProjectArchive({ projects }: { projects: Project[] }) {
   return (

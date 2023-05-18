@@ -1,5 +1,5 @@
 import Header from '../resume/Header'
-import SocialLink from '../../../components/SocialLink'
+import SocialLink from '../../components/SocialLink'
 
 // types
 import type { Metadata } from 'next'
@@ -41,7 +41,6 @@ export default async function Resume() {
     <div className="flex w-full flex-col px-5 lg:px-0">
       <Header image={chrisnowicki} data={contactInfo} />
       <div className="flex w-full flex-col-reverse md:flex-row md:gap-4">
-        
         {/* get in touch */}
         <div className="flex w-full flex-col  items-center gap-4 md:w-1/2 md:flex-row">
           <div className="flex w-full flex-col items-center justify-center rounded bg-background-light px-8 py-8 text-foreground shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50 md:px-16">

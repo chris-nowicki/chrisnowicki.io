@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import clsx from 'clsx'
 
 // types
-import { NavItems } from '../types/navBar'
+import { NavItems } from '../../types/navBar'
 
 // icons
 import { ArrowIcon } from './Icons'

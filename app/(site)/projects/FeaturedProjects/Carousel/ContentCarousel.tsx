@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
 import ProjectCard from './ProjectCard'
-import { CHEVRON_LEFT, CHEVRON_RIGHT } from '../../../../../components/Icons'
+import { CHEVRON_LEFT, CHEVRON_RIGHT } from '../../../../components/Icons'
 
 function ContentCarousel({ contents }) {
   const [activeIndex, setActiveIndex] = useState(0)

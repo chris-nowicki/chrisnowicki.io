@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
-import Nav from '../../components/NavBar'
-import { AnalyticsWrapper } from '../../components/Analytics'
+import Nav from '../components/NavBar'
+import { AnalyticsWrapper } from '../components/Analytics'
 import '../globals.css'
 
 // types
