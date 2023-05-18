@@ -58,9 +58,6 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
       title: seo.name,
       card: 'summary_large_image',
     },
-    icons: {
-      icon: '/favicon.ico',
-    },
   }
 }
 
