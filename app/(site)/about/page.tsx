@@ -55,7 +55,7 @@ export default async function About() {
   ]
 
   return (
-    <div className="mb-12 flex flex-col rounded border border-borderColor-light p-4 dark:border-borderColor-dark">
+    <div className="mb-12 flex flex-col p-4 md:rounded md:border md:border-borderColor-light md:dark:border-borderColor-dark">
       <div className="flex flex-wrap md:flex-nowrap">
         <div className="flex w-full flex-col items-start text-left text-lg md:mr-6">
           <PortableText value={aboutMe.bio} components={aboutMePortableText} />
