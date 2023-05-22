@@ -54,7 +54,7 @@ export default async function Blog() {
   const articles: Article[] = await getArticles()
 
   return (
-    <div className="flex flex-col rounded border border-borderColor-light p-4 dark:border-borderColor-dark ">
+    <div className="flex flex-col p-4 md:rounded  md:border md:border-borderColor-light md:dark:border-borderColor-dark ">
       <h1 className="flex items-center gap-1 text-2xl md:text-3xl">
         <a
           href="https://www.dev.to/chrisnowicki/"
