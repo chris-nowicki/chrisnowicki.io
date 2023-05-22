@@ -37,7 +37,7 @@ import { getMetrics } from '@/lib/vercel-storage'
 
 export const revalidate = 60 // In seconds
 
-export default async function Home() {
+export default async function About() {
   const socialLinkData: Promise<SocialLinksType> = getSocialLinks()
   const aboutMeData: Promise<AboutMeType> = getAboutMe()
   const getMetricsData: Promise<MetricsType> = getMetrics()

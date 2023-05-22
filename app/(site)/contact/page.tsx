@@ -34,7 +34,7 @@ import {
   getSocialLinks,
 } from '@/sanity/sanity-queries'
 
-export default async function Resume() {
+export default async function Contact() {
   const pictureData: Promise<string> = getImage()
   const contactData: Promise<ContactInfoType> = getContactInfo()
   const socialLinkData: Promise<SocialLinksType> = getSocialLinks()
