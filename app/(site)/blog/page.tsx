@@ -59,6 +59,7 @@ export default async function Blog() {
         <a
           href="https://www.dev.to/chrisnowicki/"
           className="text-black hover:text-purple-light dark:text-white dark:hover:text-purple-dark"
+          target="_blank"
         >
           <DEVTO size={32} />
         </a>
