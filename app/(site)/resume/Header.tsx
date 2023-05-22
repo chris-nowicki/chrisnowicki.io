@@ -9,7 +9,7 @@ type HeaderProps = {
   data: ContactInfoType
 }
 
-export default function ContactHeader({ image, data }: HeaderProps) {
+export default function Header({ image, data }: HeaderProps) {
   return (
     <div className="mb-4 flex gap-4 rounded border border-neutral-200 p-2 text-center dark:border-background-dark md:text-left">
       <div className="flex w-1/4">
