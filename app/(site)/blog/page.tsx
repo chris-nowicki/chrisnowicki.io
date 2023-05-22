@@ -42,13 +42,13 @@ async function getArticles(): Promise<Article[]> {
     headers: {
       'api-key': env.DEVTO_API_KEY,
     },
+    next: {
+      revalidate: 60,
+    },
   })
   const articles = await res.json()
   return articles
 }
-
-// revalidate every minute
-export const revalidate = 60 // In seconds
 
 export default async function Blog() {
   const articles: Article[] = await getArticles()
@@ -68,7 +68,7 @@ export default async function Blog() {
         {articles.map((article: Article) => (
           <div
             key={article.id}
-            className="flex flex-col text-sm md:flex-row md:gap-3 md:text-base"
+            className="mt-2 flex flex-col text-sm md:flex-row md:gap-3 md:text-base"
           >
             <span className="font-bold text-purple-light dark:text-purple-dark">
               {format(new Date(article.published_at), 'MM.dd.yy')}
