@@ -1,4 +1,3 @@
-import 'server-only'
 import format from 'date-fns/format'
 import ogImageURL from '@/lib/og-image-url'
 import { DEVTO } from '@/components/Icons'
@@ -42,6 +41,7 @@ async function getArticles(): Promise<Article[]> {
   const res = await fetch('https://dev.to/api/articles/me/published', {
     headers: {
       'api-key': env.DEVTO_API_KEY,
+      useCDN: 'false',
     },
     next: {
       revalidate: 60,
