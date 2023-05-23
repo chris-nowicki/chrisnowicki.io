@@ -30,7 +30,7 @@
     "next": "^13.4.3",
     "next-sanity": "^4.3.2",
     "oauth-1.0a": "^2.2.6",
-    "octokit": "^2.0.16",
+    "octokit": "^2.0.18",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
