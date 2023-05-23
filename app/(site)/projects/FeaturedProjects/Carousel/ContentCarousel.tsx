@@ -22,8 +22,8 @@ function ContentCarousel({ contents }) {
   }
 
   return (
-    <div className="flex flex-col">
-      <div className="relative w-full rounded border border-borderColor-light p-2 shadow-lg dark:border-borderColor-dark md:p-4">
+    <>
+      <div className="relative flex w-full flex-col rounded border border-borderColor-light p-2 shadow-lg dark:border-borderColor-dark md:p-4">
         <div className="absolute -left-8 top-[125px] hidden items-center justify-center bg-background-light p-1 text-foreground shadow-xl hover:text-purple-dark dark:bg-background-dark md:flex">
           <button
             onClick={() => {
@@ -94,11 +94,21 @@ function ContentCarousel({ contents }) {
               'h-4 w-4 cursor-pointer rounded-full border-2 border-purple-light shadow-md dark:border-purple-dark',
               activeIndex === index && 'bg-purple-light dark:bg-purple-dark'
             )}
-            onClick={() => setActiveIndex(index)}
+            onClick={() => {
+              if (activeIndex === index) {
+                setActiveIndex(index)
+              } else if (index < activeIndex) {
+                paginate(-1)
+                handlePrevClick()
+              } else {
+                paginate(1)
+                handleNextClick()
+              }
+            }}
           />
         ))}
       </div>
-    </div>
+    </>
   )
 }
 
