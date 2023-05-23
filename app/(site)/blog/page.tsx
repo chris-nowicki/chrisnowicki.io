@@ -1,3 +1,4 @@
+import 'server-only'
 import format from 'date-fns/format'
 import ogImageURL from '@/lib/og-image-url'
 import { DEVTO } from '@/components/Icons'

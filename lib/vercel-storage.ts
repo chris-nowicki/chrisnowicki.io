@@ -1,3 +1,4 @@
+import 'server-only'
 import { Generated, ColumnType } from 'kysely'
 import { createKysely } from '@vercel/postgres-kysely'
 
