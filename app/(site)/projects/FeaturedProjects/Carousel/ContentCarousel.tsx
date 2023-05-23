@@ -9,12 +9,20 @@ function ContentCarousel({ contents }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [[page, direction], setPage] = useState([0, 0])
 
-  const handlePrevClick = () => {
-    setActiveIndex(activeIndex === 0 ? contents.length - 1 : activeIndex - 1)
+  const handlePrevClick = (incrementBy: number) => {
+    setActiveIndex(
+      activeIndex === 0
+        ? contents.length - incrementBy
+        : activeIndex - incrementBy
+    )
   }
 
-  const handleNextClick = () => {
-    setActiveIndex(activeIndex === contents.length - 1 ? 0 : activeIndex + 1)
+  const handleNextClick = (incrementBy: number) => {
+    setActiveIndex(
+      activeIndex === contents.length - incrementBy
+        ? 0
+        : activeIndex + incrementBy
+    )
   }
 
   const paginate = (newDirection: number) => {
@@ -28,7 +36,7 @@ function ContentCarousel({ contents }) {
           <button
             onClick={() => {
               paginate(-1)
-              handlePrevClick()
+              handlePrevClick(1)
             }}
           >
             <CHEVRON_LEFT size={32} />
@@ -38,7 +46,7 @@ function ContentCarousel({ contents }) {
           <button
             onClick={() => {
               paginate(1)
-              handleNextClick()
+              handleNextClick(1)
             }}
           >
             <CHEVRON_RIGHT size={32} />
@@ -69,7 +77,7 @@ function ContentCarousel({ contents }) {
           <button
             onClick={() => {
               paginate(-1)
-              handlePrevClick()
+              handlePrevClick(1)
             }}
             className="flex w-1/2 justify-center bg-background-dark p-1 hover:text-purple-dark"
           >
@@ -78,7 +86,7 @@ function ContentCarousel({ contents }) {
           <button
             onClick={() => {
               paginate(1)
-              handleNextClick()
+              handleNextClick(1)
             }}
             className="flex w-1/2 justify-center bg-background-dark p-1 hover:text-purple-dark"
           >
@@ -99,10 +107,10 @@ function ContentCarousel({ contents }) {
                 setActiveIndex(index)
               } else if (index < activeIndex) {
                 paginate(-1)
-                handlePrevClick()
+                handlePrevClick(activeIndex - index)
               } else {
                 paginate(1)
-                handleNextClick()
+                handleNextClick(index - activeIndex)
               }
             }}
           />
