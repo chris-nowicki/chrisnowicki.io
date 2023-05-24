@@ -94,7 +94,9 @@ function ContentCarousel({ contents }) {
           </button>
         </div>
       </div>
-      <div className="mt-4 flex w-full justify-center gap-2">
+
+      {/* index bubbles */}
+      <div className="mt-2 flex w-full justify-center gap-2">
         {contents.map((_, index) => (
           <div
             key={index}
