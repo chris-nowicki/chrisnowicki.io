@@ -30,10 +30,9 @@ export default function ProfessionalExperience({
           <div className="flex flex-col p-4">
             <ul className="text-md ml-6 list-outside list-disc marker:text-purple-light dark:marker:text-purple-dark md:text-lg">
               {experience.accomplishments.map(
-                (accomplishment: string, index: number) =>
-                  index !== 0 && (
-                    <li key={index + accomplishment}>{accomplishment}</li>
-                  )
+                (accomplishment: string, index: number) => (
+                  <li key={index + accomplishment}>{accomplishment}</li>
+                )
               )}
             </ul>
           </div>
