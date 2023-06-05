@@ -1,7 +1,7 @@
 import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
 import { NextResponse } from 'next/server'
-import { updateTweetCount } from '@/lib/vercel-storage'
+import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
 
 import { env } from '@/types/env-private'
 
@@ -51,8 +51,14 @@ export async function GET() {
       return NextResponse.json({ error: 'Rate limit exceeded' })
     }
 
-    updateTweetCount(tweetCount)
-    return NextResponse.json({ tweetCount })
+    const storedTweetCount = await getStoredTweetCount()
+
+    if (tweetCount === storedTweetCount) {
+      return NextResponse.json(`Tweet count: ${tweetCount} (no change)`)
+    } else {
+      updateTweetCount(tweetCount)
+      return NextResponse.json({ tweetCount })
+    }
   } catch (error) {
     console.error(error)
     return NextResponse.json({ error })

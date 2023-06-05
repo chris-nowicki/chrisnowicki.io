@@ -38,6 +38,14 @@ export async function getMetrics(): Promise<MetricsType> {
   return res[0]
 }
 
+export async function getStoredTweetCount(): Promise<number> {
+  const res = await db
+    .selectFrom('tweetcount')
+    .select(['tweetcount.count as tweetCount'])
+    .execute()
+  return res[0].tweetCount
+}
+
 // update tweet count
 export const updateTweetCount = (tweetCount: number) => {
   db.updateTable('tweetcount')
