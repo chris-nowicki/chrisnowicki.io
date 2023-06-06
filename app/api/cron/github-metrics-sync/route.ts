@@ -48,11 +48,12 @@ export async function GET() {
   if (totalCommits === 0 || totalRepos === 0) {
     return NextResponse.json({ error: 'No commits or repos found' })
   }
-  
+
   const storedGithubMetrics = await getStoredGithubMetrics()
+
   if (
-    storedGithubMetrics.commits === totalCommits &&
-    storedGithubMetrics.repos === totalRepos
+    storedGithubMetrics.commits == totalCommits &&
+    storedGithubMetrics.repos == totalRepos
   ) {
     return NextResponse.json(
       `commits: ${totalCommits} repos: ${totalRepos} - (no change)`,
