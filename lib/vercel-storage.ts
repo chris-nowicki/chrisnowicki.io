@@ -23,6 +23,11 @@ type GitHubMetricsTable = {
   updated_at: ColumnType<Date, string | undefined>
 }
 
+type githubMetricsType = {
+  commits: number
+  repos: number
+}
+
 const db = createKysely<Database>()
 
 // query to fetch tweet count and github metrics
@@ -49,15 +54,26 @@ export async function getStoredTweetCount(): Promise<number> {
 // update tweet count
 export const updateTweetCount = (tweetCount: number) => {
   db.updateTable('tweetcount')
-    .set({ count: tweetCount })
+    .set({ count: tweetCount, updated_at: new Date() })
     .where('tweetcount.id', '=', 1)
     .executeTakeFirst()
+}
+
+export const getStoredGithubMetrics = async (): Promise<githubMetricsType> => {
+  const res = await db
+    .selectFrom('githubmetrics')
+    .select([
+      'githubmetrics.commits as commits',
+      'githubmetrics.repos as repos',
+    ])
+    .execute()
+  return res[0]
 }
 
 // update github metrics
 export const updateGithubMetrics = (commits: number, repos: number) => {
   db.updateTable('githubmetrics')
-    .set({ commits: commits, repos: repos })
+    .set({ commits: commits, repos: repos, updated_at: new Date() })
     .where('githubmetrics.id', '=', 1)
     .executeTakeFirst()
 }

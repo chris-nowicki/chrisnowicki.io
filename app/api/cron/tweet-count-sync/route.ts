@@ -4,6 +4,7 @@ import { NextResponse } from 'next/server'
 import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
 
 import { env } from '@/types/env-private'
+import { stat } from 'node:fs'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
   const response = await fetch(url, { headers }).then((res) => res.json())
@@ -48,19 +49,26 @@ export async function GET() {
     const tweetCount = await getTweetCount(url, headers)
 
     if (tweetCount.status === 429) {
-      return NextResponse.json({ error: 'Rate limit exceeded' })
+      return NextResponse.json(
+        { error: 'Rate limit exceeded' },
+        { status: 429 }
+      )
     }
 
     const storedTweetCount = await getStoredTweetCount()
 
     if (tweetCount === storedTweetCount) {
-      return NextResponse.json(`Tweet count: ${tweetCount} (no change)`)
+      return NextResponse.json(`Tweet count: ${tweetCount} - (no change)`, {
+        status: 208,
+      })
     } else {
       updateTweetCount(tweetCount)
-      return NextResponse.json({ tweetCount })
+      return NextResponse.json(`Tweet count: ${tweetCount} - (updated)`, {
+        status: 200,
+      })
     }
   } catch (error) {
     console.error(error)
-    return NextResponse.json({ error })
+    return NextResponse.json({ error }, { status: 500 })
   }
 }

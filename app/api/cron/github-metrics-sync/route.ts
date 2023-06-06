@@ -1,6 +1,9 @@
 import { Octokit } from 'octokit'
 import { NextResponse } from 'next/server'
-import { updateGithubMetrics } from '@/lib/vercel-storage'
+import {
+  getStoredGithubMetrics,
+  updateGithubMetrics,
+} from '@/lib/vercel-storage'
 
 // zod env type checking
 import { env } from '@/types/env-private'
@@ -42,10 +45,26 @@ export async function GET() {
   }
 
   // update vercel database with new metrics
+
   if (totalCommits === 0 || totalRepos === 0) {
     return NextResponse.json({ error: 'No commits or repos found' })
   }
-
-  updateGithubMetrics(totalCommits, totalRepos)
-  return NextResponse.json({ totalCommits, totalRepos })
+  const storedGithubMetrics = await getStoredGithubMetrics()
+  if (
+    storedGithubMetrics.commits === totalCommits &&
+    storedGithubMetrics.repos === totalRepos
+  ) {
+    return NextResponse.json(
+      `commits: ${totalCommits} repos: ${totalRepos} - (no change)`,
+      {
+        status: 208,
+      }
+    )
+  } else {
+    updateGithubMetrics(totalCommits, totalRepos)
+    return NextResponse.json(
+      `commits: ${totalCommits}, repos: ${totalRepos} - (updated)`,
+      { status: 200 }
+    )
+  }
 }
