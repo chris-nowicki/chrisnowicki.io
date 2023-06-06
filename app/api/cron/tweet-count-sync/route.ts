@@ -4,7 +4,6 @@ import { NextResponse } from 'next/server'
 import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
 
 import { env } from '@/types/env-private'
-import { stat } from 'node:fs'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
   const response = await fetch(url, { headers }).then((res) => res.json())
