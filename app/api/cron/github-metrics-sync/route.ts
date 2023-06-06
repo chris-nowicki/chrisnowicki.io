@@ -45,10 +45,10 @@ export async function GET() {
   }
 
   // update vercel database with new metrics
-
   if (totalCommits === 0 || totalRepos === 0) {
     return NextResponse.json({ error: 'No commits or repos found' })
   }
+  
   const storedGithubMetrics = await getStoredGithubMetrics()
   if (
     storedGithubMetrics.commits === totalCommits &&
