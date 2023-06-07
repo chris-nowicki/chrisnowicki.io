@@ -62,7 +62,7 @@
       "@/components/*": ["app/components/*"],
       "@/hooks/*": ["app/hooks/*"],
       "@/lib/*": ["lib/*"],
-      "@/sanity/*": ["sanity/*"],
+      "@/sanity/*": ["sanity/*"]
     },
     "plugins": [
       {

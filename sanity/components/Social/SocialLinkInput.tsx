@@ -28,12 +28,7 @@ export const SocialLinkInput = (props: StringFieldProps) => {
         <Flex align={'center'}>
           <Card>
             <Flex align={'center'}>
-              <Card
-                border={false}
-                sizing={'border'}
-                padding={2}
-                tone="primary"
-              >
+              <Card border={false} sizing={'border'} padding={2} tone="primary">
                 <Flex align={'center'} gap={2}>
                   {title === 'Linkedin' ? (
                     <RiLinkedinFill size={18} />
@@ -50,7 +45,14 @@ export const SocialLinkInput = (props: StringFieldProps) => {
             </Flex>
           </Card>
 
-          <Card flex={1} border={true} padding={2} sizing={'border'} borderLeft={false} radius={1}>
+          <Card
+            flex={1}
+            border={true}
+            padding={2}
+            sizing={'border'}
+            borderLeft={false}
+            radius={1}
+          >
             <TextInput
               onChange={handleChange}
               value={link}
