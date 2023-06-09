@@ -20,7 +20,7 @@ const theme = _theme as import('sanity').StudioTheme
 // custom logo component
 function MyCustomLogo(props: any) {
   return (
-    <div style={{ border: '2px solid white', padding: 4, borderRadius: 5 }}>
+    <div>
       {props.renderDefault({
         ...props,
         title: props.title.toUpperCase(),
