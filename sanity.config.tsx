@@ -3,6 +3,9 @@ import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from '@/sanity/schemas'
 import { myStructure } from '@/sanity/deskStructure'
+import { media } from 'sanity-plugin-media'
+import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel'
+import { dashboardTool } from '@sanity/dashboard'
 
 // env variables
 import { env } from '@/types/env-public'
@@ -17,7 +20,7 @@ const theme = _theme as import('sanity').StudioTheme
 // custom logo component
 function MyCustomLogo(props: any) {
   return (
-    <div style={{ border: '2px solid white', padding: 4, borderRadius: 5 }}>
+    <div>
       {props.renderDefault({
         ...props,
         title: props.title.toUpperCase(),
@@ -64,6 +67,10 @@ const config = defineConfig({
     visionTool(),
     myLogoPlugin(),
     keysToolbarPlugin(),
+    media(),
+    dashboardTool({
+      widgets: [vercelWidget()],
+    }),
   ],
 
   schema: {

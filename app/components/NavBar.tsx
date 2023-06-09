@@ -11,7 +11,6 @@ type NavItems = {
   '/': Path
   '/about': Path
   '/blog': Path
-  '/projects': Path
   '/resume': Path
 }
 
@@ -53,13 +52,6 @@ export default function NavBar() {
       x: 135.7,
       y: 3,
       w: '56px',
-      h: '37px',
-    },
-    '/projects': {
-      name: 'projects',
-      x: 191.7,
-      y: 3,
-      w: '89px',
       h: '37px',
     },
     '/resume': {

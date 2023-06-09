@@ -3,9 +3,9 @@ import ProjectCard from './ProjectCard'
 import clsx from 'clsx'
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import { CHEVRON_LEFT, CHEVRON_RIGHT } from '../../../../components/Icons'
+import { CHEVRON_LEFT, CHEVRON_RIGHT } from '../../Icons'
 
-function ContentCarousel({ contents }) {
+export default function ContentCarousel({ contents }) {
   const [activeIndex, setActiveIndex] = useState(0)
   const [[page, direction], setPage] = useState([0, 0])
 
@@ -31,7 +31,7 @@ function ContentCarousel({ contents }) {
 
   return (
     <>
-      <div className="relative flex w-full flex-col rounded border border-borderColor-light p-2 shadow-lg dark:border-borderColor-dark md:p-4">
+      <div className="relative flex w-full flex-col rounded-bl rounded-br border-b border-l border-r border-borderColor-light p-2 shadow-lg dark:border-borderColor-dark md:p-4">
         <div className="absolute -left-8 top-[125px] hidden items-center justify-center bg-background-light p-1 text-foreground shadow-xl hover:text-purple-dark dark:bg-background-dark md:flex">
           <button
             onClick={() => {
@@ -96,7 +96,7 @@ function ContentCarousel({ contents }) {
       </div>
 
       {/* index bubbles */}
-      <div className="mt-2 flex w-full justify-center gap-2">
+      <div className="flex w-full justify-center gap-2">
         {contents.map((_, index) => (
           <div
             key={index}
@@ -121,5 +121,3 @@ function ContentCarousel({ contents }) {
     </>
   )
 }
-
-export default ContentCarousel

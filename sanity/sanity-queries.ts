@@ -151,3 +151,35 @@ export async function getAboutMe(): Promise<AboutMeType> {
     profilePicture: res[0].profilePicture,
   }
 }
+
+export async function getHomePage() {
+  const query = groq`*[_type == 'home'] {
+    'profilePicture': profilePicture.asset->url,
+    content,
+    "featuredProjects": featuredProjects[]->{
+      _id,  
+      "name": projectName,
+      excerpt,
+      gitHubUrl,
+      liveSiteUrl,
+      "image": image.asset->url,
+      "tags": tags[]->{
+        name
+      },
+    },
+    "resumeURL": resume.asset->url,
+  }`
+
+  const res = await fetchSanity(query)
+  return res[0]
+}
+
+export async function getAboutPage() {
+  const query = groq`*[_type == 'about'] {
+    'profilePicture': profilePicture.asset->url,
+    content,
+  }`
+
+  const res = await fetchSanity(query)
+  return res[0]
+}

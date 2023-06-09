@@ -7,7 +7,7 @@ import { GitHub, Twitter } from '@/components/Icons'
 
 // types
 import { Metadata } from 'next'
-import { OGImageType, MetricsType, AboutMeType, SocialLinksType } from 'types'
+import { OGImageType, MetricsType, AboutPageType, SocialLinksType } from 'types'
 
 // metadata
 const title: string = 'About'
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
 }
 
 // sanity cms queries
-import { getSocialLinks, getAboutMe } from '@/sanity/sanity-queries'
+import { getSocialLinks, getAboutPage } from '@/sanity/sanity-queries'
 
 // vercel db query
 import { getMetrics } from '@/lib/vercel-storage'
@@ -39,12 +39,12 @@ export const revalidate = 60 // In seconds
 
 export default async function About() {
   const socialLinkData: Promise<SocialLinksType> = getSocialLinks()
-  const aboutMeData: Promise<AboutMeType> = getAboutMe()
+  const aboutPageData: Promise<AboutPageType> = getAboutPage()
   const getMetricsData: Promise<MetricsType> = getMetrics()
 
-  const [socialLink, aboutMe, metrics] = await Promise.all([
+  const [socialLink, pageData, metrics] = await Promise.all([
     socialLinkData,
-    aboutMeData,
+    aboutPageData,
     getMetricsData,
   ])
 
@@ -58,14 +58,14 @@ export default async function About() {
     <div className="mb-12 flex flex-col p-4 md:rounded md:border md:border-borderColor-light md:dark:border-borderColor-dark">
       <div className="flex flex-wrap md:flex-nowrap">
         <div className="flex w-full flex-col items-start text-left text-lg md:mr-6">
-          <PortableText value={aboutMe.bio} components={aboutMePortableText} />
+          <PortableText value={pageData.content} components={aboutMePortableText} />
         </div>
         <div className="flex w-full flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
           <Image
             className="w-full rounded shadow-lg sm:hidden md:block"
             width={400}
             height={400}
-            src={aboutMe.profilePicture}
+            src={pageData.profilePicture}
             alt="chris nowicki"
             priority
           />
