@@ -3,6 +3,9 @@ import { deskTool } from 'sanity/desk'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from '@/sanity/schemas'
 import { myStructure } from '@/sanity/deskStructure'
+import { media } from 'sanity-plugin-media'
+import { vercelWidget } from 'sanity-plugin-dashboard-widget-vercel'
+import { dashboardTool } from '@sanity/dashboard'
 
 // env variables
 import { env } from '@/types/env-public'
@@ -64,6 +67,10 @@ const config = defineConfig({
     visionTool(),
     myLogoPlugin(),
     keysToolbarPlugin(),
+    media(),
+    dashboardTool({
+      widgets: [vercelWidget()],
+    }),
   ],
 
   schema: {

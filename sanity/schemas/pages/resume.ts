@@ -66,7 +66,6 @@ export default {
           },
         },
       ],
-      validation: (Rule: any) => Rule.max(4).warning('Only 4 Projects Allowed'),
     },
     {
       name: 'education',
@@ -85,7 +84,6 @@ export default {
           },
         },
       ],
-      validation: (Rule: any) => Rule.max(4).warning('Only 4 Projects Allowed'),
     },
   ],
   preview: {

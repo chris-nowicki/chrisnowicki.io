@@ -1,4 +1,5 @@
 import { PortableTextBlock } from 'sanity'
+import { ProjectType } from './projects'
 
 export type SeoType = {
   name: string
@@ -7,6 +8,18 @@ export type SeoType = {
   description: string
   type: string
   image: string
+}
+
+export type HomePageType = {
+  profilePicture: string
+  content: PortableTextBlock[]
+  featuredProjects: ProjectType[]
+  resumeURL: string
+}
+
+export type AboutPageType = {
+  profilePicture: string
+  content: PortableTextBlock[]
 }
 
 export type OGImageType = {

@@ -4,7 +4,7 @@ export const homePortableText: PortableTextComponents = {
   block: {
     normal: ({ children }) => <p className="mt-4 md:mr-4">{children}</p>,
     h1: ({ children }) => (
-      <h1 className="text-2xl md:mt-0 md:text-3xl">{children}</h1>
+      <h1 className="text-2xl md:mt-0 md:text-3xl text-purple-light dark:text-purple-dark">{children}</h1>
     ),
   },
 }
