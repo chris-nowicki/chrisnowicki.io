@@ -2,7 +2,11 @@ import Image from 'next/image'
 import { Location } from '@/components/Icons'
 
 // types
-import { ContactInfoType } from 'types'
+type ContactInfoType = {
+  name: string
+  email: string
+  location: string
+}
 
 type HeaderProps = {
   image: string
