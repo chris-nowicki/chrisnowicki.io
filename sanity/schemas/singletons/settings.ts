@@ -9,17 +9,9 @@ export default defineType({
   type: 'document',
   groups: [
     {
-      default: true,
-      name: 'bio',
-      title: 'Bio',
-    },
-    {
       name: 'socialLinks',
       title: 'Social Links',
-    },
-    {
-      name: 'featuredProjects',
-      title: 'Featured Projects',
+      default: true,
     },
     {
       name: 'seo',
@@ -28,35 +20,6 @@ export default defineType({
   ],
   fields: [
     //Menu
-    defineField({
-      name: 'bio',
-      title: 'Bio',
-      type: 'object',
-      group: 'bio',
-      options: {
-        collapsed: false,
-        collapsible: true,
-      },
-      fields: [
-        defineField({
-          name: 'profilePicture',
-          title: 'Picture',
-          type: 'image',
-        }),
-        defineField({
-          name: 'about',
-          title: 'About',
-          type: 'array',
-          of: [{ type: 'block' }],
-        }),
-        defineField({
-          name: 'bio',
-          title: 'Bio',
-          type: 'array',
-          of: [{ type: 'block' }, { type: 'image' }],
-        }),
-      ],
-    }),
     defineField({
       name: 'socialLinks',
       title: 'Social Links',
@@ -102,39 +65,6 @@ export default defineType({
           components: {
             field: SocialLinkInput,
           },
-        }),
-      ],
-    }),
-    defineField({
-      name: 'featuredProjects',
-      title: 'Featured Projects',
-      type: 'object',
-      group: 'featuredProjects',
-      options: {
-        collapsed: false,
-        collapsible: true,
-      },
-      fields: [
-        // Links
-        defineField({
-          name: 'featured',
-          title: 'Projects',
-          type: 'array',
-          of: [
-            {
-              type: 'reference',
-              to: [
-                {
-                  type: 'projects',
-                },
-              ],
-              options: {
-                disableNew: true,
-              },
-            },
-          ],
-          validation: (Rule: any) =>
-            Rule.max(4).warning('Only 4 Featured Projects Allowed'),
         }),
       ],
     }),
