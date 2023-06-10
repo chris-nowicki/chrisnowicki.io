@@ -2,6 +2,7 @@ export type ResumeType = {
   name: string
   email: string
   location: string
+  picture: string
   resumeURL: string
   professionalExperience: ProfessionalExperienceType[]
   projects: TechnicalProjectType[]

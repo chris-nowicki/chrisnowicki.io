@@ -1,5 +1,4 @@
 import { PortableTextBlock } from 'sanity'
-import { ProjectType } from './projects'
 
 export type SeoType = {
   name: string
@@ -15,6 +14,18 @@ export type HomePageType = {
   content: PortableTextBlock[]
   featuredProjects: ProjectType[]
   resumeURL: string
+}
+
+export type ProjectType = {
+  projectName: string
+  dateCreated: string
+  liveSiteURL: string
+  gitHubURL: string
+  tags: TagType[]
+}
+
+export type TagType = {
+  name: string
 }
 
 export type AboutPageType = {
@@ -33,22 +44,10 @@ export type SocialLinksType = {
   instagram: string
 }
 
-export type AboutMeType = {
-  about: PortableTextBlock[]
-  bio: PortableTextBlock[]
-  profilePicture: string
-}
-
 export type MetricsType = {
   tweetCount: number
   githubCommits: number
   githubRepos: number
-}
-
-export type ContactInfoType = {
-  name: string
-  email: string
-  location: string
 }
 
 export type TechDataType = {

@@ -32,21 +32,14 @@ export const metadata: Metadata = {
 }
 
 // sanity cms queries
-import {
-  getImage,
-  getTechData,
-  getResume,
-  getSocialLinks,
-} from '@/sanity/sanity-queries'
+import { getTechData, getResume, getSocialLinks } from '@/sanity/sanity-queries'
 
 export default async function Resume() {
-  const pictureData: Promise<string> = getImage()
   const techData: Promise<TechDataType[]> = getTechData()
   const resumeData: Promise<ResumeType> = getResume()
   const socialLinkData: Promise<SocialLinksType> = getSocialLinks()
 
-  const [chrisnowicki, tech, resume, socialLink] = await Promise.all([
-    pictureData,
+  const [tech, resume, socialLink] = await Promise.all([
     techData,
     resumeData,
     socialLinkData,
@@ -66,7 +59,7 @@ export default async function Resume() {
 
   return (
     <div className="px-5 lg:px-0">
-      <Header image={chrisnowicki} data={contactInfo} />
+      <Header image={resume.picture} data={contactInfo} />
 
       {/* resume and social links */}
       <div className="mb-12 flex w-full flex-col items-center gap-4 md:flex-row">

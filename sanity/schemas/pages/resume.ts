@@ -26,6 +26,11 @@ export default {
       },
     },
     {
+      name: 'picture',
+      title: 'Picture',
+      type: 'image',
+    },
+    {
       name: 'resume',
       title: 'Resume (PDF)',
       type: 'file',

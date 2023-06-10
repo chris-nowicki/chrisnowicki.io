@@ -3,14 +3,7 @@ import { groq } from 'next-sanity'
 
 // types
 import { ResumeType } from '../types/resume'
-import { ProjectsType } from '../types/projects'
-import {
-  ContactInfoType,
-  SocialLinksType,
-  AboutMeType,
-  SeoType,
-  TechDataType,
-} from '../types'
+import { SocialLinksType, SeoType, TechDataType } from '../types'
 
 // GROQ Queries
 export async function getSEO(): Promise<SeoType> {
@@ -34,6 +27,7 @@ export async function getResume(): Promise<ResumeType> {
     name,
     email,
     location,
+    "picture": picture.asset->url,
     "resumeURL": resume.asset->url,
     professionalExperience[]->{
         company,
@@ -74,28 +68,6 @@ export async function getTechData(): Promise<TechDataType[]> {
   return res
 }
 
-export async function getImage(): Promise<string> {
-  const query = groq`*[_type == 'settings'] {
-        bio {
-            "chrisnowicki": profilePicture.asset->url
-        }
-    }`
-
-  const res = await fetchSanity(query)
-  return res[0].bio.chrisnowicki
-}
-
-export async function getContactInfo(): Promise<ContactInfoType> {
-  const query = groq`*[_type == "resume"] {
-    name,
-    email,
-    location
-    }`
-
-  const res = await fetchSanity(query)
-  return res[0]
-}
-
 export async function getSocialLinks(): Promise<SocialLinksType> {
   const query = groq`*[_type == "settings"] {
         "linkedin": socialLinks.linkedin,
@@ -106,50 +78,6 @@ export async function getSocialLinks(): Promise<SocialLinksType> {
 
   const res = await fetchSanity(query)
   return res[0]
-}
-
-export async function getProjects(): Promise<ProjectsType> {
-  const query = groq`*[_type == "settings"] {
-        "featuredProjects": featuredProjects.featured[]->{
-            _id,  
-            "name": projectName,
-            excerpt,
-            gitHubUrl,
-            liveSiteUrl,
-            "image": image.asset->url,
-            "tags": tags[]->{
-                name
-            },
-        },
-        "projects": *[_type == 'projects' && !(_id in ^.featuredProjects.featured[]._ref)] {
-            projectName,
-            dateCreated,
-            "liveSiteURL": liveSiteUrl,
-            "gitHubURL": gitHubUrl,
-            "tags": tags[]->{
-                name
-            },
-        } | order(dateCreated desc),
-    }`
-
-  const res = await fetchSanity(query)
-  return res[0]
-}
-
-export async function getAboutMe(): Promise<AboutMeType> {
-  const query = groq`*[_type == 'settings'] {
-        'about': bio.about,
-        'bio': bio.bio,
-        'profilePicture': bio.profilePicture.asset->url,
-    }`
-
-  const res = await fetchSanity(query)
-
-  return {
-    about: res[0].about,
-    bio: res[0].bio,
-    profilePicture: res[0].profilePicture,
-  }
 }
 
 export async function getHomePage() {
