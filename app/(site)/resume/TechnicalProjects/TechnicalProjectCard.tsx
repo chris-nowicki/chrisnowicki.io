@@ -3,7 +3,7 @@ import { GitBranchOutline, OpenOutline } from '@/components/Icons'
 
 // types
 import { TechnicalProjectType } from '@/types/resume'
-import { TagType } from '@/types/projects'
+import { TagType } from '@/types/index'
 
 export default function TechnicalProjectCard({
   project,
