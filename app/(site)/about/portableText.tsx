@@ -1,8 +1,4 @@
-import Image from 'next/image'
 import { PortableTextComponents } from '@portabletext/react'
-
-// sanity image builder
-import { urlFor } from '@/sanity/sanity-utils'
 
 export const aboutMePortableText: PortableTextComponents = {
   block: {
@@ -20,7 +16,6 @@ export const aboutMePortableText: PortableTextComponents = {
         <a
           href={value?.href}
           target={target}
-          rel={target === '_blank' && 'noindex nofollow'}
           className="text-purple-light dark:text-purple-dark"
         >
           {children}

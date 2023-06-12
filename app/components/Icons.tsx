@@ -314,11 +314,11 @@ export function ASTRO({ size = 31.04, classProps }: Icon) {
           y1="-40.996%"
           y2="56.205%"
         >
-          <stop offset="0%" stop-color="#FF1639" />
-          <stop offset="100%" stop-color="#FF1639" stop-opacity="0" />
+          <stop offset="0%" stopColor="#FF1639" />
+          <stop offset="100%" stopColor="#FF1639" stopOpacity="0" />
         </linearGradient>
       </defs>
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <path
           fill="#000"
           d="M156.377 4.834c1.575 1.956 2.379 4.595 3.986 9.874l35.105 115.32a146.081 146.081 0 0 0-41.97-14.209l-22.857-77.24a2.975 2.975 0 0 0-5.708.008l-22.58 77.193a146.086 146.086 0 0 0-42.159 14.23L95.471 14.682c1.612-5.27 2.418-7.904 3.994-9.857A12.97 12.97 0 0 1 104.72.936C107.048 0 109.804 0 115.315 0h25.196c5.518 0 8.277 0 10.607.938a13.016 13.016 0 0 1 5.259 3.896Z"
@@ -380,8 +380,8 @@ export function TAILWIND({ size = 46.95, classProps }: Icon) {
           y1="32%"
           y2="67.556%"
         >
-          <stop offset="0%" stop-color="#2298BD" />
-          <stop offset="100%" stop-color="#0ED7B5" />
+          <stop offset="0%" stopColor="#2298BD" />
+          <stop offset="100%" stopColor="#0ED7B5" />
         </linearGradient>
       </defs>
       <path
