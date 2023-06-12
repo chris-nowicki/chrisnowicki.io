@@ -67,7 +67,7 @@ export default {
     },
     {
       name: 'projectDetails',
-      title: 'Project Details',
+      title: 'Project Details for Resumé',
       type: 'array',
       of: [{ type: 'block' }, { type: 'image' }],
     },
