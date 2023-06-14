@@ -1,4 +1,3 @@
-import 'server-only'
 import { Generated, ColumnType } from 'kysely'
 import { createKysely } from '@vercel/postgres-kysely'
 import format from 'date-fns/format'
@@ -14,14 +13,14 @@ type Database = {
 type TweetCountTable = {
   id: Generated<number>
   count: number
-  updated_at: ColumnType<string | undefined>
+  updated_at: ColumnType<Date, string | undefined>
 }
 
 type GitHubMetricsTable = {
   id: Generated<number>
   commits: number
   repos: number
-  updated_at: ColumnType<string | undefined>
+  updated_at: ColumnType<Date, string | undefined>
 }
 
 type githubMetricsType = {
@@ -30,8 +29,6 @@ type githubMetricsType = {
 }
 
 const db = createKysely<Database>()
-
-const date = format(new Date(), 'dd-MM-yy HH:mm')
 
 // query to fetch tweet count and github metrics
 export async function getMetrics(): Promise<MetricsType> {
@@ -58,7 +55,7 @@ export async function getStoredTweetCount(): Promise<number> {
 // update tweet count
 export const updateTweetCount = (tweetCount: number) => {
   db.updateTable('tweetcount')
-    .set({ count: tweetCount, updated_at: date })
+    .set({ count: tweetCount, updated_at: new Date() })
     .where('tweetcount.id', '=', 1)
     .executeTakeFirst()
 }
@@ -78,7 +75,7 @@ export const getStoredGithubMetrics = async (): Promise<githubMetricsType> => {
 // update github metrics
 export const updateGithubMetrics = (commits: number, repos: number) => {
   db.updateTable('githubmetrics')
-    .set({ commits: commits, repos: repos, updated_at: date })
+    .set({ commits: commits, repos: repos, updated_at: new Date() })
     .where('githubmetrics.id', '=', 1)
     .executeTakeFirst()
 }
