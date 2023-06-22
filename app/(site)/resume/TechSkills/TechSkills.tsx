@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Button from './Button'
 
 // types
@@ -12,7 +12,6 @@ type Button = {
 
 // button data
 export const btn: Button[] = [
-  { name: 'All', active: 'all' },
   { name: 'Languages', active: 'lang' },
   { name: 'Frameworks/Libraries', active: 'framelib' },
   { name: 'Databases', active: 'db' },
@@ -22,19 +21,21 @@ export const btn: Button[] = [
 ]
 
 export default function TechSkills({ tech }: { tech: TechDataType[] }) {
-  const [filteredTech, setFilteredTech] = useState<TechDataType[] | null>(tech)
-  const [currentFilter, setCurrentFilter] = useState<string>('all')
+  const [filteredTech, setFilteredTech] = useState<TechDataType[] | null>(
+    tech.filter((tech) => tech.category === 'lang')
+  )
+  const [currentFilter, setCurrentFilter] = useState<string>('lang')
 
   const handleFilter = (category: string) => {
-    // set filtered category if not 'all'
-    if (category !== 'all') {
+    // set filtered category if not 'lang'
+    if (category !== 'lang') {
       const filter = tech.filter((tech) => tech.category === `${category}`)
       setFilteredTech(filter)
       setCurrentFilter(category)
     } else {
-      // set filtered and currentFilter to 'all'
+      // set filtered and currentFilter to 'languages'
       setFilteredTech(tech)
-      setCurrentFilter('all')
+      setCurrentFilter('lang')
     }
   }
 
