@@ -58,24 +58,21 @@ export default function TechSkills({ tech }: { tech: TechDataType[] }) {
         </div>
         <div className="flex w-full flex-col rounded bg-background-light shadow-lg shadow-background-light/50 dark:bg-background-dark dark:shadow-background-dark/50">
           <ul className="link-animate text-md flex h-[550px] w-full flex-col flex-wrap overflow-hidden px-4 py-4 text-foreground md:h-[450px] md:text-lg">
-            {filteredTech.map(
-              (tech: TechDataType) =>
-                tech.show && (
-                  <li key={tech.name} className="flex flex-wrap md:px-4">
-                    {tech.link ? (
-                      <a
-                        href={tech.link}
-                        target="_blank"
-                        className="text-foreground hover:text-purple-dark"
-                      >
-                        {tech.name}
-                      </a>
-                    ) : (
-                      tech.name
-                    )}
-                  </li>
-                )
-            )}
+            {filteredTech.map((tech: TechDataType) => (
+              <li key={tech.name} className="flex flex-wrap md:px-4">
+                {tech.link ? (
+                  <a
+                    href={tech.link}
+                    target="_blank"
+                    className="text-foreground hover:text-purple-dark"
+                  >
+                    {tech.name}
+                  </a>
+                ) : (
+                  tech.name
+                )}
+              </li>
+            ))}
           </ul>
         </div>
       </div>

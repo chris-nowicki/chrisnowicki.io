@@ -31,10 +31,5 @@ export default {
       title: 'Link',
       type: 'string',
     },
-    {
-      name: 'show',
-      Title: 'Show',
-      type: 'boolean',
-    },
   ],
 }
