@@ -54,5 +54,4 @@ export type TechDataType = {
   name: string
   category: string
   link?: string
-  show: boolean
 }

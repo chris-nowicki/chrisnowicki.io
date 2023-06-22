@@ -62,7 +62,7 @@ export async function getResume(): Promise<ResumeType> {
 }
 
 export async function getTechData(): Promise<TechDataType[]> {
-  const query = groq`*[_type == "tech"] {name, category, link, show} | order(lower(name) asc)`
+  const query = groq`*[_type == "tech"] {name, category, link} | order(lower(name) asc)`
 
   const res = await fetchSanity(query)
   return res

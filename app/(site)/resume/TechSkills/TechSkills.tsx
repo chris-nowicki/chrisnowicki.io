@@ -29,16 +29,16 @@ export default function TechSkills({ tech }: { tech: TechDataType[] }) {
   const handleFilter = (category: string) => {
     // set filtered category if not 'lang'
     if (category !== 'lang') {
-      const filter = tech.filter((tech) => tech.category === `${category}`)
-      setFilteredTech(filter)
+      setFilteredTech(tech.filter((tech) => tech.category === category))
       setCurrentFilter(category)
     } else {
       // set filtered and currentFilter to 'languages'
-      setFilteredTech(tech)
+      setFilteredTech(tech.filter((tech) => tech.category === 'lang'))
       setCurrentFilter('lang')
     }
   }
 
+  console.log(filteredTech)
   return (
     <div className="mb-8 flex w-full flex-col">
       <h1 className="mb-2 text-center text-xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-2xl">
