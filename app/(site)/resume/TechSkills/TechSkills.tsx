@@ -38,7 +38,6 @@ export default function TechSkills({ tech }: { tech: TechDataType[] }) {
     }
   }
 
-  console.log(filteredTech)
   return (
     <div className="mb-8 flex w-full flex-col">
       <h1 className="mb-2 text-center text-xl uppercase text-purple-light dark:text-purple-dark md:text-left md:text-2xl">
