@@ -1,6 +1,5 @@
 import { Generated, ColumnType } from 'kysely'
 import { createKysely } from '@vercel/postgres-kysely'
-import format from 'date-fns/format'
 
 // types
 import { MetricsType } from 'types'

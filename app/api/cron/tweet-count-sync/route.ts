@@ -6,7 +6,10 @@ import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
 import { env } from '@/types/env-private'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
-  const response = await fetch(url, { headers }).then((res) => res.json())
+  const response = await fetch(url, {
+    headers,
+    next: { revalidate: false },
+  }).then((res) => res.json())
 
   if (response.status === 429) {
     return response
@@ -68,6 +71,6 @@ export async function GET() {
     }
   } catch (error) {
     console.error(error)
-    return NextResponse.json({ error }, { status: 500 })
+    return NextResponse.json({ error }, { status: 400 })
   }
 }
