@@ -2,7 +2,6 @@ import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
 import { NextResponse } from 'next/server'
 import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
-
 import { env } from '@/types/env-private'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
@@ -60,12 +59,12 @@ export async function GET() {
     const storedTweetCount = await getStoredTweetCount()
 
     if (tweetCount === storedTweetCount) {
-      return NextResponse.json(`Tweet count: ${tweetCount} - (no change)`, {
+      return NextResponse.json(`(no change) TweetCount: ${tweetCount} | StoredTweetCount: ${storedTweetCount}`, {
         status: 208,
       })
     } else {
       updateTweetCount(tweetCount)
-      return NextResponse.json(`Tweet count: ${tweetCount} - (updated)`, {
+      return NextResponse.json(`(updated) Tweet count: ${tweetCount}`, {
         status: 200,
       })
     }
