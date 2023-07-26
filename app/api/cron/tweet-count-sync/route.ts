@@ -3,6 +3,8 @@ import crypto from 'node:crypto'
 import { NextResponse } from 'next/server'
 import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
 
+export const runtime = 'nodejs'
+
 import { env } from '@/types/env-private'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
