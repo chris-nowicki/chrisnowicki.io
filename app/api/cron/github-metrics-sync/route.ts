@@ -4,7 +4,6 @@ import {
   getStoredGithubMetrics,
   updateGithubMetrics,
 } from '@/lib/vercel-storage'
-import 'server-only'
 
 export const runtime = 'edge' 
 
