@@ -5,6 +5,8 @@ import {
   updateGithubMetrics,
 } from '@/lib/vercel-storage'
 
+export const runtime = 'edge' 
+
 // zod env type checking
 import { env } from '@/types/env-private'
 
