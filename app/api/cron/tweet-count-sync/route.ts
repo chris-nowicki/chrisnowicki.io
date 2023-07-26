@@ -2,6 +2,7 @@ import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
 import { NextResponse } from 'next/server'
 import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
+import 'server-only'
 
 export const runtime = 'nodejs'
 
