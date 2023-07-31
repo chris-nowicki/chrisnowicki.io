@@ -8,6 +8,10 @@ import {
 // zod env type checking
 import { env } from '@/types/env-private'
 
+// route segment config
+export const revalidate = false
+export const fetchCache = 'force-no-store'
+
 export async function GET() {
   const octokit = new Octokit({
     auth: env.GITHUB_TOKEN,
