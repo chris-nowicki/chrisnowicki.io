@@ -4,10 +4,12 @@ import { NextResponse } from 'next/server'
 import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
 import { env } from '@/types/env-private'
 
+export const revalidate = false
+export const fetchCache = 'force-no-store'
+
 const getTweetCount = async (url: string, headers: HeadersInit) => {
   const response = await fetch(url, {
     headers,
-    next: { revalidate: false },
   }).then((res) => res.json())
 
   if (response.status === 429) {
@@ -59,9 +61,12 @@ export async function GET() {
     const storedTweetCount = await getStoredTweetCount()
 
     if (tweetCount === storedTweetCount) {
-      return NextResponse.json(`(no change) TweetCount: ${tweetCount} | StoredTweetCount: ${storedTweetCount}`, {
-        status: 208,
-      })
+      return NextResponse.json(
+        `(no change) TweetCount: ${tweetCount} | StoredTweetCount: ${storedTweetCount}`,
+        {
+          status: 208,
+        }
+      )
     } else {
       updateTweetCount(tweetCount)
       return NextResponse.json(`(updated) Tweet count: ${tweetCount}`, {
