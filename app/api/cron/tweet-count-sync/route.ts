@@ -5,6 +5,7 @@ import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
 import { env } from '@/types/env-private'
 
 export const revalidate = false
+export const fetchCache = 'force-no-store'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
   const response = await fetch(url, {
