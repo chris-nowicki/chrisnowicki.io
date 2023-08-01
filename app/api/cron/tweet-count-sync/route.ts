@@ -1,14 +1,11 @@
 import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
+import { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
-import 'server-only'
 
 // zod env type checking
 import { env } from '@/types/env-private'
-
-// route segment config
-export const runtime = 'nodejs'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
   const response = await fetch(url, {
@@ -16,13 +13,13 @@ const getTweetCount = async (url: string, headers: HeadersInit) => {
   }).then((res) => res.json())
 
   if (response.status === 429) {
-    return response
+    return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429 })
   }
 
   return response.data.public_metrics.tweet_count
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
   const consumerKey = env.TWITTER_CONSUMER_KEY
   const consumerSecret = env.TWITTER_CONSUMER_SECRET
   const accessToken = env.TWITTER_ACCESS_TOKEN

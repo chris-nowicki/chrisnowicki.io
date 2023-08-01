@@ -35,11 +35,12 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.10.1",
-    "sanity": "^3.14.2",
+    "sanity": "^3.8.3",
     "sanity-plugin-dashboard-widget-vercel": "^2.0.1",
     "sanity-plugin-media": "^2.2.1",
     "server-only": "^0.0.1",
     "usehooks-ts": "^2.9.1",
+    "vercel": "^24.2.4",
     "zod": "^3.21.4"
   },
   "devDependencies": {
