@@ -1,5 +1,6 @@
 import { Generated, ColumnType } from 'kysely'
 import { createKysely } from '@vercel/postgres-kysely'
+import 'server-only'
 
 // types
 import { MetricsType } from 'types'

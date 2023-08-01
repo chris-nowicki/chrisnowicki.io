@@ -19,7 +19,7 @@ const getTweetCount = async (url: string, headers: HeadersInit) => {
   return response.data.public_metrics.tweet_count
 }
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   const consumerKey = env.TWITTER_CONSUMER_KEY
   const consumerSecret = env.TWITTER_CONSUMER_SECRET
   const accessToken = env.TWITTER_ACCESS_TOKEN
