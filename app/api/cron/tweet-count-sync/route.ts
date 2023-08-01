@@ -8,8 +8,7 @@ import 'server-only'
 import { env } from '@/types/env-private'
 
 // route segment config
-export const revalidate = 3600
-export const fetchCache = 'force-no-store'
+export const runtime = 'nodejs'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
   const response = await fetch(url, {
