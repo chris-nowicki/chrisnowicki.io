@@ -2,12 +2,13 @@ import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
 import { NextResponse } from 'next/server'
 import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
+import 'server-only'
 
 // zod env type checking
 import { env } from '@/types/env-private'
 
 // route segment config
-export const revalidate = false
+export const revalidate = 3600
 export const fetchCache = 'force-no-store'
 
 const getTweetCount = async (url: string, headers: HeadersInit) => {
