@@ -1,5 +1,5 @@
-import { Octokit } from 'octokit'
 import { NextResponse } from 'next/server'
+import { Octokit } from 'octokit'
 import {
   getStoredGithubMetrics,
   updateGithubMetrics,
