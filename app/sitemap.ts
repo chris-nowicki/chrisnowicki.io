@@ -15,10 +15,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
-      url: 'https://chrisnowicki.io/projects',
-      lastModified: new Date(),
-    },
-    {
       url: 'https://chrisnowicki.io/resume',
       lastModified: new Date(),
     },
