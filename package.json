@@ -16,7 +16,6 @@
     "@sanity/studio-secrets": "^2.0.2",
     "@sanity/ui": "^1.7.4",
     "@sanity/vision": "^3.14.5",
-    "@types/jest": "^29.5.3",
     "@vercel/analytics": "^1.0.1",
     "@vercel/edge-config": "^0.2.1",
     "@vercel/og": "^0.5.10",
