@@ -3,6 +3,10 @@ import crypto from 'node:crypto'
 import { NextResponse } from 'next/server'
 import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
 
+export const dynamic = 'force-dynamic'
+export const revalidate = false
+export const runtime = 'nodejs'
+
 // zod env type checking
 import { env } from '@/types/env-private'
 
