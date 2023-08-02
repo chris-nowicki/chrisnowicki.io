@@ -23,6 +23,7 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
   const seo: SeoType = await getSEO()
 
   return {
+    metadataBase: new URL(seo.url),
     title: {
       default: seo.name,
       template: `%s | ${seo.name}`,
