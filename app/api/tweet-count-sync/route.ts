@@ -2,25 +2,13 @@ import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
 import { NextResponse } from 'next/server'
 import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
-
-export const dynamic = 'force-dynamic'
-export const revalidate = false
-export const runtime = 'nodejs'
+import { getTweetCount } from '@/lib/twitter-api'
 
 // zod env type checking
 import { env } from '@/types/env-private'
 
-const getTweetCount = async (url: string, headers: HeadersInit) => {
-  const response = await fetch(url, {
-    headers,
-  }).then((res) => res.json())
-
-  if (response.status === 429) {
-    return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429 })
-  }
-
-  return response.data.public_metrics.tweet_count
-}
+// nextjs route segment config
+export const dynamic = 'force-dynamic' // force dynamic (server) route instead of static page
 
 export async function GET() {
   const consumerKey = env.TWITTER_CONSUMER_KEY
@@ -29,6 +17,7 @@ export async function GET() {
   const accessTokenSecret = env.TWITTER_ACCESS_TOKEN_SECRET
   const url = 'https://api.twitter.com/2/users/me?user.fields=public_metrics'
 
+  // OAuth 1.0a setup
   const oauth = new OAuth({
     consumer: { key: consumerKey, secret: consumerSecret },
     signature_method: 'HMAC-SHA1',
@@ -51,9 +40,11 @@ export async function GET() {
     oauth.authorize(requestData, token)
   ) as unknown as Headers
 
+  // Twitter API request
   try {
     const tweetCount = await getTweetCount(url, headers)
 
+    // Rate limit exceeded error
     if (tweetCount.status === 429) {
       return NextResponse.json(
         { error: 'Rate limit exceeded' },
@@ -61,8 +52,10 @@ export async function GET() {
       )
     }
 
+    // Fetch the current stored tweet count from vercel storage
     const storedTweetCount = await getStoredTweetCount()
 
+    // If the tweet count hasn't changed, return 208 status code
     if (tweetCount === storedTweetCount) {
       return NextResponse.json(
         `(no change) TweetCount: ${tweetCount} | StoredTweetCount: ${storedTweetCount}`,
@@ -71,6 +64,7 @@ export async function GET() {
         }
       )
     } else {
+      // If the tweet count has changed, update the stored tweet count and return 200 status code
       updateTweetCount(tweetCount)
       return NextResponse.json(`(updated) Tweet count: ${tweetCount}`, {
         status: 200,
