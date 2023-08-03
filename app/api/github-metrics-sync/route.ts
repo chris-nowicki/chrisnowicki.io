@@ -5,28 +5,27 @@ import {
   updateGithubMetrics,
 } from '@/lib/vercel-storage'
 
-export const dynamic = 'force-dynamic'
-export const revalidate = false
-export const runtime = 'nodejs'
-
-// zod env type checking
+// Zod env type checking
 import { env } from '@/types/env-private'
+
+// Nextjs route segment config
+export const dynamic = 'force-dynamic'
 
 export async function GET() {
   const octokit = new Octokit({
     auth: env.GITHUB_TOKEN,
   })
 
-  // retrieve all repos from my account
+  // Retrieve all repos from my account
   const repos = await octokit.request('GET /user/repos', {
     per_page: 100,
     affiliation: 'owner',
   })
 
-  // count all repos
+  // Count all repos
   const totalRepos = repos.data.length
 
-  // retrieve all commits and count them
+  // Retrieve all commits and count them
   let totalCommits = 0
 
   for (const repo of repos.data) {
@@ -38,7 +37,7 @@ export async function GET() {
       }
     )
 
-    // only count commits from my account
+    // Only count commits from my account
     if (commits.data.length > 0) {
       for (const contributor of commits.data) {
         if (contributor.login === repo.owner.login) {
@@ -55,20 +54,22 @@ export async function GET() {
 
   const storedGithubMetrics = await getStoredGithubMetrics()
 
+  // If the metrics haven't changed, return 208 status code
   if (
     storedGithubMetrics.commits == totalCommits &&
     storedGithubMetrics.repos == totalRepos
   ) {
     return NextResponse.json(
-      `commits: ${totalCommits} repos: ${totalRepos} - (no change)`,
+      `(no change) commits: ${totalCommits} repos: ${totalRepos}`,
       {
         status: 208,
       }
     )
   } else {
+    // If the metrics have changed, update the stored metrics and return 200 status code
     updateGithubMetrics(totalCommits, totalRepos)
     return NextResponse.json(
-      `commits: ${totalCommits}, repos: ${totalRepos} - (updated)`,
+      `(updated) commits: ${totalCommits}, repos: ${totalRepos}`,
       { status: 200 }
     )
   }
