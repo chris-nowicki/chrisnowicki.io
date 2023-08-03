@@ -9,7 +9,7 @@ import {
 import { env } from '@/types/env-private'
 
 // Nextjs route segment config
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-dynamic' // Force dynamic (server) route instead of static page
 
 export async function GET() {
   const octokit = new Octokit({
