@@ -4,11 +4,11 @@ import { NextResponse } from 'next/server'
 import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
 import { getTweetCount } from '@/lib/twitter-api'
 
-// zod env type checking
+// Zod env type checking
 import { env } from '@/types/env-private'
 
-// nextjs route segment config
-export const dynamic = 'force-dynamic' // force dynamic (server) route instead of static page
+// Nextjs route segment config
+export const dynamic = 'force-dynamic' // Force dynamic (server) route instead of static page
 
 export async function GET() {
   const consumerKey = env.TWITTER_CONSUMER_KEY
