@@ -2,9 +2,10 @@ import { ImageResponse } from '@vercel/og'
 import { NextRequest } from 'next/server'
 import { NEXTJS, TAILWIND, SANITY, VERCEL } from '@/components/Icons'
 
-// types
+// Zod env type validation
 import { env } from '@/types/env-private'
 
+// Nextjs route segment config
 export const runtime = 'edge'
 
 export async function GET(req: NextRequest) {
