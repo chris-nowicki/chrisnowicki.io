@@ -5,22 +5,7 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { ArrowIcon } from './Icons'
-
-// types
-type NavItems = {
-  '/': Path
-  '/about': Path
-  '/blog': Path
-  '/resume': Path
-}
-
-type Path = {
-  name: string
-  x: number
-  y: number
-  w: string
-  h: string
-}
+import { navItems } from '@/lib/data'
 
 export default function NavBar() {
   const [showMenu, setShowMenu] = useState<boolean>(false)
@@ -30,37 +15,6 @@ export default function NavBar() {
     const btn: HTMLElement = document.getElementById('menu-btn')
     btn.classList.toggle('open')
     setShowMenu(showMenu === false ? true : false)
-  }
-
-  const navItems: NavItems = {
-    '/': {
-      name: 'home',
-      x: 0,
-      y: 3,
-      w: '67.5px',
-      h: '37px',
-    },
-    '/about': {
-      name: 'about',
-      x: 68,
-      y: 3,
-      w: '68px',
-      h: '37px',
-    },
-    '/blog': {
-      name: 'blog',
-      x: 135.7,
-      y: 3,
-      w: '56px',
-      h: '37px',
-    },
-    '/resume': {
-      name: 'resume',
-      x: 638,
-      y: 0,
-      w: '130px',
-      h: '42px',
-    },
   }
 
   return (
