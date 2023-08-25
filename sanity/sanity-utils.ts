@@ -1,3 +1,5 @@
+import 'server-only'
+
 import { createClient } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
 import { cache } from 'react'
