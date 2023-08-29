@@ -59,8 +59,8 @@
     "paths": {
       "@/*": ["app/*"],
       "@/types/*": ["types/*"],
-      "@/components/*": ["app/components/*"],
-      "@/hooks/*": ["app/hooks/*"],
+      "@/components/*": ["components/*"],
+      "@/hooks/*": ["hooks/*"],
       "@/lib/*": ["lib/*"],
       "@/sanity/*": ["sanity/*"]
     },

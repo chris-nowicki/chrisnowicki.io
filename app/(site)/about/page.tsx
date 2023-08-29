@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import SocialLink from '@/components/SocialLink'
+import SocialLink from 'components/SocialLink'
 import ogImageURL from '@/lib/og-image-url'
 import { PortableText } from '@portabletext/react'
 import { aboutMePortableText } from './portableText'
-import { GitHub, Twitter } from '@/components/Icons'
+import { GitHub, Twitter } from 'components/Icons'
 
 // types
 import { Metadata } from 'next'
@@ -58,7 +58,10 @@ export default async function About() {
     <div className="mb-12 flex flex-col p-4 md:rounded md:border md:border-borderColor-light md:dark:border-borderColor-dark">
       <div className="flex flex-wrap md:flex-nowrap">
         <div className="flex w-full flex-col items-start text-left text-lg md:mr-6">
-          <PortableText value={pageData.content} components={aboutMePortableText} />
+          <PortableText
+            value={pageData.content}
+            components={aboutMePortableText}
+          />
         </div>
         <div className="flex w-full flex-col sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
           <Image

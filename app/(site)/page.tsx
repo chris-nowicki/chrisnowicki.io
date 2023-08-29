@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import SocialLink from '@/components/SocialLink'
+import SocialLink from 'components/SocialLink'
 import { PortableText } from '@portabletext/react'
 import { homePortableText } from './portableText'
-import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects'
+import FeaturedProjects from '../../components/FeaturedProjects/FeaturedProjects'
 import {
   Linkedin,
   GitHub,
@@ -16,7 +16,7 @@ import {
   MYSQL,
   MDB,
   VERCEL,
-} from '@/components/Icons'
+} from 'components/Icons'
 
 // types
 import { SocialLinksType, HomePageType } from 'types'
@@ -44,7 +44,7 @@ export default async function Home() {
     <div className="flex flex-col">
       <div className="flex flex-col rounded border-borderColor-light p-4 dark:border-borderColor-dark md:mx-0 md:flex-nowrap md:border">
         <div className="flex flex-wrap-reverse md:flex-nowrap">
-          <div className="flex w-full flex-col items-start text-left text-lg md:mr-6">
+          <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
             <PortableText
               value={pageData.content}
               components={homePortableText}
