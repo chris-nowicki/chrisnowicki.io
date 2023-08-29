@@ -59,7 +59,7 @@
     "paths": {
       "@/*": ["app/*"],
       "@/types/*": ["types/*"],
-      "@/components/*": ["components/*"],
+      "@/components/*": ["app/components/*"],
       "@/hooks/*": ["hooks/*"],
       "@/lib/*": ["lib/*"],
       "@/sanity/*": ["sanity/*"]

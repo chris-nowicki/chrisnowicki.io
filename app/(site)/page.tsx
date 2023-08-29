@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import SocialLink from 'components/SocialLink'
+import SocialLink from '@/components/SocialLink'
 import { PortableText } from '@portabletext/react'
 import { homePortableText } from './portableText'
-import FeaturedProjects from '../../components/FeaturedProjects/FeaturedProjects'
+import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects'
 import {
   Linkedin,
   GitHub,
@@ -16,7 +16,7 @@ import {
   MYSQL,
   MDB,
   VERCEL,
-} from 'components/Icons'
+} from '@/components/Icons'
 
 // types
 import { SocialLinksType, HomePageType } from 'types'

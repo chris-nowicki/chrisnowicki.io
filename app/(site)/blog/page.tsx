@@ -1,6 +1,6 @@
 import format from 'date-fns/format'
 import ogImageURL from '@/lib/og-image-url'
-import { DEVTO } from 'components/Icons'
+import { DEVTO } from '@/components/Icons'
 
 // types
 import { Metadata } from 'next'

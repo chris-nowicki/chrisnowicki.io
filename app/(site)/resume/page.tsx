@@ -3,7 +3,7 @@ import TechSkills from './TechSkills/TechSkills'
 import TechnicalProjects from './TechnicalProjects/TechnicalProjects'
 import ProfessionalExperience from './ProfessionalExperience'
 import Education from './Education'
-import SocialLink from 'components/SocialLink'
+import SocialLink from '@/components/SocialLink'
 import ogImageURL from '@/lib/og-image-url'
 
 // types
