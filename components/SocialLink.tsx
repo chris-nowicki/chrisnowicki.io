@@ -1,7 +1,15 @@
 import Link from 'next/link'
 import clsx from 'clsx'
+import {
+  ArrowIcon,
+  Linkedin,
+  GitHub,
+  Twitter,
+  Instagram,
+  PDF,
+  Download,
+} from './Icons'
 
-// types
 type SocialLinks = {
   arrowPlacement?: string
   arrowSize?: number
@@ -14,17 +22,6 @@ type SocialLinks = {
   fontSize?: string
   url: string
 }
-
-// icons
-import {
-  ArrowIcon,
-  Linkedin,
-  GitHub,
-  Twitter,
-  Instagram,
-  PDF,
-  Download,
-} from './Icons'
 
 export default function SocialLink({
   arrowPlacement = 'after',

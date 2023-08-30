@@ -57,12 +57,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@/*": ["app/*"],
-      "@/types/*": ["types/*"],
-      "@/components/*": ["app/components/*"],
-      "@/hooks/*": ["hooks/*"],
-      "@/lib/*": ["lib/*"],
-      "@/sanity/*": ["sanity/*"]
+      "@/*": ["./*"]
     },
     "plugins": [
       {

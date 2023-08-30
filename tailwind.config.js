@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./app/**/*.{ts,tsx}'],
+  content: ['./**/*.{ts,tsx}'],
   theme: {
     screens: {
       sm: '350px',
@@ -9,9 +9,6 @@ module.exports = {
       xl: '2000px',
     },
     extend: {
-      fontFamily: {
-        serif: ['var(--font-roboto)'],
-      },
       colors: {
         'background-dark': '#111827',
         'background-light': '#282a36',

@@ -1,28 +1,14 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import SocialLink from '@/components/SocialLink'
-import { PortableText } from '@portabletext/react'
-import { homePortableText } from './portableText'
-import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects'
-import {
-  Linkedin,
-  GitHub,
-  Twitter,
-  Instagram,
-  NEXTJS,
-  TS,
-  TAILWIND,
-  SANITY,
-  MYSQL,
-  MDB,
-  VERCEL,
-} from '@/components/Icons'
+import Intro from '@/components/Intro'
+import TechStack from '@/components/TechStack'
+import FeaturedProjects from '@/components/FeaturedProjects/FeaturedProjects'
 
 // types
-import { SocialLinksType, HomePageType } from 'types'
+import { SocialLinksType, HomePageType } from '@/types'
 
 // sanity cms queries
 import { getSocialLinks, getHomePage } from '@/sanity/sanity-queries'
+
 
 export default async function Home() {
   const socialLinkData: Promise<SocialLinksType> = getSocialLinks()
@@ -42,122 +28,12 @@ export default async function Home() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-col rounded border-borderColor-light p-4 dark:border-borderColor-dark md:mx-0 md:flex-nowrap md:border">
-        <div className="flex flex-wrap-reverse md:flex-nowrap">
-          <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
-            <PortableText
-              value={pageData.content}
-              components={homePortableText}
-            />
-          </div>
-          <div className="flex w-[200px] flex-col gap-4 sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
-            <Link href={'/about'} className="flex w-full">
-              <Image
-                className="rounded shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
-                width={400}
-                height={400}
-                src={pageData.profilePicture}
-                alt="chris nowicki"
-                priority
-              />
-            </Link>
-
-            {/* social media icons */}
-            <div className="flex gap-4 md:justify-center">
-              <div className="flex items-center gap-2">
-                <a
-                  href="https://www.linkedin.com/in/chris-nowicki
-"
-                  className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
-                  target="_blank"
-                >
-                  <Linkedin size={28} />
-                </a>
-                <a
-                  href="https://github.com/chris-nowicki"
-                  className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
-                  target="_blank"
-                >
-                  <GitHub size={28} />
-                </a>
-                <a
-                  href="https://twitter.com/iamwix"
-                  className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
-                  target="_blank"
-                >
-                  <Twitter size={28} />
-                </a>
-                <a
-                  href="https://instagram.com/iamwix"
-                  className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
-                  target="_blank"
-                >
-                  <Instagram size={28} />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* favorite tech stack */}
-        <div className="mt-4 flex flex-wrap items-center gap-2 rounded border-t-4 border-background-light p-4 shadow-md dark:border-purple-dark dark:bg-foreground md:justify-between md:gap-0 ">
-          <a
-            href="https://nextjs.org/"
-            className="duration-100 ease-in-out hover:scale-110"
-            target="_blank"
-          >
-            <NEXTJS />
-          </a>
-          <a
-            href="https://www.typescriptlang.org/"
-            className="duration-100 ease-in-out hover:scale-125"
-            target="_blank"
-          >
-            <TS />
-          </a>
-          <a
-            href="https://tailwindcss.com/"
-            className="duration-100 ease-in-out hover:scale-125"
-            target="_blank"
-          >
-            <TAILWIND />
-          </a>
-          <a
-            href="https://www.sanity.io/"
-            className="duration-100 ease-in-out hover:scale-125"
-            target="_blank"
-          >
-            <SANITY />
-          </a>
-          <a
-            href="https://www.mysql.com/"
-            className="duration-100 ease-in-out hover:scale-125"
-            target="_blank"
-          >
-            <MYSQL />
-          </a>
-
-          <a
-            href="https://www.mongodb.com/"
-            className="duration-100 ease-in-out hover:scale-125"
-            target="_blank"
-          >
-            <MDB />
-          </a>
-          <a
-            href="https://www.vercel.com"
-            className="duration-100 ease-in-out hover:scale-125"
-            target="_blank"
-          >
-            <VERCEL />
-          </a>
-        </div>
-      </div>
+      <Intro />
 
       {/* featured projects */}
-      <div className="mx-5 mt-4 flex flex-col md:mx-0">
+      <div className="mx-5 mt-8 flex flex-col md:mx-0">
         <h1 className="w-full rounded-tl rounded-tr bg-background-light py-1 text-center text-2xl uppercase text-purple-dark dark:bg-background-dark ">
-          Projects
+          My Projects
         </h1>
         <FeaturedProjects projects={pageData.featuredProjects} />
       </div>

@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { GitHub, OpenOutline } from '@/components/Icons'
+import { GitHub, OpenOutline } from 'components/Icons'
 
 type ProjectLink = {
   url: string

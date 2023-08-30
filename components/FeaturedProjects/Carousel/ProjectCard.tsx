@@ -31,7 +31,7 @@ export default function ProjectCard({
     enter: (direction: number) => {
       return {
         x: direction > 0 ? 600 : -600,
-        opacity: 1,
+        opacity: .75,
       }
     },
     center: {
@@ -43,7 +43,7 @@ export default function ProjectCard({
       return {
         zIndex: 0,
         x: direction < 0 ? 800 : -800,
-        opacity: 1,
+        opacity: 0,
       }
     },
   }
@@ -57,11 +57,10 @@ export default function ProjectCard({
           variants={variants}
           initial="enter"
           animate="center"
-          exit="exit"
           transition={{
             x: {
               type: 'spring',
-              duration: 0.3,
+              duration: 0.5,
             },
           }}
         >

@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { motion } from 'framer-motion'
-import { ArrowIcon } from './Icons'
+import { ArrowIcon } from '@/components/Icons'
 import { navItems } from '@/lib/data'
 
 export default function NavBar() {

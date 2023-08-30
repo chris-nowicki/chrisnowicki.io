@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Location } from '@/components/Icons'
+import { Location } from 'components/Icons'
 
 // types
 type ContactInfoType = {

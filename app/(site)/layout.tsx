@@ -1,6 +1,6 @@
 import Nav from '@/components/NavBar'
 import { AnalyticsWrapper } from '@/components/Analytics'
-import '@/globals.css'
+import '@/app/globals.css'
 
 // types
 import type { Metadata } from 'next'
@@ -10,10 +10,8 @@ import { SeoType } from 'types'
 import { Roboto } from 'next/font/google'
 
 const roboto = Roboto({
-  weight: '400',
+  weight: ['400', '700'],
   subsets: ['latin'],
-  variable: '--font-roboto',
-  display: 'swap',
 })
 
 // sanity cms query
@@ -68,8 +66,8 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={roboto.variable}>
-      <body className="bg-gray-50 dark:bg-background-light dark:text-foreground">
+    <html lang="en">
+      <body className={`${roboto.className} bg-gray-50 dark:bg-background-light dark:text-foreground`}>
         <div className="flex flex-col items-center">
           <div className="w-full max-w-3xl">
             <Nav />

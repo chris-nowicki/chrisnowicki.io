@@ -1,9 +1,9 @@
 import Image from 'next/image'
-import SocialLink from '@/components/SocialLink'
+import SocialLink from 'components/SocialLink'
 import ogImageURL from '@/lib/og-image-url'
 import { PortableText } from '@portabletext/react'
-import { aboutMePortableText } from './portableText'
-import { GitHub, Twitter } from '@/components/Icons'
+import { aboutMePortableText } from '@/lib/portable-text'
+import { GitHub, Twitter } from 'components/Icons'
 
 // types
 import { Metadata } from 'next'

@@ -54,7 +54,7 @@ export default function ContentCarousel({ contents }) {
         </div>
 
         <div className="flex w-full overflow-hidden">
-          <AnimatePresence initial={false} custom={direction} mode="wait">
+          <AnimatePresence initial={false} custom={direction} mode="popLayout">
             <div key={page}>
               {contents.map((project: any, index: number) => (
                 <ProjectCard
