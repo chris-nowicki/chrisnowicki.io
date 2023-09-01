@@ -1,9 +1,23 @@
+'use client'
 import React from 'react'
-import { NEXTJS, TS, TAILWIND, SANITY, MYSQL, MDB, VERCEL } from './Icons'
+import {
+  NEXTJS,
+  TS,
+  TAILWIND,
+  SANITY,
+  MYSQL,
+  MDB,
+  VERCEL,
+} from '../assets/Icons'
+import { motion } from 'framer-motion'
 
 export default function TechStack() {
   return (
-    <div className="mt-8 flex flex-wrap items-center gap-2 dark:bg-foreground md:justify-between md:gap-0 ">
+    <motion.section
+      className="mt-12 flex w-full flex-wrap items-center gap-2 px-12 dark:bg-foreground md:justify-between md:gap-0"
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
+    >
       <a
         href="https://nextjs.org/"
         className="duration-100 ease-in-out hover:scale-105"
@@ -54,6 +68,6 @@ export default function TechStack() {
       >
         <VERCEL />
       </a>
-    </div>
+    </motion.section>
   )
 }

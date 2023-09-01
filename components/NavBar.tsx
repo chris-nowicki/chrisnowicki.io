@@ -2,14 +2,12 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 import { useState } from 'react'
-import { usePathname } from 'next/navigation'
-import { motion } from 'framer-motion'
-import { ArrowIcon } from '@/components/Icons'
 import { navItems } from '@/lib/data'
+import { motion } from 'framer-motion'
 
 export default function NavBar() {
   const [showMenu, setShowMenu] = useState<boolean>(false)
-  const pathname: string = usePathname()
+  const [activeSection, setActiveSection] = useState<string>('Home')
 
   const handleMenu = () => {
     const btn: HTMLElement = document.getElementById('menu-btn')
@@ -18,61 +16,45 @@ export default function NavBar() {
   }
 
   return (
-    <nav id="home" className="mb-6">
-      <div className="relative flex w-full items-center justify-between px-5 pb-4 pt-4 sm:shadow md:px-0 md:shadow-none">
-        {/* motion settings for active links*/}
-        {navItems[pathname] && (
-          <div className="hidden md:block">
-            <motion.div
-              className="absolute top-4 z-[-1] rounded-lg border border-borderColor-light bg-neutral-100 px-2 py-1 dark:border-neutral-900/50 dark:bg-neutral-900/20"
-              layoutId="test"
-              initial={{
-                opacity: 0,
-                x: navItems[pathname].x,
-                y: navItems[pathname].y,
-                width: 0,
-                height: 0,
-              }}
-              animate={{
-                opacity: 1,
-                x: navItems[pathname].x,
-                y: navItems[pathname].y,
-                width: navItems[pathname].w,
-                height: navItems[pathname].h,
-              }}
-              transition={{
-                type: 'spring',
-                stiffness: 350,
-                damping: 30,
-              }}
-            />
-          </div>
-        )}
-
+    <nav className="fixed left-1/2 top-6 z-[999] w-full max-w-3xl -translate-x-1/2">
+      <motion.div
+        className="relative flex items-center justify-center px-5 pb-4 pt-4 sm:shadow md:px-0 md:shadow-none "
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+      >
         {/* regular nav menu */}
-        <div className="absolute sm:hidden md:flex">
-          {Object.entries(navItems).map(([path, { name }]) => {
-            const isActive = path === pathname
-            return (
-              path != '/resume' && (
-                <Link
-                  key={path}
-                  href={path}
-                  className={clsx(
-                    'dark:text-textDark rounded-lg border border-transparent px-2 py-1 text-xl',
-                    {
-                      'hover:text-purple-light dark:hover:text-purple-dark':
-                        !isActive,
-                      'text-purple-light dark:text-purple-dark': isActive,
-                    }
-                  )}
-                >
-                  {name}
-                </Link>
-              )
-            )
-          })}
-        </div>
+        <ul className="absolute mt-6  gap-4 rounded-full bg-white bg-opacity-40 px-6 py-2 shadow-lg backdrop-blur-xl sm:hidden md:flex">
+          {navItems.map(({ name, hash }) => (
+            <motion.li
+              key={hash}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+            >
+              <Link
+                href={hash}
+                className={clsx(
+                  'dark:text-textDark relative rounded-lg border border-transparent text-lg hover:text-black',
+                  activeSection === name ? 'text-black' : 'text-gray-600'
+                )}
+                onClick={() => setActiveSection(name)}
+              >
+                {name}
+                
+                {activeSection === name && (
+                  <motion.span
+                    className="absolute -bottom-1 left-0 w-full rounded border-b-4 border-b-purple-light"
+                    layoutId="activeSection"
+                    transition={{
+                      type: 'spring',
+                      stiffness: 380,
+                      damping: 30,
+                    }}
+                  />
+                )}
+              </Link>
+            </motion.li>
+          ))}
+        </ul>
 
         {/* hamburger menu for mobile */}
         <button
@@ -92,38 +74,20 @@ export default function NavBar() {
               id="menu"
               className="absolute left-6 right-6 z-10 -ml-6 mt-9 flex flex-col items-center justify-center space-y-2 self-end bg-background-light py-4 text-foreground opacity-95 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
             >
-              {Object.entries(navItems).map(([path, { name }]) => {
-                return (
-                  path != '/resume' && (
-                    <Link
-                      key={path}
-                      href={path}
-                      className="text-2xl text-foreground hover:text-purple-dark"
-                      onClick={() => handleMenu()}
-                    >
-                      {name}
-                    </Link>
-                  )
-                )
-              })}
+              {navItems.map(({ name, hash }) => (
+                <Link
+                  key={hash}
+                  href={hash}
+                  className="text-2xl text-foreground hover:text-purple-dark"
+                  onClick={() => handleMenu()}
+                >
+                  {name}
+                </Link>
+              ))}
             </div>
           </div>
         )}
-
-        {/* link to resume page */}
-        <Link
-          href="/resume"
-          className={clsx(
-            'flex items-center justify-between gap-2 rounded-lg border border-neutral-200 px-4 py-1.5 text-lg  dark:border-neutral-900/50 dark:text-foreground md:gap-6',
-            pathname === '/resume'
-              ? ' text-purple-light dark:text-purple-dark'
-              : 'hover:bg-neutral-100 hover:dark:bg-neutral-900/20'
-          )}
-        >
-          resumé
-          <ArrowIcon size={12} />
-        </Link>
-      </div>
+      </motion.div>
     </nav>
   )
 }

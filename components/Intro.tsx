@@ -1,36 +1,59 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
-import { Linkedin, GitHub, Twitter } from '@/components/Icons'
+import { Linkedin, GitHub, Twitter, DEVTO } from '@/assets/Icons'
 import { SocialLinksType, HomePageType } from '@/types'
 import { homePortableText } from '@/lib/portable-text'
+import { BsArrowRight, BsDownload } from 'react-icons/bs'
+import { motion } from 'framer-motion'
 
-// sanity cms queries
-import { getSocialLinks, getHomePage } from '@/sanity/sanity-queries'
+type IntroProps = {
+  pageData: HomePageType
+  socialLink: SocialLinksType
+}
 
-export default async function Intro() {
-  const socialLinkData: Promise<SocialLinksType> = getSocialLinks()
-  const homePageData: Promise<HomePageType> = getHomePage()
-
-  const [socialLink, pageData] = await Promise.all([
-    socialLinkData,
-    homePageData,
-  ])
-
+export default function Intro({ pageData, socialLink }: IntroProps) {
   return (
-    <section id="home" className="flex flex-col md:mx-0 md:flex-nowrap">
-      <div className="flex flex-wrap-reverse md:flex-nowrap">
+    <section
+      id="home"
+      className="mt-32 flex scroll-mt-32 flex-col md:mx-0 md:flex-nowrap"
+    >
+      <motion.div
+        className="flex flex-wrap-reverse md:flex-nowrap"
+        initial={{ opacity: 0, y: 100 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
         <div className="flex w-full flex-col items-start text-left text-xl md:mr-6">
           <PortableText
             value={pageData.content}
             components={homePortableText}
           />
+          <div className="mt-4 flex items-center gap-2">
+            <a
+              href="#contact"
+              className="group flex items-center gap-3 rounded-full border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40  dark:border-borderColor-dark 
+            "
+            >
+              Contact{' '}
+              <BsArrowRight className="transition group-hover:translate-x-1" />
+            </a>
+            <a
+              href={pageData.resumeURL}
+              className="group flex items-center gap-2 rounded-full border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40  dark:border-borderColor-dark 
+            "
+              target="_blank"
+            >
+              Download CV{' '}
+              <BsDownload className="transition-all group-hover:translate-y-1" />
+            </a>
+          </div>
         </div>
         <div className="flex w-[200px] flex-col gap-4 sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
           <Link href={'/about'} className="flex w-full">
             <Image
-              className="rounded shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
+              className="rounded-full bg-white p-2 shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
               width={400}
               height={400}
               src={pageData.profilePicture}
@@ -63,10 +86,17 @@ export default async function Intro() {
               >
                 <Twitter size={28} />
               </a>
+              <a
+                href="https://dev.to/chrisnowicki/"
+                className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
+                target="_blank"
+              >
+                <DEVTO size={28} />
+              </a>
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   )
 }

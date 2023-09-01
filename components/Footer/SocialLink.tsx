@@ -5,10 +5,9 @@ import {
   Linkedin,
   GitHub,
   Twitter,
-  Instagram,
   PDF,
   Download,
-} from './Icons'
+} from '../../assets/Icons'
 
 type SocialLinks = {
   arrowPlacement?: string
@@ -56,10 +55,8 @@ export default function SocialLink({
           <Linkedin size={24} />
         ) : icon === 'github' ? (
           <GitHub size={24} />
-        ) : icon === 'twitter' ? (
-          <Twitter size={24} />
         ) : (
-          <Instagram size={24} />
+          <Twitter size={24} />
         )}
 
         {icon === 'pdf' ? 'Download Resumé' : content}
@@ -69,10 +66,8 @@ export default function SocialLink({
           <Linkedin size={24} />
         ) : icon === 'github' ? (
           <GitHub size={24} />
-        ) : icon === 'twitter' ? (
-          <Twitter size={24} />
         ) : (
-          <Instagram size={24} />
+          <Twitter size={24} />
         )
       ) : icon === 'pdf' ? (
         <Download size={24} />

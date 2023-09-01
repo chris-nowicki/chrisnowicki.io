@@ -1,5 +1,5 @@
 import clsx from 'clsx'
-import { GitBranchOutline, OpenOutline } from 'components/Icons'
+import { GitBranchOutline, OpenOutline } from '@/assets/Icons'
 
 // types
 import { TechnicalProjectType } from '@/types/resume'

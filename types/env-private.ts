@@ -8,6 +8,7 @@ const privateEnvSchema = z.object({
   GITHUB_TOKEN: z.string(),
   DEVTO_API_KEY: z.string(),
   NODE_ENV: z.string(),
+  RESEND_API_KEY: z.string(),
 })
 
 export type Env = z.infer<typeof privateEnvSchema>
@@ -20,6 +21,7 @@ export const env: Env = {
   GITHUB_TOKEN: process.env.GITHUB_TOKEN,
   DEVTO_API_KEY: process.env.DEVTO_API_KEY,
   NODE_ENV: process.env.NODE_ENV,
+  RESEND_API_KEY: process.env.RESEND_API_KEY,
 }
 
 privateEnvSchema.parse(env)
