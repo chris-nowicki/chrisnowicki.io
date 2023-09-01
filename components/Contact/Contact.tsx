@@ -1,14 +1,32 @@
 'use client'
+
 import React from 'react'
 import SubmitBtn from './SubmitButton'
 import { sendEmail } from '@/actions/send-email'
 import toast from 'react-hot-toast'
+import { useSectionInView } from '@/hooks/useSectionInView'
+import { motion } from 'framer-motion'
 
 export default function Contact() {
+  const { ref } = useSectionInView('Contact', .25)
+
   return (
-    <section
+    <motion.section
+      ref={ref}
       id="contact"
       className="mb-16 flex w-full scroll-mt-28 flex-col items-center gap-2"
+      initial={{
+        opacity: 0,
+      }}
+      whileInView={{
+        opacity: 1,
+      }}
+      transition={{
+        duration: 1,
+      }}
+      viewport={{
+        once: true,
+      }}
     >
       <h1 className="flex items-center gap-2 text-4xl uppercase">Contact Me</h1>
       <p className="-mt-2 text-lg text-gray-700 dark:text-white/80">
@@ -59,6 +77,6 @@ export default function Contact() {
           <SubmitBtn />
         </form>
       </div>
-    </section>
+    </motion.section>
   )
 }

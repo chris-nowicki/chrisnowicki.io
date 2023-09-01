@@ -1,39 +1,39 @@
+'use client'
+
 import React from 'react'
 import { DEVTO } from '@/assets/Icons'
-import { env } from '@/types/env-private'
 import format from 'date-fns/format'
 import { BsArrowRight, BsArrowUpRight } from 'react-icons/bs'
+import { Article } from '@/types'
+import { useSectionInView } from '@/hooks/useSectionInView'
+import {motion} from 'framer-motion'
 
-type Article = {
-  id: string
-  title: string
-  url: string
-  published_at: string
-  page_views_count: number
-  reading_time_minutes: number
+type BlogProps = {
+  articles: Article[]
 }
 
-// query dev.to for published articles
-async function getArticles(): Promise<Article[]> {
-  const res = await fetch('https://dev.to/api/articles/me/published', {
-    headers: {
-      'api-key': env.DEVTO_API_KEY,
-      useCDN: 'false',
+const fadeInAnimate = {
+  initial: {
+    opacity: 0,
+  },
+  animate: (index: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 0.5 * index,
     },
-    next: {
-      revalidate: 60,
-    },
-  })
-  const articles = await res.json()
-  return articles
+  }),
 }
 
-export default async function Blog() {
-  const articles: Article[] = await getArticles()
+export default function Blog({ articles }: BlogProps) {
+  const { ref } = useSectionInView('Blog', .5)
   return (
-    <section
+    <motion.section
+      ref={ref}
       id="blog"
       className="flex w-full scroll-mt-28 flex-col items-center"
+      initial={{ opacity: 0, y: 100 }}
+      animate={{ opacity: 1, y: 0 }}
     >
       <h1 className="flex items-center gap-2 text-4xl uppercase">blog</h1>
       <p className="flex items-center gap-2 text-lg">
@@ -48,12 +48,16 @@ export default async function Blog() {
         </a>
       </p>
       <div className="mt-4 flex w-full flex-col gap-2">
-        {articles.map((article: Article) => (
-          <a
+        {articles.map((article: Article, index) => (
+          <motion.a
             key={article.id}
             href={article.url}
             className="text-md group flex items-center justify-between rounded-lg border bg-gray-300/20 p-4 text-lg hover:bg-gray-300/40"
             target="_blank"
+            custom={index}
+            variants={fadeInAnimate}
+            initial="initial"
+            whileInView="animate"
           >
             <div className="flex flex-col">
               <span className="font-bold text-purple-light dark:text-purple-dark">
@@ -67,9 +71,9 @@ export default async function Blog() {
               </span>
             </div>
             <BsArrowUpRight className="mr-4 transition-all ease-in-out group-hover:scale-125 group-hover:animate-pulse" />
-          </a>
+          </motion.a>
         ))}
       </div>
-    </section>
+    </motion.section>
   )
 }

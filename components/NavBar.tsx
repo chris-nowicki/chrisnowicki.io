@@ -4,10 +4,12 @@ import clsx from 'clsx'
 import { useState } from 'react'
 import { navItems } from '@/lib/data'
 import { motion } from 'framer-motion'
+import { useActiveSection } from '@/context/active-section'
 
 export default function NavBar() {
   const [showMenu, setShowMenu] = useState<boolean>(false)
-  const [activeSection, setActiveSection] = useState<string>('Home')
+  const { activeSection, setActiveSection, setTimeOfLastClick } =
+    useActiveSection()
 
   const handleMenu = () => {
     const btn: HTMLElement = document.getElementById('menu-btn')
@@ -36,10 +38,13 @@ export default function NavBar() {
                   'dark:text-textDark relative rounded-lg border border-transparent text-lg hover:text-black',
                   activeSection === name ? 'text-black' : 'text-gray-600'
                 )}
-                onClick={() => setActiveSection(name)}
+                onClick={() => {
+                  setActiveSection(name)
+                  setTimeOfLastClick(Date.now())
+                }}
               >
                 {name}
-                
+
                 {activeSection === name && (
                   <motion.span
                     className="absolute -bottom-1 left-0 w-full rounded border-b-4 border-b-purple-light"

@@ -1,5 +1,6 @@
-import Nav from '@/components/NavBar'
+import NavBar from '@/components/NavBar'
 import { AnalyticsWrapper } from '@/components/Analytics'
+import { ActiveSectionContextProvider } from '@/context/active-section'
 import '@/app/globals.css'
 import { Toaster } from 'react-hot-toast'
 
@@ -71,19 +72,32 @@ export default async function RootLayout({
       <body
         className={`${roboto.className} bg-gray-50 dark:bg-background-light dark:text-foreground`}
       >
-        <div className="absolute right-[3rem] top-[-6rem] -z-10 h-[31.25rem] w-[31.25rem] rounded-full bg-[#cfb3f8] blur-[10rem] dark:blur-[15rem] dark:bg-[#a88bd4] sm:w-[68.75rem]"></div>
+        <div className="absolute right-[3rem] top-[-6rem] -z-10 h-[31.25rem] w-[31.25rem] rounded-full bg-[#cfb3f8] blur-[10rem] dark:bg-[#a88bd4] dark:blur-[15rem] sm:w-[68.75rem]"></div>
         <div className="2xl:left-[-5rem] absolute left-[-35rem] top-[-1rem] -z-10 h-[31.25rem] w-[50rem] rounded-full bg-[#e1e1dc] blur-[10rem] dark:bg-[#111827] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem]"></div>
-        <div className="absolute left-0 top-0"></div>
+
         <div className="flex flex-col items-center">
           <div className="w-full max-w-3xl">
-            <Nav />
-            <main className="z-10">
-              {children}
-              <AnalyticsWrapper />
-            </main>
+            <ActiveSectionContextProvider>
+              <NavBar />
+              <main className="z-10">
+                {children}
+                <AnalyticsWrapper />
+              </main>
+            </ActiveSectionContextProvider>
           </div>
         </div>
+
         <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
+
+        <div className="fixed bottom-0 z-[-10] hidden w-full">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path
+              fill="#44475a"
+              fill-opacity="1"
+              d="M0,224L80,240C160,256,320,288,480,293.3C640,299,800,277,960,272C1120,267,1280,277,1360,282.7L1440,288L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
       </body>
     </html>
   )

@@ -6,8 +6,9 @@ import Skills from '@/components/Skills'
 import Blog from '@/components/Blog'
 import Contact from '@/components/Contact/Contact'
 import Footer from '@/components/Footer/Footer'
-import { SocialLinksType, HomePageType } from '@/types'
-import {PiCaretDoubleDownLight} from 'react-icons/pi'
+import { SocialLinksType, HomePageType, Article } from '@/types'
+import { PiCaretDoubleDownLight } from 'react-icons/pi'
+import { getArticles } from '@/lib/devto-api'
 
 // sanity cms queries
 import { getSocialLinks, getHomePage } from '@/sanity/sanity-queries'
@@ -15,10 +16,12 @@ import { getSocialLinks, getHomePage } from '@/sanity/sanity-queries'
 export default async function Home() {
   const socialLinkData: Promise<SocialLinksType> = getSocialLinks()
   const homePageData: Promise<HomePageType> = getHomePage()
+  const devtoData: Promise<Article[]> = getArticles()
 
-  const [socialLink, pageData] = await Promise.all([
+  const [socialLink, pageData, articles] = await Promise.all([
     socialLinkData,
     homePageData,
+    devtoData,
   ])
 
   const footerLinks = [
@@ -37,7 +40,7 @@ export default async function Home() {
       <PiCaretDoubleDownLight size={98} className="my-24 text-gray-200" />
       <Skills />
       <PiCaretDoubleDownLight size={98} className="my-24 text-gray-200" />
-      <Blog />
+      <Blog articles={articles} />
       <PiCaretDoubleDownLight size={98} className="my-16 text-gray-200" />
       <Contact />
       <Footer footerLinks={footerLinks} />
