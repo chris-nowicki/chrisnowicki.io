@@ -8,13 +8,13 @@ import { useSectionInView } from '@/hooks/useSectionInView'
 import { motion } from 'framer-motion'
 
 export default function Contact() {
-  const { ref } = useSectionInView('Contact', .25)
+  const { ref } = useSectionInView('Contact', 0.25)
 
   return (
     <motion.section
       ref={ref}
       id="contact"
-      className="mb-16 flex w-full scroll-mt-28 flex-col items-center gap-2"
+      className="mb-16 flex w-full scroll-mt-28 flex-col items-center gap-2 sm:px-4 md:px-0"
       initial={{
         opacity: 0,
       }}
@@ -29,7 +29,7 @@ export default function Contact() {
       }}
     >
       <h1 className="flex items-center gap-2 text-4xl uppercase">Contact Me</h1>
-      <p className="-mt-2 text-lg text-gray-700 dark:text-white/80">
+      <p className="-mt-2 md:text-lg text-gray-700 dark:text-white/80 text-center md:text-left">
         Please contact me directly at{' '}
         <a
           className="underline hover:text-purple-light dark:hover:text-purple-dark"

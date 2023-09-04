@@ -24,14 +24,14 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
     <section
       ref={ref}
       id="home"
-      className="mt-32 flex scroll-mt-32 flex-col md:mx-0 md:flex-nowrap"
+      className="mt-28 flex scroll-mt-32 flex-col md:mt-32 md:flex-nowrap"
     >
       <motion.div
-        className="flex flex-wrap-reverse md:flex-nowrap"
+        className="flex flex-wrap-reverse sm:justify-center md:flex-nowrap md:justify-start"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <div className="flex w-full flex-col items-start text-left text-2xl md:mr-6">
+        <div className="flex w-full flex-col sm:items-center md:items-start text-left sm:text-xl md:text-2xl md:mr-6">
           <PortableText
             value={pageData.content}
             components={homePortableText}
@@ -47,20 +47,20 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
               }}
             >
               Contact{' '}
-              <BsArrowRight className="transition group-hover:translate-x-1" />
+              <BsArrowRight className="transition group-hover:translate-x-1 sm:hidden lg:block" />
             </a>
             <a
               href={pageData.resumeURL}
-              className="group flex items-center gap-2 rounded-full border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40  dark:border-borderColor-dark 
+              className="group flex items-center gap-1 rounded-full border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40  dark:border-borderColor-dark 
             "
               target="_blank"
             >
               Download CV{' '}
-              <BsDownload className="transition-all group-hover:translate-y-1" />
+              <BsDownload className="transition-all group-hover:translate-y-1 sm:hidden md:block"/>
             </a>
           </div>
         </div>
-        <div className="flex w-[200px] flex-col gap-4 sm:mb-4 md:mb-0 md:mt-0 md:w-[400px]">
+        <div className="flex w-[200px] flex-col gap-4 sm:mb-4 sm:items-center md:mb-0 md:mt-0 md:w-[400px] ">
           <Image
             className="rounded-full bg-white p-2 shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
             width={400}

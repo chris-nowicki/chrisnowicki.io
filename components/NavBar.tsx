@@ -18,7 +18,7 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="fixed left-1/2 top-6 z-[999] w-full max-w-3xl -translate-x-1/2">
+    <nav className="fixed left-1/2 top-0 z-[999] w-full max-w-3xl -translate-x-1/2 md:top-6">
       <motion.div
         className="relative flex items-center justify-center px-5 pb-4 pt-4 sm:shadow md:px-0 md:shadow-none "
         initial={{ y: -100, opacity: 0 }}
@@ -63,7 +63,7 @@ export default function NavBar() {
 
         {/* hamburger menu for mobile */}
         <button
-          className="hamburger block shadow-2xl focus:outline-none md:hidden"
+          className="absolute hamburger block shadow-2xl focus:outline-none md:hidden"
           id="menu-btn"
           onClick={() => handleMenu()}
         >
@@ -77,13 +77,13 @@ export default function NavBar() {
           <div>
             <div
               id="menu"
-              className="absolute left-6 right-6 z-10 -ml-6 mt-9 flex flex-col items-center justify-center space-y-2 self-end bg-background-light py-4 text-foreground opacity-95 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
+              className="absolute left-6 right-6 z-10 -ml-6 mt-9 flex h-screen flex-col items-center justify-center  space-y-2 self-end bg-background-light py-4 text-foreground opacity-95 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
             >
               {navItems.map(({ name, hash }) => (
                 <Link
                   key={hash}
                   href={hash}
-                  className="text-2xl text-foreground hover:text-purple-dark"
+                  className="text-6xl text-foreground hover:text-purple-dark py-4"
                   onClick={() => handleMenu()}
                 >
                   {name}

@@ -34,7 +34,7 @@ export default function Skills() {
         {skills.map((skill, index) => (
           <motion.li
             key={index}
-            className="rounded-full bg-gray-300/20 px-4 py-2 text-xl text-purple-light dark:text-purple-dark"
+            className="rounded-full bg-gray-300/20 px-4 py-2 text-lg md:text-xl text-purple-light dark:text-purple-dark"
             custom={index}
             variants={fadeInAnimate}
             initial="initial"

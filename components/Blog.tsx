@@ -52,7 +52,7 @@ export default function Blog({ articles }: BlogProps) {
           <motion.a
             key={article.id}
             href={article.url}
-            className="text-md group flex items-center justify-between rounded-lg border bg-gray-300/20 p-4 text-lg hover:bg-gray-300/40"
+            className="text-md group flex items-center justify-between rounded-lg border bg-gray-300/20 p-4 text-lg hover:bg-gray-300/40 sm:mx-4 md:mx-0"
             target="_blank"
             custom={index}
             variants={fadeInAnimate}
@@ -60,17 +60,17 @@ export default function Blog({ articles }: BlogProps) {
             whileInView="animate"
           >
             <div className="flex flex-col">
-              <span className="font-bold text-purple-light dark:text-purple-dark">
+              <span className="font-bold text-purple-light dark:text-purple-dark text-sm md:text-md">
                 {format(new Date(article.published_at), 'MM.dd.yy')}
               </span>
 
-              <span className="md:text-lg">{article.title}</span>
+              <span className="text-sm md:text-lg">{article.title}</span>
               <span className="font-mono text-sm -tracking-[.08em] text-borderColor-dark/50 dark:text-white/40 md:text-base">
                 {Number(article.page_views_count).toLocaleString()} views /{' '}
                 {article.reading_time_minutes} min read
               </span>
             </div>
-            <BsArrowUpRight className="mr-4 transition-all ease-in-out group-hover:scale-125 group-hover:animate-pulse" />
+            <BsArrowUpRight className="mr-4 transition-all ease-in-out group-hover:scale-125 group-hover:animate-pulse sm:hidden md:block" />
           </motion.a>
         ))}
       </div>

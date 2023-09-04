@@ -7,7 +7,6 @@ import Blog from '@/components/Blog'
 import Contact from '@/components/Contact/Contact'
 import Footer from '@/components/Footer/Footer'
 import { SocialLinksType, HomePageType, Article } from '@/types'
-import { PiCaretDoubleDownLight } from 'react-icons/pi'
 import { getArticles } from '@/lib/devto-api'
 
 // sanity cms queries
@@ -35,13 +34,13 @@ export default async function Home() {
     <div className="flex flex-col items-center">
       <Intro pageData={pageData} socialLink={socialLink} />
       <TechStack />
-      <SectionDivider />
+      <SectionDivider type="line" />
       <FeaturedProjects projects={pageData.featuredProjects} />
-      <PiCaretDoubleDownLight size={98} className="my-24 text-gray-200" />
+      <SectionDivider type="chevron" />
       <Skills />
-      <PiCaretDoubleDownLight size={98} className="my-24 text-gray-200" />
+      <SectionDivider type="chevron" />
       <Blog articles={articles} />
-      <PiCaretDoubleDownLight size={98} className="my-16 text-gray-200" />
+      <SectionDivider type="chevron" />
       <Contact />
       <Footer footerLinks={footerLinks} />
     </div>
