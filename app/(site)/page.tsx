@@ -31,7 +31,7 @@ export default async function Home() {
   ] as const
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center w-full">
       <Intro pageData={pageData} socialLink={socialLink} />
       <TechStack />
       <SectionDivider type="line" />

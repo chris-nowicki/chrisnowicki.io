@@ -24,14 +24,14 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
     <section
       ref={ref}
       id="home"
-      className="mt-28 flex scroll-mt-32 flex-col md:mt-32 md:flex-nowrap"
+      className="mt-20 scroll-mt-20 flex md:scroll-mt-32 flex-col md:mt-32 md:flex-nowrap"
     >
       <motion.div
         className="flex flex-wrap-reverse sm:justify-center md:flex-nowrap md:justify-start"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <div className="flex w-full flex-col sm:items-center md:items-start text-left sm:text-xl md:text-2xl md:mr-6">
+        <div className="mr-0 flex w-auto flex-col text-left sm:items-center sm:text-xl md:mr-6 md:items-start md:text-2xl">
           <PortableText
             value={pageData.content}
             components={homePortableText}
@@ -56,7 +56,7 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
               target="_blank"
             >
               Download CV{' '}
-              <BsDownload className="transition-all group-hover:translate-y-1 sm:hidden md:block"/>
+              <BsDownload className="transition-all group-hover:translate-y-1 sm:hidden md:block" />
             </a>
           </div>
         </div>

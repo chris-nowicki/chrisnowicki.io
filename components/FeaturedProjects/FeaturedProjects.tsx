@@ -14,7 +14,7 @@ export default function FeaturedProjects({
     <motion.section
       ref={ref}
       id="projects"
-      className="mx-5 flex scroll-mt-28 flex-col md:mx-0"
+      className="mx-5 flex scroll-mt-20 md:scroll-mt-28 flex-col md:mx-0"
       initial={{ opacity: 0, y: 100 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.175 }}

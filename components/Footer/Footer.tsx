@@ -18,7 +18,7 @@ export default function Footer({ footerLinks }) {
               />
             )
         )}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 flex-wrap">
           {footerLinks.map(
             (link, index) =>
               index != 0 && (

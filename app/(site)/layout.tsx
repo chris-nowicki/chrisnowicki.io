@@ -73,8 +73,8 @@ export default async function RootLayout({
         className={`${roboto.className} bg-gray-50 dark:bg-background-light dark:text-foreground`}
       >
         {/* colored background */}
-        <div className="absolute right-[3rem] top-[-6rem] -z-10 h-[31.25rem] w-[31.25rem] rounded-full bg-[#cfb3f8] blur-[10rem] dark:bg-[#a88bd4] dark:blur-[15rem] sm:w-[68.75rem]"></div>
-        <div className="2xl:left-[-5rem] absolute left-[-35rem] top-[-1rem] -z-10 h-[31.25rem] w-[50rem] rounded-full bg-[#e1e1dc] blur-[10rem] dark:bg-[#111827] sm:w-[68.75rem] md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem]"></div>
+        <div className="absolute right-[3rem] top-[-6rem] -z-10 h-[31.25rem] w-[31.25rem] rounded-full bg-[#cfb3f8] blur-[10rem] dark:bg-[#a88bd4] dark:blur-[15rem] "></div>
+        <div className="2xl:left-[-5rem] absolute left-[-35rem] top-[-1rem] -z-10 h-[31.25rem] w-[50rem] rounded-full bg-[#e1e1dc] blur-[10rem] dark:bg-[#111827]  md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem]"></div>
 
         {/* main portfolio site */}
         <div className="flex flex-col items-center">
@@ -91,8 +91,6 @@ export default async function RootLayout({
 
         {/* toaster for when an email is sent from the contact form */}
         <Toaster position="bottom-right" toastOptions={{ duration: 5000 }} />
-
-       
       </body>
     </html>
   )
