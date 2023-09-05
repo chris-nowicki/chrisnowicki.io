@@ -1,6 +1,9 @@
-import Nav from '@/components/NavBar'
+import NavBar from '@/components/NavBar/NavBar'
 import { AnalyticsWrapper } from '@/components/Analytics'
-import '@/globals.css'
+import { ActiveSectionContextProvider } from '@/context/active-section'
+import ThemeProvider from './ThemeProvider'
+import { Toaster } from 'react-hot-toast'
+import '@/app/globals.css'
 
 // types
 import type { Metadata } from 'next'
@@ -10,10 +13,8 @@ import { SeoType } from 'types'
 import { Roboto } from 'next/font/google'
 
 const roboto = Roboto({
-  weight: '400',
+  weight: ['400', '700'],
   subsets: ['latin'],
-  variable: '--font-roboto',
-  display: 'swap',
 })
 
 // sanity cms query
@@ -68,17 +69,34 @@ export default async function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={roboto.variable}>
-      <body className="bg-gray-50 dark:bg-background-light dark:text-foreground">
-        <div className="flex flex-col items-center">
-          <div className="w-full max-w-3xl">
-            <Nav />
-            <main>
-              {children}
-              <AnalyticsWrapper />
-            </main>
-          </div>
-        </div>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={`${roboto.className} bg-gray-50 dark:bg-background-light dark:text-foreground`}
+      >
+        <ActiveSectionContextProvider>
+          <ThemeProvider>
+            {/* colored background */}
+            <div className="absolute right-[3rem] top-[-6rem] -z-10 h-[31.25rem] w-[45rem] rounded-full bg-[#cfb3f8] blur-[10rem] dark:bg-[#a88bd4] dark:blur-[15rem] "></div>
+            <div className="2xl:left-[-5rem] absolute left-[-35rem] top-[-1rem] -z-10 h-[31.25rem] w-[50rem] rounded-full bg-[#e1e1dc] blur-[10rem] dark:bg-[#111827]  md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem]"></div>
+
+            {/* main portfolio site */}
+            <div className="flex flex-col items-center">
+              <div className="w-full max-w-3xl">
+                <NavBar />
+                <main className="z-10">
+                  {children}
+                  <AnalyticsWrapper />
+                </main>
+              </div>
+            </div>
+
+            {/* toaster for when an email is sent from the contact form */}
+            <Toaster
+              position="bottom-right"
+              toastOptions={{ duration: 5000 }}
+            />
+          </ThemeProvider>
+        </ActiveSectionContextProvider>
       </body>
     </html>
   )

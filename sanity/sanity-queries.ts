@@ -2,8 +2,7 @@ import { fetchSanity } from './sanity-utils'
 import { groq } from 'next-sanity'
 
 // types
-import { ResumeType } from '../types/resume'
-import { SocialLinksType, SeoType, TechDataType } from '../types'
+import { SocialLinksType, SeoType } from '../types'
 
 // GROQ Queries
 export async function getSEO(): Promise<SeoType> {
@@ -22,51 +21,6 @@ export async function getSEO(): Promise<SeoType> {
   return res[0].seo
 }
 
-export async function getResume(): Promise<ResumeType> {
-  const query = groq`*[_type == "resume"] {
-    name,
-    email,
-    location,
-    "picture": picture.asset->url,
-    "resumeURL": resume.asset->url,
-    professionalExperience[]->{
-        company,
-        companyURL,
-        position,
-        startDate,
-        endDate,
-        "accomplishments": accomplishments[].children[].text
-    },
-    "projects": technicalProjects[]->{
-        projectName,
-        role,
-        "liveSiteURL": liveSiteUrl,
-        "gitHubURL": gitHubUrl,
-        "tags": tags[]->{
-            name
-        },
-        "projectDetails": projectDetails[].children[].text
-    },
-    education[]->{
-        school,
-        schoolURL,
-        degree,
-        dateEarned,
-        displayDate,
-        "details": details[].children[].text
-    }
-}`
-
-  const res = await fetchSanity(query)
-  return res[0]
-}
-
-export async function getTechData(): Promise<TechDataType[]> {
-  const query = groq`*[_type == "tech"] {name, category, link} | order(lower(name) asc)`
-
-  const res = await fetchSanity(query)
-  return res
-}
 
 export async function getSocialLinks(): Promise<SocialLinksType> {
   const query = groq`*[_type == "settings"] {
@@ -96,16 +50,6 @@ export async function getHomePage() {
       },
     },
     "resumeURL": resume.asset->url,
-  }`
-
-  const res = await fetchSanity(query)
-  return res[0]
-}
-
-export async function getAboutPage() {
-  const query = groq`*[_type == 'about'] {
-    'profilePicture': profilePicture.asset->url,
-    content,
   }`
 
   const res = await fetchSanity(query)

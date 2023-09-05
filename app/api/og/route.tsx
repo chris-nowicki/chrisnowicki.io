@@ -1,6 +1,6 @@
 import { ImageResponse } from '@vercel/og'
 import { NextRequest } from 'next/server'
-import { NEXTJS, TAILWIND, SANITY, VERCEL } from '@/components/Icons'
+import { NEXTJS, TAILWIND, SANITY, VERCEL } from '@/assets/Icons'
 
 // Zod env type validation
 import { env } from '@/types/env-private'

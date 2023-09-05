@@ -1,17 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./app/**/*.{ts,tsx}'],
+  darkMode: ['class'],
+  content: [
+    './components/**/*.{ts,tsx}',
+    './app/**/*.{ts,tsx}',
+    './**/*.{ts,tsx}',
+  ],
   theme: {
-    screens: {
-      sm: '350px',
-      md: '846px',
-      lg: '976px',
-      xl: '2000px',
-    },
     extend: {
-      fontFamily: {
-        serif: ['var(--font-roboto)'],
-      },
       colors: {
         'background-dark': '#111827',
         'background-light': '#282a36',
