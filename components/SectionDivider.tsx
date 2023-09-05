@@ -23,7 +23,7 @@ export default function SectionDivider({
     return (
       <motion.div
         className={cn(
-          'hidden h-16 w-1 rounded-full bg-gray-200 dark:bg-opacity-20 sm:my-8 sm:block md:my-16',
+          'my-6 h-12 w-1 rounded-full bg-gray-200 dark:bg-opacity-20 sm:block md:my-16 md:h-16',
           className
         )}
         initial={{ opacity: 0, y: 100 }}
@@ -41,7 +41,7 @@ export default function SectionDivider({
       >
         <PiCaretDoubleDownLight
           size={98}
-          className={cn('text-gray-200 sm:my-8 md:my-12', className)}
+          className={cn('text-gray-200 my-8 md:my-12 dark:text-opacity-20', className)}
         />
       </motion.div>
     )

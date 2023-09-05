@@ -3,10 +3,10 @@ import SocialLink from './SocialLink'
 
 export default function Footer({ footerLinks }) {
   return (
-    <footer className=" mb-10 w-full sm:text-left md:text-center text-gray-500 sm:px-4 md:px-0">
-      <div className="mb-4 flex w-full flex-col gap-2 rounded border border-borderColor-light p-4 dark:border-borderColor-dark">
+    <footer className="mb-10 flex w-full justify-center text-gray-500 flex-col items-center text-left md:px-0 md:text-center">
+      <div className="mb-4 flex w-full md:w-1/2 flex-col gap-2 rounded border border-borderColor-light p-4 dark:border-gray-300/20">
         {footerLinks.map(
-          (link, index) =>
+          (link, index:number) =>
             index === 0 && (
               <SocialLink
                 key={index + link.name}
@@ -18,9 +18,9 @@ export default function Footer({ footerLinks }) {
               />
             )
         )}
-        <div className="flex items-center gap-3 flex-wrap">
+        <div className="flex  items-center gap-3 w-full">
           {footerLinks.map(
-            (link, index) =>
+            (link, index: number) =>
               index != 0 && (
                 <SocialLink
                   key={index + link.name}

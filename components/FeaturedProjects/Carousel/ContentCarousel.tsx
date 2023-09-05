@@ -31,7 +31,7 @@ export default function ContentCarousel({ contents }) {
 
   return (
     <>
-      <div className="relative bg-gray-200 flex w-full flex-col rounded-bl rounded-lg border-b border-l border-r border-borderColor-light p-2 shadow-lg dark:border-borderColor-dark md:p-4">
+      <div className="relative dark:bg-gray-300/20 flex w-full flex-col rounded-bl rounded-lg border-b border-l border-r border-borderColor-light p-2 shadow-lg dark:border-borderColor-dark md:p-4">
         <div className="absolute -left-8 top-[125px] hidden items-center justify-center bg-background-light p-1 text-foreground shadow-xl hover:text-purple-dark dark:bg-background-dark md:flex">
           <button
             onClick={() => {

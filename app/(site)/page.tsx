@@ -28,10 +28,11 @@ export default async function Home() {
     { name: 'Linkedin', url: socialLink.linkedin },
     { name: 'GitHub', url: socialLink.github },
     { name: 'Twitter', url: socialLink.twitter },
+    { name: 'DEV', url: 'https://dev.to/chrisnowicki'}
   ] as const
 
   return (
-    <div className="flex flex-col items-center w-full">
+    <div className="flex w-full flex-col items-center px-4 md:px-0">
       <Intro pageData={pageData} socialLink={socialLink} />
       <TechStack />
       <SectionDivider type="line" />
@@ -42,6 +43,7 @@ export default async function Home() {
       <Blog articles={articles} />
       <SectionDivider type="chevron" />
       <Contact />
+      <SectionDivider type="line" />
       <Footer footerLinks={footerLinks} />
     </div>
   )

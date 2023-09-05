@@ -6,6 +6,7 @@ import { sendEmail } from '@/actions/send-email'
 import toast from 'react-hot-toast'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { motion } from 'framer-motion'
+import SectionHeading from '../SectionHeading'
 
 export default function Contact() {
   const { ref } = useSectionInView('Contact', 0.25)
@@ -14,7 +15,7 @@ export default function Contact() {
     <motion.section
       ref={ref}
       id="contact"
-      className="mb-16 flex w-full scroll-mt-28 flex-col items-center gap-2 sm:px-4 md:px-0"
+      className="flex w-full scroll-mt-28 flex-col items-center gap-2 sm:px-4 md:px-0"
       initial={{
         opacity: 0,
       }}
@@ -28,8 +29,8 @@ export default function Contact() {
         once: true,
       }}
     >
-      <h1 className="flex items-center gap-2 text-4xl uppercase">Contact Me</h1>
-      <p className="-mt-2 md:text-lg text-gray-700 dark:text-white/80 text-center md:text-left">
+      <SectionHeading>Contact Me</SectionHeading>
+      <p className="-mt-2 text-center text-gray-700 dark:text-white/80 md:text-left md:text-lg">
         Please contact me directly at{' '}
         <a
           className="underline hover:text-purple-light dark:hover:text-purple-dark"
@@ -39,7 +40,7 @@ export default function Contact() {
         </a>{' '}
         or through this form.
       </p>
-      <div className="flex w-full flex-col justify-center rounded-lg bg-background-light p-8 text-foreground shadow-xl dark:bg-background-dark">
+      <div className="flex w-full flex-col justify-center rounded-lg bg-background-light p-8 text-foreground shadow-xl dark:bg-background-dark dark:shadow-background-dark">
         <form
           id="contact-form"
           className="flex flex-col"
@@ -72,7 +73,7 @@ export default function Contact() {
             placeholder="Your Message"
             required
             maxLength={5000}
-            className="my-3 h-52 rounded-lg p-4 text-lg text-purple-600 focus:outline-double focus:outline-4  focus:outline-purple-600"
+            className="my-3 h-52 rounded-lg bg-gray-50 p-4 text-lg text-purple-600 focus:outline-double focus:outline-4  focus:outline-purple-600"
           />
           <SubmitBtn />
         </form>

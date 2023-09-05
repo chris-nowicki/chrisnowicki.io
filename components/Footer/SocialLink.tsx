@@ -1,17 +1,14 @@
 import Link from 'next/link'
 import clsx from 'clsx'
 import {
-  ArrowIcon,
   Linkedin,
   GitHub,
   Twitter,
   PDF,
-  Download,
+  DEVTO,
 } from '../../assets/Icons'
 
 type SocialLinks = {
-  arrowPlacement?: string
-  arrowSize?: number
   icon: string
   content: any
   width?: string
@@ -23,9 +20,6 @@ type SocialLinks = {
 }
 
 export default function SocialLink({
-  arrowPlacement = 'after',
-  arrowSize = 12,
-  content,
   fontSize = '',
   icon,
   paddingX = 4,
@@ -38,7 +32,7 @@ export default function SocialLink({
     <Link
       href={url}
       className={clsx(
-        'flex w-full cursor-pointer items-center justify-between gap-2 rounded-lg border border-borderColor-light hover:bg-activeColor-light dark:border-borderColor-dark dark:hover:bg-activeColor-dark/25',
+        'flex w-full cursor-pointer items-center justify-center rounded-lg border dark:text-foreground border-borderColor-light hover:bg-activeColor-light dark:border-gray-300/20 dark:hover:bg-gray-300/20',
         padding ? `p-${padding}` : `px-${paddingX} py-${paddingY}`,
         `text-${fontSize}`,
         `md:${width}`
@@ -47,33 +41,20 @@ export default function SocialLink({
       prefetch={false}
     >
       <div className="flex items-center gap-2">
-        {arrowPlacement === 'before' ? (
-          <ArrowIcon size={12} />
-        ) : icon === 'pdf' ? (
+        {icon === 'pdf' ? (
           <PDF size={24} />
         ) : icon === 'linkedin' ? (
           <Linkedin size={24} />
         ) : icon === 'github' ? (
           <GitHub size={24} />
+        ) : icon === 'dev' ? (
+          <DEVTO size={24} />
         ) : (
           <Twitter size={24} />
         )}
 
-        {icon === 'pdf' ? 'Download Resumé' : content}
+        {icon === 'pdf' ? 'Download Resumé' : ''}
       </div>
-      {arrowPlacement === 'before' ? (
-        icon === 'linkedin' ? (
-          <Linkedin size={24} />
-        ) : icon === 'github' ? (
-          <GitHub size={24} />
-        ) : (
-          <Twitter size={24} />
-        )
-      ) : icon === 'pdf' ? (
-        <Download size={24} />
-      ) : (
-        <ArrowIcon size={arrowSize} />
-      )}
     </Link>
   )
 }

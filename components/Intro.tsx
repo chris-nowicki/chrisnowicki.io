@@ -1,12 +1,13 @@
 'use client'
 import React from 'react'
 import Image from 'next/image'
-import Link from 'next/link'
 import { PortableText } from '@portabletext/react'
 import { Linkedin, GitHub, Twitter, DEVTO } from '@/assets/Icons'
 import { SocialLinksType, HomePageType } from '@/types'
 import { homePortableText } from '@/lib/portable-text'
-import { BsArrowRight, BsDownload } from 'react-icons/bs'
+import { BsDownload } from 'react-icons/bs'
+import { MdOutlineEmail } from 'react-icons/md'
+import { HiOutlineMailOpen } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 import { useActiveSection } from '@/context/active-section'
 import { useSectionInView } from '@/hooks/useSectionInView'
@@ -24,14 +25,14 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
     <section
       ref={ref}
       id="home"
-      className="mt-20 scroll-mt-20 flex md:scroll-mt-32 flex-col md:mt-32 md:flex-nowrap"
+      className="mt-20 flex scroll-mt-20 flex-col md:mt-32 md:scroll-mt-32 md:flex-nowrap"
     >
       <motion.div
-        className="flex flex-wrap-reverse sm:justify-center md:flex-nowrap md:justify-start"
+        className="flex flex-wrap-reverse justify-center md:flex-nowrap md:justify-start"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
-        <div className="mr-0 flex w-auto flex-col text-left sm:items-center sm:text-xl md:mr-6 md:items-start md:text-2xl">
+        <div className="mr-0 flex w-full flex-col items-center text-left sm:text-xl md:mr-6 md:items-start md:text-xl">
           <PortableText
             value={pageData.content}
             components={homePortableText}
@@ -39,7 +40,7 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
           <div className="mt-4 flex items-center gap-2">
             <a
               href="#contact"
-              className="group flex items-center gap-3 rounded-full border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40  dark:border-borderColor-dark
+              className="group flex items-center gap-2 rounded-full border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40 dark:border-borderColor-dark dark:bg-gray-300/10  dark:hover:bg-gray-300/20
               "
               onClick={() => {
                 setActiveSection('Contact')
@@ -47,11 +48,12 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
               }}
             >
               Contact{' '}
-              <BsArrowRight className="transition group-hover:translate-x-1 sm:hidden lg:block" />
+              <HiOutlineMailOpen className="transition group-hover:hidden sm:hidden lg:block" />
+              <MdOutlineEmail className="hidden transition group-hover:block " />
             </a>
             <a
               href={pageData.resumeURL}
-              className="group flex items-center gap-1 rounded-full border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40  dark:border-borderColor-dark 
+              className="group flex items-center gap-2 rounded-full border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40 dark:border-borderColor-dark dark:bg-gray-300/10  dark:hover:bg-gray-300/20 
             "
               target="_blank"
             >
@@ -60,7 +62,7 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
             </a>
           </div>
         </div>
-        <div className="flex w-[200px] flex-col gap-4 sm:mb-4 sm:items-center md:mb-0 md:mt-0 md:w-[400px] ">
+        <div className="mb-4 flex w-[200px] flex-col items-center gap-4 md:mb-0 md:mt-0 md:w-[400px] ">
           <Image
             className="rounded-full bg-white p-2 shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
             width={400}
@@ -71,7 +73,7 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
           />
 
           {/* social media icons */}
-          <div className="flex gap-4 md:justify-center">
+          <div className="flex justify-center gap-4">
             <div className="flex items-center gap-2">
               <a
                 href={socialLink.linkedin}
