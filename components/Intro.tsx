@@ -21,6 +21,13 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
   const { setActiveSection, setTimeOfLastClick } = useActiveSection()
   const { ref } = useSectionInView('Home')
 
+  const socialLinks = [
+    { name: 'LinkedIn', URL: socialLink.linkedin },
+    { name: 'GitHub', URL: socialLink.github },
+    { name: 'Twitter', URL: socialLink.twitter },
+    { name: 'DEVTO', URL: socialLink.devto },
+  ]
+
   return (
     <section
       ref={ref}
@@ -97,7 +104,7 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
                 <Twitter size={28} />
               </a>
               <a
-                href="https://dev.to/chrisnowicki/"
+                href={socialLink.devto}
                 className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
                 target="_blank"
               >

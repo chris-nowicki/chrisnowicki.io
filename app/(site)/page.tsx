@@ -6,21 +6,23 @@ import Skills from '@/components/Skills'
 import Blog from '@/components/Blog'
 import Contact from '@/components/Contact/Contact'
 import Footer from '@/components/Footer/Footer'
-import { SocialLinksType, HomePageType, Article } from '@/types'
+import { SocialLinksType, HomePageType, Article, SkillsType } from '@/types'
 import { getArticles } from '@/lib/devto-api'
 
 // sanity cms queries
-import { getSocialLinks, getHomePage } from '@/sanity/sanity-queries'
+import { getSocialLinks, getHomePage, getSkills } from '@/sanity/sanity-queries'
 
 export default async function Home() {
   const socialLinkData: Promise<SocialLinksType> = getSocialLinks()
   const homePageData: Promise<HomePageType> = getHomePage()
   const devtoData: Promise<Article[]> = getArticles()
+  const skillsData: Promise<SkillsType[]> = getSkills()
 
-  const [socialLink, pageData, articles] = await Promise.all([
+  const [socialLink, pageData, articles, skills] = await Promise.all([
     socialLinkData,
     homePageData,
     devtoData,
+    skillsData
   ])
 
   const footerLinks = [
@@ -28,7 +30,7 @@ export default async function Home() {
     { name: 'Linkedin', url: socialLink.linkedin },
     { name: 'GitHub', url: socialLink.github },
     { name: 'Twitter', url: socialLink.twitter },
-    { name: 'DEV', url: 'https://dev.to/chrisnowicki'}
+    { name: 'DEV', url: socialLink.devto },
   ] as const
 
   return (
@@ -38,7 +40,7 @@ export default async function Home() {
       <SectionDivider type="line" />
       <FeaturedProjects projects={pageData.featuredProjects} />
       <SectionDivider type="chevron" />
-      <Skills />
+      <Skills skills={skills} />
       <SectionDivider type="chevron" />
       <Blog articles={articles} />
       <SectionDivider type="chevron" />

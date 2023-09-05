@@ -7,6 +7,7 @@ import {
   RiInstagramFill,
   RiGithubFill,
 } from 'react-icons/ri'
+import { PiDevToLogoFill } from 'react-icons/pi'
 
 export const SocialLinkInput = (props: StringFieldProps) => {
   const { title, description, inputProps, value } = props
@@ -31,13 +32,15 @@ export const SocialLinkInput = (props: StringFieldProps) => {
               <Card border={false} sizing={'border'} padding={2} tone="primary">
                 <Flex align={'center'} gap={2}>
                   {title === 'Linkedin' ? (
-                    <RiLinkedinFill size={18} />
+                    <RiLinkedinFill size={24} />
                   ) : title === 'GitHub' ? (
-                    <RiGithubFill size={18} />
+                    <RiGithubFill size={24} />
                   ) : title === 'Twitter' ? (
-                    <RiTwitterFill size={18} />
+                    <RiTwitterFill size={24} />
+                  ) : title === 'DevTo' ? (
+                    <PiDevToLogoFill size={32} />
                   ) : (
-                    <RiInstagramFill size={18} />
+                    <RiInstagramFill size={24} />
                   )}
                   {description}
                 </Flex>

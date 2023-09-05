@@ -21,18 +21,3 @@ export const navItems = [
     hash: '#contact',
   },
 ] as const
-
-export const skills = [
-  'HTML',
-  'CSS',
-  'JavaScript',
-  'TypeScript',
-  'React',
-  'Next.js',
-  'Node.js',
-  'Express',
-  'MongoDB',
-  'MySQL',
-  'Tailwind CSS',
-  'Sanity CMS',
-] as const

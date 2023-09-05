@@ -26,14 +26,6 @@ export const myStructure = (S: any) =>
                 .title('Home')
                 .icon(HomeIcon)
                 .child(S.document().schemaType('home').documentId('home')),
-              S.listItem()
-                .title('About')
-                .icon(UserIcon)
-                .child(S.document().schemaType('about').documentId('about')),
-              S.listItem()
-                .title('Resumé')
-                .icon(DocumentPdfIcon)
-                .child(S.document().schemaType('resume').documentId('resume')),
             ])
         ),
       S.divider(),

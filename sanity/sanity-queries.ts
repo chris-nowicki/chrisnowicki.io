@@ -2,7 +2,7 @@ import { fetchSanity } from './sanity-utils'
 import { groq } from 'next-sanity'
 
 // types
-import { SocialLinksType, SeoType } from '../types'
+import { SocialLinksType, SeoType, SkillsType } from '../types'
 
 // GROQ Queries
 export async function getSEO(): Promise<SeoType> {
@@ -27,7 +27,7 @@ export async function getSocialLinks(): Promise<SocialLinksType> {
         "linkedin": socialLinks.linkedin,
         "github": socialLinks.github,
         "twitter": socialLinks.twitter,
-        "instagram": socialLinks.instagram,
+        "devto": socialLinks.devto,
     }`
 
   const res = await fetchSanity(query)
@@ -54,4 +54,14 @@ export async function getHomePage() {
 
   const res = await fetchSanity(query)
   return res[0]
+}
+
+export async function getSkills(): Promise<SkillsType[]> {
+  const query = groq`*[_type =='tech'] {
+  name,
+  link
+} | order(lower(name) asc)`
+
+  const res = await fetchSanity(query)
+  return res
 }

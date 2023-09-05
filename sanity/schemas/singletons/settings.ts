@@ -58,6 +58,15 @@ export default defineType({
           },
         }),
         defineField({
+          name: 'devto',
+          title: 'DevTo',
+          type: 'string',
+          description: 'https://dev.to/',
+          components: {
+            field: SocialLinkInput,
+          },
+        }),
+        defineField({
           name: 'instagram',
           title: 'Instagram',
           type: 'string',

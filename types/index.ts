@@ -14,7 +14,7 @@ export type SocialLinksType = {
   linkedin: string
   github: string
   twitter: string
-  instagram: string
+  devto: string
 }
 
 export type HomePageType = {
@@ -55,4 +55,9 @@ export type MetricsType = {
   tweetCount: number
   githubCommits: number
   githubRepos: number
+}
+
+export type SkillsType = {
+  name: string
+  link: string
 }

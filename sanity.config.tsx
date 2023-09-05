@@ -4,12 +4,7 @@ import { visionTool } from '@sanity/vision'
 import { schemaTypes } from '@/sanity/schemas'
 import { myStructure } from '@/sanity/deskStructure'
 import { media } from 'sanity-plugin-media'
-
-// env variables
 import { env } from '@/types/env-public'
-
-// plugins
-import { keysToolbarPlugin } from '@/sanity/plugins/keysToolbarPlugin'
 
 // custom studio theme
 import { theme as _theme } from '@/sanity/theme'
@@ -64,7 +59,6 @@ const config = defineConfig({
     }),
     visionTool(),
     myLogoPlugin(),
-    keysToolbarPlugin(),
     media(),
   ],
 
