@@ -7,9 +7,9 @@ import { BsArrowRight, BsArrowUpRight } from 'react-icons/bs'
 import { Article } from '@/types'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { motion } from 'framer-motion'
-import SectionHeading from './SectionHeading'
+import SectionHeading from '../SectionHeading'
 
-type BlogProps = {
+type DevToArticlesProps = {
   articles: Article[]
 }
 
@@ -26,7 +26,7 @@ const fadeInAnimate = {
   }),
 }
 
-export default function Blog({ articles }: BlogProps) {
+export default function DevToArticles({articles}: DevToArticlesProps) {
   const { ref } = useSectionInView('Blog', 0.5)
   return (
     <motion.section
