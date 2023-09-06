@@ -5,7 +5,7 @@ import FeaturedProjects from '@/components/FeaturedProjects/FeaturedProjects'
 import Skills from '@/components/Skills'
 import Blog from '@/components/Blog/Blog'
 import Contact from '@/components/Contact/Contact'
-import Footer from '@/components/Footer/Footer'
+import Footer from '@/components/Footer'
 import { SocialLinksType, HomePageType, SkillsType } from '@/types'
 
 // sanity cms queries
@@ -34,7 +34,8 @@ export default async function Home() {
       <Blog />
       <SectionDivider type="chevron" />
       <Contact />
-      <Footer />
+      <SectionDivider type="line" />
+      <Footer pdfLink={pageData.resumeURL} socialLinks={socialLinks} />
     </div>
   )
 }
