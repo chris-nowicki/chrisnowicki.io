@@ -34,6 +34,8 @@ export default function Skills({ skills }: SkillsProps) {
       whileInView={{ opacity: 1 }}
     >
       <SectionHeading>Skills</SectionHeading>
+
+      {/* list of skills from sanity CMS */}
       <ul className="mt-6 flex flex-wrap justify-center gap-4">
         {skills.map((skill: SkillsType, index: number) =>
           skill.link ? (

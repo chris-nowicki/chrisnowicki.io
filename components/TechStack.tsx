@@ -1,25 +1,7 @@
 'use client'
 import React from 'react'
-import {
-  NEXTJS,
-  TS,
-  TAILWIND,
-  SANITY,
-  MYSQL,
-  MDB,
-  VERCEL,
-} from '../assets/Icons'
+import { TechStackIcons } from '@/lib/data'
 import { motion } from 'framer-motion'
-
-const TechStackIcons = [
-  { icon: <NEXTJS />, URL: 'https://nextjs.org/' },
-  { icon: <TS />, URL: 'https://www.typescriptlang.org/' },
-  { icon: <TAILWIND />, URL: 'https://tailwindcss.com/' },
-  { icon: <SANITY />, URL: 'https://www.sanity.io/' },
-  { icon: <MYSQL />, URL: 'https://www.mysql.com/' },
-  { icon: <MDB />, URL: 'https://www.mongodb.com/' },
-  { icon: <VERCEL />, URL: 'https://www.vercel.com' },
-] as const
 
 export default function TechStack() {
   return (

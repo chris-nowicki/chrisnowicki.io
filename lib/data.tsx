@@ -1,3 +1,4 @@
+import { MDB, MYSQL, NEXTJS, SANITY, TAILWIND, TS, VERCEL } from '@/assets/Icons'
 import { BsDownload } from 'react-icons/bs'
 import { MdOutlineEmail } from 'react-icons/md'
 
@@ -48,3 +49,14 @@ export const contactInfo: ContactInfoType = {
     ),
   },
 }
+
+export const TechStackIcons = [
+  { icon: <NEXTJS />, URL: 'https://nextjs.org/' },
+  { icon: <TS />, URL: 'https://www.typescriptlang.org/' },
+  { icon: <TAILWIND />, URL: 'https://tailwindcss.com/' },
+  { icon: <SANITY />, URL: 'https://www.sanity.io/' },
+  { icon: <MYSQL />, URL: 'https://www.mysql.com/' },
+  { icon: <MDB />, URL: 'https://www.mongodb.com/' },
+  { icon: <VERCEL />, URL: 'https://www.vercel.com' },
+] as const
+
