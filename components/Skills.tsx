@@ -19,7 +19,11 @@ const fadeInAnimate = {
   }),
 }
 
-export default function Skills({ skills }) {
+type SkillsProps = {
+  skills: SkillsType[]
+}
+
+export default function Skills({ skills }: SkillsProps) {
   const { ref } = useSectionInView('Skills', 0.2)
   return (
     <motion.section
@@ -33,7 +37,11 @@ export default function Skills({ skills }) {
       <ul className="mt-6 flex flex-wrap justify-center gap-4">
         {skills.map((skill: SkillsType, index: number) =>
           skill.link ? (
-            <a href={skill.link} className='hover:text-purple-light dark:hover:text-purple-dark' target="_blank">
+            <a
+              href={skill.link}
+              className="hover:text-purple-light dark:hover:text-purple-dark"
+              target="_blank"
+            >
               <motion.li
                 key={index}
                 className="text-md rounded-full bg-gray-300/20 px-4 py-2 md:text-xl"
