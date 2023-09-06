@@ -21,12 +21,12 @@ export default function NavBar() {
   return (
     <nav className="fixed left-1/2 top-0 z-[999] w-full max-w-3xl -translate-x-1/2 md:top-0">
       <motion.div
-        className="relative flex w-full items-center justify-between bg-foreground p-4 shadow dark:bg-background-light md:bg-transparent md:px-0 md:pb-4 md:pt-4 md:shadow-none md:dark:bg-transparent"
+        className="relative flex w-full items-center justify-between bg-gray-50 p-4 shadow dark:bg-background-light md:bg-transparent md:px-0 md:pb-4 md:pt-4 md:shadow-none md:dark:bg-transparent"
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
       >
         {/* regular nav menu */}
-        <ul className="hidden w-full rounded-full bg-foreground bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between">
+        <ul className="hidden w-full rounded-full bg-gray-50 bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between">
           <div className="flex items-center gap-4 pl-5">
             {navItems.map(({ name, hash }) => (
               <motion.li
@@ -49,7 +49,7 @@ export default function NavBar() {
 
                   {activeSection === name && (
                     <motion.span
-                      className="absolute -bottom-[2px] left-0 w-full rounded border-b-4 border-b-purple-light/75 -z-10"
+                      className="absolute -bottom-[2px] left-0 -z-10 w-full rounded border-b-4 border-b-purple-light/75"
                       layoutId="activeSection"
                       transition={{
                         type: 'spring',
