@@ -1,20 +1,9 @@
-import tech from './tech'
-import projects from './projects'
-import professionalExperience from './professionalExperience'
-import education from './education'
 import home from './pages/home'
-
+import tech from './skills'
+import projects from './projects'
 
 // Singleton document type
 import settings from './singletons/settings'
-
 const singletons = [settings]
 
-export const schemaTypes = [
-  ...singletons,
-  tech,
-  projects,
-  professionalExperience,
-  education,
-  home
-]
+export const schemaTypes = [...singletons, home, tech, projects]

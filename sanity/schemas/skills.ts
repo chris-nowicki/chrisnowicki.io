@@ -3,7 +3,7 @@ import { CodeBlockIcon } from '@sanity/icons'
 export default {
   name: 'tech',
   type: 'document',
-  title: 'Tech',
+  title: 'Skills',
   icon: CodeBlockIcon,
   fields: [
     {

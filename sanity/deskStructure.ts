@@ -34,11 +34,7 @@ export const myStructure = (S: any) =>
         (listItem: any) =>
           ![
             'settings',
-            'resume',
-            'professionalExperience',
-            'education',
             'home',
-            'about',
             'media.tag',
           ].includes(listItem.getId())
       ),
