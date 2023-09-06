@@ -30,7 +30,7 @@ export default function TechStack() {
     >
       {TechStackIcons.map((techStack, index) => (
         <a
-          key-={index}
+          key={index}
           href={techStack.URL}
           className="duration-100 ease-in-out hover:scale-105"
           target="_blank"

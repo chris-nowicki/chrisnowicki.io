@@ -1,8 +1,7 @@
 import { fetchSanity } from './sanity-utils'
 import { groq } from 'next-sanity'
-
-// types
-import { SocialLinksType, SeoType, SkillsType } from '../types'
+import { DEVTO, GitHub, Linkedin, Twitter } from '@/assets/Icons'
+import { SeoType, SkillsType, SocialLinksType } from '../types'
 
 // GROQ Queries
 export async function getSEO(): Promise<SeoType> {
@@ -21,9 +20,8 @@ export async function getSEO(): Promise<SeoType> {
   return res[0].seo
 }
 
-
-export async function getSocialLinks(): Promise<SocialLinksType> {
-  const query = groq`*[_type == "settings"] {
+export async function getSocialLinks(): Promise<SocialLinksType[]> {
+  const query = groq`*[_type == "settings"][0] {
         "linkedin": socialLinks.linkedin,
         "github": socialLinks.github,
         "twitter": socialLinks.twitter,
@@ -31,7 +29,13 @@ export async function getSocialLinks(): Promise<SocialLinksType> {
     }`
 
   const res = await fetchSanity(query)
-  return res[0]
+  const socialLinks = [
+    { name: 'Linkedin', URL: res.linkedin, icon: <Linkedin size={28} /> },
+    { name: 'GitHub', URL: res.github, icon: <GitHub size={28} /> },
+    { name: 'Twitter', URL: res.twitter, icon: <Twitter size={28} /> },
+    { name: 'DEV', URL: res.devto, icon: <DEVTO size={28} /> },
+  ]
+  return socialLinks
 }
 
 export async function getHomePage() {

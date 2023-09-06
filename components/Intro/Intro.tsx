@@ -2,36 +2,22 @@
 import React from 'react'
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
-import { Linkedin, GitHub, Twitter, DEVTO } from '@/assets/Icons'
 import { SocialLinksType, HomePageType } from '@/types'
 import { homePortableText } from '@/lib/portable-text'
-import { BsDownload } from 'react-icons/bs'
-import { MdOutlineEmail } from 'react-icons/md'
-import { HiOutlineMailOpen } from 'react-icons/hi'
 import { motion } from 'framer-motion'
 import { useActiveSection } from '@/context/active-section'
 import { useSectionInView } from '@/hooks/useSectionInView'
+import ContactButton from './ContactButton'
+import { contactInfo } from '@/lib/data'
 
 type IntroProps = {
   pageData: HomePageType
-  socialLink: SocialLinksType
+  socialLinks: SocialLinksType[]
 }
 
-type SocialLinkType = {
-  URL: string
-  icon: JSX.Element
-}
-
-export default function Intro({ pageData, socialLink }: IntroProps) {
+export default function Intro({ pageData, socialLinks }: IntroProps) {
   const { setActiveSection, setTimeOfLastClick } = useActiveSection()
   const { ref } = useSectionInView('Home')
-
-  const socialLinks: SocialLinkType[] = [
-    { URL: socialLink.linkedin, icon: <Linkedin size={28} /> },
-    { URL: socialLink.github, icon: <GitHub size={28} /> },
-    { URL: socialLink.twitter, icon: <Twitter size={28} /> },
-    { URL: socialLink.devto, icon: <DEVTO size={28} /> },
-  ]
 
   return (
     <section
@@ -53,28 +39,15 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
 
           {/* contact and download buttons */}
           <div className="mt-4 flex items-center gap-2">
-            <a
-              href="/#contact"
-              className="group flex items-center gap-2 rounded-full border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40 dark:border-borderColor-dark dark:bg-gray-300/10  dark:hover:bg-gray-300/20
-              "
-              onClick={() => {
+            <ContactButton
+              URL='/#contact'
+              contactInfo={contactInfo.Contact}
+              onClickProps={() => {
                 setActiveSection('Contact')
                 setTimeOfLastClick(Date.now())
               }}
-            >
-              Contact{' '}
-              <HiOutlineMailOpen className="transition group-hover:hidden sm:hidden lg:block" />
-              <MdOutlineEmail className="hidden transition group-hover:block " />
-            </a>
-            <a
-              href={pageData.resumeURL}
-              className="group flex items-center gap-2 rounded-full border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40 dark:border-borderColor-dark dark:bg-gray-300/10  dark:hover:bg-gray-300/20 
-            "
-              target="_blank"
-            >
-              Download CV{' '}
-              <BsDownload className="transition-all group-hover:translate-y-1 sm:hidden md:block" />
-            </a>
+            />
+            <ContactButton URL={pageData.resumeURL} contactInfo={contactInfo.DownloadCV} />
           </div>
         </div>
 

@@ -11,10 +11,8 @@ export type SeoType = {
 }
 
 export type SocialLinksType = {
-  linkedin: string
-  github: string
-  twitter: string
-  devto: string
+  URL: string
+  icon: JSX.Element
 }
 
 export type HomePageType = {

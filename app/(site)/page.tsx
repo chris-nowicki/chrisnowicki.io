@@ -1,4 +1,4 @@
-import Intro from '@/components/Intro'
+import Intro from '@/components/Intro/Intro'
 import TechStack from '@/components/TechStack'
 import SectionDivider from '@/components/SectionDivider'
 import FeaturedProjects from '@/components/FeaturedProjects/FeaturedProjects'
@@ -13,26 +13,18 @@ import { getSocialLinks, getHomePage, getSkills } from '@/sanity/sanity-queries'
 
 export default async function Home() {
   const homePageData: Promise<HomePageType> = getHomePage()
-  const socialLinkData: Promise<SocialLinksType> = getSocialLinks()
+  const socialLinkData: Promise<SocialLinksType[]> = getSocialLinks()
   const skillsData: Promise<SkillsType[]> = getSkills()
 
-  const [pageData, socialLink, skills] = await Promise.all([
+  const [pageData, socialLinks, skills] = await Promise.all([
     homePageData,
     socialLinkData,
     skillsData,
   ])
 
-  const footerLinks = [
-    { name: 'pdf', url: pageData.resumeURL },
-    { name: 'Linkedin', url: socialLink.linkedin },
-    { name: 'GitHub', url: socialLink.github },
-    { name: 'Twitter', url: socialLink.twitter },
-    { name: 'DEV', url: socialLink.devto },
-  ] as const
-
   return (
     <div className="flex w-full flex-col items-center px-4 md:px-0">
-      <Intro pageData={pageData} socialLink={socialLink} />
+      <Intro pageData={pageData} socialLinks={socialLinks} />
       <TechStack />
       <SectionDivider type="line" />
       <FeaturedProjects projects={pageData.featuredProjects} />
@@ -42,8 +34,7 @@ export default async function Home() {
       <Blog />
       <SectionDivider type="chevron" />
       <Contact />
-      <SectionDivider type="line" />
-      <Footer footerLinks={footerLinks} />
+      <Footer />
     </div>
   )
 }
