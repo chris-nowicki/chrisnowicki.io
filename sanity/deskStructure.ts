@@ -2,8 +2,6 @@ import { CogIcon } from '@sanity/icons'
 import {
   HomeIcon,
   DocumentsIcon,
-  UserIcon,
-  DocumentPdfIcon,
 } from '@sanity/icons'
 
 export const myStructure = (S: any) =>
