@@ -4,9 +4,7 @@ import {
   Head,
   Preview,
   Body,
-  Heading,
   Text,
-  Container,
 } from '@react-email/components'
 import { Tailwind } from '@react-email/components'
 
