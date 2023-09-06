@@ -1,23 +1,23 @@
 export const navItems = [
   {
     name: 'Home',
-    hash: '#home',
+    hash: '/#home',
   },
 
   {
     name: 'Projects',
-    hash: '#projects',
+    hash: '/#projects',
   },
   {
     name: 'Skills',
-    hash: '#skills',
+    hash: '/#skills',
   },
   {
     name: 'Blog',
-    hash: '#blog',
+    hash: '/#blog',
   },
   {
     name: 'Contact',
-    hash: '#contact',
+    hash: '/#contact',
   },
 ] as const

@@ -17,15 +17,20 @@ type IntroProps = {
   socialLink: SocialLinksType
 }
 
+type SocialLinkType = {
+  URL: string
+  icon: JSX.Element
+}
+
 export default function Intro({ pageData, socialLink }: IntroProps) {
   const { setActiveSection, setTimeOfLastClick } = useActiveSection()
   const { ref } = useSectionInView('Home')
 
-  const socialLinks = [
-    { name: 'LinkedIn', URL: socialLink.linkedin },
-    { name: 'GitHub', URL: socialLink.github },
-    { name: 'Twitter', URL: socialLink.twitter },
-    { name: 'DEVTO', URL: socialLink.devto },
+  const socialLinks: SocialLinkType[] = [
+    { URL: socialLink.linkedin, icon: <Linkedin size={28} /> },
+    { URL: socialLink.github, icon: <GitHub size={28} /> },
+    { URL: socialLink.twitter, icon: <Twitter size={28} /> },
+    { URL: socialLink.devto, icon: <DEVTO size={28} /> },
   ]
 
   return (
@@ -39,14 +44,17 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
       >
+        {/* intro text from Sanity CMS */}
         <div className="mr-0 flex w-full flex-col items-center text-left sm:text-xl md:mr-6 md:items-start md:text-xl">
           <PortableText
             value={pageData.content}
             components={homePortableText}
           />
+
+          {/* contact and download buttons */}
           <div className="mt-4 flex items-center gap-2">
             <a
-              href="#contact"
+              href="/#contact"
               className="group flex items-center gap-2 rounded-full border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40 dark:border-borderColor-dark dark:bg-gray-300/10  dark:hover:bg-gray-300/20
               "
               onClick={() => {
@@ -69,6 +77,8 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
             </a>
           </div>
         </div>
+
+        {/* profile image and social media links */}
         <div className="mb-4 flex w-[200px] flex-col items-center gap-4 md:mb-0 md:mt-0 md:w-[400px] ">
           <Image
             className="rounded-full bg-white p-2 shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
@@ -79,38 +89,18 @@ export default function Intro({ pageData, socialLink }: IntroProps) {
             priority
           />
 
-          {/* social media icons */}
-          <div className="flex justify-center gap-4">
-            <div className="flex items-center gap-2">
+          {/* social media links */}
+          <div className="flex items-center gap-2">
+            {socialLinks.map((link) => (
               <a
-                href={socialLink.linkedin}
+                key={link.URL}
+                href={link.URL}
                 className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
                 target="_blank"
               >
-                <Linkedin size={28} />
+                {link.icon}
               </a>
-              <a
-                href={socialLink.github}
-                className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
-                target="_blank"
-              >
-                <GitHub size={28} />
-              </a>
-              <a
-                href={socialLink.twitter}
-                className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
-                target="_blank"
-              >
-                <Twitter size={28} />
-              </a>
-              <a
-                href={socialLink.devto}
-                className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
-                target="_blank"
-              >
-                <DEVTO size={28} />
-              </a>
-            </div>
+            ))}
           </div>
         </div>
       </motion.div>
