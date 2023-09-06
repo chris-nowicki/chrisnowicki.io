@@ -6,7 +6,7 @@ import format from 'date-fns/format'
 import { BsArrowRight, BsArrowUpRight } from 'react-icons/bs'
 import { Article } from '@/types'
 import { useSectionInView } from '@/hooks/useSectionInView'
-import {motion} from 'framer-motion'
+import { motion } from 'framer-motion'
 import SectionHeading from './SectionHeading'
 
 type BlogProps = {
@@ -27,7 +27,7 @@ const fadeInAnimate = {
 }
 
 export default function Blog({ articles }: BlogProps) {
-  const { ref } = useSectionInView('Blog', .5)
+  const { ref } = useSectionInView('Blog', 0.5)
   return (
     <motion.section
       ref={ref}
@@ -48,12 +48,14 @@ export default function Blog({ articles }: BlogProps) {
           <DEVTO size={32} />
         </a>
       </p>
+
+      {/* list of articles from dev.to */}
       <div className="mt-4 flex w-full flex-col gap-2">
         {articles.map((article: Article, index) => (
           <motion.a
             key={article.id}
             href={article.url}
-            className="text-md group flex items-center justify-between rounded-lg border border-borderColor-light dark:border-borderColor-dark bg-gray-300/20 dark:bg-gray-300/10 dark:hover:bg-gray-300/20 p-4 text-lg hover:bg-gray-300/40 sm:mx-4 md:mx-0"
+            className="text-md group flex items-center justify-between rounded-lg border border-borderColor-light bg-gray-300/20 p-4 text-lg hover:bg-gray-300/40 dark:border-borderColor-dark dark:bg-gray-300/10 dark:hover:bg-gray-300/20 sm:mx-4 md:mx-0"
             target="_blank"
             custom={index}
             variants={fadeInAnimate}
@@ -64,7 +66,6 @@ export default function Blog({ articles }: BlogProps) {
               <span className="md:text-md text-sm font-bold text-purple-light dark:text-purple-dark">
                 {format(new Date(article.published_at), 'MM.dd.yy')}
               </span>
-
               <span className="text-sm md:text-lg">{article.title}</span>
               <span className="font-mono text-sm -tracking-[.08em] text-borderColor-dark/50 dark:text-white/50 md:text-base">
                 {Number(article.page_views_count).toLocaleString()} views /{' '}

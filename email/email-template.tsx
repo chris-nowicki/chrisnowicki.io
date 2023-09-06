@@ -6,6 +6,7 @@ import {
   Body,
   Heading,
   Text,
+  Container,
 } from '@react-email/components'
 import { Tailwind } from '@react-email/components'
 
@@ -21,8 +22,12 @@ export default function EmailTemplate(props: EmailTemplateProps) {
       <Preview>New message from your portfolio site</Preview>
       <Tailwind>
         <Body className="text-black">
-          <Heading>Message from {props.senderEmail}</Heading>
-          <Text>{props.message}</Text>
+          <Text>Chris,</Text>
+          <Text>
+            {props.senderEmail} used the contact form on your portfolio website
+            and says:
+          </Text>
+          <Text className="text-purple-600">{props.message}</Text>
         </Body>
       </Tailwind>
     </Html>
