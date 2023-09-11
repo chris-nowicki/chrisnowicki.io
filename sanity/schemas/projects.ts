@@ -39,10 +39,6 @@ export default {
       name: 'excerpt',
       title: 'Excerpt',
       type: 'text',
-      validation: (Rule: any) =>
-        Rule.max(119).warning(
-          "The description shouldn't be longer than 119 characters"
-        ),
     },
     {
       name: 'gitHubUrl',
