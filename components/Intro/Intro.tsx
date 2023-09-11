@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import { SocialLinksType, HomePageType } from '@/types'
 import { homePortableText } from '@/lib/portable-text'
-import { motion } from 'framer-motion'
 import { useActiveSection } from '@/context/active-section'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import ContactButton from './ContactButton'
@@ -25,10 +24,8 @@ export default function Intro({ pageData, socialLinks }: IntroProps) {
       id="home"
       className="mt-20 flex scroll-mt-20 flex-col md:mt-32 md:scroll-mt-32 md:flex-nowrap"
     >
-      <motion.div
+      <div
         className="flex flex-wrap-reverse justify-center md:flex-nowrap md:justify-start"
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
       >
         {/* intro text from Sanity CMS */}
         <div className="mr-0 flex w-full flex-col items-center text-left sm:text-xl md:mr-6 md:items-start md:text-xl">
@@ -76,7 +73,7 @@ export default function Intro({ pageData, socialLinks }: IntroProps) {
             ))}
           </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   )
 }

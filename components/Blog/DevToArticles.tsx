@@ -19,7 +19,6 @@ const fadeInAnimate = {
   },
   animate: (index: number) => ({
     opacity: 1,
-    y: 0,
     transition: {
       delay: 0.1 * index,
     },
@@ -29,12 +28,10 @@ const fadeInAnimate = {
 export default function DevToArticles({articles}: DevToArticlesProps) {
   const { ref } = useSectionInView('Blog', 0.5)
   return (
-    <motion.section
+    <section
       ref={ref}
       id="blog"
       className="flex w-full scroll-mt-28 flex-col items-center"
-      initial={{ opacity: 0, y: 100 }}
-      animate={{ opacity: 1, y: 0 }}
     >
       <SectionHeading>Blog</SectionHeading>
       <p className="flex items-center gap-2 text-lg">
@@ -76,6 +73,6 @@ export default function DevToArticles({articles}: DevToArticlesProps) {
           </motion.a>
         ))}
       </div>
-    </motion.section>
+    </section>
   )
 }

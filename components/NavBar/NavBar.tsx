@@ -20,10 +20,8 @@ export default function NavBar() {
 
   return (
     <nav className="fixed left-1/2 top-0 z-[999] w-full max-w-3xl -translate-x-1/2 md:top-0">
-      <motion.div
+      <div
         className="relative flex w-full items-center justify-between bg-gray-50 p-4 shadow dark:bg-background-light md:bg-transparent md:px-0 md:pb-4 md:pt-4 md:shadow-none md:dark:bg-transparent"
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
       >
         {/* regular nav menu */}
         <ul className="hidden w-full rounded-full bg-gray-50 bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between">
@@ -31,8 +29,7 @@ export default function NavBar() {
             {navItems.map(({ name, hash }) => (
               <motion.li
                 key={hash}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+                initial={{ opacity: 1 }}
               >
                 <Link
                   href={hash}
@@ -98,7 +95,7 @@ export default function NavBar() {
             </div>
           </div>
         )}
-      </motion.div>
+      </div>
     </nav>
   )
 }

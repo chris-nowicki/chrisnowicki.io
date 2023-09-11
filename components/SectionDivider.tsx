@@ -21,29 +21,20 @@ export default function SectionDivider({
 }: SectionDividerProps) {
   if (type === 'line') {
     return (
-      <motion.div
+      <div
         className={cn(
           'my-6 h-12 w-1 rounded-full bg-gray-200 dark:bg-opacity-20 sm:block md:my-16 md:h-16',
           className
         )}
-        initial={{ opacity: 0, y: 100 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.125 }}
-      ></motion.div>
+      />
     )
   } else {
     return (
-      <motion.div
-        variants={animateChevron}
-        initial="initial"
-        animate="animate"
-        whileInView="animate"
-      >
         <PiCaretDoubleDownLight
           size={98}
           className={cn('text-gray-200 my-8 md:my-12 dark:text-opacity-20', className)}
         />
-      </motion.div>
+      
     )
   }
 }
