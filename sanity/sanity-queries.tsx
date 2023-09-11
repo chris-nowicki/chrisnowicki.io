@@ -1,4 +1,4 @@
-import { fetchSanity } from './sanity-utils'
+import { sanityFetch } from './sanity-utils'
 import { groq } from 'next-sanity'
 import { DEVTO, GitHub, Linkedin, Twitter } from '@/assets/Icons'
 import { SeoType, SkillsType, SocialLinksType } from '../types'
@@ -16,7 +16,7 @@ export async function getSEO(): Promise<SeoType> {
         }
     }`
 
-  const res = await fetchSanity(query)
+  const res = await sanityFetch(query)
   return res[0].seo
 }
 
@@ -28,7 +28,7 @@ export async function getSocialLinks(): Promise<SocialLinksType[]> {
         "devto": socialLinks.devto,
     }`
 
-  const res = await fetchSanity(query)
+  const res = await sanityFetch(query)
   const socialLinks = [
     { name: 'Linkedin', URL: res.linkedin, icon: <Linkedin size={28} /> },
     { name: 'GitHub', URL: res.github, icon: <GitHub size={28} /> },
@@ -56,7 +56,7 @@ export async function getHomePage() {
     "resumeURL": resume.asset->url,
   }`
 
-  const res = await fetchSanity(query)
+  const res = await sanityFetch(query)
   return res[0]
 }
 
@@ -66,6 +66,6 @@ export async function getSkills(): Promise<SkillsType[]> {
   link
 } | order(lower(name) asc)`
 
-  const res = await fetchSanity(query)
+  const res = await sanityFetch(query)
   return res
 }

@@ -2,7 +2,6 @@ import 'server-only'
 
 import { createClient } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
-import { cache } from 'react'
 
 // zod env type checking
 import { env } from '../types/env-public'
@@ -15,10 +14,12 @@ const client = createClient({
   useCdn: false, // if you're using ISR or only static generation at build time then you can set this to `false` to guarantee no stale content
 })
 
-const clientFetch = cache(client.fetch.bind(client))
-
-export async function fetchSanity(query: string): Promise<any> {
-  const data = await clientFetch(query)
+export async function sanityFetch(query: string) {
+  const data = client.fetch(query, {
+    next: {
+      revalidate: 30,
+    }
+  })
   return data
 }
 
