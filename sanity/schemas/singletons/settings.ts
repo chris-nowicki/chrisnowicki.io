@@ -108,11 +108,6 @@ export default defineType({
           type: 'string',
         }),
         defineField({
-          name: 'type',
-          title: 'Site Type',
-          type: 'string',
-        }),
-        defineField({
           name: 'image',
           title: 'OG Image',
           type: 'image',
