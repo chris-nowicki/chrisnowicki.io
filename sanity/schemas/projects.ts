@@ -65,11 +65,5 @@ export default {
       type: 'array',
       of: [{ type: 'reference', to: [{ type: 'tech' }] }],
     },
-    {
-      name: 'projectDetails',
-      title: 'Project Details for Resumé',
-      type: 'array',
-      of: [{ type: 'block' }, { type: 'image' }],
-    },
   ],
 }
