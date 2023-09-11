@@ -12,17 +12,11 @@ function ModeToggle({className}: ModeToggleProps) {
   const { theme, setTheme, systemTheme } = useTheme()
 
   useEffect(() => {
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => { 
-      if (e.matches) {
-        localStorage.setItem('theme', 'dark')
-        setTheme('dark')
-      } else {
-        localStorage.setItem('theme', 'light')
-        setTheme('light')
-      }
-    })
+      const localTheme = localStorage.getItem('theme')
+      localTheme === null && setTheme('system')
+    }, [])
 
-  }, [systemTheme])
+
 
   return (
     <button
