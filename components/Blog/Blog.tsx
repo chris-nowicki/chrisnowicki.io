@@ -1,7 +1,7 @@
 import React from 'react'
-import { Article } from '@/types'
 import { getArticles } from '@/lib/devto-api'
 import DevToArticles from './DevToArticles'
+import type { Article } from '@/types'
 
 export default async function Blog() {
   const articles: Article[] = await getArticles()

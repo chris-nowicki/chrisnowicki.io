@@ -3,7 +3,7 @@ import ProjectCard from './ProjectCard'
 import clsx from 'clsx'
 import { useState } from 'react'
 import { AnimatePresence } from 'framer-motion'
-import { CHEVRON_LEFT, CHEVRON_RIGHT } from '../../../assets/Icons'
+import { CHEVRON_LEFT, CHEVRON_RIGHT } from '@/assets/Icons'
 
 export default function ContentCarousel({ contents }) {
   const [activeIndex, setActiveIndex] = useState(0)

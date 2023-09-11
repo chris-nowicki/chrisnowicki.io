@@ -1,18 +1,11 @@
 'use client'
-
 import React from 'react'
-import { motion } from 'framer-motion'
 import { PiCaretDoubleDownLight } from 'react-icons/pi'
 import { cn } from '@/lib/utils'
 
 type SectionDividerProps = {
   type: 'line' | 'chevron'
   className?: string
-}
-
-const animateChevron = {
-  initial: { opacity: 0 },
-  animate: { opacity: 1 },
 }
 
 export default function SectionDivider({

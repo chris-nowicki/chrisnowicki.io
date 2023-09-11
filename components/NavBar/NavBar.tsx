@@ -1,14 +1,14 @@
 'use client'
+import { useState } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
-import { useState } from 'react'
 import { navItems } from '@/lib/data'
 import { motion } from 'framer-motion'
 import { useActiveSection } from '@/context/active-section'
 import ModeToggle from './ModeToggle'
 
 export default function NavBar() {
-  const [showMenu, setShowMenu] = useState<boolean>(false)
+  const [showMenu, setShowMenu] = useState(false)
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSection()
 

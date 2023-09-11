@@ -8,15 +8,13 @@ type ModeToggleProps = {
   className?: string
 }
 
-function ModeToggle({className}: ModeToggleProps) {
+export default function ModeToggle({className}: ModeToggleProps) {
   const { theme, setTheme, systemTheme } = useTheme()
 
   useEffect(() => {
       const localTheme = localStorage.getItem('theme')
       localTheme === null && setTheme('system')
     }, [])
-
-
 
   return (
     <button
@@ -30,5 +28,3 @@ function ModeToggle({className}: ModeToggleProps) {
     </button>
   )
 }
-
-export default ModeToggle

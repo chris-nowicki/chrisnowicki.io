@@ -6,7 +6,7 @@ import Skills from '@/components/Skills'
 import Blog from '@/components/Blog/Blog'
 import Contact from '@/components/Contact/Contact'
 import Footer from '@/components/Footer'
-import { SocialLinksType, HomePageType, SkillsType } from '@/types'
+import type { SocialLinksType, HomePageType, SkillsType } from '@/types'
 
 // sanity cms queries
 import { getSocialLinks, getHomePage, getSkills } from '@/sanity/sanity-queries'

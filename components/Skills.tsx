@@ -3,7 +3,7 @@ import React from 'react'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { motion } from 'framer-motion'
 import SectionHeading from './SectionHeading'
-import { SkillsType } from '@/types'
+import type { SkillsType } from '@/types'
 
 const fadeInAnimate = {
   initial: {

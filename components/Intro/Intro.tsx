@@ -2,12 +2,12 @@
 import React from 'react'
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
-import { SocialLinksType, HomePageType } from '@/types'
 import { homePortableText } from '@/lib/portable-text'
 import { useActiveSection } from '@/context/active-section'
 import { useSectionInView } from '@/hooks/useSectionInView'
-import ContactButton from './ContactButton'
 import { contactInfo } from '@/lib/data'
+import ContactButton from './ContactButton'
+import type { SocialLinksType, HomePageType } from '@/types'
 
 type IntroProps = {
   pageData: HomePageType

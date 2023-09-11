@@ -1,8 +1,8 @@
 'use client'
-import ContentCarousel from './Carousel/ContentCarousel'
-import { ProjectType } from '@/types'
 import { useSectionInView } from '@/hooks/useSectionInView'
+import ContentCarousel from './Carousel/ContentCarousel'
 import SectionHeading from '@/components/SectionHeading'
+import type { ProjectType } from '@/types'
 
 export default function FeaturedProjects({
   projects,

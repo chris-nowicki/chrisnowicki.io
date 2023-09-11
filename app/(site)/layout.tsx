@@ -3,11 +3,9 @@ import { AnalyticsWrapper } from '@/components/Analytics'
 import { ActiveSectionContextProvider } from '@/context/active-section'
 import ThemeProvider from './ThemeProvider'
 import { Toaster } from 'react-hot-toast'
-import '@/app/globals.css'
-
-// types
 import type { Metadata } from 'next'
-import { SeoType } from 'types'
+import type { SeoType } from 'types'
+import '@/app/globals.css'
 
 // font
 import { Roboto } from 'next/font/google'

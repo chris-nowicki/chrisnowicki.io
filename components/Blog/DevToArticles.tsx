@@ -1,13 +1,12 @@
 'use client'
-
 import React from 'react'
-import { DEVTO } from '@/assets/Icons'
 import format from 'date-fns/format'
 import { BsArrowRight, BsArrowUpRight } from 'react-icons/bs'
-import { Article } from '@/types'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { motion } from 'framer-motion'
+import { DEVTO } from '@/assets/Icons'
 import SectionHeading from '../SectionHeading'
+import type { Article } from '@/types'
 
 type DevToArticlesProps = {
   articles: Article[]

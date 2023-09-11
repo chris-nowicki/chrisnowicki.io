@@ -1,7 +1,7 @@
 import React from 'react'
-import { SocialLinksType } from '@/types'
 import { PDF } from '@/assets/Icons'
 import { BsDownload } from 'react-icons/bs'
+import type { SocialLinksType } from '@/types'
 
 type FooterProps = {
   pdfLink: string
