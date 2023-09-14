@@ -13,7 +13,7 @@ export default function ModeToggle({className}: ModeToggleProps) {
 
   useEffect(() => {
       const localTheme = localStorage.getItem('theme')
-      localTheme === null && setTheme('system')
+      localTheme === null && setTheme('light')
     }, [])
 
   return (
