@@ -6,16 +6,13 @@ import Skills from '@/components/Skills'
 import Blog from '@/components/Blog/Blog'
 import Contact from '@/components/Contact/Contact'
 import Footer from '@/components/Footer'
-import type { HomePageType, SkillsType } from '@/types'
+import type { HomePageType } from '@/types'
 
 // sanity cms queries
-import { getHomePage, getSkills } from '@/sanity/sanity-queries'
+import { getHomePage } from '@/sanity/sanity-queries'
 
 export default async function Home() {
-  const homePageData: Promise<HomePageType> = getHomePage()
-  const skillsData: Promise<SkillsType[]> = getSkills()
-
-  const [pageData, skills] = await Promise.all([homePageData, skillsData])
+  const pageData: HomePageType = await getHomePage()
 
   return (
     <div className="flex w-full flex-col items-center px-4 md:px-0">
@@ -24,7 +21,7 @@ export default async function Home() {
       <SectionDivider type="line" />
       <FeaturedProjects projects={pageData.featuredProjects} />
       <SectionDivider type="chevron" />
-      <Skills skills={skills} />
+      <Skills skills={pageData.skills} />
       <SectionDivider type="chevron" />
       <Blog />
       <SectionDivider type="chevron" />

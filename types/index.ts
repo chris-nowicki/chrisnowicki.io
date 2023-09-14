@@ -15,6 +15,10 @@ export type HomePageType = {
   content: PortableTextBlock[]
   featuredProjects: ProjectType[]
   resumeURL: string
+  skills: {
+    name: string
+    link: string
+  }[]
 }
 
 export type ProjectType = {
@@ -46,9 +50,4 @@ export type MetricsType = {
   tweetCount: number
   githubCommits: number
   githubRepos: number
-}
-
-export type SkillsType = {
-  name: string
-  link: string
 }

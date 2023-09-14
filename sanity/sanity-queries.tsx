@@ -1,6 +1,6 @@
 import { sanityFetch } from './sanity-utils'
 import { groq } from 'next-sanity'
-import { SeoType, SkillsType } from '../types'
+import { SeoType } from '../types'
 
 // GROQ Queries
 export async function getSEO(): Promise<SeoType> {
@@ -13,16 +13,20 @@ export async function getSEO(): Promise<SeoType> {
             type,
             "image": image.asset->url,
         }
-    }`
+    }[0]`
 
   const res = await sanityFetch(query)
-  return res[0].seo
+  return res.seo
 }
 
 export async function getHomePage() {
   const query = groq`*[_type == 'home'] {
     'profilePicture': profilePicture.asset->url,
     content,
+    'skills': *[_type == 'tech']{
+  name,
+  link
+} | order(lower(name) asc),
     "featuredProjects": featuredProjects[]->{
       _id,  
       "name": projectName,
@@ -35,17 +39,7 @@ export async function getHomePage() {
       },
     },
     "resumeURL": resume.asset->url,
-  }`
-
-  const res = await sanityFetch(query)
-  return res[0]
-}
-
-export async function getSkills(): Promise<SkillsType[]> {
-  const query = groq`*[_type =='tech'] {
-  name,
-  link
-} | order(lower(name) asc)`
+  }[0]`
 
   const res = await sanityFetch(query)
   return res

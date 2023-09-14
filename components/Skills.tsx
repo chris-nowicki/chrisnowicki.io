@@ -3,7 +3,6 @@ import React from 'react'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { motion } from 'framer-motion'
 import SectionHeading from './SectionHeading'
-import type { SkillsType } from '@/types'
 
 const fadeInAnimate = {
   initial: {
@@ -20,7 +19,10 @@ const fadeInAnimate = {
 }
 
 type SkillsProps = {
-  skills: SkillsType[]
+  skills: {
+    name: string
+    link?: string
+  }[]
 }
 
 export default function Skills({ skills }: SkillsProps) {
@@ -37,7 +39,7 @@ export default function Skills({ skills }: SkillsProps) {
 
       {/* list of skills from sanity CMS */}
       <ul className="mt-6 flex flex-wrap justify-center gap-4">
-        {skills.map((skill: SkillsType, index: number) =>
+        {skills.map((skill, index) =>
           skill.link ? (
             <a
               key={index}
