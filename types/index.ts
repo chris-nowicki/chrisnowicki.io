@@ -10,11 +10,6 @@ export type SeoType = {
   image: string
 }
 
-export type SocialLinksType = {
-  URL: string
-  icon: JSX.Element
-}
-
 export type HomePageType = {
   profilePicture: string
   content: PortableTextBlock[]
@@ -27,11 +22,9 @@ export type ProjectType = {
   dateCreated: string
   liveSiteURL: string
   gitHubURL: string
-  tags: TagType[]
-}
-
-type TagType = {
-  name: string
+  tags: {
+    name: string
+  }[]
 }
 
 export type SectionName = (typeof navItems)[number]['name']

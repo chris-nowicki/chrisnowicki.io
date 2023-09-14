@@ -7,14 +7,14 @@ import { useActiveSection } from '@/context/active-section'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { contactInfo } from '@/lib/data'
 import ContactButton from './ContactButton'
-import type { SocialLinksType, HomePageType } from '@/types'
+import type { HomePageType } from '@/types'
+import { socialLinks } from '@/lib/data'
 
 type IntroProps = {
   pageData: HomePageType
-  socialLinks: SocialLinksType[]
 }
 
-export default function Intro({ pageData, socialLinks }: IntroProps) {
+export default function Intro({ pageData }: IntroProps) {
   const { setActiveSection, setTimeOfLastClick } = useActiveSection()
   const { ref } = useSectionInView('Home')
 
@@ -24,9 +24,7 @@ export default function Intro({ pageData, socialLinks }: IntroProps) {
       id="home"
       className="mt-20 flex scroll-mt-20 flex-col md:mt-32 md:scroll-mt-32 md:flex-nowrap"
     >
-      <div
-        className="flex flex-wrap-reverse justify-center md:flex-nowrap md:justify-start"
-      >
+      <div className="flex flex-wrap-reverse justify-center md:flex-nowrap md:justify-start">
         {/* intro text from Sanity CMS */}
         <div className="mr-0 flex w-full flex-col items-center text-left sm:text-xl md:mr-6 md:items-start md:text-xl">
           <PortableText
@@ -37,14 +35,17 @@ export default function Intro({ pageData, socialLinks }: IntroProps) {
           {/* contact and download buttons */}
           <div className="mt-4 flex items-center gap-2">
             <ContactButton
-              URL='/#contact'
+              URL="/#contact"
               contactInfo={contactInfo.Contact}
               onClickProps={() => {
                 setActiveSection('Contact')
                 setTimeOfLastClick(Date.now())
               }}
             />
-            <ContactButton URL={pageData.resumeURL} contactInfo={contactInfo.DownloadCV} />
+            <ContactButton
+              URL={pageData.resumeURL}
+              contactInfo={contactInfo.DownloadCV}
+            />
           </div>
         </div>
 
