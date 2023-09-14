@@ -1,5 +1,4 @@
 import { defineType, defineField } from 'sanity'
-import { SocialLinkInput } from '../../components/Social/SocialLinkInput'
 
 const TITLE = 'Settings'
 
@@ -9,74 +8,13 @@ export default defineType({
   type: 'document',
   groups: [
     {
-      name: 'socialLinks',
-      title: 'Social Links',
-      default: true,
-    },
-    {
       name: 'seo',
       title: 'SEO',
+      default: true,
     },
   ],
   fields: [
     //Menu
-    defineField({
-      name: 'socialLinks',
-      title: 'Social Links',
-      group: 'socialLinks',
-      type: 'object',
-      options: {
-        collapsed: false,
-        collapsible: true,
-      },
-      fields: [
-        defineField({
-          name: 'linkedin',
-          title: 'Linkedin',
-          type: 'string',
-          description: 'https://www.linkedin.com/in/',
-          components: {
-            field: SocialLinkInput,
-          },
-        }),
-        defineField({
-          name: 'github',
-          title: 'GitHub',
-          type: 'string',
-          description: 'https://github.com/',
-          components: {
-            field: SocialLinkInput,
-          },
-        }),
-        defineField({
-          name: 'twitter',
-          title: 'Twitter',
-          type: 'string',
-          description: 'https://twitter.com/',
-          components: {
-            field: SocialLinkInput,
-          },
-        }),
-        defineField({
-          name: 'devto',
-          title: 'DevTo',
-          type: 'string',
-          description: 'https://dev.to/',
-          components: {
-            field: SocialLinkInput,
-          },
-        }),
-        defineField({
-          name: 'instagram',
-          title: 'Instagram',
-          type: 'string',
-          description: 'https://instagram.com/',
-          components: {
-            field: SocialLinkInput,
-          },
-        }),
-      ],
-    }),
     defineField({
       name: 'seo',
       title: 'SEO',
