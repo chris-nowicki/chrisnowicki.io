@@ -8,8 +8,6 @@ import Contact from '@/components/Contact/Contact'
 import Footer from '@/components/Footer'
 import type { SocialLinksType, HomePageType, SkillsType } from '@/types'
 
-export const dynamic = 'force-static'
-
 // sanity cms queries
 import { getSocialLinks, getHomePage, getSkills } from '@/sanity/sanity-queries'
 
