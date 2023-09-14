@@ -18,7 +18,7 @@ export default function ModeToggle({className}: ModeToggleProps) {
 
   return (
     <button
-      className={cn("cursor-pointer rounded-full border border-borderColor-light dark:border-borderColor-dark/20 p-2 mr-2 shadow text-lg text-purple-light hover:bg-gray-300/20", className)}
+      className={cn("cursor-pointer rounded-full border border-gray-300 dark:border-borderColor-dark/20 p-2 mr-2 shadow text-lg text-purple-light hover:bg-gray-300/20", className)}
       onClick={() => {
         setTheme(theme === 'light' ? 'dark' : 'light')
       }}
