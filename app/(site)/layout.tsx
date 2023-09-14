@@ -7,8 +7,6 @@ import type { Metadata } from 'next'
 import type { SeoType } from 'types'
 import '@/app/globals.css'
 
-export const dynamic = 'force-static'
-
 // font
 import { Roboto } from 'next/font/google'
 
