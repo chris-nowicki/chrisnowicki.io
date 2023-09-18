@@ -9,7 +9,7 @@ export default function FeaturedProjects({
 }: {
   projects: ProjectType[]
 }) {
-  const { ref } = useSectionInView('Projects', 0.2)
+  const { ref } = useSectionInView('Projects', 0.5)
   return (
     <section
       ref={ref}
