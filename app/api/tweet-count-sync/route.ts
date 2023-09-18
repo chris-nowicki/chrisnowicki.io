@@ -1,7 +1,7 @@
 import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
 import { NextResponse } from 'next/server'
-import { updateTweetCount, getStoredTweetCount } from '@/lib/vercel-storage'
+import { updateTweetCount, getStoredTweetCount } from '@/lib/planetscale'
 import { getTweetCount } from '@/lib/twitter-api'
 
 // Zod env type checking

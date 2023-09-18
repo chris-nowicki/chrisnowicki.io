@@ -3,9 +3,7 @@ import { Octokit } from 'octokit'
 import {
   getStoredGithubMetrics,
   updateGithubMetrics,
-} from '@/lib/vercel-storage'
-
-// Zod env type checking
+} from '@/lib/planetscale'
 import { env } from '@/types/env-private'
 
 // Nextjs route segment config
