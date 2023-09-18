@@ -52,7 +52,7 @@ export default function Intro({ pageData }: IntroProps) {
         {/* profile image and social media links */}
         <div className="mb-4 flex w-[200px] flex-col items-center gap-4 md:mb-0 md:mt-0 md:w-[400px] ">
           <Image
-            className="rounded-xl bg-white p-2 shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
+            className="rounded-xl bg-white p-2 shadow-lg"
             width={400}
             height={400}
             src={pageData.profilePicture}
