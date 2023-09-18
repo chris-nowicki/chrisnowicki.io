@@ -7,7 +7,7 @@ import { useActiveSection } from '@/context/active-section'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { contactInfo } from '@/lib/data'
 import ContactButton from './ContactButton'
-import type { HomePageType } from '@/types'
+import type { HomePageType } from '@/types/types'
 import { socialLinks } from '@/lib/data'
 
 type IntroProps = {

@@ -6,7 +6,7 @@ import { useSectionInView } from '@/hooks/useSectionInView'
 import { motion } from 'framer-motion'
 import { DEVTO } from '@/assets/Icons'
 import SectionHeading from '../SectionHeading'
-import type { Article } from '@/types'
+import type { Article } from '@/types/types'
 
 type DevToArticlesProps = {
   articles: Article[]
@@ -24,7 +24,7 @@ const fadeInAnimate = {
   }),
 }
 
-export default function DevToArticles({articles}: DevToArticlesProps) {
+export default function DevToArticles({ articles }: DevToArticlesProps) {
   const { ref } = useSectionInView('Blog', 0.5)
   return (
     <section

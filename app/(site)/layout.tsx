@@ -4,7 +4,7 @@ import { ActiveSectionContextProvider } from '@/context/active-section'
 import ThemeProvider from './ThemeProvider'
 import { Toaster } from 'react-hot-toast'
 import type { Metadata } from 'next'
-import type { SeoType } from 'types'
+import type { SeoType } from '@/types/types'
 import '@/app/globals.css'
 
 // font
@@ -75,7 +75,7 @@ export default async function RootLayout({
           <ThemeProvider>
             {/* colored background */}
             <div className="absolute right-[3rem] top-[-6rem] -z-10 h-[31.25rem] w-[45rem] rounded-full bg-[#cfb3f8] blur-[10rem] dark:bg-[#a88bd4] dark:blur-[15rem] "></div>
-            <div className="2xl:left-[-5rem] absolute left-[-35rem] top-[-1rem] -z-10 h-[31.25rem] w-[50rem] rounded-full bg-[#e1e1dc] blur-[10rem] dark:bg-[#111827]  md:left-[-33rem] lg:left-[-28rem] xl:left-[-15rem]"></div>
+            <div className="absolute left-[-35rem] top-[-1rem] -z-10 h-[31.25rem] w-[50rem] rounded-full bg-[#e1e1dc] blur-[10rem] dark:bg-[#111827] md:left-[-33rem]  lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]"></div>
 
             {/* main portfolio site */}
             <div className="flex flex-col items-center">

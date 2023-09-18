@@ -10,6 +10,7 @@ const privateEnvSchema = z.object({
   NODE_ENV: z.string(),
   RESEND_API_KEY: z.string(),
   DATABASE_URL: z.string(),
+  CRON_SECRET: z.string(),
 })
 
 export type Env = z.infer<typeof privateEnvSchema>
@@ -24,6 +25,7 @@ export const env: Env = {
   NODE_ENV: process.env.NODE_ENV,
   RESEND_API_KEY: process.env.RESEND_API_KEY,
   DATABASE_URL: process.env.DATABASE_URL,
+  CRON_SECRET: process.env.CRON_SECRET,
 }
 
 privateEnvSchema.parse(env)

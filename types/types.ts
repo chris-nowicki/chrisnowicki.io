@@ -10,6 +10,12 @@ export type SeoType = {
   image: string
 }
 
+export type OGImageType = {
+  url: string
+}
+
+export type SectionName = (typeof navItems)[number]['name']
+
 export type HomePageType = {
   profilePicture: string
   content: PortableTextBlock[]
@@ -19,6 +25,12 @@ export type HomePageType = {
     name: string
     link: string
   }[]
+}
+
+export type MetricsType = {
+  tweetCount: number
+  githubCommits: number
+  githubRepos: number
 }
 
 export type ProjectType = {
@@ -31,8 +43,6 @@ export type ProjectType = {
   }[]
 }
 
-export type SectionName = (typeof navItems)[number]['name']
-
 export type Article = {
   id: string
   title: string
@@ -40,14 +50,4 @@ export type Article = {
   published_at: string
   page_views_count: number
   reading_time_minutes: number
-}
-
-export type OGImageType = {
-  url: string
-}
-
-export type MetricsType = {
-  tweetCount: number
-  githubCommits: number
-  githubRepos: number
 }
