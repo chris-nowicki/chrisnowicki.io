@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import { homePortableText } from '@/lib/portable-text'
@@ -21,8 +21,8 @@ export default function Intro({ pageData, metrics }: IntroProps) {
   const { setActiveSection, setTimeOfLastClick } = useActiveSection()
   const { ref } = useSectionInView('Home')
 
-  const githubLinks = socialLinks.filter((link) => link.name === 'GitHub')[0]
-  const twitterLinks = socialLinks.filter((link) => link.name === 'Twitter')[0]
+  const githubLink = socialLinks.filter((link) => link.name === 'GitHub')[0]
+  const twitterLink = socialLinks.filter((link) => link.name === 'Twitter')[0]
 
   return (
     <section
@@ -86,7 +86,7 @@ export default function Intro({ pageData, metrics }: IntroProps) {
               <HiTrendingUp size={20} />
               {metrics.tweetCount.toLocaleString()} posts on{' '}
               <a
-                href={twitterLinks.URL}
+                href={twitterLink.URL}
                 className=" hover:scale-110 hover:text-purple-light  hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
                 target="_blank"
               >
@@ -97,7 +97,7 @@ export default function Intro({ pageData, metrics }: IntroProps) {
               <HiTrendingUp size={20} />
               {metrics.githubCommits.toLocaleString()}{' '}
               <a
-                href={githubLinks.URL}
+                href={githubLink.URL}
                 className=" hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
                 target="_blank"
               >
