@@ -16,9 +16,10 @@ const client = createClient({
 
 export async function sanityFetch(query: string) {
   const data = client.fetch(query, {
-    next: {
-      revalidate: 30,
-    }
+    config: {
+      cache: 'force-cache',
+      next: { revalidate: 60 },
+    },
   })
   return data
 }
