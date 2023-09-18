@@ -81,7 +81,7 @@ export default function Intro({ pageData, metrics }: IntroProps) {
           </div>
 
           {/* metrics */}
-          <div className="mt-2 flex flex-col items-center justify-center gap-2 rounded-xl border border-borderColor-light p-4 dark:border-gray-300/20">
+          <div className="hidden mt-2 md:flex md:flex-col items-center justify-center gap-2 rounded-xl border border-borderColor-light p-4  dark:border-gray-300/20">
             <span className="flex items-center gap-2">
               <HiTrendingUp size={20} />
               {metrics.tweetCount.toLocaleString()} posts on{' '}
