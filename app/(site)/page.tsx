@@ -6,17 +6,21 @@ import Skills from '@/components/Skills'
 import Blog from '@/components/Blog/Blog'
 import Contact from '@/components/Contact/Contact'
 import Footer from '@/components/Footer'
-import type { HomePageType } from '@/types/types'
+import type { HomePageType, MetricsType } from '@/types/types'
+import { getMetrics } from '@/lib/planetscale'
 
 // sanity cms queries
 import { getHomePage } from '@/sanity/sanity-queries'
 
 export default async function Home() {
-  const pageData: HomePageType = await getHomePage()
+  const homePageData: Promise<HomePageType> = getHomePage()
+  const metricsData: Promise<MetricsType> = getMetrics()
+
+  const [pageData, metrics] = await Promise.all([homePageData, metricsData])
 
   return (
     <div className="flex w-full flex-col items-center px-4 md:px-0">
-      <Intro pageData={pageData} />
+      <Intro pageData={pageData} metrics={metrics} />
       <TechStack />
       <SectionDivider type="line" />
       <FeaturedProjects projects={pageData.featuredProjects} />

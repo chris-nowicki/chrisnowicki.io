@@ -58,7 +58,7 @@ export async function GET(req: NextRequest) {
       )
     }
 
-    // Fetch the current stored tweet count from vercel storage
+    // Fetch the current stored tweet count from PlanetScale storage
     const storedTweetCount = await getStoredTweetCount()
 
     // If the tweet count hasn't changed, return 208 status code
