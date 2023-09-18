@@ -15,12 +15,15 @@ const client = createClient({
 })
 
 export async function sanityFetch(query: string) {
-  const data = client.fetch(query, {
-    config: {
-      cache: 'force-cache',
-      next: { revalidate: 60 },
-    },
-  })
+  const data = client.fetch(
+    query,
+    {},
+    {
+      next: {
+        revalidate: 30,
+      },
+    }
+  )
   return data
 }
 

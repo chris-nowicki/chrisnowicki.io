@@ -50,11 +50,11 @@ export default function Intro({ pageData }: IntroProps) {
         </div>
 
         {/* profile image and social media links */}
-        <div className="mb-4 flex w-[200px] flex-col items-center gap-4 md:mb-0 md:mt-0 md:w-[400px] ">
+        <div className="mb-4 flex w-[200px] flex-col items-center gap-4 md:mb-0 md:mt-0 md:w-[450px] ">
           <Image
-            className="rounded-full bg-white p-2 shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
-            width={400}
-            height={400}
+            className="rounded-xl bg-white p-2 shadow-lg grayscale transition-all duration-150 ease-in-out hover:grayscale-0"
+            width={450}
+            height={450}
             src={pageData.profilePicture}
             alt="chris nowicki"
             priority
