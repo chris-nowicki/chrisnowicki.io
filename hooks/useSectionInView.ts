@@ -9,7 +9,7 @@ export function useSectionInView(sectionName: SectionName, threshold = 0.75) {
     threshold,
   })
   const { setActiveSection, timeOfLastClick } = useActiveSection()
-  const { scrollYProgress, scrollY } = useScroll()
+  const { scrollY } = useScroll()
 
   useEffect(() => {
     if (
