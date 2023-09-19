@@ -6,22 +6,16 @@ import { useActiveSection } from '@/context/active-section'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { contactInfo } from '@/lib/data'
 import ContactButton from './ContactButton'
-import type { HomePageType, MetricsType } from '@/types/types'
+import type { HomePageType } from '@/types/types'
 import { socialLinks } from '@/lib/data'
-import { GitHub, Twitter } from '@/assets/Icons'
-import { HiTrendingUp } from 'react-icons/hi'
 
 type IntroProps = {
   pageData: HomePageType
-  metrics: MetricsType
 }
 
-export default function Intro({ pageData, metrics }: IntroProps) {
+export default function Intro({ pageData }: IntroProps) {
   const { setActiveSection, setTimeOfLastClick } = useActiveSection()
   const { ref } = useSectionInView('Home')
-
-  const githubLink = socialLinks.filter((link) => link.name === 'GitHub')[0]
-  const twitterLink = socialLinks.filter((link) => link.name === 'Twitter')[0]
 
   return (
     <section
@@ -77,33 +71,6 @@ export default function Intro({ pageData, metrics }: IntroProps) {
                 {link.icon}
               </a>
             ))}
-          </div>
-
-          {/* metrics */}
-          <div className="hidden mt-2 md:flex md:flex-col items-center justify-center gap-2 rounded-xl border border-borderColor-light p-4  dark:border-gray-300/20">
-            <span className="flex items-center gap-2">
-              <HiTrendingUp size={20} />
-              {metrics.tweetCount.toLocaleString()} posts on{' '}
-              <a
-                href={twitterLink.URL}
-                className=" hover:scale-110 hover:text-purple-light  hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
-                target="_blank"
-              >
-                <Twitter size={24} />
-              </a>
-            </span>
-            <span className="flex items-center gap-2">
-              <HiTrendingUp size={20} />
-              {metrics.githubCommits.toLocaleString()}{' '}
-              <a
-                href={githubLink.URL}
-                className=" hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
-                target="_blank"
-              >
-                <GitHub size={24} />
-              </a>
-              commits
-            </span>
           </div>
         </div>
       </div>
