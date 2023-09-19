@@ -9,9 +9,6 @@ import Footer from '@/components/Footer'
 import type { HomePageType, MetricsType } from '@/types/types'
 import { fetchMetrics } from '@/lib/metrics'
 
-// Force static page route instead of dynamic (server)
-export const dynamic = 'force-static'
-
 // sanity cms query
 import { getHomePage } from '@/sanity/sanity-queries'
 
