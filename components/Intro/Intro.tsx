@@ -32,7 +32,7 @@ export default function Intro({ pageData }: IntroProps) {
           />
 
           {/* contact and download buttons */}
-          <div className="mt-4 flex items-center gap-2">
+          <div className="mt-6 flex items-center gap-2">
             <ContactButton
               URL="/#contact"
               contactInfo={contactInfo.Contact}

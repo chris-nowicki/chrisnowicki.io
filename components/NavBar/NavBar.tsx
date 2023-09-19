@@ -42,7 +42,7 @@ export default function NavBar() {
           }}
           animate={hideNavBar ? 'hidden' : 'visible'}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
-          className="hidden w-full rounded-full border-4 border-purple-dark bg-gray-50 bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between"
+          className="hidden w-full rounded-full border-2 border-purple-dark bg-gray-50 bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between"
         >
           <div className="flex items-center gap-4 pl-5">
             {navItems.map(({ name, hash }) => (
