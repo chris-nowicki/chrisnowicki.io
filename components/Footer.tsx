@@ -37,9 +37,8 @@ export default function Footer({ pdfLink }: FooterProps) {
 
       {/* about this website information */}
       <p className="text-xs">
-        <span className="font-semibold">About this website:</span> Built with
-        React & Next.js, TypeScript, Tailwind CSS, Framer Motion, React Email &
-        Resend, Sanity CMS, Vercel hosting.
+        <span className="font-semibold">Built with:</span> React & Next.js, TypeScript, Tailwind CSS, Framer Motion, React Email &
+        Resend, Sanity CMS, PlanetScale MySQL, Vercel hosting.
       </p>
     </footer>
   )

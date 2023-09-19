@@ -22,7 +22,7 @@ export default function NavBar() {
     <nav className="fixed left-1/2 top-0 z-[999] w-full max-w-3xl -translate-x-1/2">
       <div className="relative flex w-full items-center justify-between bg-gray-50 p-4 shadow dark:bg-background-light md:bg-transparent md:px-0 md:pb-4 md:pt-4 md:shadow-none md:dark:bg-transparent">
         {/* regular nav menu */}
-        <ul className="hidden w-full rounded-full bg-gray-50 bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between">
+        <ul className="hidden border-4 border-purple-dark w-full rounded-full bg-gray-50 bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between">
           <div className="flex items-center gap-4 pl-5">
             {navItems.map(({ name, hash }) => (
               <motion.li key={hash} initial={{ opacity: 1 }}>
