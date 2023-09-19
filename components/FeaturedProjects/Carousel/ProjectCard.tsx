@@ -121,7 +121,7 @@ export default function ProjectCard({
                   height={227}
                   src={image}
                   alt="featured projects"
-                  priority
+                  loading="lazy"
                 />
               )}
               <div className="flex h-full w-full gap-1">
