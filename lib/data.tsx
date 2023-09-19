@@ -10,6 +10,7 @@ import {
   GitHub,
   Linkedin,
   Twitter,
+  REACT
 } from '@/assets/Icons'
 import { BsDownload } from 'react-icons/bs'
 import { MdOutlineEmail } from 'react-icons/md'
@@ -87,6 +88,7 @@ export const contactInfo: ContactInfoType = {
 
 export const TechStackIcons = [
   { icon: <NEXTJS />, URL: 'https://nextjs.org/' },
+  { icon: <REACT />, URL: 'https://reactjs.org/'},
   { icon: <TS />, URL: 'https://www.typescriptlang.org/' },
   { icon: <TAILWIND />, URL: 'https://tailwindcss.com/' },
   { icon: <SANITY />, URL: 'https://www.sanity.io/' },
