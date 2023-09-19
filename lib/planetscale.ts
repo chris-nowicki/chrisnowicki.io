@@ -2,8 +2,9 @@ import { Kysely, ColumnType } from 'kysely'
 import { PlanetScaleDialect } from 'kysely-planetscale'
 import { env } from '@/types/env-private'
 import { MetricsType } from '@/types/types'
+import { cache } from 'react'
 
-export type Database = {
+type Database = {
   tweetCount: TweetCountTable
   githubMetrics: GitHubMetricsTable
 }
@@ -32,8 +33,10 @@ export const db = new Kysely<Database>({
   }),
 })
 
+
+
 // query to fetch tweet count and github metrics
-export async function getMetrics(): Promise<MetricsType> {
+async function getMetrics(): Promise<MetricsType> {
   const res = await db
     .selectFrom(['tweetCount', 'githubMetrics'])
     .select([
@@ -44,6 +47,8 @@ export async function getMetrics(): Promise<MetricsType> {
     .execute()
   return res[0]
 }
+
+export const fetchMetrics = cache(getMetrics)
 
 // get stored tweet count
 export async function getStoredTweetCount(): Promise<number> {
