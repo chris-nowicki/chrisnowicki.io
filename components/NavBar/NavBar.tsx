@@ -3,26 +3,47 @@ import { useState } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { navItems } from '@/lib/data'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { useActiveSection } from '@/context/active-section'
 import ModeToggle from './ModeToggle'
 
 export default function NavBar() {
-  const [showMenu, setShowMenu] = useState(false)
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
+  const [hideNavBar, setHideNavBar] = useState(false) // for hiding navbar on scroll
   const { activeSection, setActiveSection, setTimeOfLastClick } =
     useActiveSection()
+  const { scrollY } = useScroll()
 
+  // hide navbar on scroll down & show on scroll up
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const previous = scrollY.getPrevious()
+    if (latest > previous && latest > 100) {
+      setHideNavBar(true)
+    } else {
+      setHideNavBar(false)
+    }
+  })
+
+  // toggle hamburger mobile menu
   const handleMenu = () => {
     const btn: HTMLElement = document.getElementById('menu-btn')
     btn.classList.toggle('open')
-    setShowMenu(showMenu === false ? true : false)
+    setShowMobileMenu(showMobileMenu === false ? true : false)
   }
 
   return (
     <nav className="fixed left-1/2 top-0 z-[999] w-full max-w-3xl -translate-x-1/2">
       <div className="relative flex w-full items-center justify-between bg-gray-50 p-4 shadow dark:bg-background-light md:bg-transparent md:px-0 md:pb-4 md:pt-4 md:shadow-none md:dark:bg-transparent">
-        {/* regular nav menu */}
-        <ul className="hidden border-4 border-purple-dark w-full rounded-full bg-gray-50 bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between">
+        {/* nav bar menu */}
+        <motion.ul
+          variants={{
+            visible: { y: 0 },
+            hidden: { y: -110 },
+          }}
+          animate={hideNavBar ? 'hidden' : 'visible'}
+          transition={{ duration: 0.2, ease: 'easeInOut' }}
+          className="hidden w-full rounded-full border-4 border-purple-dark bg-gray-50 bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between"
+        >
           <div className="flex items-center gap-4 pl-5">
             {navItems.map(({ name, hash }) => (
               <motion.li key={hash} initial={{ opacity: 1 }}>
@@ -55,7 +76,7 @@ export default function NavBar() {
             ))}
           </div>
           <ModeToggle />
-        </ul>
+        </motion.ul>
 
         {/* hamburger menu for mobile */}
         <button
@@ -70,8 +91,8 @@ export default function NavBar() {
 
         <ModeToggle className="fixed right-2 rounded-lg dark:border-foreground dark:text-foreground md:hidden" />
 
-        {/* mobile nav menu when hamburger button is selected */}
-        {showMenu && (
+        {/* mobile navigation menu when hamburger button is selected */}
+        {showMobileMenu && (
           <div>
             <div
               id="menu"
