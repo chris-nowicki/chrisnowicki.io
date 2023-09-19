@@ -1,25 +1,24 @@
 import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
 import { NextRequest, NextResponse } from 'next/server'
-import { updateTweetCount, getStoredTweetCount } from '@/lib/planetscale'
-import { getTweetCount } from '@/lib/twitter-api'
-import { env } from '@/types/env-private'
+import { updateTweetCount, getStoredTweetCount } from '@/lib/metrics'
+import { getTweetCount } from '@/lib/metrics'
 
 // Nextjs route segment config
 export const dynamic = 'force-dynamic' // Force dynamic (server) route instead of static page
 
 export async function GET(req: NextRequest) {
-  const consumerKey = env.TWITTER_CONSUMER_KEY
-  const consumerSecret = env.TWITTER_CONSUMER_SECRET
-  const accessToken = env.TWITTER_ACCESS_TOKEN
-  const accessTokenSecret = env.TWITTER_ACCESS_TOKEN_SECRET
+  const consumerKey = process.env.TWITTER_CONSUMER_KEY
+  const consumerSecret = process.env.TWITTER_CONSUMER_SECRET
+  const accessToken = process.env.TWITTER_ACCESS_TOKEN
+  const accessTokenSecret = process.env.TWITTER_ACCESS_TOKEN_SECRET
   const url = 'https://api.twitter.com/2/users/me?user.fields=public_metrics'
 
   const authToken = (req.headers.get('authorization') || '')
     .split('Bearer ')
     .at(1)
 
-  if (!authToken || authToken != env.CRON_SECRET) {
+  if (!authToken || authToken != process.env.CRON_SECRET) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 

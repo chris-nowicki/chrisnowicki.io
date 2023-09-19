@@ -1,5 +1,5 @@
 import React from 'react'
-import { getArticles } from '@/lib/devto-api'
+import { getArticles } from '@/lib/devto'
 import DevToArticles from './DevToArticles'
 import type { Article } from '@/types/types'
 

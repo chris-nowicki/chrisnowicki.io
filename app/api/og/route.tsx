@@ -2,11 +2,9 @@ import { ImageResponse } from '@vercel/og'
 import { NextRequest } from 'next/server'
 import { NEXTJS, TAILWIND, SANITY, VERCEL } from '@/assets/Icons'
 
-// Zod env type validation
-import { env } from '@/types/env-private'
-
 // Nextjs route segment config
 export const runtime = 'edge'
+export const dynamic = 'force-dynamic' // Force dynamic (server) route instead of static page
 
 export async function GET(req: NextRequest) {
   const { searchParams } = req.nextUrl
@@ -14,7 +12,7 @@ export async function GET(req: NextRequest) {
     searchParams.get('description') || 'This is a description'
 
   const url =
-    env.NODE_ENV === 'production'
+    process.env.NEXT_PUBLIC_NODE_ENV === 'production'
       ? 'https://chrisnowicki.io'
       : 'http://localhost:3000'
 

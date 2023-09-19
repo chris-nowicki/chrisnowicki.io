@@ -1,39 +1,16 @@
-import { Kysely, ColumnType } from 'kysely'
-import { PlanetScaleDialect } from 'kysely-planetscale'
-import { env } from '@/types/env-private'
-import { MetricsType } from '@/types/types'
 import { cache } from 'react'
+import { NextResponse } from 'next/server'
+import { Kysely } from 'kysely'
+import { PlanetScaleDialect } from 'kysely-planetscale'
+import type { Database, githubMetricsType, MetricsType } from '@/types/types'
 
-type Database = {
-  tweetCount: TweetCountTable
-  githubMetrics: GitHubMetricsTable
-}
-
-type TweetCountTable = {
-  count: number
-  updated_at?: ColumnType<Date, string | undefined>
-  id?: number
-}
-
-type GitHubMetricsTable = {
-  commits: number
-  repos: number
-  updated_at?: ColumnType<Date, string | undefined>
-  id?: number
-}
-
-type githubMetricsType = {
-  commits: number
-  repos: number
-}
-
+// PLANETSCALE
+// create an instance of Kysely
 export const db = new Kysely<Database>({
   dialect: new PlanetScaleDialect({
-    url: env.DATABASE_URL,
+    url: process.env.DATABASE_URL,
   }),
 })
-
-
 
 // query to fetch tweet count and github metrics
 async function getMetrics(): Promise<MetricsType> {
@@ -48,6 +25,7 @@ async function getMetrics(): Promise<MetricsType> {
   return res[0]
 }
 
+// cache the response of the getMetrics function
 export const fetchMetrics = cache(getMetrics)
 
 // get stored tweet count
@@ -85,4 +63,17 @@ export const updateGithubMetrics = (commits: number, repos: number) => {
     .set({ commits: commits, repos: repos, updated_at: new Date() })
     .where('githubMetrics.id', '=', 1)
     .execute()
+}
+
+// TWITTER FETCH FUNCTION
+export const getTweetCount = async (url: string, headers: HeadersInit) => {
+  const response = await fetch(url, {
+    headers,
+  }).then((res) => res.json())
+
+  if (response.status === 429) {
+    return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429 })
+  }
+
+  return response.data.public_metrics.tweet_count
 }

@@ -1,6 +1,9 @@
+'server-only'
 import { twMerge } from 'tailwind-merge'
 import { clsx, ClassValue } from 'clsx'
 
+// EMAIL (CONTACT FORM) VALIDATIONS
+// validate if the contact form email and message is a string
 export const validateString = (
   value: unknown,
   maxLength: number
@@ -12,6 +15,7 @@ export const validateString = (
   return true
 }
 
+// get the error message if the email has issues sending through resend
 export const getErrorMessage = (error: unknown): string => {
   let message: string
 
@@ -30,4 +34,16 @@ export const getErrorMessage = (error: unknown): string => {
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
+}
+
+// DYNAMIC OG IMAGE URL
+export default function ogImageURL(description: string) {
+  const url =
+    process.env.NEXT_PUBLIC_NODE_ENV === 'production'
+      ? 'https://chrisnowicki.io'
+      : 'http://localhost:3000'
+
+  return {
+    url: `${url}/api/og?description=${description}`,
+  }
 }

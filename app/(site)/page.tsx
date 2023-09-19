@@ -7,11 +7,10 @@ import Blog from '@/components/Blog/Blog'
 import Contact from '@/components/Contact/Contact'
 import Footer from '@/components/Footer'
 import type { HomePageType, MetricsType } from '@/types/types'
-import { fetchMetrics } from '@/lib/planetscale'
+import { fetchMetrics } from '@/lib/metrics'
 
-// sanity cms queries
+// sanity cms query
 import { getHomePage } from '@/sanity/sanity-queries'
-import React from 'react'
 
 export default async function Home() {
   const homePageData: Promise<HomePageType> = getHomePage()

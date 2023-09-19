@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Octokit } from 'octokit'
-import { getStoredGithubMetrics, updateGithubMetrics } from '@/lib/planetscale'
-import { env } from '@/types/env-private'
+import { getStoredGithubMetrics, updateGithubMetrics } from '@/lib/metrics'
 
 // Nextjs route segment config
 export const dynamic = 'force-dynamic' // Force dynamic (server) route instead of static page
@@ -11,12 +10,12 @@ export async function GET(req: NextRequest) {
     .split('Bearer ')
     .at(1)
 
-  if (!authToken || authToken != env.CRON_SECRET) {
+  if (!authToken || authToken != process.env.CRON_SECRET) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
   const octokit = new Octokit({
-    auth: env.GITHUB_TOKEN,
+    auth: process.env.GITHUB_TOKEN,
   })
 
   // Retrieve all repos from my account

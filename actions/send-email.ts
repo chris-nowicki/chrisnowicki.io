@@ -4,9 +4,8 @@ import * as React from 'react'
 import { Resend } from 'resend'
 import { validateString, getErrorMessage } from '@/lib/utils'
 import EmailTemplate from '@/email/email-template'
-import { env } from '@/types/env-private'
 
-const resend = new Resend(env.RESEND_API_KEY)
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get('email')
