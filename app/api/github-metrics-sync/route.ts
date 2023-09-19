@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Octokit } from 'octokit'
 import { getStoredGithubMetrics, updateGithubMetrics } from '@/lib/metrics'
 
-// Nextjs route segment config
-export const dynamic = 'force-dynamic' // Force dynamic (server) route instead of static page
+// Force dynamic (server) route instead of static page
+export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
   const authToken = (req.headers.get('authorization') || '')
