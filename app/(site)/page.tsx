@@ -8,13 +8,17 @@ import Contact from '@/components/Contact/Contact'
 import Footer from '@/components/Footer'
 import type { HomePageType, MetricsType } from '@/types/types'
 import { getMetrics } from '@/lib/planetscale'
+import { cache } from 'react'
 
 // sanity cms queries
 import { getHomePage } from '@/sanity/sanity-queries'
+import React from 'react'
+
+const fetchMetrics = cache(getMetrics)
 
 export default async function Home() {
   const homePageData: Promise<HomePageType> = getHomePage()
-  const metricsData: Promise<MetricsType> = getMetrics()
+  const metricsData: Promise<MetricsType> = fetchMetrics()
 
   const [pageData, metrics] = await Promise.all([homePageData, metricsData])
 
