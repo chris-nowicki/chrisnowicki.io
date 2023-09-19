@@ -28,7 +28,7 @@ export default function Intro({ pageData, metrics }: IntroProps) {
     <section
       ref={ref}
       id="home"
-      className="mt-20 flex scroll-mt-20 flex-col md:mt-32 md:scroll-mt-32 md:flex-nowrap"
+      className="mt-20 flex scroll-mt-20 flex-col md:mt-36 md:scroll-mt-36 md:flex-nowrap"
     >
       <div className="flex flex-wrap-reverse justify-center md:flex-nowrap md:justify-start">
         {/* intro text from Sanity CMS */}

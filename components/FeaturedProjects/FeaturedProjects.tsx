@@ -14,7 +14,7 @@ export default function FeaturedProjects({
     <section
       ref={ref}
       id="projects"
-      className="flex scroll-mt-20 flex-col md:scroll-mt-28"
+      className="flex scroll-mt-20 flex-col md:scroll-mt-16"
     >
       <SectionHeading>Projects</SectionHeading>
       <div className="flex w-full max-w-3xl flex-col items-center lg:items-start">

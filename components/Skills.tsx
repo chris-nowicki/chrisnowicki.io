@@ -31,7 +31,7 @@ export default function Skills({ skills }: SkillsProps) {
     <motion.section
       ref={ref}
       id="skills"
-      className="scroll-mt-28"
+      className="scroll-mt-16"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
     >

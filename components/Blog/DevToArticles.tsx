@@ -30,7 +30,7 @@ export default function DevToArticles({ articles }: DevToArticlesProps) {
     <section
       ref={ref}
       id="blog"
-      className="flex w-full scroll-mt-28 flex-col items-center"
+      className="flex w-full scroll-mt-16 flex-col items-center"
     >
       <SectionHeading>Blog</SectionHeading>
       <p className="flex items-center gap-2 text-lg">
