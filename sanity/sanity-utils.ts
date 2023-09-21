@@ -2,7 +2,7 @@ import { createClient } from 'next-sanity'
 import imageUrlBuilder from '@sanity/image-url'
 import format from 'date-fns/format'
 
-// sanity create client and fetch functions
+// sanity create client and fetch function
 const client = createClient({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
@@ -10,13 +10,13 @@ const client = createClient({
   useCdn: false, // if you're using ISR or only static generation at build time then you can set this to `false` to guarantee no stale content
 })
 
-export async function sanityFetch(query: string) {
+export async function sanityFetch(query: string, params?: any) {
   const data = client.fetch(
     query,
-    {},
+    params,
     {
       next: {
-        revalidate: 30,
+        revalidate: 60,
       },
     }
   )

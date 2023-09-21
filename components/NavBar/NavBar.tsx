@@ -17,7 +17,7 @@ export default function NavBar() {
   // hide navbar on scroll down & show on scroll up
   useMotionValueEvent(scrollY, 'change', (latest) => {
     const previous = scrollY.getPrevious()
-    if (latest > previous && latest > 100) {
+    if (latest > previous && latest > 75) {
       setHideNavBar(true)
     } else {
       setHideNavBar(false)
@@ -75,6 +75,8 @@ export default function NavBar() {
               </motion.li>
             ))}
           </div>
+
+          {/* dark/light theme toggle button */}
           <ModeToggle />
         </motion.ul>
 

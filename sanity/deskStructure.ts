@@ -1,8 +1,5 @@
 import { CogIcon } from '@sanity/icons'
-import {
-  HomeIcon,
-  DocumentsIcon,
-} from '@sanity/icons'
+import { HomeIcon } from '@sanity/icons'
 
 export const myStructure = (S: any) =>
   S.list()
@@ -14,26 +11,15 @@ export const myStructure = (S: any) =>
         .child(S.document().schemaType('settings').documentId('settings')),
       S.divider(),
       S.listItem()
-        .title('Pages')
-        .icon(DocumentsIcon)
-        .child(
-          S.list()
-            .title('Pages')
-            .items([
-              S.listItem()
-                .title('Home')
-                .icon(HomeIcon)
-                .child(S.document().schemaType('home').documentId('home')),
-            ])
-        ),
+        .title('Home')
+        .icon(HomeIcon)
+        .child(S.document().schemaType('home').documentId('home')),
+      ...S.documentTypeListItems().filter(
+        (listItem: any) => 'now' === listItem.getId()
+      ),
       S.divider(),
-
       ...S.documentTypeListItems().filter(
         (listItem: any) =>
-          ![
-            'settings',
-            'home',
-            'media.tag',
-          ].includes(listItem.getId())
+          !['settings', 'home', 'now', 'media.tag'].includes(listItem.getId())
       ),
     ])

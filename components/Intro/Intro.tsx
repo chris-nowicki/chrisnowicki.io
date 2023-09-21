@@ -8,6 +8,7 @@ import { contactInfo } from '@/lib/data'
 import ContactButton from './ContactButton'
 import type { HomePageType } from '@/types/types'
 import { socialLinks } from '@/lib/data'
+import Link from 'next/link'
 
 type IntroProps = {
   pageData: HomePageType
@@ -25,7 +26,7 @@ export default function Intro({ pageData }: IntroProps) {
     >
       <div className="flex flex-wrap-reverse justify-center md:flex-nowrap md:justify-start">
         {/* intro text from Sanity CMS */}
-        <div className="mr-0 flex w-full flex-col items-center text-left sm:text-xl md:mr-6 md:items-start md:text-xl">
+        <div className="mr-0 flex w-full flex-col items-center text-left text-xl md:mr-6 md:items-start">
           <PortableText
             value={pageData.content}
             components={homePortableText}
@@ -50,14 +51,20 @@ export default function Intro({ pageData }: IntroProps) {
 
         {/* profile image and social media links */}
         <div className="mb-4 flex w-[200px] flex-col items-center gap-4 md:mb-0 md:mt-0 md:w-[400px] ">
-          <Image
-            className="rounded-xl bg-white p-2 shadow-lg"
-            width={400}
-            height={400}
-            src={pageData.profilePicture}
-            alt="chris nowicki"
-            priority
-          />
+          <Link
+            href={`/now/${pageData.now.slug}`}
+            className="group rounded-xl bg-white p-2 shadow-lg hover:shadow  transition-all ease-in-out hover:bg-purple-dark hover:p-3"
+            prefetch
+          >
+            <Image
+              className='rounded-xl group-hover:shadow-xl transition-all ease-in-out duration-100'
+              width={400}
+              height={400}
+              src={pageData.profilePicture}
+              alt="chris nowicki"
+              priority
+            />
+          </Link>
 
           {/* social media links */}
           <div className="flex items-center gap-2">
