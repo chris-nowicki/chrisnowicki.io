@@ -15,7 +15,7 @@ export default async function Now({ params }: NowProps) {
   const post = await getPost(slug)
 
   return (
-    <section className="mt-20 flex flex-col items-center md:mt-36">
+    <section className="mt-20 flex flex-col items-center md:mt-36 mx-6 md:mx-0">
       {/* now content */}
       <Post post={post.current} />
 

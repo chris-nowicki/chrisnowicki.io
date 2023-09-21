@@ -42,11 +42,11 @@ export const nowPortableText: PortableTextComponents = {
   },
   block: {
     normal: ({ children }) => (
-      <p className="mt-4 text-center md:text-left">{children}</p>
+      <p className="mt-4 text-left">{children}</p>
     ),
     blockquote: ({ children }) => (
       <div className="flex w-full justify-center">
-        <blockquote className="my-6 border-l-4 border-l-purple-light pl-4 dark:border-purple-dark">
+        <blockquote className="mt-2 rounded-lg border-b border-l-4 border-r border-t dark:border-l-purple-dark dark:border-borderColor-dark border-borderColor-dark/20 border-l-purple-light p-4 pl-4 shadow-md">
           "{children}"
         </blockquote>
       </div>
@@ -67,10 +67,7 @@ export const nowPortableText: PortableTextComponents = {
   types: {
     image: ({ value }) => (
       <div className="flex w-full justify-center">
-        <img
-          src={urlFor(value.asset).url()}
-          alt="now image"
-        />
+        <img src={urlFor(value.asset).url()} alt="now image" />
       </div>
     ),
   },
