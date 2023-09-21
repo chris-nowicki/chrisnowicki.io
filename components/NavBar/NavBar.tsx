@@ -6,6 +6,7 @@ import { navItems } from '@/lib/data'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { useActiveSection } from '@/context/active-section'
 import ModeToggle from './ModeToggle'
+import { usePathname } from 'next/navigation'
 
 export default function NavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)

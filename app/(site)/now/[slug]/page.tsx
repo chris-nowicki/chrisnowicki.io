@@ -20,14 +20,16 @@ export default async function Now({ params }: NowProps) {
       <Post post={post.current} />
 
       {/* pagination */}
-      <div className="mt-16 flex w-full justify-between">
-        <Link href={`/now/${post.newer ? post.newer.slug : ''}`} prefetch>
-          <Button data={post.newer} direction="left" />
-        </Link>
-        <Link href={`/now/${post.older ? post.older.slug : ''}`} prefetch>
-          <Button data={post.older} direction="right" />
-        </Link>
-      </div>
+      {post.newer || post.older && (
+        <div className="mt-16 flex w-full justify-between">
+          <Link href={`/now/${post.newer ? post.newer.slug : ''}`} prefetch>
+            <Button data={post.newer} direction="left" />
+          </Link>
+          <Link href={`/now/${post.older ? post.older.slug : ''}`} prefetch>
+            <Button data={post.older} direction="right" />
+          </Link>
+        </div>
+      )}
       <Footer />
     </section>
   )

@@ -16,7 +16,7 @@ export async function sanityFetch(query: string, params?: any) {
     params,
     {
       next: {
-        revalidate: 60,
+        revalidate: 30,
       },
     }
   )

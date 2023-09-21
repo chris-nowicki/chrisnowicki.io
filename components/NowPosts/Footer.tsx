@@ -1,24 +1,42 @@
 import React from 'react'
+import { socialLinks } from '@/lib/data'
 
 export default function Footer() {
+  const linkStyle =
+    'rounded px-1 underline-offset-4 underline transition-all duration-200 ease-in-out decoration-purple-light hover:text-purple-light dark:decoration-purple-dark dark:hover:text-purple-dark'
   return (
-    <div className="mt-16 flex w-full justify-center text-xl italic">
+    <div className="mb-24 mt-16 flex w-full flex-col items-center justify-center gap-4 text-xl italic">
       <p>
         inspired by{' '}
         <a
-          href="#"
-          className="rounded px-1 text-purple-light underline-offset-2 transition-all duration-200 ease-in-out hover:bg-purple-light hover:text-foreground dark:text-purple-dark"
+          href="https://bradgarropy.com/now"
+          className={linkStyle}
+          target="_blank"
         >
-          derek silvers
+          brad garropy
         </a>{' '}
         and{' '}
         <a
-          href="#"
-          className="rounded px-1 text-purple-light underline-offset-2 transition-all duration-200 ease-in-out hover:bg-purple-light hover:text-foreground dark:text-purple-dark"
+          href="https://nownownow.com/about"
+          className={linkStyle}
+          target="_blank"
         >
           nownownow
         </a>
       </p>
+      {/* social media links */}
+      <div className="flex items-center gap-2">
+        {socialLinks.map((link) => (
+          <a
+            key={link.URL}
+            href={link.URL}
+            className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
+            target="_blank"
+          >
+            {link.icon}
+          </a>
+        ))}
+      </div>
     </div>
   )
 }

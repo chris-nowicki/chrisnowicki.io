@@ -55,6 +55,7 @@ export default function Intro({ pageData }: IntroProps) {
             href={`/now/${pageData.now.slug}`}
             className="group rounded-xl bg-white p-2 shadow-lg hover:shadow  transition-all ease-in-out hover:bg-purple-dark hover:p-3"
             prefetch
+            onClick={() => setActiveSection('now')}
           >
             <Image
               className='rounded-xl group-hover:shadow-xl transition-all ease-in-out duration-100'
