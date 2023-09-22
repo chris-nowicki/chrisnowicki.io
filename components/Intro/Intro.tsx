@@ -9,6 +9,7 @@ import ContactButton from './ContactButton'
 import type { HomePageType } from '@/types/types'
 import { socialLinks } from '@/lib/data'
 import Link from 'next/link'
+import { useEffect } from 'react'
 
 type IntroProps = {
   pageData: HomePageType
@@ -17,6 +18,10 @@ type IntroProps = {
 export default function Intro({ pageData }: IntroProps) {
   const { setActiveSection, setTimeOfLastClick } = useActiveSection()
   const { ref } = useSectionInView('Home')
+
+  useEffect(() => {
+    setActiveSection('Home')
+  }, [])
 
   return (
     <section

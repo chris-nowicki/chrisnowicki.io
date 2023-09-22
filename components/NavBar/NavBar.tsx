@@ -15,14 +15,14 @@ export default function NavBar() {
   const { scrollY } = useScroll()
 
   // hide navbar on scroll down & show on scroll up
-    useMotionValueEvent(scrollY, 'change', (latest) => {
-      const previous = scrollY.getPrevious()
-      if (latest > previous && latest > 75) {
-        setHideNavBar(true)
-      } else {
-        setHideNavBar(false)
-      }
-    })
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    const previous = scrollY.getPrevious()
+    if (latest > previous && latest > 75) {
+      activeSection !== 'Now' && setHideNavBar(true) // do not allow useMotionValueEvent if the activeSection is 'Now
+    } else {
+      setHideNavBar(false)
+    }
+  })
 
   // toggle hamburger mobile menu
   const handleMenu = () => {
