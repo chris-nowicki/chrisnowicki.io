@@ -1,7 +1,7 @@
 import React from 'react'
 import { socialLinks } from '@/lib/data'
 
-export default function Footer() {
+export default function NowFooter() {
   const linkStyle =
     'rounded px-1 underline-offset-4 underline transition-all duration-200 ease-in-out decoration-purple-light hover:text-purple-light dark:decoration-purple-dark dark:hover:text-purple-dark'
   return (
