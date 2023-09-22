@@ -39,16 +39,13 @@ export async function getHomePage() {
       },
     },
     "resumeURL": resume.asset->url,
-    "now": *[_type == 'now']|order(publishDate desc)[0]{ 
-      "slug": slug.current 
-    },
   }[0]`
 
   const res = await sanityFetch(query)
   return res
 }
 
-export async function getPost(slug: string) {
+export async function getPostByID(slug: string) {
   const query = groq`
   *[_type == 'now' && slug.current == $slug] {
     "current": { 
@@ -64,5 +61,24 @@ export async function getPost(slug: string) {
 } |order(publishDate desc)[0]`
 
   const res = await sanityFetch(query, { slug })
+  return res
+}
+
+export async function getLatestPost() {
+  const query = groq`
+  *[_type == 'now'] {
+    "current": { 
+      publishDate,
+      content,
+    },
+   "newer": *[^.publishDate < publishDate ]| order(publishDate asc)[0]{ 
+        "slug": slug.current,
+    },
+    "older": *[^.publishDate > publishDate ]| order(publishDate desc)[0]{ 
+        "slug": slug.current,
+    },
+} | order(publishDate desc)[0]`
+
+  const res = await sanityFetch(query)
   return res
 }

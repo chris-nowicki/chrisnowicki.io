@@ -26,9 +26,6 @@ export type HomePageType = {
     name: string
     link: string
   }[]
-  now: {
-    slug: string
-  }
 }
 
 export type MetricsType = {

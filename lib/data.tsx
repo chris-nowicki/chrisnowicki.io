@@ -37,6 +37,11 @@ export const navItems = [
     name: 'Contact',
     hash: '/#contact',
   },
+  {
+    name: 'Now',
+    hash: '/now',
+  },
+  
 ] as const
 
 export const socialLinks = [

@@ -6,7 +6,6 @@ import { navItems } from '@/lib/data'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import { useActiveSection } from '@/context/active-section'
 import ModeToggle from './ModeToggle'
-import { usePathname } from 'next/navigation'
 
 export default function NavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -16,14 +15,14 @@ export default function NavBar() {
   const { scrollY } = useScroll()
 
   // hide navbar on scroll down & show on scroll up
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    const previous = scrollY.getPrevious()
-    if (latest > previous && latest > 75) {
-      setHideNavBar(true)
-    } else {
-      setHideNavBar(false)
-    }
-  })
+    useMotionValueEvent(scrollY, 'change', (latest) => {
+      const previous = scrollY.getPrevious()
+      if (latest > previous && latest > 75) {
+        setHideNavBar(true)
+      } else {
+        setHideNavBar(false)
+      }
+    })
 
   // toggle hamburger mobile menu
   const handleMenu = () => {
@@ -43,7 +42,9 @@ export default function NavBar() {
           }}
           animate={hideNavBar ? 'hidden' : 'visible'}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
-          className="hidden w-full rounded-full border-2 border-purple-dark bg-gray-50 bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between"
+          className={clsx(
+            'hidden w-full rounded-full border-2 border-purple-dark bg-gray-50 bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between'
+          )}
         >
           <div className="flex items-center gap-4 pl-5">
             {navItems.map(({ name, hash }) => (
@@ -76,7 +77,6 @@ export default function NavBar() {
               </motion.li>
             ))}
           </div>
-
           {/* dark/light theme toggle button */}
           <ModeToggle />
         </motion.ul>
