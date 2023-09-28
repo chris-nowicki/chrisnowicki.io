@@ -10,9 +10,9 @@
     "pretty": "prettier --write ."
   },
   "dependencies": {
-    "@portabletext/react": "^3.0.7",
+    "@portabletext/react": "^3.0.9",
     "@react-email/components": "^0.0.7",
-    "@react-email/tailwind": "^0.0.8",
+    "@react-email/tailwind": "^0.0.9",
     "@sanity/icons": "^2.4.1",
     "@sanity/image-url": "^1.0.2",
     "@sanity/ui": "^1.8.2",
@@ -43,11 +43,11 @@
     "vercel": "^32.3.1"
   },
   "devDependencies": {
-    "@types/node": "^20.7.0",
-    "@types/react": "^18.2.22",
-    "@types/react-dom": "^18.2.7",
+    "@types/node": "^20.7.1",
+    "@types/react": "^18.2.23",
+    "@types/react-dom": "^18.2.8",
     "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.30",
+    "postcss": "^8.4.31",
     "prettier": "^3.0.3",
     "prettier-plugin-tailwindcss": "^0.5.4",
     "sanity": "^3.16.7",
