@@ -42,7 +42,7 @@ export const updateTweetCount = (tweetCount: number) => {
   db.updateTable('tweetCount')
     .set({ count: tweetCount, updated_at: new Date() })
     .where('tweetCount.id', '=', 1)
-    .executeTakeFirst()
+    .execute()
 }
 
 // get stored github metrics
