@@ -1,6 +1,5 @@
 import React from 'react'
-import { PDF } from '@/assets/Icons'
-import { BsDownload } from 'react-icons/bs'
+import { PDF, Download } from '@/assets/Icons'
 import { socialLinks } from '@/lib/data'
 import Metrics from './Metrics'
 
@@ -23,9 +22,9 @@ export default function Footer({ pdfLink }: FooterProps) {
           >
             <PDF size={28} />
             Download CV
-            <BsDownload
+            <Download
               size={20}
-              className="transition-all group-hover:animate-bounce"
+              classProps="transition-all group-hover:animate-bounce"
             />
           </a>
 

@@ -10,10 +10,10 @@ import {
   GitHub,
   Linkedin,
   Twitter,
-  REACT
+  REACT,
+  Download,
+  Email
 } from '@/assets/Icons'
-import { BsDownload } from 'react-icons/bs'
-import { MdOutlineEmail } from 'react-icons/md'
 
 export const navItems = [
   {
@@ -81,12 +81,12 @@ type ContactInfoType = {
 export const contactInfo: ContactInfoType = {
   Contact: {
     text: 'Contact',
-    icon: <MdOutlineEmail />,
+    icon: <Email />,
   },
   DownloadCV: {
     text: 'Download CV',
     icon: (
-      <BsDownload className="transition-all group-hover:translate-y-1 sm:hidden md:block" />
+      <Download size={20} classProps="transition-all group-hover:translate-y-1 sm:hidden md:block" />
     ),
   },
 }
