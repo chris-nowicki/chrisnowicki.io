@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import { FaPaperPlane } from 'react-icons/fa'
+import { PaperPlane } from '@/assets/Icons'
 import { experimental_useFormStatus as useFormStatus } from 'react-dom'
 
 export default function SubmitBtn() {
@@ -17,7 +17,7 @@ export default function SubmitBtn() {
       ) : (
         <>
           Submit{' '}
-          <FaPaperPlane className="text-xs opacity-70 transition-all group-hover:-translate-y-1 group-hover:translate-x-1" />{' '}
+          <PaperPlane classProps="text-xs opacity-70 transition-all group-hover:-translate-y-1 group-hover:translate-x-1" />
         </>
       )}
     </button>
