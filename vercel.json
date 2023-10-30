@@ -8,6 +8,5 @@
       "path": "/api/github-metrics-sync",
       "schedule": "*/10 * * * *"
     }
-  ],
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  ]
 }
