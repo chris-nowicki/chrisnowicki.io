@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import { PaperPlane } from '@/assets/Icons'
-import { experimental_useFormStatus as useFormStatus } from 'react-dom'
+import { useFormStatus } from 'react-dom'
 
 export default function SubmitBtn() {
   const { pending } = useFormStatus()
