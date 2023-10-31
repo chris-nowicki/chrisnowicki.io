@@ -1,30 +1,33 @@
 'use client'
 import React, { useEffect } from 'react'
 import { useTheme } from 'next-themes'
-import { BiSun, BiMoon } from 'react-icons/bi'
+import { Sun, Moon } from '@/assets/Icons'
 import { cn } from '@/lib/utils'
 
 type ModeToggleProps = {
   className?: string
 }
 
-export default function ModeToggle({className}: ModeToggleProps) {
+export default function ModeToggle({ className }: ModeToggleProps) {
   const { theme, setTheme, systemTheme } = useTheme()
 
   useEffect(() => {
-      const localTheme = localStorage.getItem('theme')
-      localTheme === null && setTheme('light')
-    }, [])
+    const localTheme = localStorage.getItem('theme')
+    localTheme === null && setTheme('light')
+  }, [])
 
   return (
     <button
-      className={cn("cursor-pointer rounded-full border border-gray-300 dark:border-borderColor-dark/20 p-2 mr-2 shadow text-lg text-purple-light hover:bg-gray-300/20", className)}
+      className={cn(
+        'mr-2 cursor-pointer rounded-full border border-gray-300 p-2 text-lg text-purple-light shadow hover:bg-gray-300/20 dark:border-borderColor-dark/20',
+        className
+      )}
       onClick={() => {
         setTheme(theme === 'light' ? 'dark' : 'light')
       }}
     >
-      <BiSun className="hidden dark:block " />
-      <BiMoon className="block dark:hidden " />
+      <Sun classProps="hidden dark:block " />
+      <Moon classProps="block dark:hidden " />
     </button>
   )
 }

@@ -1,6 +1,4 @@
-'use client'
-import React from 'react'
-import { PiCaretDoubleDownLight } from 'react-icons/pi'
+import { DoubleDownIcon } from '@/assets/Icons'
 import { cn } from '@/lib/utils'
 
 type SectionDividerProps = {
@@ -23,11 +21,13 @@ export default function SectionDivider({
     )
   } else {
     return (
-        <PiCaretDoubleDownLight
-          size={98}
-          className={cn('text-gray-200 my-8 md:my-12 dark:text-opacity-20', className)}
-        />
-      
+      <DoubleDownIcon
+        size={98}
+        classProps={cn(
+          'my-8 text-gray-200 dark:text-opacity-20 md:my-12',
+          className
+        )}
+      />
     )
   }
 }

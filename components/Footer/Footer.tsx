@@ -1,4 +1,3 @@
-import React from 'react'
 import { PDF, Download } from '@/assets/Icons'
 import { socialLinks } from '@/lib/data'
 import Metrics from './Metrics'

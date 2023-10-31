@@ -1,5 +1,4 @@
-import { GitHub, Twitter } from '@/assets/Icons'
-import { HiTrendingUp } from 'react-icons/hi'
+import { GitHub, Twitter, TrendingUpArrowIcon } from '@/assets/Icons'
 import { socialLinks } from '@/lib/data'
 import { fetchMetrics } from '@/lib/metrics'
 import { MetricsType } from '@/types/types'
@@ -13,7 +12,7 @@ export default async function Metrics() {
   return (
     <div className="flex w-full flex-col items-center justify-center gap-2 rounded-lg border border-borderColor-light p-4 hover:border-purple-light dark:hover:border-purple-dark dark:border-gray-300/20 md:w-1/2">
       <span className="flex items-center gap-2">
-        <HiTrendingUp size={20} className="animate-pulse transition-all" />
+        <TrendingUpArrowIcon size={20} classProps="animate-pulse transition-all" />
         <span className="text-purple-light dark:text-purple-dark">
           {metrics.tweetCount.toLocaleString()}
         </span>{' '}
@@ -27,7 +26,7 @@ export default async function Metrics() {
         </a>
       </span>
       <span className="flex items-center gap-2">
-        <HiTrendingUp size={20} className="animate-pulse transition-all" />
+        <TrendingUpArrowIcon size={20} classProps="animate-pulse transition-all" />
         <span className="text-purple-light dark:text-purple-dark">
           {metrics.githubCommits.toLocaleString()}
         </span>

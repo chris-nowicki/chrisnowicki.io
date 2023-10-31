@@ -12,7 +12,7 @@ import {
   Twitter,
   REACT,
   Download,
-  Email
+  Email,
 } from '@/assets/Icons'
 
 export const navItems = [
@@ -37,11 +37,6 @@ export const navItems = [
     name: 'Contact',
     hash: '/#contact',
   },
-  {
-    name: 'Now',
-    hash: '/now',
-  },
-  
 ] as const
 
 export const socialLinks = [
@@ -86,14 +81,17 @@ export const contactInfo: ContactInfoType = {
   DownloadCV: {
     text: 'Download CV',
     icon: (
-      <Download size={20} classProps="transition-all group-hover:translate-y-1 sm:hidden md:block" />
+      <Download
+        size={20}
+        classProps="transition-all group-hover:translate-y-1 sm:hidden md:block"
+      />
     ),
   },
 }
 
 export const TechStackIcons = [
   { icon: <NEXTJS />, URL: 'https://nextjs.org/' },
-  { icon: <REACT />, URL: 'https://reactjs.org/'},
+  { icon: <REACT />, URL: 'https://reactjs.org/' },
   { icon: <TS />, URL: 'https://www.typescriptlang.org/' },
   { icon: <TAILWIND />, URL: 'https://tailwindcss.com/' },
   { icon: <SANITY />, URL: 'https://www.sanity.io/' },

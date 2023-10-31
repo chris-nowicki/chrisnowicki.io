@@ -1,5 +1,4 @@
 'use client'
-import React from 'react'
 import { PaperPlane } from '@/assets/Icons'
 import { useFormStatus } from 'react-dom'
 

@@ -103,7 +103,6 @@ export default function NavBar() {
             >
               {navItems.map(({ name, hash }) => (
                 <Link
-                  key={hash}
                   href={hash}
                   className="py-4 text-6xl text-foreground hover:text-purple-dark"
                   onClick={() => handleMenu()}

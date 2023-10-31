@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import format from 'date-fns/format'
-import { BsArrowRight, BsArrowUpRight } from 'react-icons/bs'
+import { ArrowIcon, ArrowRightIcon } from '@/assets/Icons'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { motion } from 'framer-motion'
 import { DEVTO } from '@/assets/Icons'
@@ -35,7 +35,7 @@ export default function DevToArticles({ articles }: DevToArticlesProps) {
       <SectionHeading>Blog</SectionHeading>
       <p className="flex items-center gap-2 text-lg">
         I frequently write articles here{' '}
-        <BsArrowRight className="animate-pulse" />
+        <ArrowRightIcon classProps="animate-pulse" />
         <a
           href="https://www.dev.to/chrisnowicki/"
           className="text-black hover:text-purple-light dark:text-white dark:hover:text-purple-dark"
@@ -68,7 +68,7 @@ export default function DevToArticles({ articles }: DevToArticlesProps) {
                 {article.reading_time_minutes} min read
               </span>
             </div>
-            <BsArrowUpRight className="mr-4 transition-all ease-in-out group-hover:scale-125 group-hover:animate-pulse sm:hidden md:block" />
+            <ArrowIcon classProps="mr-4 transition-all ease-in-out group-hover:scale-125 group-hover:animate-pulse sm:hidden md:block" />
           </motion.a>
         ))}
       </div>
