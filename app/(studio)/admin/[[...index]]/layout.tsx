@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata} from 'next'
 import '@/app/globals.css'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
@@ -11,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
   }
 }
 
-export default function RootLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode
