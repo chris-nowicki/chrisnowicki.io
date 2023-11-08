@@ -8,7 +8,6 @@ import { contactInfo } from '@/lib/data'
 import ContactButton from './ContactButton'
 import type { HomePageType } from '@/types/types'
 import { socialLinks } from '@/lib/data'
-import Link from 'next/link'
 import { useEffect } from 'react'
 
 type IntroProps = {
@@ -56,21 +55,16 @@ export default function Intro({ pageData }: IntroProps) {
 
         {/* profile image and social media links */}
         <div className="mb-4 flex w-[200px] flex-col items-center gap-4 md:mb-0 md:mt-0 md:w-[400px] ">
-          <Link
-            href="/now"
-            className="group rounded-xl bg-white p-2 shadow-lg transition-all  ease-in-out hover:bg-purple-dark hover:p-3 hover:shadow"
-            prefetch
-            onClick={() => setActiveSection('Now')}
-          >
+          <div className="rounded-xl bg-white p-2 shadow-lg ">
             <Image
-              className="rounded-xl transition-all duration-100 ease-in-out group-hover:shadow-xl"
+              className="rounded-xl"
               width={400}
               height={400}
               src={pageData.profilePicture}
               alt="chris nowicki"
               priority
             />
-          </Link>
+          </div>
 
           {/* social media links */}
           <div className="flex items-center gap-2">

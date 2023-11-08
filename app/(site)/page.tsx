@@ -18,15 +18,15 @@ export default async function Home() {
     <div className="flex w-full flex-col items-center px-4 md:px-0">
       <Intro pageData={pageData} />
       <TechStack />
-      <SectionDivider type="line" />
+      <SectionDivider />
       <FeaturedProjects projects={pageData.featuredProjects} />
-      <SectionDivider type="chevron" />
+      <SectionDivider />
       <Skills skills={pageData.skills} />
-      <SectionDivider type="chevron" />
+      <SectionDivider />
       <Blog />
-      <SectionDivider type="chevron" />
+      <SectionDivider />
       <Contact />
-      <SectionDivider type="line" />
+      <SectionDivider />
       <Footer pdfLink={pageData.resumeURL} />
     </div>
   )
