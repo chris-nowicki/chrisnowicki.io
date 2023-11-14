@@ -6,15 +6,16 @@ import { useActiveSection } from '@/context/active-section'
 import { useSectionInView } from '@/hooks/useSectionInView'
 import { contactInfo } from '@/lib/data'
 import ContactButton from './ContactButton'
-import type { HomePageType } from '@/types/types'
+import type { IntroType } from '@/types/types'
 import { socialLinks } from '@/lib/data'
 import { useEffect } from 'react'
 
 type IntroProps = {
-  pageData: HomePageType
+  data: IntroType
+  resumeURL: string
 }
 
-export default function Intro({ pageData }: IntroProps) {
+export default function Intro({ data, resumeURL }: IntroProps) {
   const { setActiveSection, setTimeOfLastClick } = useActiveSection()
   const { ref } = useSectionInView('Home')
 
@@ -32,7 +33,7 @@ export default function Intro({ pageData }: IntroProps) {
         {/* intro text from Sanity CMS */}
         <div className="mr-0 flex w-full flex-col items-center text-left text-xl md:mr-6 md:items-start">
           <PortableText
-            value={pageData.content}
+            value={data.content}
             components={homePortableText}
           />
 
@@ -47,7 +48,7 @@ export default function Intro({ pageData }: IntroProps) {
               }}
             />
             <ContactButton
-              URL={pageData.resumeURL}
+              URL={resumeURL}
               contactInfo={contactInfo.DownloadCV}
             />
           </div>
@@ -60,7 +61,7 @@ export default function Intro({ pageData }: IntroProps) {
               className="rounded-xl"
               width={400}
               height={400}
-              src={pageData.profilePicture}
+              src={data.profilePicture}
               alt="chris nowicki"
               priority
             />

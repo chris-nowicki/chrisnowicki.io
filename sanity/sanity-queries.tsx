@@ -1,6 +1,6 @@
 import { sanityFetch } from './sanity-utils'
 import { groq } from 'next-sanity'
-import { SeoType } from '@/types/types'
+import { SeoType, IntroType, ProjectType, SkillsType } from '@/types/types'
 
 // GROQ Queries
 export async function getSEO(): Promise<SeoType> {
@@ -10,23 +10,41 @@ export async function getSEO(): Promise<SeoType> {
             siteName,
             url,
             description,
-            type,
             "image": image.asset->url,
         }
-    }[0]`
+    }[0].seo`
 
-  const res = await sanityFetch(query)
-  return res.seo
+  const res: SeoType = await sanityFetch({ query, tags: ['settings'] })
+  return res
 }
 
-export async function getHomePage() {
-  const query = groq`*[_type == 'home'] {
+export async function getIntro(): Promise<IntroType> {
+  const query = groq`*[_type == 'intro'] {
     'profilePicture': profilePicture.asset->url,
     content,
-    'skills': *[_type == 'tech']{
-  name,
-  link
-} | order(lower(name) asc),
+  }[0]`
+
+  const res: IntroType = await sanityFetch({
+    query,
+    tags: ['intro'],
+  })
+  return res
+}
+
+export async function getResume(): Promise<string> {
+  const query = groq`*[_type == 'resume'] {
+    "resumeURL": resume.asset->url,
+  }[0].resumeURL`
+
+  const res: string = await sanityFetch({
+    query,
+    tags: ['resume'],
+  })
+  return res
+}
+
+export async function getFeaturedProjects(): Promise<ProjectType> {
+  const query = groq`*[_type == 'featuredProjects'] {
     "featuredProjects": featuredProjects[]->{
       _id,  
       "name": projectName,
@@ -38,47 +56,21 @@ export async function getHomePage() {
         name
       },
     },
-    "resumeURL": resume.asset->url,
-  }[0]`
+  }[0].featuredProjects`
 
-  const res = await sanityFetch(query)
+  const res: ProjectType = await sanityFetch({
+    query,
+    tags: ['featuredProjects'],
+  })
   return res
 }
 
-export async function getPostByID(slug: string) {
-  const query = groq`
-  *[_type == 'now' && slug.current == $slug] {
-    "current": { 
-      publishDate,
-      content,
-    },
-   "newer": *[^.publishDate < publishDate ]| order(publishDate asc)[0]{ 
-        "slug": slug.current,
-    },
-    "older": *[^.publishDate > publishDate ]| order(publishDate desc)[0]{ 
-        "slug": slug.current,
-    },
-} |order(publishDate desc)[0]`
+export async function getSkills(): Promise<SkillsType[]> {
+  const query = groq`*[_type == 'tech'] {
+  name,
+  link
+} | order(lower(name) asc)`
 
-  const res = await sanityFetch(query, { slug })
-  return res
-}
-
-export async function getLatestPost() {
-  const query = groq`
-  *[_type == 'now'] {
-    "current": { 
-      publishDate,
-      content,
-    },
-   "newer": *[^.publishDate < publishDate ]| order(publishDate asc)[0]{ 
-        "slug": slug.current,
-    },
-    "older": *[^.publishDate > publishDate ]| order(publishDate desc)[0]{ 
-        "slug": slug.current,
-    },
-} | order(publishDate desc)[0]`
-
-  const res = await sanityFetch(query)
+  const res: SkillsType[] = await sanityFetch({ query, tags: ['tech'] })
   return res
 }

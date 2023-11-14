@@ -14,12 +14,40 @@ export const myStructure = (S: any) =>
         .title('Home')
         .icon(HomeIcon)
         .child(S.document().schemaType('home').documentId('home')),
-      ...S.documentTypeListItems().filter(
-        (listItem: any) => 'now' === listItem.getId()
-      ),
+      S.listItem()
+        .title('Portfolio')
+        .child(
+          S.list()
+            // Sets a title for our new list
+            .title('Portfolio Documents')
+            // Add items to the array
+            // Each will pull one of our new singletons
+            .items([
+              S.listItem()
+                .title('Intro')
+                .child(S.document().schemaType('intro').documentId('intro')),
+              S.listItem()
+                .title('Featured Projects')
+                .child(
+                  S.document()
+                    .schemaType('featuredProjects')
+                    .documentId('featuredProjects')
+                ),
+              S.listItem()
+                .title('Resume')
+                .child(S.document().schemaType('resume').documentId('resume')),
+            ])
+        ),
       S.divider(),
       ...S.documentTypeListItems().filter(
         (listItem: any) =>
-          !['settings', 'home', 'now', 'media.tag'].includes(listItem.getId())
+          ![
+            'settings',
+            'home',
+            'intro',
+            'featuredProjects',
+            'resume',
+            'media.tag',
+          ].includes(listItem.getId())
       ),
     ])

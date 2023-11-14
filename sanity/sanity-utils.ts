@@ -1,26 +1,37 @@
 import { createClient } from 'next-sanity'
+import type { QueryParams } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
-import format from 'date-fns/format'
 
-// sanity create client and fetch function
+const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
+const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
+const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-05-03'
+
 const client = createClient({
-  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
-  apiVersion: format(new Date(), 'yyyy-MM-dd'), // use current UTC date - see "specifying API version"!
-  useCdn: false, // if you're using ISR or only static generation at build time then you can set this to `false` to guarantee no stale content
+  projectId,
+  dataset,
+  apiVersion, // https://www.sanity.io/docs/api-versioning
+  useCdn: false,
 })
 
-export async function sanityFetch(query: string, params?: any) {
-  const data = client.fetch(
-    query,
-    params,
-    {
-      next: {
-        revalidate: 30,
-      },
-    }
-  )
-  return data
+const DEFAULT_PARAMS = {} as QueryParams
+const DEFAULT_TAGS = [] as string[]
+
+export async function sanityFetch<QueryResponse>({
+  query,
+  params = DEFAULT_PARAMS,
+  tags = DEFAULT_TAGS,
+}: {
+  query: string
+  params?: QueryParams
+  tags?: string[]
+}): Promise<QueryResponse> {
+  return client.fetch<QueryResponse>(query, params, {
+    cache: 'force-cache',
+    next: {
+      // revalidate: 30, // for simple, time-based revalidation
+      tags, // for tag-based revalidation
+    },
+  })
 }
 
 // Image Builder Function

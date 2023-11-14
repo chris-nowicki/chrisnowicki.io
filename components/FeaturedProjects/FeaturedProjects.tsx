@@ -7,7 +7,7 @@ import type { ProjectType } from '@/types/types'
 export default function FeaturedProjects({
   projects,
 }: {
-  projects: ProjectType[]
+  projects: ProjectType
 }) {
   const { ref } = useSectionInView('Projects', 0.5)
   return (

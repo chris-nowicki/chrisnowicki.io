@@ -19,13 +19,13 @@ const fadeInAnimate = {
 }
 
 type SkillsProps = {
-  skills: {
+  data: {
     name: string
     link?: string
   }[]
 }
 
-export default function Skills({ skills }: SkillsProps) {
+export default function Skills({ data }: SkillsProps) {
   const { ref } = useSectionInView('Skills', 0.2)
   return (
     <motion.section
@@ -39,7 +39,7 @@ export default function Skills({ skills }: SkillsProps) {
 
       {/* list of skills from sanity CMS */}
       <ul className="mt-6 flex flex-wrap justify-center gap-4">
-        {skills.map((skill, index) =>
+        {data.map((skill, index) =>
           skill.link ? (
             <a
               key={index}

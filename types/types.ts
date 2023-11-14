@@ -7,31 +7,14 @@ export type SeoType = {
   siteName: string
   url: string
   description: string
-  type: string
   image: string
-}
-
-export type OGImageType = {
-  url: string
 }
 
 export type SectionName = (typeof navItems)[number]['name']
 
-export type HomePageType = {
+export type IntroType = {
   profilePicture: string
   content: PortableTextBlock[]
-  featuredProjects: ProjectType[]
-  resumeURL: string
-  skills: {
-    name: string
-    link: string
-  }[]
-}
-
-export type MetricsType = {
-  tweetCount: number
-  githubCommits: number
-  githubRepos: number
 }
 
 export type ProjectType = {
@@ -42,6 +25,11 @@ export type ProjectType = {
   tags: {
     name: string
   }[]
+}
+
+export type SkillsType = {
+  name: string
+  link: string
 }
 
 export type Article = {
@@ -62,6 +50,12 @@ type TweetCountTable = {
   count: number
   updated_at?: ColumnType<Date, string | undefined>
   id?: number
+}
+
+export type MetricsType = {
+  tweetCount: number
+  githubCommits: number
+  githubRepos: number
 }
 
 type GitHubMetricsTable = {

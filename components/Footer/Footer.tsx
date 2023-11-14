@@ -3,10 +3,10 @@ import { socialLinks } from '@/lib/data'
 import Metrics from './Metrics'
 
 type FooterProps = {
-  pdfLink: string
+  resumeURL: string
 }
 
-export default function Footer({ pdfLink }: FooterProps) {
+export default function Footer({ resumeURL }: FooterProps) {
   return (
     <footer className="mb-10 flex w-full flex-col items-center justify-center text-left text-gray-500 md:px-0 md:text-center">
       {/* resume & social media links */}
@@ -15,7 +15,7 @@ export default function Footer({ pdfLink }: FooterProps) {
         <div className="flex w-full flex-col gap-1 md:w-1/2 md:gap-2">
           {/* resume */}
           <a
-            href={pdfLink}
+            href={resumeURL}
             className="group flex w-full items-center justify-center gap-2 rounded-lg border p-2 hover:border-purple-light hover:text-purple-light hover:shadow dark:border-gray-300/20 dark:hover:border-purple-dark dark:hover:text-purple-dark"
             target="_blank"
           >
