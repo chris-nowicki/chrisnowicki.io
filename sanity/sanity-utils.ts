@@ -26,10 +26,9 @@ export async function sanityFetch<QueryResponse>({
   tags?: string[]
 }): Promise<QueryResponse> {
   return client.fetch<QueryResponse>(query, params, {
-    cache: 'force-cache',
+    // cache: 'force-cache',
     next: {
-      // revalidate: 30, // for simple, time-based revalidation
-      tags, // for tag-based revalidation
+      tags,
     },
   })
 }

@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
 
     if (!isValidSignature) {
       const message = 'Invalid signature'
-      return new Response(JSON.stringify({ message, isValidSignature, body }), {
+      return new Response(JSON.stringify({ message, isValidSignature }), {
         status: 401,
       })
     }
