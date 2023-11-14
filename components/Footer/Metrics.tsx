@@ -2,7 +2,6 @@ import { GitHub, Twitter, TrendingUpArrowIcon } from '@/assets/Icons'
 import { socialLinks } from '@/lib/data'
 import { fetchMetrics } from '@/lib/metrics'
 import { MetricsType } from '@/types/types'
-import { Suspense } from 'react'
 
 export default async function Metrics() {
   const metrics: MetricsType = await fetchMetrics()
@@ -12,7 +11,6 @@ export default async function Metrics() {
 
   return (
     <div className="flex w-full flex-col items-center justify-center gap-2 rounded-lg border border-borderColor-light p-4 hover:border-purple-light dark:border-gray-300/20 dark:hover:border-purple-dark md:w-1/2">
-      <Suspense fallback={<div className="animate-pulse text-purple-light">Loading...</div>}>
         <span className="flex items-center gap-2">
           <TrendingUpArrowIcon
             size={20}
@@ -47,7 +45,6 @@ export default async function Metrics() {
           </a>
           commits
         </span>
-      </Suspense>
     </div>
   )
 }
