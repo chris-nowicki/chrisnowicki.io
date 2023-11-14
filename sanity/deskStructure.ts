@@ -11,10 +11,6 @@ export const myStructure = (S: any) =>
         .child(S.document().schemaType('settings').documentId('settings')),
       S.divider(),
       S.listItem()
-        .title('Home')
-        .icon(HomeIcon)
-        .child(S.document().schemaType('home').documentId('home')),
-      S.listItem()
         .title('Portfolio')
         .child(
           S.list()
