@@ -2,6 +2,7 @@ import { PDF, Download } from '@/assets/Icons'
 import { socialLinks } from '@/lib/data'
 import Metrics from './Metrics'
 
+
 type FooterProps = {
   resumeURL: string
 }

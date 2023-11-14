@@ -1,5 +1,4 @@
 import { CogIcon } from '@sanity/icons'
-import { HomeIcon } from '@sanity/icons'
 
 export const myStructure = (S: any) =>
   S.list()
