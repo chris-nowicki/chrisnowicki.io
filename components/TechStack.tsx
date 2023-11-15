@@ -1,5 +1,3 @@
-'use client'
-import React from 'react'
 import { TechStackIcons } from '@/lib/data'
 
 export default function TechStack() {

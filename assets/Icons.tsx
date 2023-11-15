@@ -89,7 +89,7 @@ export function OpenOutline({ size }: Icon) {
   )
 }
 
-export function Moon({ size = 16, classProps }: Icon) {
+export function Moon({ size = 20, classProps }: Icon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +110,7 @@ export function Moon({ size = 16, classProps }: Icon) {
   )
 }
 
-export function Sun({ size = 16, classProps }: Icon) {
+export function Sun({ size = 20, classProps }: Icon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -478,6 +478,23 @@ export function TrendingUpArrowIcon({ size = 24, classProps }) {
       <path
         fill="currentColor"
         d="M3.4 18L2 16.6l7.4-7.45l4 4L18.6 8H16V6h6v6h-2V9.4L13.4 16l-4-4l-6 6Z"
+      />
+    </svg>
+  )
+}
+
+export function UpArrowIcon({ size = 32, classProps }: Icon) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      className={classProps}
+    >
+      <path
+        fill="currentColor"
+        d="M13 19V7.83l4.88 4.88c.39.39 1.03.39 1.42 0a.996.996 0 0 0 0-1.41l-6.59-6.59a.996.996 0 0 0-1.41 0l-6.6 6.58a.996.996 0 1 0 1.41 1.41L11 7.83V19c0 .55.45 1 1 1s1-.45 1-1z"
       />
     </svg>
   )

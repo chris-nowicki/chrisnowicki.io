@@ -1,6 +1,4 @@
 'use client'
-import React from 'react'
-import { useSectionInView } from '@/hooks/useSectionInView'
 import { motion } from 'framer-motion'
 import SectionHeading from './SectionHeading'
 
@@ -26,11 +24,9 @@ type SkillsProps = {
 }
 
 export default function Skills({ data }: SkillsProps) {
-  const { ref } = useSectionInView('Skills', 0.2)
+
   return (
     <motion.section
-      ref={ref}
-      id="skills"
       className="scroll-mt-16"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}

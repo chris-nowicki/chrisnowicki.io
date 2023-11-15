@@ -1,7 +1,7 @@
 import { PDF, Download } from '@/assets/Icons'
 import { socialLinks } from '@/lib/data'
 import Metrics from './Metrics'
-
+import SectionDivider from '../SectionDivider'
 
 type FooterProps = {
   resumeURL: string
@@ -9,7 +9,8 @@ type FooterProps = {
 
 export default function Footer({ resumeURL }: FooterProps) {
   return (
-    <footer className="mb-10 flex w-full flex-col items-center justify-center text-left text-gray-500 md:px-0 md:text-center">
+    <footer className="mb-10 flex w-full flex-col items-center justify-center text-left text-gray-500 md:text-center px-4 md:px-0">
+      <SectionDivider />
       {/* resume & social media links */}
       {/* links */}
       <div className="mb-10 flex w-full flex-col gap-2 rounded-lg border p-4 shadow-lg dark:border-gray-300/20 dark:bg-gray-300/10 md:w-3/4 md:flex-row">

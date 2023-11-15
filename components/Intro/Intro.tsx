@@ -1,52 +1,27 @@
-'use client'
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
 import { homePortableText } from '@/lib/portable-text'
-import { useActiveSection } from '@/context/active-section'
-import { useSectionInView } from '@/hooks/useSectionInView'
 import { contactInfo } from '@/lib/data'
-import ContactButton from './ContactButton'
-import type { IntroType } from '@/types/types'
 import { socialLinks } from '@/lib/data'
-import { useEffect } from 'react'
+import { getIntro, getResume } from '@/sanity/sanity-queries'
+import ContactButton from './ContactButton'
 
-type IntroProps = {
-  data: IntroType
-  resumeURL: string
-}
+export default async function Intro() {
+  const introData = getIntro()
+  const resumeData = getResume()
 
-export default function Intro({ data, resumeURL }: IntroProps) {
-  const { setActiveSection, setTimeOfLastClick } = useActiveSection()
-  const { ref } = useSectionInView('Home')
-
-  useEffect(() => {
-    setActiveSection('Home')
-  }, [])
+  const [intro, resumeURL] = await Promise.all([introData, resumeData])
 
   return (
-    <section
-      ref={ref}
-      id="home"
-      className="mt-20 flex scroll-mt-20 flex-col md:mt-36 md:scroll-mt-36 md:flex-nowrap"
-    >
+    <section className="flex flex-col md:flex-nowrap">
       <div className="flex flex-wrap-reverse justify-center md:flex-nowrap md:justify-start">
         {/* intro text from Sanity CMS */}
         <div className="mr-0 flex w-full flex-col items-center text-left text-xl md:mr-6 md:items-start">
-          <PortableText
-            value={data.content}
-            components={homePortableText}
-          />
+          <PortableText value={intro.content} components={homePortableText} />
 
           {/* contact and download buttons */}
           <div className="mt-6 flex items-center gap-2">
-            <ContactButton
-              URL="/#contact"
-              contactInfo={contactInfo.Contact}
-              onClickProps={() => {
-                setActiveSection('Contact')
-                setTimeOfLastClick(Date.now())
-              }}
-            />
+            <ContactButton URL="/contact" contactInfo={contactInfo.Contact} />
             <ContactButton
               URL={resumeURL}
               contactInfo={contactInfo.DownloadCV}
@@ -61,7 +36,7 @@ export default function Intro({ data, resumeURL }: IntroProps) {
               className="rounded-xl"
               width={400}
               height={400}
-              src={data.profilePicture}
+              src={intro.profilePicture}
               alt="chris nowicki"
               priority
             />

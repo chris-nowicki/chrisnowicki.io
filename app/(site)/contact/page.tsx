@@ -1,35 +1,14 @@
 'use client'
-import React from 'react'
 import { sendEmail } from '@/actions/send-email'
 import toast from 'react-hot-toast'
-import { useSectionInView } from '@/hooks/useSectionInView'
-import { motion } from 'framer-motion'
 import SubmitBtn from './SubmitButton'
-import SectionHeading from '../SectionHeading'
+import SectionHeading from '@/components/SectionHeading'
 
 export default function Contact() {
-  const { ref } = useSectionInView('Contact', 0.25)
-
   return (
-    <motion.section
-      ref={ref}
-      id="contact"
-      className="flex w-full scroll-mt-16 flex-col items-center gap-2 sm:px-4 md:px-0"
-      initial={{
-        opacity: 0,
-      }}
-      whileInView={{
-        opacity: 1,
-      }}
-      transition={{
-        duration: 1,
-      }}
-      viewport={{
-        once: true,
-      }}
-    >
-      <SectionHeading>Contact Me</SectionHeading>
-      <p className="-mt-2 text-center text-gray-700 dark:text-white/80 md:text-left md:text-lg">
+    <section className="flex w-full flex-col items-center gap-2 px-4 md:px-0">
+      <SectionHeading>Contact</SectionHeading>
+      <p className="-mt-2 md:text-center text-gray-700 dark:text-white/80 text-left md:text-lg">
         Please contact me directly at{' '}
         <a
           className="underline hover:text-purple-light dark:hover:text-purple-dark"
@@ -77,6 +56,6 @@ export default function Contact() {
           <SubmitBtn />
         </form>
       </div>
-    </motion.section>
+    </section>
   )
 }

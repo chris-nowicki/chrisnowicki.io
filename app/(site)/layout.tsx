@@ -5,6 +5,7 @@ import ThemeProvider from './ThemeProvider'
 import { Toaster } from 'react-hot-toast'
 import type { Metadata } from 'next'
 import type { SeoType } from '@/types/types'
+import Footer from '@/components/Footer/Footer'
 import '@/app/globals.css'
 
 // font
@@ -16,7 +17,7 @@ const roboto = Roboto({
 })
 
 // sanity cms query
-import { getSEO } from '@/sanity/sanity-queries'
+import { getSEO, getResume } from '@/sanity/sanity-queries'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   const seo: SeoType = await getSEO()
@@ -66,6 +67,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const resumeURL = await getResume()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -73,10 +76,6 @@ export default async function RootLayout({
       >
         <ActiveSectionContextProvider>
           <ThemeProvider>
-            {/* colored background */}
-            {/* <div className="absolute right-[3rem] top-[-6rem] -z-10 h-[31.25rem] w-[45rem] rounded-full bg-[#cfb3f8] blur-[10rem] dark:bg-[#a88bd4] dark:blur-[15rem] "></div> */}
-            {/* <div className="absolute left-[-35rem] top-[-1rem] -z-10 h-[31.25rem] w-[50rem] rounded-full bg-[#e1e1dc] blur-[10rem] dark:bg-[#111827] md:left-[-33rem]  lg:left-[-28rem] xl:left-[-15rem] 2xl:left-[-5rem]"></div> */}
-
             {/* main portfolio site */}
             <div className="flex flex-col items-center">
               <div className="w-full max-w-3xl">
@@ -85,14 +84,12 @@ export default async function RootLayout({
                   {children}
                   <AnalyticsWrapper />
                 </main>
+                <Footer resumeURL={resumeURL} />
               </div>
             </div>
 
             {/* toaster for when an email is sent from the contact form */}
-            <Toaster
-              position="bottom-right"
-              toastOptions={{ duration: 5000 }}
-            />
+            <Toaster position="top-center" toastOptions={{ duration: 5000 }} />
           </ThemeProvider>
         </ActiveSectionContextProvider>
       </body>
