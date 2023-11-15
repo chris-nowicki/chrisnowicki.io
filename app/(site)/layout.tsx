@@ -89,10 +89,7 @@ export default async function RootLayout({
             </div>
 
             {/* toaster for when an email is sent from the contact form */}
-            <Toaster
-              position="bottom-right"
-              toastOptions={{ duration: 5000 }}
-            />
+            <Toaster position="top-right" toastOptions={{ duration: 5000 }} />
           </ThemeProvider>
         </ActiveSectionContextProvider>
       </body>

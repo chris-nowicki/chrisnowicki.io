@@ -1,40 +1,16 @@
-'use client'
-import React from 'react'
+import { getArticles } from '@/lib/devto'
 import format from 'date-fns/format'
 import { ArrowIcon, ArrowRightIcon } from '@/assets/Icons'
-import { useSectionInView } from '@/hooks/useSectionInView'
-import { motion } from 'framer-motion'
 import { DEVTO } from '@/assets/Icons'
-import SectionHeading from '../SectionHeading'
 import type { Article } from '@/types/types'
 
-type DevToArticlesProps = {
-  articles: Article[]
-}
+export default async function Blog() {
+  const articles: Article[] = await getArticles()
 
-const fadeInAnimate = {
-  initial: {
-    opacity: 0,
-  },
-  animate: (index: number) => ({
-    opacity: 1,
-    transition: {
-      delay: 0.1 * index,
-    },
-  }),
-}
-
-export default function DevToArticles({ articles }: DevToArticlesProps) {
-  const { ref } = useSectionInView('Blog', 0.5)
   return (
-    <section
-      ref={ref}
-      id="blog"
-      className="flex w-full scroll-mt-16 flex-col items-center"
-    >
-      <SectionHeading>Blog</SectionHeading>
+    <section className="flex w-full flex-col items-center md:mt-36 md:scroll-mt-36">
       <p className="flex items-center gap-2 text-lg">
-        I frequently write articles here{' '}
+        I frequently write articles here
         <ArrowRightIcon classProps="animate-pulse" />
         <a
           href="https://www.dev.to/chrisnowicki/"
@@ -48,15 +24,11 @@ export default function DevToArticles({ articles }: DevToArticlesProps) {
       {/* list of articles from dev.to */}
       <div className="mt-4 flex w-full flex-col gap-2">
         {articles.map((article: Article, index) => (
-          <motion.a
+          <a
             key={article.id}
             href={article.url}
             className="text-md group flex items-center justify-between rounded-lg border border-borderColor-light bg-gray-300/20 p-4 text-lg hover:bg-gray-300/40 dark:border-borderColor-dark dark:bg-gray-300/10 dark:hover:bg-gray-300/20 sm:mx-4 md:mx-0"
             target="_blank"
-            custom={index}
-            variants={fadeInAnimate}
-            initial="initial"
-            whileInView="animate"
           >
             <div className="flex flex-col">
               <span className="md:text-md text-sm font-bold text-purple-light dark:text-purple-dark">
@@ -69,7 +41,7 @@ export default function DevToArticles({ articles }: DevToArticlesProps) {
               </span>
             </div>
             <ArrowIcon classProps="mr-4 transition-all ease-in-out group-hover:scale-125 group-hover:animate-pulse sm:hidden md:block" />
-          </motion.a>
+          </a>
         ))}
       </div>
     </section>

@@ -43,7 +43,7 @@ export default function NavBar() {
           animate={hideNavBar ? 'hidden' : 'visible'}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
           className={clsx(
-            'hidden w-full bg-gray-50 bg-opacity-40 py-4 rounded-xl shadow-sm backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between'
+            'hidden w-full rounded-xl bg-gray-50 bg-opacity-40 py-4 shadow-sm backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between'
           )}
         >
           <div className="flex items-center gap-4 pl-5">
@@ -59,6 +59,7 @@ export default function NavBar() {
                     setActiveSection(name)
                     setTimeOfLastClick(Date.now())
                   }}
+                  prefetch={true}
                 >
                   {name}
 

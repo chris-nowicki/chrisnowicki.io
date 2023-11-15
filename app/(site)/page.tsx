@@ -3,8 +3,6 @@ import TechStack from '@/components/TechStack'
 import SectionDivider from '@/components/SectionDivider'
 import FeaturedProjects from '@/components/FeaturedProjects/FeaturedProjects'
 import Skills from '@/components/Skills'
-import Blog from '@/components/Blog/Blog'
-import Contact from '@/components/Contact/Contact'
 import Footer from '@/components/Footer/Footer'
 
 // sanity cms queries
@@ -24,10 +22,6 @@ export default async function Home() {
       <FeaturedProjects />
       <SectionDivider />
       <Skills data={skills} />
-      <SectionDivider />
-      <Blog />
-      <SectionDivider />
-      <Contact />
       <SectionDivider />
       <Footer resumeURL={resume} />
     </div>
