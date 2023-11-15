@@ -9,7 +9,7 @@ type FooterProps = {
 
 export default function Footer({ resumeURL }: FooterProps) {
   return (
-    <footer className="mb-10 flex w-full flex-col items-center justify-center text-left text-gray-500 md:px-0 md:text-center">
+    <footer className="mb-10 flex w-full flex-col items-center justify-center text-left text-gray-500 md:text-center px-4 md:px-0">
       <SectionDivider />
       {/* resume & social media links */}
       {/* links */}

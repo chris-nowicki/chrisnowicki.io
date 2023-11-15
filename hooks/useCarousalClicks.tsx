@@ -28,7 +28,7 @@ export default function useCarousalClicks(contents) {
         onClick={() => {
           handlePrevClick(1)
         }}
-        className="flex w-1/2 justify-center bg-background-dark p-1 hover:text-purple-dark"
+        className="flex w-1/2 justify-center bg-background-dark p-1 hover:text-purple-dark rounded-lg"
       >
         <CHEVRON_LEFT size={32} />
       </button>
@@ -48,7 +48,7 @@ export default function useCarousalClicks(contents) {
         onClick={() => {
           handleNextClick(1)
         }}
-        className="flex w-1/2 justify-center bg-background-dark p-1 hover:text-purple-dark"
+        className="flex w-1/2 justify-center bg-background-dark p-1 hover:text-purple-dark rounded-lg"
       >
         <CHEVRON_RIGHT size={32} />
       </button>

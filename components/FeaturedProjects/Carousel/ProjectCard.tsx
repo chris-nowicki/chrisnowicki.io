@@ -25,18 +25,18 @@ export default function ProjectCard({ project, isSelected }: ProjectCardProps) {
             alt={project.name}
             width={1280}
             height={800}
-            className="absolute -left-96 top-4 rounded shadow-lg transition-all duration-500 ease-in-out group-hover:rotate-1 group-hover:scale-95"
+            className="absolute hidden md:block -left-96 top-4 rounded shadow-lg transition-all duration-500 ease-in-out group-hover:rotate-1 group-hover:scale-95"
             loading={'lazy'}
           />
 
-          <div className="ml-[375px] flex w-1/2 flex-col items-center justify-between gap-4 pl-3">
+          <div className="w-full flex flex-col items-center justify-between gap-4 pl-3 md:ml-[375px] md:w-1/2">
             <div className="flex flex-col gap-2">
               <h1 className="w-full text-center text-xl uppercase dark:text-foreground">
                 {project.name}
               </h1>
               <ul className="flex flex-wrap justify-center gap-2">
                 {project.tags.map((tag) => (
-                  <li className="rounded-full bg-gray-200 px-2 py-1 text-xs dark:bg-foreground dark:text-black">
+                  <li key={tag.name} className="rounded-full bg-gray-200 px-2 py-1 text-xs dark:bg-foreground dark:text-black">
                     {tag.name}
                   </li>
                 ))}
@@ -46,7 +46,7 @@ export default function ProjectCard({ project, isSelected }: ProjectCardProps) {
             <div className="flex w-full justify-center gap-2">
               <a
                 href={project.gitHubUrl}
-                className="flex w-1/2 items-center justify-center gap-2 rounded-lg bg-black py-1 text-white hover:bg-purple-light dark:hover:bg-purple-dark"
+                className="flex items-center justify-center gap-2 rounded-lg bg-black px-4 py-1 text-white hover:bg-purple-light dark:hover:bg-purple-dark md:w-1/2 md:px-0"
               >
                 <GitHub size={18} />
                 code
@@ -54,7 +54,7 @@ export default function ProjectCard({ project, isSelected }: ProjectCardProps) {
               {project.liveSiteUrl && (
                 <a
                   href={project.liveSiteUrl}
-                  className="flex w-1/2 items-center justify-center gap-2 rounded-lg bg-black py-1 text-white hover:bg-purple-light dark:hover:bg-purple-dark"
+                  className="md:w-1/2 items-center flex justify-center gap-2 rounded-lg bg-black px-4 py-1 text-white hover:bg-purple-light dark:hover:bg-purple-dark md:px-0"
                 >
                   <OpenOutline size={18} />
                   live site

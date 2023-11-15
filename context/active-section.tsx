@@ -1,5 +1,7 @@
 'use client'
-import React, { useState, useContext, createContext } from 'react'
+import React, { useState, useContext, createContext, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
+import path from 'path'
 
 type ActiveSectionProviderProps = {
   children: React.ReactNode
@@ -18,8 +20,20 @@ export const ActiveSectionContext =
 export const ActiveSectionContextProvider = ({
   children,
 }: ActiveSectionProviderProps) => {
-  const [activeSection, setActiveSection] = useState<string>('Home')
+  const [activeSection, setActiveSection] = useState<string>('')
   const [timeOfLastClick, setTimeOfLastClick] = useState<number>(0)
+  const pathname = usePathname()
+
+  useEffect(() => {
+    pathname === '/'
+      ? setActiveSection('Home')
+      : setActiveSection(
+          path.basename(
+            pathname.replace('/', '').charAt(0).toUpperCase() +
+              pathname.slice(2)
+          )
+        )
+  }, [pathname])
 
   return (
     <ActiveSectionContext.Provider
