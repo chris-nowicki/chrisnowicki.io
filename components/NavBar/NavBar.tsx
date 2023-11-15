@@ -33,7 +33,7 @@ export default function NavBar() {
 
   return (
     <nav className="fixed left-1/2 top-0 z-[999] w-full max-w-3xl -translate-x-1/2">
-      <div className="relative flex w-full items-center justify-between bg-gray-50 p-4 shadow dark:bg-background-light md:bg-transparent md:px-0 md:pb-4 md:pt-4 md:shadow-none md:dark:bg-transparent">
+      <div className="relative flex w-full items-center justify-between bg-gray-50 shadow dark:bg-background-light md:bg-transparent md:px-0 md:shadow-none md:dark:bg-transparent">
         {/* nav bar menu */}
         <motion.ul
           variants={{
@@ -43,7 +43,7 @@ export default function NavBar() {
           animate={hideNavBar ? 'hidden' : 'visible'}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
           className={clsx(
-            'hidden w-full rounded-full border-2 border-purple-dark bg-gray-50 bg-opacity-40 py-2 shadow-lg backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between'
+            'hidden w-full bg-gray-50 bg-opacity-40 py-4 rounded-xl shadow-sm backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between'
           )}
         >
           <div className="flex items-center gap-4 pl-5">
@@ -64,7 +64,7 @@ export default function NavBar() {
 
                   {activeSection === name && (
                     <motion.span
-                      className="absolute -bottom-[2px] left-0 -z-10 w-full rounded border-b-4 border-b-purple-light/75"
+                      className="absolute -bottom-[2px] left-0 -z-10 w-full rounded border-b-2 border-b-purple-light/75"
                       layoutId="activeSection"
                       transition={{
                         type: 'spring',

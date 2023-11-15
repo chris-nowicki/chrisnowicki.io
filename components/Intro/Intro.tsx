@@ -19,10 +19,6 @@ export default function Intro({ data, resumeURL }: IntroProps) {
   const { setActiveSection, setTimeOfLastClick } = useActiveSection()
   const { ref } = useSectionInView('Home')
 
-  useEffect(() => {
-    setActiveSection('Home')
-  }, [])
-
   return (
     <section
       ref={ref}
