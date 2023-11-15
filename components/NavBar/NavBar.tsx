@@ -43,10 +43,10 @@ export default function NavBar() {
           animate={hideNavBar ? 'hidden' : 'visible'}
           transition={{ duration: 0.2, ease: 'easeInOut' }}
           className={clsx(
-            'hidden w-full rounded-xl bg-gray-50 bg-opacity-40 py-4 shadow-sm backdrop-blur-xl dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between'
+            'hidden w-full bg-gray-50 bg-opacity-40 py-4 backdrop-blur-xl shadow-sm dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between border rounded-bl-lg rounded-br-lg'
           )}
         >
-          <div className="flex items-center gap-4 pl-5">
+          <div className="flex items-center gap-4 pl-4">
             {navItems.map(({ name, hash }) => (
               <motion.li key={hash} initial={{ opacity: 1 }}>
                 <Link

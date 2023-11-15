@@ -1,19 +1,16 @@
 import Image from 'next/image'
-import clsx from 'clsx'
-import Link from '../Link'
-import { motion } from 'framer-motion'
 
 // types
 type ProjectCardProps = {
   name: string
   excerpt: string
   image: string
-  tags: string[]
+  tags: {
+    name: string
+  }[]
   gitHubUrl: string
   liveSiteUrl: string
   isSelected: boolean
-  direction: any
-  page: any
 }
 
 export default function ProjectCard({
@@ -24,125 +21,52 @@ export default function ProjectCard({
   gitHubUrl,
   liveSiteUrl,
   isSelected,
-  direction,
-  page,
 }: ProjectCardProps) {
-  const variants = {
-    enter: (direction: number) => {
-      return {
-        x: direction > 0 ? 600 : -600,
-        opacity: .75,
-      }
-    },
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => {
-      return {
-        zIndex: 0,
-        x: direction < 0 ? 800 : -800,
-        opacity: 0,
-      }
-    },
-  }
-
   return (
     <>
       {isSelected && (
-        <motion.div
-          key={page}
-          custom={direction}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          transition={{
-            x: {
-              type: 'spring',
-              duration: 0.5,
-            },
-          }}
+        <div
+          className="group relative flex h-64 w-full gap-2 overflow-hidden rounded-lg border border-black p-4 transition-all duration-200 ease-in-out hover:border-purple-light hover:shadow-lg"
         >
-          <div className="flex h-[290px] max-h-[290px] w-full flex-col gap-2 md:h-[271px] md:max-h-[271px] md:flex-row">
-            {/* featured project info */}
-            <div className="flex h-full w-full cursor-default flex-col justify-between rounded bg-background-light p-2  dark:bg-background-dark md:w-1/2 md:justify-start">
-              <div className="mb-3 flex flex-col items-center">
-                <span className="text-lg text-purple-dark">{name}</span>
-                <div className="mb-2 mt-2 flex flex-wrap justify-center gap-1">
-                  <div className="flex flex-row gap-1">
-                    {tags.map((tag, index) => (
-                      <span
-                        key={tag['name']}
-                        className={clsx(
-                          'inline-flex items-center rounded px-1.5 py-0.5 text-xs',
-                          index == 0
-                            ? 'bg-green-100  text-green-800'
-                            : index == 1
-                            ? 'bg-purple-100 text-purple-800'
-                            : 'bg-blue-100 text-blue-800'
-                        )}
-                      >
-                        {tag['name']}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-                <p className="text-md mt-2 flex-wrap px-2 text-foreground md:text-lg">
-                  {excerpt}
-                </p>
-              </div>
+          <Image
+            src={image}
+            alt={name}
+            width={1280}
+            height={800}
+            className="absolute -left-96 top-4 rounded shadow-lg transition-all duration-500 ease-in-out group-even:-right-[400px] group-even:left-[initial] group-hover:rotate-1 group-hover:scale-95 group-even:group-hover:-rotate-1"
+            loading={'lazy'}
+          />
 
-              {/* show github/livesite links in info card for mobile view only */}
-              <div className="flex w-full gap-1 md:hidden">
-                <Link
-                  url={gitHubUrl}
-                  icon="github"
-                  name="code"
-                  liveSiteUrl={liveSiteUrl ? true : false}
-                />
-                {liveSiteUrl && (
-                  <Link
-                    url={liveSiteUrl}
-                    icon="open-outline"
-                    name="live site"
-                    liveSiteUrl={liveSiteUrl ? true : false}
-                  />
-                )}
-              </div>
+          <div className="ml-[375px] flex w-1/2 flex-col items-center justify-between gap-4 pl-3 group-even:ml-0 group-even:pl-0">
+            <div className="flex flex-col gap-2">
+              <h1 className="w-full text-center text-xl uppercase">{name}</h1>
+              <ul className="flex flex-wrap gap-2">
+                {tags.map((tag) => (
+                  <li className="rounded-full bg-gray-200 px-2 py-1 text-xs">
+                    {tag.name}
+                  </li>
+                ))}
+              </ul>
+              <p className="">{excerpt}</p>
             </div>
-
-            {/* featured project image, and github/livesite links to display in desktop/tablet mode only */}
-            <div className="hidden flex-col gap-2 md:flex">
-              {image && (
-                <Image
-                  className="border border-borderColor-dark shadow-md"
-                  width={367}
-                  height={227}
-                  src={image}
-                  alt="featured projects"
-                  loading="lazy"
-                />
+            <div className="flex w-full gap-2">
+              <a
+                href={gitHubUrl}
+                className="flex w-1/2 items-center justify-center gap-1 rounded-lg bg-black py-1 text-white hover:bg-purple-light"
+              >
+                code
+              </a>
+              {liveSiteUrl && (
+                <a
+                  href={liveSiteUrl}
+                  className="flex w-1/2 items-center justify-center gap-1 rounded-lg bg-black py-1 text-white hover:bg-purple-light"
+                >
+                  live site
+                </a>
               )}
-              <div className="flex h-full w-full gap-1">
-                <Link
-                  url={gitHubUrl}
-                  icon="github"
-                  name="code"
-                  liveSiteUrl={liveSiteUrl ? true : false}
-                />
-                {liveSiteUrl && (
-                  <Link
-                    url={liveSiteUrl}
-                    icon="open-outline"
-                    name="live site"
-                    liveSiteUrl={liveSiteUrl ? true : false}
-                  />
-                )}
-              </div>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
     </>
   )
