@@ -69,7 +69,9 @@ export default function useCarousalClicks(contents) {
           key={index}
           className={clsx(
             'h-4 w-4 cursor-pointer rounded-full border-2 border-purple-light shadow-md dark:border-purple-dark',
-            activeIndex === index && 'bg-purple-light dark:bg-purple-dark'
+            activeIndex === index
+              ? 'bg-purple-light dark:bg-purple-dark'
+              : 'hover:scale-105'
           )}
           onClick={() => {
             if (activeIndex === index) {
