@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 type ContactButtonProps = {
   contactInfo: {
     text: string
@@ -13,14 +15,14 @@ export default function ContactButton({
   URL,
 }: ContactButtonProps) {
   return (
-    <a
+    <Link
       href={URL}
       className="group flex items-center gap-2 rounded-lg border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40 dark:border-borderColor-dark dark:bg-gray-300/10  dark:hover:bg-gray-300/20"
       onClick={onClickProps}
-      target={URL === '/#contact' ? '_self' : '_blank'}
+      prefetch={true}
     >
       {contactInfo.text}
       {contactInfo.icon}
-    </a>
+    </Link>
   )
 }

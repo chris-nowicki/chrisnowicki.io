@@ -2,10 +2,12 @@
 import { sendEmail } from '@/actions/send-email'
 import toast from 'react-hot-toast'
 import SubmitBtn from './SubmitButton'
+import SectionHeading from '@/components/SectionHeading'
 
 export default function Contact() {
   return (
-    <section className="flex w-full flex-col items-center gap-2 sm:px-4 md:mt-36 md:scroll-mt-36 md:px-0">
+    <section className="flex w-full flex-col items-center gap-2 sm:px-4 md:px-0">
+      <SectionHeading>Contact</SectionHeading>
       <p className="-mt-2 text-center text-gray-700 dark:text-white/80 md:text-left md:text-lg">
         Please contact me directly at{' '}
         <a

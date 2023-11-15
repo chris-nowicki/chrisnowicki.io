@@ -5,6 +5,7 @@ import ThemeProvider from './ThemeProvider'
 import { Toaster } from 'react-hot-toast'
 import type { Metadata } from 'next'
 import type { SeoType } from '@/types/types'
+import Footer from '@/components/Footer/Footer'
 import '@/app/globals.css'
 
 // font
@@ -16,7 +17,7 @@ const roboto = Roboto({
 })
 
 // sanity cms query
-import { getSEO } from '@/sanity/sanity-queries'
+import { getSEO, getResume } from '@/sanity/sanity-queries'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   const seo: SeoType = await getSEO()
@@ -66,6 +67,8 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  const resumeURL = await getResume()
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -81,6 +84,7 @@ export default async function RootLayout({
                   {children}
                   <AnalyticsWrapper />
                 </main>
+                <Footer resumeURL={resumeURL} />
               </div>
             </div>
 

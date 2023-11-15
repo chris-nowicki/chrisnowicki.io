@@ -3,12 +3,14 @@ import format from 'date-fns/format'
 import { ArrowIcon, ArrowRightIcon } from '@/assets/Icons'
 import { DEVTO } from '@/assets/Icons'
 import type { Article } from '@/types/types'
+import SectionHeading from '@/components/SectionHeading'
 
 export default async function Blog() {
   const articles: Article[] = await getArticles()
 
   return (
-    <section className="flex w-full flex-col items-center md:mt-36 md:scroll-mt-36">
+    <section className="flex w-full flex-col items-center">
+      <SectionHeading>Blog</SectionHeading>
       <p className="flex items-center gap-2 text-lg">
         I frequently write articles here
         <ArrowRightIcon classProps="animate-pulse" />

@@ -9,20 +9,18 @@ import ModeToggle from './ModeToggle'
 
 export default function NavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
-  const [hideNavBar, setHideNavBar] = useState(false) // for hiding navbar on scroll
-  const { activeSection, setActiveSection, setTimeOfLastClick } =
-    useActiveSection()
+  const { activeSection, setActiveSection } = useActiveSection()
   const { scrollY } = useScroll()
 
   // hide navbar on scroll down & show on scroll up
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    const previous = scrollY.getPrevious()
-    if (latest > previous && latest > 75) {
-      activeSection !== 'Now' && setHideNavBar(true) // do not allow useMotionValueEvent if the activeSection is 'Now
-    } else {
-      setHideNavBar(false)
-    }
-  })
+  // useMotionValueEvent(scrollY, 'change', (latest) => {
+  //   const previous = scrollY.getPrevious()
+  //   if (latest > previous && latest > 52) {
+  //     setHideNavBar(true)
+  //   } else {
+  //     setHideNavBar(false)
+  //   }
+  // })
 
   // toggle hamburger mobile menu
   const handleMenu = () => {
@@ -32,32 +30,25 @@ export default function NavBar() {
   }
 
   return (
-    <nav className="fixed left-1/2 top-0 z-[999] w-full max-w-3xl -translate-x-1/2">
+    <nav className="flex w-full max-w-3xl justify-center mb-12">
       <div className="relative flex w-full items-center justify-between bg-gray-50 shadow dark:bg-background-light md:bg-transparent md:px-0 md:shadow-none md:dark:bg-transparent">
         {/* nav bar menu */}
-        <motion.ul
-          variants={{
-            visible: { y: 0 },
-            hidden: { y: -110 },
-          }}
-          animate={hideNavBar ? 'hidden' : 'visible'}
-          transition={{ duration: 0.2, ease: 'easeInOut' }}
+        <ul
           className={clsx(
-            'hidden w-full bg-gray-50 bg-opacity-40 py-4 backdrop-blur-xl shadow-sm dark:bg-foreground dark:bg-opacity-100 sm:hidden md:flex md:items-center md:justify-between border rounded-bl-lg rounded-br-lg'
+            'hidden w-full bg-gray-50 dark:bg-transparent pt-6 backdrop-blur-xl dark:bg-foreground sm:hidden md:flex md:items-center md:justify-between'
           )}
         >
-          <div className="flex items-center gap-4 pl-4">
+          <div className="flex items-center gap-4">
             {navItems.map(({ name, hash }) => (
               <motion.li key={hash} initial={{ opacity: 1 }}>
                 <Link
                   href={hash}
                   className={clsx(
-                    'dark:text-textDark relative rounded-lg border border-transparent text-lg hover:text-black',
-                    activeSection === name ? 'text-black' : 'text-gray-600'
+                    'dark:text-textDark relative rounded-lg border border-transparent text-xl',
+                    activeSection === name ? 'text-black dark:text-purple-dark' : 'text-gray-600 hover:text-black dark:text-foreground dark:hover:text-purple-dark'
                   )}
                   onClick={() => {
                     setActiveSection(name)
-                    setTimeOfLastClick(Date.now())
                   }}
                   prefetch={true}
                 >
@@ -65,7 +56,7 @@ export default function NavBar() {
 
                   {activeSection === name && (
                     <motion.span
-                      className="absolute -bottom-[2px] left-0 -z-10 w-full rounded border-b-2 border-b-purple-light/75"
+                      className="absolute -bottom-[2px] left-0 -z-10 w-full rounded border-b-2 border-b-purple-light/75 dark:border-foreground"
                       layoutId="activeSection"
                       transition={{
                         type: 'spring',
@@ -80,7 +71,7 @@ export default function NavBar() {
           </div>
           {/* dark/light theme toggle button */}
           <ModeToggle />
-        </motion.ul>
+        </ul>
 
         {/* hamburger menu for mobile */}
         <button

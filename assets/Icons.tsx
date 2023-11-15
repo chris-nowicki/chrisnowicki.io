@@ -89,7 +89,7 @@ export function OpenOutline({ size }: Icon) {
   )
 }
 
-export function Moon({ size = 16, classProps }: Icon) {
+export function Moon({ size = 20, classProps }: Icon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -110,7 +110,7 @@ export function Moon({ size = 16, classProps }: Icon) {
   )
 }
 
-export function Sun({ size = 16, classProps }: Icon) {
+export function Sun({ size = 20, classProps }: Icon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

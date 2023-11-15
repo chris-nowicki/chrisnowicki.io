@@ -19,7 +19,7 @@ export default function ModeToggle({ className }: ModeToggleProps) {
   return (
     <button
       className={cn(
-        'mr-4 cursor-pointer rounded-lg border border-gray-300 p-2 text-lg text-purple-light shadow hover:bg-gray-300/20 dark:border-borderColor-dark/20',
+        'cursor-pointer rounded-lg border border-gray-300 p-2 text-purple-light dark:text-purple-dark shadow hover:bg-gray-300/20 dark:border-gray-300/20 dark:bg-gray-300/10 dark:hover:border-purple-dark',
         className
       )}
       onClick={() => {
