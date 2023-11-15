@@ -9,20 +9,17 @@ import Footer from '@/components/Footer/Footer'
 
 // sanity cms queries
 import {
-  getIntro,
   getResume,
   getFeaturedProjects,
   getSkills,
 } from '@/sanity/sanity-queries'
 
 export default async function Home() {
-  const introData = getIntro()
   const resumeData = getResume()
   const featuredProjectsData = getFeaturedProjects()
   const skillsData = getSkills()
 
-  const [intro, resume, featuredProjects, skills] = await Promise.all([
-    introData,
+  const [resume, featuredProjects, skills] = await Promise.all([
     resumeData,
     featuredProjectsData,
     skillsData,
@@ -30,7 +27,7 @@ export default async function Home() {
 
   return (
     <div className="flex w-full flex-col items-center px-4 md:px-0">
-      <Intro data={intro} resumeURL={resume} />
+      <Intro />
       <TechStack />
       <SectionDivider />
       <FeaturedProjects projects={featuredProjects} />
