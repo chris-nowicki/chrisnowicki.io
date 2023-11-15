@@ -37,13 +37,15 @@ export default function NavBar() {
 
   return (
     <nav className="mb-12 flex w-full max-w-3xl justify-center">
+
+      {/* scroll to top button */}
       {showScrollTop && (
         <motion.button
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ ease: 'easeInOut' }}
-          className="fixed bottom-16 right-24 hidden rounded-full border border-black bg-purple-light p-2 text-foreground shadow-lg transition-all duration-150 ease-in-out hover:text-foreground md:block"
+          className="group fixed bottom-16 right-24 hidden rounded-full border dark:text-black dark:bg-purple-dark bg-purple-light p-2 text-foreground shadow-lg transition-all duration-150 ease-in-out hover:text-foreground md:block hover:scale-105"
           onClick={() => {
             document.body.scrollTop = 0 // For Safari
             document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
@@ -52,6 +54,8 @@ export default function NavBar() {
           <UpArrowIcon />
         </motion.button>
       )}
+
+      {/* nav bar */}
       <div className="relative flex w-full items-center justify-between bg-gray-50 py-4 shadow dark:bg-background-light md:bg-transparent md:px-0 md:py-0 md:shadow-none md:dark:bg-transparent">
         {/* nav bar menu */}
         <ul
