@@ -6,6 +6,11 @@ import clsx from 'clsx'
 export default function useCarousalClicks(contents) {
   const [activeIndex, setActiveIndex] = useState(0)
 
+  const desktopButtonStyling =
+    'absolute top-[112px] hidden items-center justify-center rounded-full bg-background-light p-1 text-foreground shadow-xl transition-all ease-in-out hover:scale-105 hover:text-purple-dark dark:bg-purple-dark dark:hover:text-black md:flex'
+  const mobileButtonStyling =
+    'flex w-1/2 justify-center rounded-lg bg-background-dark p-1 hover:text-purple-dark dark:bg-purple-dark'
+
   const handlePrevClick = (incrementBy: number) => {
     setActiveIndex(
       activeIndex === 0
@@ -25,7 +30,7 @@ export default function useCarousalClicks(contents) {
   function LeftButton({ view = 'desktop' }: { view?: string }) {
     return view === 'mobile' ? (
       <button
-        className="flex w-1/2 justify-center rounded-lg bg-background-dark p-1 hover:text-purple-dark dark:bg-purple-dark"
+        className={mobileButtonStyling}
         onClick={() => {
           handlePrevClick(1)
         }}
@@ -34,6 +39,7 @@ export default function useCarousalClicks(contents) {
       </button>
     ) : (
       <button
+        className={clsx('-left-12', desktopButtonStyling)}
         onClick={() => {
           handlePrevClick(1)
         }}
@@ -49,12 +55,13 @@ export default function useCarousalClicks(contents) {
         onClick={() => {
           handleNextClick(1)
         }}
-        className="flex w-1/2 justify-center rounded-lg bg-background-dark p-1 hover:text-purple-dark"
+        className={mobileButtonStyling}
       >
         <CHEVRON_RIGHT size={32} />
       </button>
     ) : (
       <button
+        className={clsx('-right-12', desktopButtonStyling)}
         onClick={() => {
           handleNextClick(1)
         }}

@@ -24,7 +24,7 @@ export default async function Blog() {
       </p>
 
       {/* list of articles from dev.to */}
-      <div className="mt-4 flex w-full flex-col gap-2">
+      <div className="mt-4 flex w-full flex-col gap-2 px-4 md:px-0">
         {articles.map((article: Article, index) => (
           <a
             key={article.id}
@@ -42,7 +42,7 @@ export default async function Blog() {
                 {article.reading_time_minutes} min read
               </span>
             </div>
-            <ArrowIcon classProps="mr-4 transition-all ease-in-out group-hover:scale-125 group-hover:animate-pulse sm:hidden md:block" />
+            <ArrowIcon classProps="hidden md:block mr-4 transition-all ease-in-out group-hover:scale-125 group-hover:animate-pulse sm:hidden md:block" />
           </a>
         ))}
       </div>

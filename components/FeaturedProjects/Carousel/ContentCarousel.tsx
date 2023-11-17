@@ -9,13 +9,8 @@ export default function ContentCarousel({ contents }) {
   return (
     <>
       <div className="relative flex w-full flex-col shadow-xl">
-        <div className="absolute -left-12 top-[112px] hidden items-center justify-center rounded-full bg-background-light p-1 text-foreground shadow-xl transition-all ease-in-out hover:scale-105 hover:text-purple-dark dark:bg-purple-dark dark:hover:text-black md:flex">
-          <LeftButton />
-        </div>
-        <div className="absolute -right-12 top-[112px] hidden items-center justify-center rounded-full bg-background-light p-1 text-foreground shadow-xl transition-all ease-in-out hover:scale-105 hover:text-purple-dark  dark:bg-purple-dark dark:hover:text-black md:flex">
-          <RightButton />
-        </div>
-
+        <LeftButton />
+        <RightButton />
         <div className="flex w-full overflow-hidden">
           <div>
             {contents.map((project: any, index: number) => (

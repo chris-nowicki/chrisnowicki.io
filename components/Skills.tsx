@@ -34,7 +34,7 @@ export default function Skills({ data }: SkillsProps) {
       <SectionHeading>Skills</SectionHeading>
 
       {/* list of skills from sanity CMS */}
-      <ul className="mt-6 flex flex-wrap justify-center gap-4">
+      <ul className="mt-6 flex flex-wrap justify-center gap-2 md:gap-4">
         {data.map((skill, index) =>
           skill.link ? (
             <a

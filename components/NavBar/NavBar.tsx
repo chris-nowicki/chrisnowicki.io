@@ -117,7 +117,7 @@ export default function NavBar() {
           <div>
             <div
               id="menu"
-              className="absolute left-0 right-0 z-10 mt-7 flex flex-col items-center  space-y-2 self-end bg-background-light text-foreground opacity-95 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
+              className="absolute left-0 right-0 z-10 mt-7 flex flex-col items-center  space-y-2 self-end bg-background-light text-foreground opacity-95 dark:opacity-100 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
             >
               {navItems.map(({ name, hash }) => (
                 <Link

@@ -17,7 +17,7 @@ export default function ContactButton({
   return (
     <Link
       href={URL}
-      className="group flex items-center gap-2 rounded-lg border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40 dark:border-borderColor-dark dark:bg-gray-300/10  dark:hover:bg-gray-300/20"
+      className="group text-lg md:text-inherit flex items-center gap-2 rounded-lg border border-borderColor-light bg-gray-300/20 p-4 px-4 py-2 hover:bg-gray-300/40 dark:border-borderColor-dark dark:bg-gray-300/10  dark:hover:bg-gray-300/20"
       onClick={onClickProps}
       prefetch={true}
       target={URL !== '/contact' ? '_blank' : ''}
