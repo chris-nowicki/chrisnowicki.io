@@ -14,7 +14,7 @@ export default function NavBar() {
   const [showScrollTop, setShowScrollTop] = useState(false)
   const { scrollY } = useScroll()
 
-  // hide navbar on scroll down & show on scroll up
+  // show up button when scrollY > 200
   useMotionValueEvent(scrollY, 'change', (latest) => {
     console.log(scrollY.get())
     if (latest > 200) {
@@ -24,6 +24,7 @@ export default function NavBar() {
     }
   })
 
+  // on page load, if returning to a point > 200, show scroll to top button
   useEffect(() => {
     scrollY.get() > 200 ? setShowScrollTop(true) : setShowScrollTop(false)
   }, [])
@@ -37,7 +38,6 @@ export default function NavBar() {
 
   return (
     <nav className="mb-12 flex w-full max-w-3xl justify-center">
-
       {/* scroll to top button */}
       {showScrollTop && (
         <motion.button
@@ -45,7 +45,7 @@ export default function NavBar() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ ease: 'easeInOut' }}
-          className="group fixed bottom-16 right-24 hidden rounded-full border dark:text-black dark:bg-purple-dark bg-purple-light p-2 text-foreground shadow-lg transition-all duration-150 ease-in-out hover:text-foreground md:block hover:scale-105"
+          className="group fixed bottom-16 right-24 hidden rounded-full border bg-purple-light p-2 text-foreground shadow-lg transition-all duration-150 ease-in-out hover:scale-105 hover:text-foreground dark:bg-purple-dark dark:text-black md:block"
           onClick={() => {
             document.body.scrollTop = 0 // For Safari
             document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
