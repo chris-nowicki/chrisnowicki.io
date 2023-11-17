@@ -13,6 +13,7 @@ import {
   REACT,
   Download,
   Email,
+  Astro,
 } from '@/assets/Icons'
 
 export const navItems = [
@@ -83,6 +84,7 @@ export const contactInfo: ContactInfoType = {
 export const TechStackIcons = [
   { icon: <NEXTJS />, URL: 'https://nextjs.org/' },
   { icon: <REACT />, URL: 'https://reactjs.org/' },
+  { icon: <Astro />, URL: 'https://astro.build/' },
   { icon: <TS />, URL: 'https://www.typescriptlang.org/' },
   { icon: <TAILWIND />, URL: 'https://tailwindcss.com/' },
   { icon: <SANITY />, URL: 'https://www.sanity.io/' },

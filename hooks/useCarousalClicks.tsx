@@ -22,13 +22,13 @@ export default function useCarousalClicks(contents) {
     )
   }
 
-  const LeftButton = (view: string) =>
-    view === 'mobile' ? (
+  function LeftButton({ view = 'desktop' }: { view?: string }) {
+    return view === 'mobile' ? (
       <button
+        className="flex w-1/2 justify-center rounded-lg bg-background-dark p-1 hover:text-purple-dark dark:bg-purple-dark"
         onClick={() => {
           handlePrevClick(1)
         }}
-        className="flex w-1/2 justify-center bg-background-dark p-1 hover:text-purple-dark rounded-lg"
       >
         <CHEVRON_LEFT size={32} />
       </button>
@@ -41,14 +41,15 @@ export default function useCarousalClicks(contents) {
         <CHEVRON_LEFT size={32} />
       </button>
     )
+  }
 
-  const RightButton = (view: string) =>
-    view === 'mobile' ? (
+  function RightButton({ view = 'desktop' }: { view?: string }) {
+    return view === 'mobile' ? (
       <button
         onClick={() => {
           handleNextClick(1)
         }}
-        className="flex w-1/2 justify-center bg-background-dark p-1 hover:text-purple-dark rounded-lg"
+        className="flex w-1/2 justify-center rounded-lg bg-background-dark p-1 hover:text-purple-dark"
       >
         <CHEVRON_RIGHT size={32} />
       </button>
@@ -61,10 +62,11 @@ export default function useCarousalClicks(contents) {
         <CHEVRON_RIGHT size={32} />
       </button>
     )
+  }
 
   const IndexBubbles = () => (
     <div className="flex w-full justify-center gap-2">
-      {contents.map((_, index) => (
+      {contents.map((_: unknown, index: number) => (
         <div
           key={index}
           className={clsx(
