@@ -1,8 +1,7 @@
 import Image from 'next/image'
 import { PortableText } from '@portabletext/react'
-import { homePortableText } from '@/lib/portable-text'
-import { contactInfo } from '@/lib/data'
-import { socialLinks } from '@/lib/data'
+import { IntroPortableText } from '@/lib/portable-text'
+import { contactInfo, socialLinks } from '@/lib/data'
 import { getIntro, getResume } from '@/sanity/sanity-queries'
 import ContactButton from './ContactButton'
 
@@ -17,7 +16,7 @@ export default async function Intro() {
       <div className="flex flex-wrap-reverse justify-center md:flex-nowrap md:justify-start">
         {/* intro text from Sanity CMS */}
         <div className="mr-0 flex w-full flex-col items-center text-left text-xl md:mr-6 md:items-start">
-          <PortableText value={intro.content} components={homePortableText} />
+          <PortableText value={intro.content} components={IntroPortableText} />
 
           {/* contact and download buttons */}
           <div className="mt-6 flex items-center gap-2">

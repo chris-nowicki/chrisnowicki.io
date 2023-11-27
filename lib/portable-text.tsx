@@ -1,6 +1,6 @@
 import { PortableTextComponents } from '@portabletext/react'
 
-export const homePortableText: PortableTextComponents = {
+export const IntroPortableText: PortableTextComponents = {
   marks: {
     strong: ({ children }) => (
       <strong className="dark:text-purple-dark">{children}</strong>
