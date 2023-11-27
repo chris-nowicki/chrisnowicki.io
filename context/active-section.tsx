@@ -10,8 +10,6 @@ type ActiveSectionProviderProps = {
 type ActiveSectionContextType = {
   activeSection: string
   setActiveSection: React.Dispatch<React.SetStateAction<string>>
-  timeOfLastClick: number
-  setTimeOfLastClick: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const ActiveSectionContext =
@@ -21,7 +19,6 @@ export const ActiveSectionContextProvider = ({
   children,
 }: ActiveSectionProviderProps) => {
   const [activeSection, setActiveSection] = useState<string>('')
-  const [timeOfLastClick, setTimeOfLastClick] = useState<number>(0)
   const pathname = usePathname()
 
   useEffect(() => {
@@ -40,8 +37,6 @@ export const ActiveSectionContextProvider = ({
       value={{
         activeSection,
         setActiveSection,
-        timeOfLastClick,
-        setTimeOfLastClick,
       }}
     >
       {children}
