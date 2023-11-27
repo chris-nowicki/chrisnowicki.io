@@ -1,9 +1,10 @@
 'use client'
 import { useState } from 'react'
 import { CHEVRON_LEFT, CHEVRON_RIGHT } from '@/assets/Icons'
+import type { ProjectType } from '@/types/types'
 import clsx from 'clsx'
 
-export default function useCarousalClicks(contents) {
+export default function useCarousal(contents: ProjectType[]) {
   const [activeIndex, setActiveIndex] = useState(0)
 
   const desktopButtonStyling =
@@ -73,7 +74,7 @@ export default function useCarousalClicks(contents) {
 
   const IndexBubbles = () => (
     <div className="flex w-full justify-center gap-2">
-      {contents.map((_: unknown, index: number) => (
+      {contents.map((_, index) => (
         <div
           key={index}
           className={clsx(

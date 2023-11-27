@@ -1,6 +1,6 @@
 'use client'
 import ProjectCard from './ProjectCard'
-import useCarousalClicks from '@/hooks/useCarousalClicks'
+import useCarousal from '@/hooks/useCarousal'
 import type { ProjectType } from '@/types/types'
 
 export default function ContentCarousel({
@@ -9,7 +9,7 @@ export default function ContentCarousel({
   projects: ProjectType[]
 }) {
   const { activeIndex, LeftButton, RightButton, IndexBubbles } =
-    useCarousalClicks(projects)
+    useCarousal(projects)
 
   return (
     <div className="flex w-full flex-col items-center gap-4 md:flex-row md:flex-wrap md:items-start ">
