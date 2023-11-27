@@ -19,15 +19,6 @@ const nextConfig = {
       },
     ]
   },
-  async redirects() {
-    return [
-      {
-        source: '/projects',
-        destination: '/',
-        permanent: true,
-      },
-    ]
-  },
 }
 
 // https://nextjs.org/docs/advanced-features/security-headers
