@@ -1,5 +1,6 @@
 import NavBar from '@/components/NavBar/NavBar'
 import { AnalyticsWrapper } from '@/components/Analytics'
+import { ActiveSectionContextProvider } from '@/context/active-section'
 import ThemeProvider from './ThemeProvider'
 import { Toaster } from 'react-hot-toast'
 import type { Metadata } from 'next'
@@ -73,22 +74,24 @@ export default async function RootLayout({
       <body
         className={`${roboto.className} bg-gray-50 dark:bg-background-light dark:text-foreground`}
       >
-        <ThemeProvider>
-          {/* main portfolio site */}
-          <div className="flex flex-col items-center">
-            <div className="w-full max-w-3xl">
-              <NavBar />
-              <main className="z-10">
-                {children}
-                <AnalyticsWrapper />
-              </main>
-              <Footer resumeURL={resumeURL} />
+        <ActiveSectionContextProvider>
+          <ThemeProvider>
+            {/* main portfolio site */}
+            <div className="flex flex-col items-center">
+              <div className="w-full max-w-3xl">
+                <NavBar />
+                <main className="z-10">
+                  {children}
+                  <AnalyticsWrapper />
+                </main>
+                <Footer resumeURL={resumeURL} />
+              </div>
             </div>
-          </div>
 
-          {/* toaster for when an email is sent from the contact form */}
-          <Toaster position="top-center" toastOptions={{ duration: 5000 }} />
-        </ThemeProvider>
+            {/* toaster for when an email is sent from the contact form */}
+            <Toaster position="top-center" toastOptions={{ duration: 5000 }} />
+          </ThemeProvider>
+        </ActiveSectionContextProvider>
       </body>
     </html>
   )

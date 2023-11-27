@@ -1,20 +1,18 @@
 'use client'
-import { useEffect, useState, useMemo } from 'react'
-import { navItems } from '@/lib/data'
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { UpArrowIcon } from '@/assets/Icons'
-import { usePathname } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import clsx from 'clsx'
+import { navItems } from '@/lib/data'
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
+import { useActiveSection } from '@/context/active-section'
 import ModeToggle from './ModeToggle'
-import path from 'path'
+import { UpArrowIcon } from '@/assets/Icons'
 
 export default function NavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
-  const [activeSection, setActiveSection] = useState<string>('')
+  const { activeSection } = useActiveSection()
   const [showScrollTop, setShowScrollTop] = useState(false)
   const { scrollY } = useScroll()
-  const pathname = usePathname()
 
   // show up button when scrollY > 200
   useMotionValueEvent(scrollY, 'change', (latest) => {
@@ -30,17 +28,6 @@ export default function NavBar() {
   useEffect(() => {
     scrollY.get() > 200 ? setShowScrollTop(true) : setShowScrollTop(false)
   }, [])
-
-  useMemo(() => {
-    pathname === '/'
-      ? setActiveSection('Home')
-      : setActiveSection(
-          path.basename(
-            pathname.replace('/', '').charAt(0).toUpperCase() +
-              pathname.slice(2)
-          )
-        )
-  }, [pathname])
 
   // toggle hamburger mobile menu
   const handleMenu = () => {
@@ -130,7 +117,7 @@ export default function NavBar() {
           <div>
             <div
               id="menu"
-              className="absolute left-0 right-0 z-10 mt-7 flex flex-col items-center  space-y-2 self-end bg-background-light text-foreground opacity-95 drop-shadow-md dark:bg-background-dark dark:opacity-100 sm:w-full sm:self-center"
+              className="absolute left-0 right-0 z-10 mt-7 flex flex-col items-center  space-y-2 self-end bg-background-light text-foreground opacity-95 dark:opacity-100 drop-shadow-md dark:bg-background-dark sm:w-full sm:self-center"
             >
               {navItems.map(({ name, hash }) => (
                 <Link
