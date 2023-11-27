@@ -4,11 +4,13 @@ import toast from 'react-hot-toast'
 import SubmitBtn from './SubmitButton'
 import SectionHeading from '@/components/SectionHeading'
 
+export const dynamic = 'force-static'
+
 export default function Contact() {
   return (
     <section className="flex w-full flex-col items-center gap-2 px-4 md:px-0">
       <SectionHeading>Contact</SectionHeading>
-      <p className="-mt-2 md:text-center text-gray-700 dark:text-white/80 text-left md:text-lg">
+      <p className="-mt-2 text-left text-gray-700 dark:text-white/80 md:text-center md:text-lg">
         Please contact me directly at{' '}
         <a
           className="underline hover:text-purple-light dark:hover:text-purple-dark"

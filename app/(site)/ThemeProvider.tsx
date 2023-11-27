@@ -6,11 +6,5 @@ type ProviderProps = {
 }
 
 export default function ThemeProvider({ children }: ProviderProps) {
-  return (
-    <NextThemesProvider
-      attribute="class"
-    >
-      {children}
-    </NextThemesProvider>
-  )
+  return <NextThemesProvider attribute="class">{children}</NextThemesProvider>
 }
