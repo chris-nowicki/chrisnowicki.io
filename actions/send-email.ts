@@ -1,5 +1,4 @@
 'use server'
-
 import * as React from 'react'
 import { Resend } from 'resend'
 import { validateString, getErrorMessage } from '@/lib/utils'

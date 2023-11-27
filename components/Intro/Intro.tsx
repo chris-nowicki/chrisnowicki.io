@@ -1,10 +1,27 @@
 import Image from 'next/image'
-import { PortableText } from '@portabletext/react'
-import { IntroPortableText } from '@/lib/portable-text'
+import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { contactInfo, socialLinks } from '@/lib/data'
 import { getIntro, getResume } from '@/sanity/sanity-queries'
 import type { IntroType } from '@/types/types'
 import ContactButton from './ContactButton'
+
+const IntroPortableText: PortableTextComponents = {
+  marks: {
+    strong: ({ children }) => (
+      <strong className="dark:text-purple-dark">{children}</strong>
+    ),
+  },
+  block: {
+    normal: ({ children }) => (
+      <p className="mt-4 text-center md:mr-4 md:text-left">{children}</p>
+    ),
+    h1: ({ children }) => (
+      <h1 className="text-2xl text-purple-light dark:text-foreground md:mt-0 md:text-4xl">
+        {children}
+      </h1>
+    ),
+  },
+}
 
 export default async function Intro() {
   const introData: Promise<IntroType> = getIntro()
