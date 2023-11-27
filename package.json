@@ -15,8 +15,7 @@
     "@react-email/tailwind": "^0.0.12",
     "@sanity/icons": "^2.7.0",
     "@sanity/image-url": "^1.0.2",
-    "@sanity/ui": "^1.9.3",
-    "@sanity/vision": "^3.20.0",
+    "@sanity/vision": "^3.20.1",
     "@vercel/analytics": "^1.1.1",
     "@vercel/edge-config": "^0.4.1",
     "@vercel/og": "^0.5.20",
@@ -27,7 +26,7 @@
     "kysely": "^0.26.3",
     "kysely-planetscale": "^1.4.0",
     "next": "^14.0.3",
-    "next-sanity": "^6.0.5",
+    "next-sanity": "^6.1.0",
     "next-themes": "^0.2.1",
     "oauth-1.0a": "^2.2.6",
     "octokit": "^3.1.2",
@@ -40,17 +39,17 @@
     "sharp": "^0.32.6",
     "tailwind-merge": "^2.0.0",
     "usehooks-ts": "^2.9.1",
-    "vercel": "^32.5.5"
+    "vercel": "^32.5.6"
   },
   "devDependencies": {
-    "@types/node": "^20.9.2",
-    "@types/react": "^18.2.37",
-    "@types/react-dom": "^18.2.15",
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.38",
+    "@types/react-dom": "^18.2.17",
     "autoprefixer": "^10.4.16",
     "postcss": "^8.4.31",
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.7",
-    "sanity": "^3.20.0",
+    "sanity": "^3.20.1",
     "tailwindcss": "^3.3.5",
     "typescript": "^5.3.2"
   }

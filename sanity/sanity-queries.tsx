@@ -46,7 +46,6 @@ export async function getResume(): Promise<string> {
 export async function getFeaturedProjects(): Promise<ProjectType> {
   const query = groq`*[_type == 'featuredProjects'] {
     "featuredProjects": featuredProjects[]->{
-      _id,  
       "name": projectName,
       excerpt,
       gitHubUrl,
