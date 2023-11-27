@@ -1,17 +1,9 @@
 import Image from 'next/image'
-import { GitHub, OpenOutline } from '@/assets/Icons'
+import type { ProjectType } from '@/types/types'
+import ProjectLink from './ProjectLink'
 
 type ProjectCardProps = {
-  project: {
-    name: string
-    excerpt: string
-    image: string
-    tags: {
-      name: string
-    }[]
-    gitHubUrl: string
-    liveSiteUrl: string
-  }
+  project: ProjectType
   isSelected: boolean
 }
 
@@ -26,12 +18,12 @@ export default function ProjectCard({ project, isSelected }: ProjectCardProps) {
             width={1280}
             height={800}
             className="absolute -left-96 top-4 hidden rounded shadow-lg transition-all duration-500 ease-in-out group-hover:rotate-1 group-hover:scale-95 md:block"
-            loading={'lazy'}
+            loading={'eager'}
           />
 
           <div className="flex w-full flex-col items-center justify-between gap-4 md:ml-[375px] md:w-1/2 md:pl-3">
             <div className="flex flex-col gap-2">
-              <h1 className="w-full text-center text-lg uppercase dark:text-foreground md:text-xl">
+              <h1 className="text-center text-lg uppercase dark:text-foreground md:text-xl">
                 {project.name}
               </h1>
               <ul className="flex flex-wrap justify-center gap-1 md:gap-2">
@@ -44,24 +36,12 @@ export default function ProjectCard({ project, isSelected }: ProjectCardProps) {
                   </li>
                 ))}
               </ul>
-              <p className="">{project.excerpt}</p>
+              <p>{project.excerpt}</p>
             </div>
             <div className="flex w-full justify-center gap-2">
-              <a
-                href={project.gitHubUrl}
-                className="flex items-center justify-center gap-2 rounded-lg bg-black px-4 py-1 text-white hover:bg-purple-light dark:hover:bg-purple-dark md:w-1/2 md:px-0"
-              >
-                <GitHub size={18} />
-                code
-              </a>
+              <ProjectLink url={project.gitHubUrl} name="github" />
               {project.liveSiteUrl && (
-                <a
-                  href={project.liveSiteUrl}
-                  className="flex items-center justify-center gap-2 rounded-lg bg-black px-4 py-1 text-white hover:bg-purple-light dark:hover:bg-purple-dark md:w-1/2 md:px-0"
-                >
-                  <OpenOutline size={18} />
-                  live site
-                </a>
+                <ProjectLink url={project.liveSiteUrl} name="live site" />
               )}
             </div>
           </div>

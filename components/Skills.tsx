@@ -1,6 +1,7 @@
 'use client'
 import { motion } from 'framer-motion'
 import SectionHeading from './SectionHeading'
+import type { SkillsType } from '@/types/types'
 
 const fadeInAnimate = {
   initial: {
@@ -11,20 +12,12 @@ const fadeInAnimate = {
     opacity: 1,
     y: 0,
     transition: {
-      delay: 0.05 * index,
+      delay: 0.03 * index,
     },
   }),
 }
 
-type SkillsProps = {
-  data: {
-    name: string
-    link?: string
-  }[]
-}
-
-export default function Skills({ data }: SkillsProps) {
-
+export default function Skills({ skills }: { skills: SkillsType[] }) {
   return (
     <motion.section
       className="scroll-mt-16"
@@ -35,7 +28,7 @@ export default function Skills({ data }: SkillsProps) {
 
       {/* list of skills from sanity CMS */}
       <ul className="mt-6 flex flex-wrap justify-center gap-2 md:gap-4">
-        {data.map((skill, index) =>
+        {skills.map((skill, index) =>
           skill.link ? (
             <a
               key={index}

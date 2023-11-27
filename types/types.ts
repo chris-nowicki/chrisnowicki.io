@@ -1,5 +1,4 @@
 import { PortableTextBlock } from 'sanity'
-import { navItems } from '@/lib/data'
 import { ColumnType } from 'kysely'
 
 export type SeoType = {
@@ -10,18 +9,17 @@ export type SeoType = {
   image: string
 }
 
-export type SectionName = (typeof navItems)[number]['name']
-
 export type IntroType = {
   profilePicture: string
   content: PortableTextBlock[]
 }
 
 export type ProjectType = {
-  projectName: string
-  dateCreated: string
-  liveSiteURL: string
-  gitHubURL: string
+  name: string
+  excerpt: string
+  liveSiteUrl: string
+  gitHubUrl: string
+  image: string
   tags: {
     name: string
   }[]
@@ -29,7 +27,7 @@ export type ProjectType = {
 
 export type SkillsType = {
   name: string
-  link: string
+  link?: string
 }
 
 export type Article = {

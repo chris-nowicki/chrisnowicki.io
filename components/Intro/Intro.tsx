@@ -3,11 +3,12 @@ import { PortableText } from '@portabletext/react'
 import { IntroPortableText } from '@/lib/portable-text'
 import { contactInfo, socialLinks } from '@/lib/data'
 import { getIntro, getResume } from '@/sanity/sanity-queries'
+import type { IntroType } from '@/types/types'
 import ContactButton from './ContactButton'
 
 export default async function Intro() {
-  const introData = getIntro()
-  const resumeData = getResume()
+  const introData: Promise<IntroType> = getIntro()
+  const resumeData: Promise<string> = getResume()
 
   const [intro, resumeURL] = await Promise.all([introData, resumeData])
 

@@ -43,9 +43,9 @@ export async function getResume(): Promise<string> {
   return res
 }
 
-export async function getFeaturedProjects(): Promise<ProjectType> {
+export async function getFeaturedProjects(): Promise<ProjectType[]> {
   const query = groq`*[_type == 'featuredProjects'] {
-    "featuredProjects": featuredProjects[]->{
+    featuredProjects[]->{
       "name": projectName,
       excerpt,
       gitHubUrl,
@@ -57,7 +57,7 @@ export async function getFeaturedProjects(): Promise<ProjectType> {
     },
   }[0].featuredProjects`
 
-  const res: ProjectType = await sanityFetch({
+  const res: ProjectType[] = await sanityFetch({
     query,
     tags: ['featuredProjects'],
   })

@@ -1,33 +1,39 @@
 'use client'
 import ProjectCard from './ProjectCard'
 import useCarousalClicks from '@/hooks/useCarousalClicks'
+import type { ProjectType } from '@/types/types'
 
-export default function ContentCarousel({ contents }) {
+export default function ContentCarousel({
+  projects,
+}: {
+  projects: ProjectType[]
+}) {
   const { activeIndex, LeftButton, RightButton, IndexBubbles } =
-    useCarousalClicks(contents)
+    useCarousalClicks(projects)
 
   return (
-    <>
-      <div className="relative flex w-full flex-col shadow-xl">
+    <div className="flex w-full flex-col items-center gap-4 md:flex-row md:flex-wrap md:items-start ">
+      <div className="relative shadow-xl">
+        {/* desktop buttons */}
         <LeftButton />
         <RightButton />
-        <div className="flex w-full overflow-hidden">
-          <div>
-            {contents.map((project: any, index: number) => (
-              <ProjectCard
-                key={index + project.name}
-                project={project}
-                isSelected={activeIndex === index}
-              />
-            ))}
-          </div>
-        </div>
+
+        {/* project */}
+        {projects.map((project: ProjectType, index: number) => (
+          <ProjectCard
+            key={index + project.name}
+            project={project}
+            isSelected={activeIndex === index}
+          />
+        ))}
+
+        {/* mobile buttons */}
         <div className="mt-2 flex items-center justify-evenly gap-2 text-foreground dark:bg-background-dark md:hidden">
           <LeftButton view="mobile" />
           <RightButton view="mobile" />
         </div>
       </div>
       <IndexBubbles />
-    </>
+    </div>
   )
 }
