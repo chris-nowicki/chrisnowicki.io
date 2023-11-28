@@ -18,7 +18,6 @@ export default function NavBar() {
 
   // show up button when scrollY > 200
   useMotionValueEvent(scrollY, 'change', (latest) => {
-    console.log(scrollY.get())
     if (latest > 200) {
       setShowScrollTop(true)
     } else {
