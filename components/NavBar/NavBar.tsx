@@ -76,10 +76,10 @@ export default function NavBar() {
           )}
         >
           <div className="flex items-center gap-4">
-            {navItems.map(({ name, hash }) => (
-              <motion.li key={hash} initial={{ opacity: 1 }}>
+            {navItems.map(({ name, href }) => (
+              <li key={href}>
                 <Link
-                  href={hash}
+                  href={href}
                   className={clsx(
                     'dark:text-textDark relative rounded-lg border border-transparent text-xl',
                     activeSection === name
@@ -102,7 +102,7 @@ export default function NavBar() {
                     />
                   )}
                 </Link>
-              </motion.li>
+              </li>
             ))}
           </div>
           {/* dark/light theme toggle button */}
@@ -131,9 +131,10 @@ export default function NavBar() {
               id="menu"
               className="absolute left-0 right-0 z-10 mt-7 flex flex-col items-center  space-y-2 self-end bg-background-light text-foreground opacity-95 drop-shadow-md dark:bg-background-dark dark:opacity-100 sm:w-full sm:self-center"
             >
-              {navItems.map(({ name, hash }) => (
+              {navItems.map(({ name, href }) => (
                 <Link
-                  href={hash}
+                  key={name + href}
+                  href={href}
                   className="flex w-full justify-center border-b border-foreground/20 py-2 text-4xl text-foreground last:border-none hover:text-purple-dark"
                   onClick={() => handleMenu()}
                 >

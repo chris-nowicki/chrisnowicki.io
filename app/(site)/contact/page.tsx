@@ -4,8 +4,6 @@ import toast from 'react-hot-toast'
 import SubmitBtn from './SubmitButton'
 import SectionHeading from '@/components/SectionHeading'
 
-export const dynamic = 'force-static'
-
 export default function Contact() {
   return (
     <section className="flex w-full flex-col items-center gap-2 px-4 md:px-0">

@@ -19,15 +19,15 @@ import {
 export const navItems = [
   {
     name: 'Home',
-    hash: '/',
+    href: '/',
   },
   {
     name: 'Blog',
-    hash: '/blog',
+    href: '/blog',
   },
   {
     name: 'Contact',
-    hash: '/contact',
+    href: '/contact',
   },
 ] as const
 

@@ -31,18 +31,7 @@ export const getErrorMessage = (error: unknown): string => {
   return message
 }
 
+// Helper function to merge tailwind classes with clsx
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
-}
-
-// DYNAMIC OG IMAGE URL
-export default function ogImageURL(description: string) {
-  const url =
-    process.env.NEXT_PUBLIC_NODE_ENV === 'production'
-      ? 'https://chrisnowicki.io'
-      : 'http://localhost:3000'
-
-  return {
-    url: `${url}/api/og?description=${description}`,
-  }
 }
