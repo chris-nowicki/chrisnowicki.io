@@ -11,18 +11,18 @@
   },
   "dependencies": {
     "@portabletext/react": "^3.0.11",
-    "@react-email/components": "^0.0.11",
-    "@react-email/tailwind": "^0.0.12",
+    "@react-email/components": "^0.0.12",
+    "@react-email/tailwind": "^0.0.13",
     "@sanity/icons": "^2.7.0",
     "@sanity/image-url": "^1.0.2",
-    "@sanity/vision": "^3.20.2",
+    "@sanity/vision": "^3.21.0",
     "@vercel/analytics": "^1.1.1",
     "@vercel/edge-config": "^0.4.1",
     "@vercel/og": "^0.5.20",
     "clsx": "^2.0.0",
     "date-fns": "^2.30.0",
     "encoding": "^0.1.13",
-    "framer-motion": "^10.16.11",
+    "framer-motion": "^10.16.15",
     "kysely": "^0.26.3",
     "kysely-planetscale": "^1.4.0",
     "next": "^14.0.3",
@@ -37,20 +37,20 @@
     "resend": "^2.1.0-canary.1",
     "sanity-plugin-media": "^2.2.4",
     "sharp": "^0.33.0",
-    "tailwind-merge": "^2.0.0",
+    "tailwind-merge": "^2.1.0",
     "usehooks-ts": "^2.9.1",
-    "vercel": "^32.6.0"
+    "vercel": "^32.6.1"
   },
   "devDependencies": {
-    "@types/node": "^20.10.1",
-    "@types/react": "^18.2.39",
+    "@types/node": "^20.10.4",
+    "@types/react": "^18.2.42",
     "@types/react-dom": "^18.2.17",
     "autoprefixer": "^10.4.16",
-    "postcss": "^8.4.31",
+    "postcss": "^8.4.32",
     "prettier": "^3.1.0",
-    "prettier-plugin-tailwindcss": "^0.5.7",
-    "sanity": "^3.20.2",
-    "tailwindcss": "^3.3.5",
-    "typescript": "^5.3.2"
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "sanity": "^3.21.0",
+    "tailwindcss": "^3.3.6",
+    "typescript": "^5.3.3"
   }
 }
