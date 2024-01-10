@@ -58,7 +58,7 @@ export const getStoredGithubMetrics = async (): Promise<githubMetricsType> => {
 }
 
 // get total postView Count
-export const getStoredPostViews = async () => {
+export const getStoredPostViews = async (): Promise<number> => {
   const res = await db.selectFrom('postViews').select('count').execute()
   return res[0].count
 }
