@@ -1,11 +1,4 @@
-type Article = {
-  id: string
-  title: string
-  url: string
-  published_at: string
-  page_views_count: number
-  reading_time_minutes: number
-}
+import type { Article } from '@/types/types'
 
 export async function getArticles(): Promise<Article[]> {
   const res = await fetch('https://dev.to/api/articles/me/published', {

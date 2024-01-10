@@ -57,6 +57,20 @@ export const getStoredGithubMetrics = async (): Promise<githubMetricsType> => {
   return res[0]
 }
 
+// get total postView Count
+export const getStoredPostViews = async () => {
+  const res = await db.selectFrom('postViews').select('count').execute()
+  return res[0].count
+}
+
+// update total postView count
+export const updatePostViews = (viewCount: number) => {
+  db.updateTable('postViews')
+    .set({ count: viewCount, updated_at: new Date() })
+    .where('postViews.id', '=', 1)
+    .execute()
+}
+
 // update github metrics
 export const updateGithubMetrics = (commits: number, repos: number) => {
   db.updateTable('githubMetrics')

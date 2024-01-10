@@ -14,6 +14,7 @@ import {
   Download,
   Email,
   Astro,
+  Twitch,
 } from '@/assets/Icons'
 
 export const navItems = [
@@ -46,6 +47,11 @@ export const socialLinks = [
     name: 'Twitter',
     URL: 'https://twitter.com/iamwix',
     icon: <Twitter size={28} />,
+  },
+  {
+    name: 'Twitch',
+    URL: 'https://www.twitch.tv/chriswix',
+    icon: <Twitch />,
   },
   {
     name: 'DEV',
