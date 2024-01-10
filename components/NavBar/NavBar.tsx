@@ -57,7 +57,7 @@ export default function NavBar() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ ease: 'easeInOut' }}
-          className="group fixed bottom-16 right-24 hidden rounded-full border bg-purple-light p-2 text-foreground shadow-lg transition-all duration-150 ease-in-out hover:scale-105 hover:text-foreground dark:bg-purple-dark dark:text-black md:block"
+          className="group fixed bottom-10 right-12 hidden rounded-full border bg-purple-light p-2 text-foreground shadow-lg transition-all duration-150 ease-in-out hover:scale-105 hover:text-foreground dark:bg-purple-dark dark:text-black md:block"
           onClick={() => {
             document.body.scrollTop = 0 // For Safari
             document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
