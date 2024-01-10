@@ -42,6 +42,7 @@ export type Article = {
 export type Database = {
   tweetCount: TweetCountTable
   githubMetrics: GitHubMetricsTable
+  postViews: PostViewsTable
 }
 
 type TweetCountTable = {
@@ -54,6 +55,12 @@ export type MetricsType = {
   tweetCount: number
   githubCommits: number
   githubRepos: number
+}
+
+type PostViewsTable = {
+  id?: number
+  count: number
+  updated_at: ColumnType<Date, string | undefined>
 }
 
 type GitHubMetricsTable = {

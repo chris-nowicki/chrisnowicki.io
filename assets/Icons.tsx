@@ -537,7 +537,7 @@ export function UpArrowIcon({ size = 32, classProps }: Icon) {
   )
 }
 
-export function Astro({ size, classProps }: Icon) { 
+export function Astro({ size, classProps }: Icon) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -549,6 +549,22 @@ export function Astro({ size, classProps }: Icon) {
       <path
         fill="#FF5D01"
         d="M189.972 256.46c-10.952 9.364-32.812 15.751-57.992 15.751c-30.904 0-56.807-9.621-63.68-22.56c-2.458 7.415-3.009 15.903-3.009 21.324c0 0-1.619 26.623 16.898 45.14c0-9.615 7.795-17.41 17.41-17.41c16.48 0 16.46 14.378 16.446 26.043l-.001 1.041c0 17.705 10.82 32.883 26.21 39.28a35.685 35.685 0 0 1-3.588-15.647c0-16.886 9.913-23.173 21.435-30.48c9.167-5.814 19.353-12.274 26.372-25.232a47.588 47.588 0 0 0 5.742-22.735c0-5.06-.786-9.938-2.243-14.516Z"
+      />
+    </svg>
+  )
+}
+
+export function Twitch({ size, classProps }: Icon) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height="28"
+      viewBox="0 0 256 268"
+    >
+      <path
+        fill="currentColor"
+        d="M17.458 0L0 46.556v186.201h63.983v34.934h34.931l34.898-34.934h52.36L256 162.954V0zm23.259 23.263H232.73v128.029l-40.739 40.741H128L93.113 226.92v-34.886H40.717zm64.008 116.405H128V69.844h-23.275zm63.997 0h23.27V69.844h-23.27z"
       />
     </svg>
   )

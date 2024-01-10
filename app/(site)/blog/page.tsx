@@ -1,4 +1,5 @@
 import { getArticles } from '@/lib/devto'
+import { getStoredPostViews } from '@/lib/metrics'
 import format from 'date-fns/format'
 import { ArrowIcon, ArrowRightIcon } from '@/assets/Icons'
 import { DEVTO } from '@/assets/Icons'
@@ -7,11 +8,12 @@ import SectionHeading from '@/components/SectionHeading'
 
 export default async function Blog() {
   const articles: Article[] = await getArticles()
+  const totalPostViews = await getStoredPostViews()
 
   return (
     <section className="flex w-full flex-col items-center">
       <SectionHeading>Blog</SectionHeading>
-      <p className="flex items-center gap-2 text-lg">
+      <p className="-mt-3 flex items-center gap-2 text-lg">
         I frequently write articles here
         <ArrowRightIcon classProps="animate-pulse" />
         <a
@@ -22,6 +24,9 @@ export default async function Blog() {
           <DEVTO size={32} />
         </a>
       </p>
+      <span className="mt-6 font-mono text-xs">
+        Total Post Views: <span className='text-purple-light dark:text-purple-dark'>{totalPostViews.toLocaleString()}</span>
+      </span>
 
       {/* list of articles from dev.to */}
       <div className="mt-4 flex w-full flex-col gap-2 px-4 md:px-0">
