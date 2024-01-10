@@ -1,6 +1,6 @@
 import { getArticles } from '@/lib/devto'
 import { getStoredPostViews } from '@/lib/metrics'
-import format from 'date-fns/format'
+import { format } from 'date-fns/format'
 import { ArrowIcon, ArrowRightIcon } from '@/assets/Icons'
 import { DEVTO } from '@/assets/Icons'
 import type { Article } from '@/types/types'
@@ -25,7 +25,10 @@ export default async function Blog() {
         </a>
       </p>
       <span className="mt-6 font-mono text-xs">
-        Total Post Views: <span className='text-purple-light dark:text-purple-dark'>{totalPostViews.toLocaleString()}</span>
+        Total Post Views:{' '}
+        <span className="text-purple-light dark:text-purple-dark">
+          {totalPostViews.toLocaleString()}
+        </span>
       </span>
 
       {/* list of articles from dev.to */}
