@@ -60,7 +60,7 @@ export default async function Intro() {
           </div>
 
           {/* social media links */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             {socialLinks.map((link) => (
               <a
                 key={link.URL}
