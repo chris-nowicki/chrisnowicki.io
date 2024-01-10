@@ -6,6 +6,7 @@ import { getStoredGithubMetrics, updateGithubMetrics } from '@/lib/metrics'
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
+  // make sure the request is coming from vercel
   const authToken = (req.headers.get('authorization') || '')
     .split('Bearer ')
     .at(1)
@@ -13,6 +14,7 @@ export async function GET(req: NextRequest) {
   if (!authToken || authToken != process.env.CRON_SECRET) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
+
 
   const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN,

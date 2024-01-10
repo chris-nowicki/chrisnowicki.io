@@ -14,6 +14,7 @@ export async function GET(req: NextRequest) {
   const accessTokenSecret = process.env.TWITTER_ACCESS_TOKEN_SECRET
   const url = 'https://api.twitter.com/2/users/me?user.fields=public_metrics'
 
+  // make sure request is coming from vercel
   const authToken = (req.headers.get('authorization') || '')
     .split('Bearer ')
     .at(1)
