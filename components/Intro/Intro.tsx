@@ -6,20 +6,13 @@ import type { IntroType } from '@/types/types'
 import ContactButton from './ContactButton'
 
 const IntroPortableText: PortableTextComponents = {
-  marks: {
-    strong: ({ children }) => (
-      <strong className="dark:text-purple-dark">{children}</strong>
-    ),
-  },
   block: {
     normal: ({ children }) => (
-      <p className="mt-4 text-center md:mr-4 md:text-left">{children}</p>
-    ),
-    h1: ({ children }) => (
-      <h1 className="text-2xl text-purple-light dark:text-foreground md:mt-0 md:text-4xl">
+      <p className="text-center leading-7 md:mr-4 md:text-left [&:not(:first-child)]:mt-4">
         {children}
-      </h1>
+      </p>
     ),
+    h2: ({ children }) => <h2 className="border-b-0 pb-0">{children}</h2>,
   },
 }
 
@@ -48,7 +41,7 @@ export default async function Intro() {
 
         {/* profile image and social media links */}
         <div className="mb-4 flex w-[200px] flex-col items-center gap-4 md:mb-0 md:mt-0 md:w-[400px] ">
-          <div className="rounded-xl bg-white p-2 shadow-lg ">
+          <div className="rounded-xl bg-accent p-2 shadow-lg ">
             <Image
               className="rounded-xl"
               width={400}
@@ -65,7 +58,7 @@ export default async function Intro() {
               <a
                 key={link.URL}
                 href={link.URL}
-                className="hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
+                className="hover:scale-110 hover:text-primary hover:duration-75 hover:ease-in-out"
                 target="_blank"
               >
                 {link.icon}

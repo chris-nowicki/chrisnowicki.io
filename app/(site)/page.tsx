@@ -5,7 +5,6 @@ import FeaturedProjects from '@/components/FeaturedProjects/FeaturedProjects'
 import Skills from '@/components/Skills'
 import { getSkills } from '@/sanity/sanity-queries'
 import type { SkillsType } from '@/types/types'
-
 export default async function Home() {
   const skills: SkillsType[] = await getSkills()
 

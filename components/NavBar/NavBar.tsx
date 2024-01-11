@@ -6,7 +6,7 @@ import { UpArrowIcon } from '@/assets/Icons'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import clsx from 'clsx'
-import ModeToggle from './ModeToggle'
+import { ModeToggle } from './ModeToggle'
 import path from 'path'
 
 export default function NavBar() {
@@ -57,7 +57,7 @@ export default function NavBar() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ ease: 'easeInOut' }}
-          className="group fixed bottom-10 right-12 hidden rounded-full border bg-purple-light p-2 text-foreground shadow-lg transition-all duration-150 ease-in-out hover:scale-105 hover:text-foreground dark:bg-purple-dark dark:text-black md:block"
+          className="group fixed bottom-10 right-12 hidden rounded-full border bg-primary p-2 text-white shadow-lg transition-all duration-150 ease-in-out hover:scale-105 md:block"
           onClick={() => {
             document.body.scrollTop = 0 // For Safari
             document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
@@ -68,11 +68,11 @@ export default function NavBar() {
       )}
 
       {/* nav bar */}
-      <div className="relative flex w-full items-center justify-between bg-gray-50 py-4 shadow dark:bg-background-light md:bg-transparent md:px-0 md:py-0 md:shadow-none md:dark:bg-transparent">
+      <div className="z-99 relative flex w-full items-center justify-between py-4 shadow md:px-0 md:py-0 md:shadow-none">
         {/* nav bar menu */}
         <ul
           className={clsx(
-            'hidden w-full bg-gray-50 pt-6 backdrop-blur-xl dark:bg-foreground dark:bg-transparent sm:hidden md:flex md:items-center md:justify-between'
+            'hidden w-full pt-6 sm:hidden md:flex md:items-center md:justify-between'
           )}
         >
           <div className="flex items-center gap-4">
@@ -81,10 +81,8 @@ export default function NavBar() {
                 <Link
                   href={href}
                   className={clsx(
-                    'dark:text-textDark relative rounded-lg border border-transparent text-xl',
-                    activeSection === name
-                      ? 'text-black dark:text-purple-dark'
-                      : 'text-gray-600 hover:text-black dark:text-foreground dark:hover:text-purple-dark'
+                    'relative text-xl',
+                    activeSection === name && 'font-semibold'
                   )}
                   prefetch={true}
                 >
@@ -92,7 +90,7 @@ export default function NavBar() {
 
                   {activeSection === name && (
                     <motion.span
-                      className="absolute -bottom-[2px] left-0 -z-10 w-full rounded border-b-2 border-b-purple-light/75 dark:border-foreground"
+                      className="absolute -bottom-[2px] left-0 -z-10 w-full rounded border-b-2 border-b-primary"
                       layoutId="activeSection"
                       transition={{
                         type: 'spring',
@@ -116,12 +114,12 @@ export default function NavBar() {
             id="menu-btn"
             onClick={() => handleMenu()}
           >
-            <span className="hamburger-top bg-black dark:bg-foreground"></span>
-            <span className="hamburger-middle bg-black dark:bg-foreground"></span>
-            <span className="hamburger-bottom bg-black dark:bg-foreground"></span>
+            <span className="hamburger-top bg-accent-foreground"></span>
+            <span className="hamburger-middle bg-accent-foreground"></span>
+            <span className="hamburger-bottom bg-accent-foreground"></span>
           </button>
 
-          <ModeToggle className="rounded-lg dark:border-foreground dark:text-foreground" />
+          <ModeToggle />
         </div>
 
         {/* mobile navigation menu when hamburger button is selected */}
@@ -129,13 +127,13 @@ export default function NavBar() {
           <div>
             <div
               id="menu"
-              className="absolute left-0 right-0 z-10 mt-7 flex flex-col items-center  space-y-2 self-end bg-background-light text-foreground opacity-95 drop-shadow-md dark:bg-background-dark dark:opacity-100 sm:w-full sm:self-center"
+              className="absolute left-0 right-0 z-10 mt-7 flex flex-col  items-center self-end bg-foreground opacity-95 drop-shadow-md dark:opacity-100 sm:w-full sm:self-center"
             >
               {navItems.map(({ name, href }) => (
                 <Link
                   key={name + href}
                   href={href}
-                  className="flex w-full justify-center border-b border-foreground/20 py-2 text-4xl text-foreground last:border-none hover:text-purple-dark"
+                  className="flex w-full justify-center py-1 text-3xl text-background last:mb-2 last:border-none"
                   onClick={() => handleMenu()}
                 >
                   {name}

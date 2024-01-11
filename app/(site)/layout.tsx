@@ -1,6 +1,6 @@
 import NavBar from '@/components/NavBar/NavBar'
 import { AnalyticsWrapper } from '@/components/Analytics'
-import ThemeProvider from './ThemeProvider'
+import { ThemeProvider } from './ThemeProvider'
 import { Toaster } from 'react-hot-toast'
 import type { Metadata } from 'next'
 import type { SeoType } from '@/types/types'
@@ -8,11 +8,11 @@ import Footer from '@/components/Footer/Footer'
 import '@/app/globals.css'
 
 // font
-import { Roboto } from 'next/font/google'
+import { Inter as FontSans } from 'next/font/google'
 
-const roboto = Roboto({
-  weight: ['400', '700'],
+const inter = FontSans({
   subsets: ['latin'],
+  variable: '--font-sans',
 })
 
 // sanity cms query
@@ -71,9 +71,14 @@ export default async function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${roboto.className} bg-gray-50 dark:bg-background-light dark:text-foreground`}
+        className={`${inter.variable} min-h-screen bg-background font-sans antialiased`}
       >
-        <ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
           {/* main portfolio site */}
           <div className="flex flex-col items-center">
             <div className="w-full max-w-3xl">

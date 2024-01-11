@@ -81,7 +81,7 @@ export const contactInfo: ContactInfoType = {
     icon: (
       <Download
         size={20}
-        classProps="transition-all group-hover:translate-y-1 sm:hidden md:block"
+        classProps="sm:hidden md:block"
       />
     ),
   },

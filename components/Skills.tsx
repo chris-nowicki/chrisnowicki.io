@@ -2,6 +2,7 @@
 import { motion } from 'framer-motion'
 import SectionHeading from './SectionHeading'
 import type { SkillsType } from '@/types/types'
+import { Badge } from './ui/badge'
 
 const fadeInAnimate = {
   initial: {
@@ -38,7 +39,6 @@ export default function Skills({ skills }: { skills: SkillsType[] }) {
             >
               <motion.li
                 key={skill.name}
-                className="text-md rounded-full bg-gray-300/20 px-4 py-2 md:text-xl"
                 custom={index}
                 variants={fadeInAnimate}
                 initial="initial"
@@ -47,13 +47,12 @@ export default function Skills({ skills }: { skills: SkillsType[] }) {
                   once: true,
                 }}
               >
-                {skill.name}
+                <Badge className="text-md rounded-full">{skill.name}</Badge>
               </motion.li>
             </a>
           ) : (
             <motion.li
               key={skill.name}
-              className="text-md rounded-full bg-gray-300/20 px-4 py-2 dark:text-foreground  md:text-xl"
               custom={index}
               variants={fadeInAnimate}
               initial="initial"
@@ -62,7 +61,7 @@ export default function Skills({ skills }: { skills: SkillsType[] }) {
                 once: true,
               }}
             >
-              {skill.name}
+              <Badge className="text-md rounded-full">{skill.name}</Badge>
             </motion.li>
           )
         )}
