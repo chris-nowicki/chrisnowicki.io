@@ -31,14 +31,13 @@ export default function NavBar() {
   }, [])
 
   useMemo(() => {
-    pathname === '/'
-      ? setActiveSection('Home')
-      : setActiveSection(
-          path.basename(
-            pathname.replace('/', '').charAt(0).toUpperCase() +
-              pathname.slice(2)
-          )
+    pathname === '/' ?
+      setActiveSection('Home')
+    : setActiveSection(
+        path.basename(
+          pathname.replace('/', '').charAt(0).toUpperCase() + pathname.slice(2)
         )
+      )
   }, [pathname])
 
   // toggle hamburger mobile menu
@@ -81,7 +80,7 @@ export default function NavBar() {
                 <Link
                   href={href}
                   className={clsx(
-                    'relative text-xl',
+                    'relative text-lg',
                     activeSection === name && 'font-semibold'
                   )}
                   prefetch={true}
