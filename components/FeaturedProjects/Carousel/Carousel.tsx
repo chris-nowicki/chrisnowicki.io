@@ -31,7 +31,7 @@ export default function ProjectCarousel({
     api.on('select', () => {
       setCurrent(api.selectedScrollSnap() + 1)
     })
-  }, [api, current, count])
+  }, [api])
 
   return (
     <>
@@ -46,7 +46,7 @@ export default function ProjectCarousel({
         <CarouselPrevious />
         <CarouselNext />
       </Carousel>
-      <div className="-mt-2 flex items-center justify-center gap-1 text-md text-muted-foreground dark:text-accent-foreground">
+      <div className="text-md -mt-2 flex items-center justify-center gap-1 text-muted-foreground dark:text-accent-foreground">
         <span className="font-semibold text-primary">{current}</span> of
         <span className="font-semibold text-primary">{count}</span>
       </div>
