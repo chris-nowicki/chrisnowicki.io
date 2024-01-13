@@ -1,13 +1,20 @@
 import React from 'react'
+import { cn } from '@/lib/utils'
 
 type SectionHeadingProps = {
   children: React.ReactNode
+  className?: string
 }
 
-export default function SectionHeading({ children }: SectionHeadingProps) {
+export default function SectionHeading({
+  children,
+  className,
+}: SectionHeadingProps) {
   return (
-    <h1 className="w-full text-center text-4xl uppercase dark:text-purple-dark mb-4">
+    <h2
+      className={cn('w-full border-b-0 pb-0 text-center uppercase', className)}
+    >
       {children}
-    </h1>
+    </h2>
   )
 }

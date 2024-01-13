@@ -2,6 +2,7 @@ import { PDF, Download } from '@/assets/Icons'
 import { socialLinks } from '@/lib/data'
 import Metrics from './Metrics'
 import SectionDivider from '../SectionDivider'
+import { Button } from '../ui/button'
 
 type FooterProps = {
   resumeURL: string
@@ -9,37 +10,49 @@ type FooterProps = {
 
 export default function Footer({ resumeURL }: FooterProps) {
   return (
-    <footer className="mb-10 flex w-full flex-col items-center justify-center text-left text-gray-500 md:text-center px-4 md:px-0">
+    <footer className="mb-10 flex flex-col items-center justify-center px-4 text-left md:px-0 md:text-center">
       <SectionDivider />
-      {/* resume & social media links */}
+
+      {/* resume & social media links, and metrics */}
       {/* links */}
-      <div className="mb-10 flex w-full flex-col gap-2 rounded-lg border p-4 shadow-lg dark:border-gray-300/20 dark:bg-gray-300/10 md:w-3/4 md:flex-row">
-        <div className="flex w-full flex-col gap-1 md:w-1/2 md:gap-2">
+      <div className="mb-10 flex w-full flex-col gap-2 rounded-lg border p-4 shadow-lg md:w-3/4 md:flex-row">
+        <div className="flex w-full flex-col gap-2 md:w-1/2">
           {/* resume */}
-          <a
-            href={resumeURL}
-            className="group flex w-full items-center justify-center gap-2 rounded-lg border p-2 hover:border-purple-light hover:text-purple-light hover:shadow dark:border-gray-300/20 dark:hover:border-purple-dark dark:hover:text-purple-dark"
-            target="_blank"
+          <Button
+            variant="outline"
+            className="group py-6 hover:border-primary hover:bg-transparent hover:shadow"
           >
-            <PDF size={28} />
-            Download CV
-            <Download
-              size={20}
-              classProps="transition-all group-hover:animate-bounce"
-            />
-          </a>
+            <a
+              href={resumeURL}
+              className="flex items-center justify-center gap-2 rounded-lg group-hover:text-primary"
+              target="_blank"
+            >
+              <PDF size={28} />
+              Download CV
+              <Download
+                size={20}
+                classProps="transition-all group-hover:animate-bounce"
+              />
+            </a>
+          </Button>
 
           {/* social media links */}
-          <div className="flex items-center justify-between gap-1 md:gap-2">
+          <div className="flex items-center gap-2">
             {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.URL}
-                className="flex w-full items-center justify-center rounded-lg border p-2 hover:border-purple-light hover:text-purple-light hover:shadow dark:border-gray-300/20 dark:hover:border-purple-dark dark:hover:text-purple-dark"
-                target="_blank"
+              <Button
+                key={index + link.URL}
+                variant="outline"
+                className="group w-full px-3.5 py-6 hover:border-primary hover:bg-transparent md:px-[9px] md:py-5"
               >
-                {link.icon}
-              </a>
+                <a
+                  key={index}
+                  href={link.URL}
+                  className="group-hover:text-primary"
+                  target="_blank"
+                >
+                  {link.icon}
+                </a>
+              </Button>
             ))}
           </div>
         </div>
@@ -49,10 +62,10 @@ export default function Footer({ resumeURL }: FooterProps) {
       </div>
 
       {/* about this website information */}
-      <p className="text-xs">
-        <span className="font-semibold">Built with:</span> React & Next.js,
-        TypeScript, Tailwind CSS, Framer Motion, React Email & Resend, Sanity
-        CMS, PlanetScale MySQL, Vercel hosting.
+      <p className="text-left text-xs">
+        <span className="font-semibold">Built with:</span> Next.js, TypeScript,
+        Tailwind CSS, shadcn/ui, Framer Motion, React Email & Resend, Sanity
+        CMS, PlanetScale MySQL, and hosted on Vercel.
       </p>
     </footer>
   )

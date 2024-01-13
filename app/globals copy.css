@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  overflow-y: scroll;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* hamburger menu */
+.hamburger {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  transition: all 0.25s;
+  position: relative;
+}
+
+.hamburger-top,
+.hamburger-middle,
+.hamburger-bottom {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 24px;
+  height: 2px;
+  transform: rotate(0);
+  transition: transform 0.5s;
+}
+
+.hamburger-middle {
+  transform: translateY(7px);
+}
+
+.hamburger-bottom {
+  transform: translateY(14px);
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburger-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburger-middle {
+  display: none;
+}
+
+.open .hamburger-bottom {
+  transform: rotate(-45deg) translateY(6px) translate(-6px);
+}
+
+/* scroll bar customization */
+::-webkit-scrollbar {
+  width: 10px;
+  padding: 0px;
+}
+::-webkit-scrollbar-thumb {
+  min-height: 50px;
+  background-color: #bd93f9;
+  height: 50px;
+}
+::-webkit-scrollbar-track {
+  background-color: #e3e3e3;
+}
+
+.parent {
+  width: calc(100% - 10px);
+  max-height: 200px;
+  overflow-y: hidden;
+}
+
+.parent:hover {
+  overflow-y: scroll;
+  width: 100%;
+}

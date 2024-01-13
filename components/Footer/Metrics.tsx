@@ -10,41 +10,38 @@ export default async function Metrics() {
   const twitterLink = socialLinks.filter((link) => link.name === 'Twitter')[0]
 
   return (
-    <div className="flex w-full flex-col items-center justify-center gap-2 rounded-lg border border-borderColor-light p-4 hover:border-purple-light dark:border-gray-300/20 dark:hover:border-purple-dark md:w-1/2">
-        <span className="flex items-center gap-2">
-          <TrendingUpArrowIcon
-            size={20}
-            classProps="animate-pulse transition-all"
-          />
-          <span className="text-purple-light dark:text-purple-dark">
-            {metrics.tweetCount.toLocaleString()}
-          </span>{' '}
-          posts on{' '}
-          <a
-            href={twitterLink.URL}
-            className=" hover:scale-110 hover:text-purple-light  hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
-            target="_blank"
-          >
-            <Twitter size={24} />
-          </a>
+    <div className="border-borderColor-light hover:border-purple-light dark:hover:border-purple-dark flex w-full flex-col items-center justify-center gap-2 rounded-lg border p-4 dark:border-gray-300/20 md:w-1/2">
+      <span className="flex items-center gap-2">
+        <TrendingUpArrowIcon
+          size={20}
+          classProps="animate-pulse transition-all text-primary"
+        />
+        <span>{metrics.tweetCount.toLocaleString()}</span> posts on{' '}
+        <a
+          href={twitterLink.URL}
+          className="text-primary  hover:scale-110 hover:duration-75 hover:ease-in-out"
+          target="_blank"
+        >
+          <Twitter size={24} />
+        </a>
+      </span>
+      <span className="flex items-center gap-2">
+        <TrendingUpArrowIcon
+          size={20}
+          classProps="animate-pulse transition-all text-primary"
+        />
+        <span className="text-purple-light dark:text-purple-dark">
+          {metrics.githubCommits.toLocaleString()}
         </span>
-        <span className="flex items-center gap-2">
-          <TrendingUpArrowIcon
-            size={20}
-            classProps="animate-pulse transition-all"
-          />
-          <span className="text-purple-light dark:text-purple-dark">
-            {metrics.githubCommits.toLocaleString()}
-          </span>
-          <a
-            href={githubLink.URL}
-            className=" hover:scale-110 hover:text-purple-light hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
-            target="_blank"
-          >
-            <GitHub size={24} />
-          </a>
-          commits
-        </span>
+        <a
+          href={githubLink.URL}
+          className=" text-primary hover:scale-110 hover:duration-75 hover:ease-in-out"
+          target="_blank"
+        >
+          <GitHub size={24} />
+        </a>
+        commits
+      </span>
     </div>
   )
 }

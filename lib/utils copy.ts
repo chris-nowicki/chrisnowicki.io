@@ -1,5 +1,5 @@
-import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { clsx, ClassValue } from 'clsx'
 
 // EMAIL (CONTACT FORM) VALIDATIONS
 // validate if the contact form email and message is a string
@@ -31,6 +31,7 @@ export const getErrorMessage = (error: unknown): string => {
   return message
 }
 
+// Helper function to merge tailwind classes with clsx
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
