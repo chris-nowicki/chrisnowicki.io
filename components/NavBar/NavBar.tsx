@@ -1,13 +1,14 @@
 'use client'
 import { useEffect, useState, useMemo } from 'react'
-import { navItems } from '@/lib/data'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { UpArrowIcon } from '@/assets/Icons'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import clsx from 'clsx'
-import { ModeToggle } from './ModeToggle'
 import path from 'path'
+
+import { navItems } from '@/lib/data'
+import { UpArrowIcon } from '@/assets/Icons'
+import { ModeToggle } from './ModeToggle'
 
 export default function NavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
