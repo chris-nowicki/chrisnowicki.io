@@ -10,12 +10,13 @@ type FooterProps = {
 
 export default function Footer({ resumeURL }: FooterProps) {
   return (
-    <footer className="mb-10 flex w-full flex-col items-center justify-center px-4 text-left md:px-0 md:text-center">
+    <footer className="mb-10 flex flex-col items-center justify-center px-4 text-left md:px-0 md:text-center">
       <SectionDivider />
-      {/* resume & social media links */}
+
+      {/* resume & social media links, and metrics */}
       {/* links */}
       <div className="mb-10 flex w-full flex-col gap-2 rounded-lg border p-4 shadow-lg md:w-3/4 md:flex-row">
-        <div className="flex w-full flex-col gap-1 md:w-1/2 md:gap-2">
+        <div className="flex w-full flex-col gap-2 md:w-1/2">
           {/* resume */}
           <Button
             variant="outline"
@@ -23,7 +24,7 @@ export default function Footer({ resumeURL }: FooterProps) {
           >
             <a
               href={resumeURL}
-              className="flex w-full items-center justify-center gap-2 rounded-lg group-hover:text-primary"
+              className="flex items-center justify-center gap-2 rounded-lg group-hover:text-primary"
               target="_blank"
             >
               <PDF size={28} />
@@ -36,16 +37,17 @@ export default function Footer({ resumeURL }: FooterProps) {
           </Button>
 
           {/* social media links */}
-          <div className="flex items-center justify-between gap-1 md:gap-2">
+          <div className="flex items-center gap-2">
             {socialLinks.map((link, index) => (
               <Button
+                key={index + link.URL}
                 variant="outline"
-                className="group p-2 py-5 hover:border-primary hover:bg-transparent"
+                className="group w-full px-3.5 py-6 hover:border-primary hover:bg-transparent md:px-[9px] md:py-5"
               >
                 <a
                   key={index}
                   href={link.URL}
-                  className="flex w-full items-center justify-center group-hover:text-primary"
+                  className="group-hover:text-primary"
                   target="_blank"
                 >
                   {link.icon}
@@ -63,7 +65,7 @@ export default function Footer({ resumeURL }: FooterProps) {
       <p className="text-left text-xs">
         <span className="font-semibold">Built with:</span> Next.js, TypeScript,
         Tailwind CSS, shadcn/ui, Framer Motion, React Email & Resend, Sanity
-        CMS, PlanetScale MySQL, Vercel hosting.
+        CMS, PlanetScale MySQL, and hosted on Vercel.
       </p>
     </footer>
   )

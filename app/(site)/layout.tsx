@@ -1,13 +1,10 @@
-import NavBar from '@/components/NavBar/NavBar'
 import { AnalyticsWrapper } from '@/components/Analytics'
 import { ThemeProvider } from './ThemeProvider'
 import { Toaster } from 'react-hot-toast'
-import type { Metadata } from 'next'
-import type { SeoType } from '@/types/types'
+import NavBar from '@/components/NavBar/NavBar'
 import Footer from '@/components/Footer/Footer'
 import '@/app/globals.css'
 
-// font
 import { Inter as FontSans } from 'next/font/google'
 
 const inter = FontSans({
@@ -15,8 +12,9 @@ const inter = FontSans({
   variable: '--font-sans',
 })
 
-// sanity cms query
 import { getSEO, getResume } from '@/sanity/sanity-queries'
+import type { SeoType } from '@/types/types'
+import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   const seo: SeoType = await getSEO()
