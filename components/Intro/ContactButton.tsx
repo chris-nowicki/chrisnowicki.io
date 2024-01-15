@@ -15,7 +15,11 @@ export default function ContactButton({
   URL,
 }: ContactButtonProps) {
   return (
-    <Button variant="outline" className="rounded-lg py-6">
+    <Button
+      variant="outline"
+      className="rounded-lg py-6"
+      aria-label="contact me"
+    >
       <Link
         href={URL}
         className="group flex items-center gap-2 text-lg"
