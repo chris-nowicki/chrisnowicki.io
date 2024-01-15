@@ -1,16 +1,3 @@
-import {
-  MDB,
-  MYSQL,
-  NEXTJS,
-  SANITY,
-  TAILWIND,
-  TS,
-  VERCEL,
-  REACT,
-  Astro,
-  SHADCN,
-} from '@/assets/Icons'
-
 import Icon from '@/components/Icon'
 
 export const navItems = [
@@ -79,14 +66,23 @@ export const contactInfo: ContactInfoType = {
 }
 
 export const TechStackIcons = [
-  { icon: <NEXTJS />, URL: 'https://nextjs.org/' },
-  { icon: <REACT />, URL: 'https://reactjs.org/' },
-  { icon: <Astro />, URL: 'https://astro.build/' },
-  { icon: <TS />, URL: 'https://www.typescriptlang.org/' },
-  { icon: <SHADCN />, URL: 'https://ui.shadcn.com/' },
-  { icon: <TAILWIND />, URL: 'https://tailwindcss.com/' },
-  { icon: <SANITY />, URL: 'https://www.sanity.io/' },
-  { icon: <MYSQL />, URL: 'https://www.mysql.com/' },
-  { icon: <MDB />, URL: 'https://www.mongodb.com/' },
-  { icon: <VERCEL />, URL: 'https://www.vercel.com' },
+  { icon: <Icon id="logo-nextjs" size={36} />, URL: 'https://nextjs.org/' },
+  { icon: <Icon id="logo-react" size={36} />, URL: 'https://reactjs.org/' },
+  { icon: <Icon id="logo-astro" size={36} />, URL: 'https://astro.build/' },
+  {
+    icon: <Icon id="logo-ts" size={36} />,
+    URL: 'https://www.typescriptlang.org/',
+  },
+  { icon: <Icon id="logo-shadcn" size={36} />, URL: 'https://ui.shadcn.com/' },
+  {
+    icon: <Icon id="logo-tailwindcss" size={36} />,
+    URL: 'https://tailwindcss.com/',
+  },
+  { icon: <Icon id="logo-sanity" size={36} />, URL: 'https://www.sanity.io/' },
+  { icon: <Icon id="logo-mysql" size={47} />, URL: 'https://www.mysql.com/' },
+  {
+    icon: <Icon id="logo-mongodb" size={36} />,
+    URL: 'https://www.mongodb.com/',
+  },
+  { icon: <Icon id="logo-vercel" size={36} />, URL: 'https://www.vercel.com' },
 ] as const

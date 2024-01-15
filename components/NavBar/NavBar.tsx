@@ -7,8 +7,8 @@ import clsx from 'clsx'
 import path from 'path'
 
 import { navItems } from '@/lib/data'
-import { UpArrowIcon } from '@/assets/Icons'
 import { ModeToggle } from './ModeToggle'
+import Icon from '../Icon'
 
 export default function NavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -63,7 +63,7 @@ export default function NavBar() {
             document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
           }}
         >
-          <UpArrowIcon />
+          <Icon id="arrow-up" size={32} />
         </motion.button>
       )}
 
