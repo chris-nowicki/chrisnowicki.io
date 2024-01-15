@@ -12,5 +12,6 @@
       "path": "/api/cron/blog-post-views-sync",
       "schedule": "*/1 * * * *"
     }
-  ]
+  ],
+  "buildCommand": "bun run build"
 }
