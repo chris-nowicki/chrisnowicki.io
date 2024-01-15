@@ -6,17 +6,12 @@ import {
   TAILWIND,
   TS,
   VERCEL,
-  DEVTO,
-  GitHub,
-  Linkedin,
-  Twitter,
   REACT,
-  Download,
-  Email,
   Astro,
-  Twitch,
   SHADCN,
 } from '@/assets/Icons'
+
+import Icon from '@/components/Icon'
 
 export const navItems = [
   {
@@ -37,27 +32,27 @@ export const socialLinks = [
   {
     name: 'Linkedin',
     URL: 'https://www.linkedin.com/in/chris-nowicki/',
-    icon: <Linkedin size={28} />,
+    icon: <Icon id="logo-linkedin" size={28} />,
   },
   {
     name: 'GitHub',
     URL: 'https://github.com/chris-nowicki',
-    icon: <GitHub size={28} />,
+    icon: <Icon id="logo-github" size={28} />,
   },
   {
     name: 'Twitter',
     URL: 'https://twitter.com/iamwix',
-    icon: <Twitter size={28} />,
+    icon: <Icon id="logo-x" size={28} />,
   },
   {
     name: 'Twitch',
     URL: 'https://www.twitch.tv/chriswix',
-    icon: <Twitch />,
+    icon: <Icon id="logo-twitch" size={28} />,
   },
   {
     name: 'DEV',
     URL: 'https://dev.to/chrisnowicki',
-    icon: <DEVTO size={28} />,
+    icon: <Icon id="logo-devto" size={28} />,
   },
 ] as const
 
@@ -75,11 +70,11 @@ type ContactInfoType = {
 export const contactInfo: ContactInfoType = {
   Contact: {
     text: 'Contact',
-    icon: <Email />,
+    icon: <Icon id="envelope" size={20} />,
   },
   DownloadCV: {
     text: 'Download CV',
-    icon: <Download size={20} classProps="sm:hidden md:block" />,
+    icon: <Icon id="download" size={20} className="sm:hidden md:block" />,
   },
 }
 

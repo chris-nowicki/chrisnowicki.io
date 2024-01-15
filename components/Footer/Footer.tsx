@@ -1,8 +1,8 @@
-import { PDF, Download } from '@/assets/Icons'
 import { socialLinks } from '@/lib/data'
 import Metrics from './Metrics'
 import SectionDivider from '../SectionDivider'
 import { Button } from '../ui/button'
+import Icon from '../Icon'
 
 type FooterProps = {
   resumeURL: string
@@ -27,11 +27,12 @@ export default function Footer({ resumeURL }: FooterProps) {
               className="flex items-center justify-center gap-2 rounded-lg group-hover:text-primary"
               target="_blank"
             >
-              <PDF size={28} />
+              <Icon id="pdf" size={28} />
               Download CV
-              <Download
+              <Icon
+                id="download"
                 size={20}
-                classProps="transition-all group-hover:animate-bounce"
+                className="transition-all group-hover:animate-bounce"
               />
             </a>
           </Button>

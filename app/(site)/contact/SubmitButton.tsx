@@ -1,7 +1,7 @@
 'use client'
-import { PaperPlane } from '@/assets/Icons'
 import { useFormStatus } from 'react-dom'
 import { Button } from '@/components/ui/button'
+import Icon from '@/components/Icon'
 
 export default function SubmitBtn() {
   const { pending } = useFormStatus()
@@ -17,7 +17,11 @@ export default function SubmitBtn() {
         <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-primary"></div>
       : <>
           Submit{' '}
-          <PaperPlane classProps="text-xs opacity-70 transition-all group-hover:-translate-y-1 group-hover:translate-x-1 text-primary" />
+          <Icon
+            id="paper-plane"
+            size={16}
+            className="text-xs text-primary opacity-70 transition-all group-hover:-translate-y-1 group-hover:translate-x-1"
+          />
         </>
       }
     </Button>

@@ -1,7 +1,7 @@
-import { GitHub, Twitter, TrendingUpArrowIcon } from '@/assets/Icons'
 import { socialLinks } from '@/lib/data'
 import { fetchMetrics } from '@/lib/metrics'
 import { MetricsType } from '@/types/types'
+import Icon from '../Icon'
 
 export default async function Metrics() {
   const metrics: MetricsType = await fetchMetrics()
@@ -12,9 +12,10 @@ export default async function Metrics() {
   return (
     <div className="border-borderColor-light hover:border-purple-light dark:hover:border-purple-dark flex w-full flex-col items-center justify-center gap-2 rounded-lg border p-4 dark:border-gray-300/20 md:w-1/2">
       <span className="flex items-center gap-2">
-        <TrendingUpArrowIcon
+        <Icon
+          id="trending-up"
           size={20}
-          classProps="animate-pulse transition-all text-primary"
+          className="animate-pulse text-primary transition-all"
         />
         <span>{metrics.tweetCount.toLocaleString()}</span> posts on{' '}
         <a
@@ -22,13 +23,14 @@ export default async function Metrics() {
           className="text-primary  hover:scale-110 hover:duration-75 hover:ease-in-out"
           target="_blank"
         >
-          <Twitter size={24} />
+          <Icon id="logo-x" size={24} />
         </a>
       </span>
       <span className="flex items-center gap-2">
-        <TrendingUpArrowIcon
+        <Icon
+          id="trending-up"
           size={20}
-          classProps="animate-pulse transition-all text-primary"
+          className="animate-pulse text-primary transition-all"
         />
         <span className="text-purple-light dark:text-purple-dark">
           {metrics.githubCommits.toLocaleString()}
@@ -38,7 +40,7 @@ export default async function Metrics() {
           className=" text-primary hover:scale-110 hover:duration-75 hover:ease-in-out"
           target="_blank"
         >
-          <GitHub size={24} />
+          <Icon id="logo-github" size={24} />
         </a>
         commits
       </span>

@@ -1,6 +1,6 @@
 import clsx from 'clsx'
-import { GitHub, OpenOutline } from '@/assets/Icons'
 import { Button } from '@/components/ui/button'
+import Icon from '@/components/Icon'
 
 type ProjectLink = {
   url: string
@@ -15,7 +15,9 @@ export default function ProjectLink({ url, name }: ProjectLink) {
         className={clsx('flex items-center justify-center gap-2 ')}
         target="_blank"
       >
-        {name == 'github' ? <GitHub size={18} /> : <OpenOutline size={18} />}
+        {name == 'github' ?
+          <Icon id="logo-github" size={18} />
+        : <Icon id="open" size={18} />}
         {name == 'github' ? 'code' : 'live site'}
       </a>
     </Button>

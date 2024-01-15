@@ -1,10 +1,9 @@
 import { getArticles } from '@/lib/devto'
 import { getStoredPostViews } from '@/lib/metrics'
-import { format } from 'date-fns/format'
-import { ArrowIcon, ArrowRightIcon } from '@/assets/Icons'
-import { DEVTO } from '@/assets/Icons'
 import type { Article } from '@/types/types'
+import { format } from 'date-fns/format'
 import SectionHeading from '@/components/SectionHeading'
+import Icon from '@/components/Icon'
 
 export default async function Blog() {
   const articleData: Promise<Article[]> = getArticles()
@@ -21,13 +20,17 @@ export default async function Blog() {
 
       <p className="flex items-center gap-2 text-lg">
         I frequently write articles here
-        <ArrowRightIcon classProps="animate-pulse text-primary" />
+        <Icon
+          id="arrow-right"
+          size={24}
+          className="animate-pulse text-primary"
+        />
         <a
           href="https://www.dev.to/chrisnowicki/"
           className="hover:text-primary"
           target="_blank"
         >
-          <DEVTO size={32} />
+          <Icon id="logo-devto" size={32} />
         </a>
       </p>
       <span className="font-mono mt-6 flex items-center gap-1 text-sm">
@@ -56,7 +59,11 @@ export default async function Blog() {
                 {article.reading_time_minutes} min read
               </span>
             </div>
-            <ArrowIcon classProps="hidden md:block mr-4 transition-all ease-in-out group-hover:scale-125 group-hover:animate-pulse sm:hidden md:block" />
+            <Icon
+              id="arrow-top-right"
+              size={24}
+              className="mr-4 hidden transition-all ease-in-out group-hover:scale-125 group-hover:animate-pulse sm:hidden md:block"
+            />
           </a>
         ))}
       </div>
