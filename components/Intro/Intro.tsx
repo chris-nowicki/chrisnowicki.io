@@ -60,7 +60,6 @@ export default async function Intro() {
                 href={link.URL}
                 className="hover:scale-110 hover:text-primary hover:duration-75 hover:ease-in-out"
                 target="_blank"
-                aria-label="link to my social media"
               >
                 {link.icon}
               </a>

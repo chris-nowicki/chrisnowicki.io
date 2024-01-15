@@ -18,7 +18,6 @@ export default function ContactButton({
     <Button
       variant="outline"
       className="rounded-lg py-6"
-      aria-label="contact me"
     >
       <Link
         href={URL}
