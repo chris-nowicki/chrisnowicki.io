@@ -1,5 +1,6 @@
 import Icon from '@/components/Icon'
 
+// navbar items
 export const navItems = [
   {
     name: 'Home',
@@ -15,6 +16,7 @@ export const navItems = [
   },
 ] as const
 
+// social links for intro section, footer, and project cards
 export const socialLinks = [
   {
     name: 'Linkedin',
@@ -43,6 +45,7 @@ export const socialLinks = [
   },
 ] as const
 
+// contact button type, data, and icons
 type ContactInfoType = {
   Contact: {
     text: string
@@ -65,6 +68,7 @@ export const contactInfo: ContactInfoType = {
   },
 }
 
+// icons for tech stack section
 export const TechStackIcons = [
   { icon: <Icon id="logo-nextjs" size={36} />, URL: 'https://nextjs.org/' },
   { icon: <Icon id="logo-react" size={36} />, URL: 'https://reactjs.org/' },
