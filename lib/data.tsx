@@ -15,6 +15,7 @@ import {
   Email,
   Astro,
   Twitch,
+  SHADCN,
 } from '@/assets/Icons'
 
 export const navItems = [
@@ -78,12 +79,7 @@ export const contactInfo: ContactInfoType = {
   },
   DownloadCV: {
     text: 'Download CV',
-    icon: (
-      <Download
-        size={20}
-        classProps="sm:hidden md:block"
-      />
-    ),
+    icon: <Download size={20} classProps="sm:hidden md:block" />,
   },
 }
 
@@ -92,6 +88,7 @@ export const TechStackIcons = [
   { icon: <REACT />, URL: 'https://reactjs.org/' },
   { icon: <Astro />, URL: 'https://astro.build/' },
   { icon: <TS />, URL: 'https://www.typescriptlang.org/' },
+  { icon: <SHADCN />, URL: 'https://ui.shadcn.com/' },
   { icon: <TAILWIND />, URL: 'https://tailwindcss.com/' },
   { icon: <SANITY />, URL: 'https://www.sanity.io/' },
   { icon: <MYSQL />, URL: 'https://www.mysql.com/' },

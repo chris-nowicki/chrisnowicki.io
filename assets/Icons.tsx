@@ -349,40 +349,6 @@ export function SANITY({ size = 46.95, classProps }: Icon) {
   )
 }
 
-export function CHEVRON_LEFT({ size = 32, classProps }: Icon) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 32 32"
-      className={classProps}
-    >
-      <path
-        fill="currentColor"
-        d="M10 16L20 6l1.4 1.4l-8.6 8.6l8.6 8.6L20 26z"
-      />
-    </svg>
-  )
-}
-
-export function CHEVRON_RIGHT({ size = 32, classProps }: Icon) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 32 32"
-      className={classProps}
-    >
-      <path
-        fill="currentColor"
-        d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z"
-      />
-    </svg>
-  )
-}
-
 export function DEVTO({ size = 32, classProps }: Icon) {
   return (
     <svg
@@ -460,28 +426,6 @@ export function PaperPlane({ size = 16, classProps }) {
         fill="currentColor"
         d="M498.1 5.6c10.1 7 15.4 19.1 13.5 31.2l-64 416c-1.5 9.7-7.4 18.2-16 23s-18.9 5.4-28 1.6L284 427.7l-68.5 74.1c-8.9 9.7-22.9 12.9-35.2 8.1S160 493.2 160 480v-83.6c0-4 1.5-7.8 4.2-10.7l167.6-182.9c5.8-6.3 5.6-16-.4-22s-15.7-6.4-22-.7L106 360.8l-88.3-44.2C7.1 311.3.3 300.7 0 288.9s5.9-22.8 16.1-28.7l448-256c10.7-6.1 23.9-5.5 34 1.4z"
       />
-    </svg>
-  )
-}
-
-export function DoubleDownIcon({ size = 98, classProps }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
-      viewBox="0 0 14 14"
-      className={classProps}
-    >
-      <g
-        fill="none"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="m.5 6.46l6.15 6.14a.48.48 0 0 0 .7 0l6.15-6.14" />
-        <path d="M.5 1.25L6.65 7.4a.5.5 0 0 0 .7 0l6.15-6.15" />
-      </g>
     </svg>
   )
 }
@@ -565,6 +509,23 @@ export function Twitch({ size, classProps }: Icon) {
       <path
         fill="currentColor"
         d="M17.458 0L0 46.556v186.201h63.983v34.934h34.931l34.898-34.934h52.36L256 162.954V0zm23.259 23.263H232.73v128.029l-40.739 40.741H128L93.113 226.92v-34.886H40.717zm64.008 116.405H128V69.844h-23.275zm63.997 0h23.27V69.844h-23.27z"
+      />
+    </svg>
+  )
+}
+
+export function SHADCN({ size = 32, classProps }: Icon) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      className={classProps}
+    >
+      <path
+        fill="#888888"
+        d="M22.219 11.784L11.784 22.219a1.045 1.045 0 0 0 1.476 1.476L23.695 13.26a1.045 1.045 0 0 0-1.476-1.476M20.132.305L.305 20.132a1.045 1.045 0 0 0 1.476 1.476L21.608 1.781A1.045 1.045 0 0 0 20.132.305"
       />
     </svg>
   )
