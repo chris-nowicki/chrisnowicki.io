@@ -1,0 +1,7 @@
+{
+  "packageManager": "bun",
+  "interactive": true,
+  "format": [
+    "group"
+  ]
+}
