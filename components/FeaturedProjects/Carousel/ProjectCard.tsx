@@ -19,7 +19,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         loading={'eager'}
       />
 
-      <div className="flex w-full flex-col items-center justify-between gap-4 md:ml-[375px] md:w-1/2 md:pl-3">
+      <div className="flex w-full flex-col items-center justify-between px-2 md:ml-[375px] md:w-1/2 md:gap-4 md:pl-3">
         <div className="flex flex-col gap-1">
           <h4 className="text-center text-lg uppercase md:text-xl">
             {project.name}
@@ -31,7 +31,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               </Badge>
             ))}
           </div>
-          <p className="-mt-2">{project.excerpt}</p>
+          <p className="text-md -mt-2 md:text-inherit">{project.excerpt}</p>
         </div>
         <div className="flex w-full justify-center gap-2">
           <ProjectLink url={project.gitHubUrl} name="github" />

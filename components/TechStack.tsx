@@ -2,7 +2,7 @@ import { TechStackIcons } from '@/lib/data'
 
 export default function TechStack() {
   return (
-    <section className="mt-8 flex w-3/4 flex-wrap items-center justify-center gap-3 rounded-full border p-2 shadow-lg dark:bg-foreground dark:py-2 md:mt-12 md:justify-between md:gap-0 md:px-12">
+    <section className="md:px-4.5 mt-8 flex w-full flex-wrap items-center justify-center gap-3 rounded-full border px-6 py-4 shadow-lg dark:bg-foreground md:mt-12 md:w-3/4 md:justify-between md:gap-0 md:py-2">
       {TechStackIcons.map((techStack, index) => (
         <a
           key={index}

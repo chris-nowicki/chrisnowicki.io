@@ -8,11 +8,13 @@ import ContactButton from './ContactButton'
 const IntroPortableText: PortableTextComponents = {
   block: {
     normal: ({ children }) => (
-      <p className="text-center leading-7 md:mr-4 md:text-left [&:not(:first-child)]:mt-4">
+      <p className="text-center text-lg md:text-xl leading-7 md:mr-4 md:text-left [&:not(:first-child)]:mt-4">
         {children}
       </p>
     ),
-    h2: ({ children }) => <h2 className="border-b-0 pb-0">{children}</h2>,
+    h2: ({ children }) => (
+      <h2 className="border-b-0 pb-0 text-2xl md:text-3xl">{children}</h2>
+    ),
   },
 }
 

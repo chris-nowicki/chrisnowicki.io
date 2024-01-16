@@ -9,7 +9,7 @@ type ProjectLink = {
 
 export default function ProjectLink({ url, name }: ProjectLink) {
   return (
-    <Button className="rounded-lg px-4 py-1 md:w-1/2 md:px-0 ">
+    <Button className="w-full rounded-lg px-4 py-1 md:w-1/2 md:px-0 ">
       <a
         href={url}
         className={clsx('flex items-center justify-center gap-2 ')}
