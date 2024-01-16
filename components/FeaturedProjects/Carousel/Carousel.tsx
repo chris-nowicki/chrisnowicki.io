@@ -44,7 +44,7 @@ export default function ProjectCarousel({
           ))}
         </CarouselContent>
         <CarouselPrevious />
-        <CarouselNext className="hidden md:block" />
+        <CarouselNext className="hidden md:flex" />
       </Carousel>
       <div className="text-md -mt-2 flex items-center justify-center gap-1 text-muted-foreground dark:text-accent-foreground">
         <span className="font-semibold text-primary">{current}</span> of
