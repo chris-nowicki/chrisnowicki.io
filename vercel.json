@@ -1,5 +1,5 @@
 {
-  "installCommand": "curl -fsSL https://bun.sh/install | bash && ~/.bun/bin/bun install",
+  "installCommand": "bun install",
   "buildCommand": "bun run build",
   "crons": [
     {
