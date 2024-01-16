@@ -9,7 +9,7 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <div className="group relative flex h-72 w-full gap-2 overflow-hidden rounded-lg border bg-accent p-2 transition-all duration-200 ease-in-out hover:shadow-lg md:p-4">
+    <div className="group relative flex h-72 w-full gap-2 overflow-hidden rounded-lg border bg-accent p-2 transition-all duration-200 ease-in-out hover:shadow-lg md:p-2 md:py-2">
       <Image
         src={project.image}
         alt={project.name}
@@ -31,7 +31,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               </Badge>
             ))}
           </div>
-          <p className="text-md -mt-2 md:text-inherit">{project.excerpt}</p>
+          <p className="text-md -mt-2 md:text-inherit text-center">{project.excerpt}</p>
         </div>
         <div className="flex w-full justify-center gap-2">
           <ProjectLink url={project.gitHubUrl} name="github" />
