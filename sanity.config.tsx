@@ -1,5 +1,5 @@
 import { defineConfig, definePlugin } from 'sanity'
-import { deskTool } from 'sanity/desk'
+import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from '@/sanity/schemas'
 import { myStructure } from '@/sanity/deskStructure'
@@ -53,7 +53,7 @@ const config = defineConfig({
   },
 
   plugins: [
-    deskTool({
+    structureTool({
       structure: myStructure,
     }),
     visionTool(),
