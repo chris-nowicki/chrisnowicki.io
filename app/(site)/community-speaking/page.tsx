@@ -324,6 +324,17 @@ export default async function Blog() {
                 {` - `}
                 How to Improve Your Home WiFi Speeds (YouTube Link TBD)
               </li>
+              <li>
+                <a
+                  href="https://youtu.be/P4aMxBWwLD0?si=g3xjNuqtQV6w8z7J"
+                  className="font-bold text-primary hover:underline"
+                  target="_blank"
+                >
+                  August 30th, 2023
+                </a>
+                {` - `}
+                The Complexity of ADHD Treatment
+              </li>
             </ul>
           </AccordionContent>
         </AccordionItem>
