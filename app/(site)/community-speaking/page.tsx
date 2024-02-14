@@ -322,7 +322,7 @@ export default async function Blog() {
                   February 9th, 2024
                 </a>
                 {` - `}
-                How to Improve Your Home WiFi Speeds (YouTube Link TBD)
+                How to Improve Your Home WiFi Speeds
               </li>
               <li>
                 <a
