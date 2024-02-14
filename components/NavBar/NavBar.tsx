@@ -136,7 +136,19 @@ export default function NavBar() {
             <span className="hamburger-bottom bg-accent-foreground"></span>
           </button>
 
-          <ModeToggle />
+          <div className="flex items-center gap-2">
+            <Link
+              href="/community-speaking"
+              className={clsx(
+                'flex items-center gap-2 rounded-lg border px-4 py-1 text-lg transition-all duration-200 ease-in-out hover:border-primary hover:shadow-sm',
+                pathname.startsWith('/community-speaking') && 'border-primary'
+              )}
+            >
+              <Icon id="community" size={24} />
+              Community
+            </Link>
+            <ModeToggle />
+          </div>
         </div>
 
         {/* mobile navigation menu when hamburger button is selected */}

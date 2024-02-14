@@ -22,8 +22,8 @@ export default async function Blog() {
   ])
 
   return (
-    <section className="flex w-full flex-col gap-4">
-      <SectionHeading className="-mb-6 text-left">
+    <section className="flex w-full flex-col gap-4 px-4 md:px-0">
+      <SectionHeading className="-mb-6 text-left text-2xl md:text-4xl">
         Community & Speaking
       </SectionHeading>
       <p>
@@ -35,7 +35,7 @@ export default async function Blog() {
 
       <Accordion type="single" collapsible className="w-full">
         <AccordionItem value="Community Involvement">
-          <AccordionTrigger className="text-2xl font-bold">
+          <AccordionTrigger className="text-xl font-bold md:text-2xl">
             Community Involvement
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4">
@@ -98,12 +98,14 @@ export default async function Blog() {
             </div>
 
             {/* Discord */}
-            <div className="flex items-center gap-6 rounded-lg border p-4">
+            <div className="flex flex-col items-center gap-6 rounded-lg border p-4 md:flex-row">
               <div>
                 <Icon id="logo-discord" size={64} className="-mb-4" />
               </div>
               <div>
-                <p>My Favorite Discord Communities:</p>
+                <p className="text-center md:text-left">
+                  My Favorite Discord Communities:
+                </p>
                 <ul className="mt-1 list-outside list-disc space-y-2 pl-4 marker:text-primary">
                   <li>
                     <span className="font-semibold">
@@ -141,12 +143,14 @@ export default async function Blog() {
             </div>
 
             {/* Github */}
-            <div className="flex items-center gap-6 rounded-lg border p-4">
+            <div className="flex flex-col items-center gap-6 rounded-lg border p-4 md:flex-row">
               <div>
                 <Icon id="logo-github" size={64} className="-mb-4" />
               </div>
               <div>
-                <p>I like to provide help in discord discussion groups:</p>
+                <p className="text-center md:text-left">
+                  I like to provide help in discord discussion groups:
+                </p>
                 <ul className="mt-1 w-auto list-outside list-disc space-y-2 pl-4 marker:text-primary">
                   <li>
                     <span className="font-semibold">
@@ -171,7 +175,7 @@ export default async function Blog() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="Technical Writing">
-          <AccordionTrigger className="text-2xl font-bold">
+          <AccordionTrigger className="text-xl font-bold md:text-2xl">
             Technical Writing{' '}
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4">
@@ -209,7 +213,7 @@ export default async function Blog() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="OSS Contributions">
-          <AccordionTrigger className="text-2xl font-bold">
+          <AccordionTrigger className="text-xl font-bold md:text-2xl">
             OSS Contributions
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4">
@@ -276,7 +280,7 @@ export default async function Blog() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="Conferences">
-          <AccordionTrigger className="text-2xl font-bold">
+          <AccordionTrigger className="text-xl font-bold md:text-2xl">
             Conferences
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4">
@@ -304,7 +308,7 @@ export default async function Blog() {
           </AccordionContent>
         </AccordionItem>
         <AccordionItem value="Speaking">
-          <AccordionTrigger className="text-2xl font-bold">
+          <AccordionTrigger className="text-xl font-bold md:text-2xl">
             Speaking
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4">
