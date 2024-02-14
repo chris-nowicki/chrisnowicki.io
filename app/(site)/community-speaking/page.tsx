@@ -149,7 +149,7 @@ export default async function Blog() {
               </div>
               <div>
                 <p className="text-center md:text-left">
-                  I like to provide help in discord discussion groups:
+                  I like to provide help in GitHub community discussions:
                 </p>
                 <ul className="mt-1 w-auto list-outside list-disc space-y-2 pl-4 marker:text-primary">
                   <li>
