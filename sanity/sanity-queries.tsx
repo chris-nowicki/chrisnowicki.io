@@ -1,6 +1,6 @@
-import { sanityFetch } from './sanity-utils'
+import { IntroType, ProjectType, SeoType, SkillsType } from '@/types/types'
 import { groq } from 'next-sanity'
-import { SeoType, IntroType, ProjectType, SkillsType } from '@/types/types'
+import { sanityFetch } from './sanity-utils'
 
 // GROQ Queries
 export async function getSEO(): Promise<SeoType> {

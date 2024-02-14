@@ -1,9 +1,9 @@
+import Icon from '@/components/Icon'
+import SectionHeading from '@/components/SectionHeading'
 import { getArticles } from '@/lib/devto'
 import { getStoredPostViews } from '@/lib/metrics'
 import type { Article } from '@/types/types'
 import { format } from 'date-fns/format'
-import SectionHeading from '@/components/SectionHeading'
-import Icon from '@/components/Icon'
 
 export default async function Blog() {
   const articleData: Promise<Article[]> = getArticles()

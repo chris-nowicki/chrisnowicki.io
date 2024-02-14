@@ -114,3 +114,44 @@
     transform: rotate(-45deg) translateY(6px) translate(-6px);
   }
 }
+
+@keyframes moveBorder {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.moving-border:hover::before,
+.moving-border:focus::before { /* Ensure it's also accessible via keyboard navigation */
+  content: '';
+  position: absolute;
+  top: -2px; /* Adjust based on border size */
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid transparent;
+  border-top-color: #5f3dc4; /* Primary color for the moving part */
+  border-radius: inherit; /* Match the border-radius of the element */
+  animation: moveBorder 2s linear infinite;
+}
+
+.moving-border::before {
+  content: '';
+  position: absolute;
+  top: -2px; /* Adjust based on border size */
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border: 2px solid #5f3dc4; /* Primary color */
+  border-radius: inherit; /* Match the border-radius of the element */
+  opacity: 0; /* Hide initially */
+  transition: opacity 0.3s ease;
+}
+
+.moving-border:hover::before,
+.moving-border:focus::before {
+  opacity: 1; /* Show on hover/focus */
+}

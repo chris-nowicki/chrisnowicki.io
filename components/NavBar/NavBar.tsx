@@ -1,14 +1,13 @@
 'use client'
-import { useEffect, useState, useMemo } from 'react'
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
 import clsx from 'clsx'
-import path from 'path'
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useEffect, useMemo, useState } from 'react'
 
 import { navItems } from '@/lib/data'
-import { ModeToggle } from './ModeToggle'
 import Icon from '../Icon'
+import { ModeToggle } from './ModeToggle'
 
 export default function NavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -32,14 +31,20 @@ export default function NavBar() {
   }, [])
 
   useMemo(() => {
-    pathname === '/' ?
-      setActiveSection('Home')
-    : setActiveSection(
-        path.basename(
-          pathname.replace('/', '').charAt(0).toUpperCase() + pathname.slice(2)
-        )
-      )
-  }, [pathname])
+    // Assuming navItems is an array of objects with name and href properties
+    const matchingNavItem = navItems.find((item) => item.href === pathname)
+
+    if (matchingNavItem) {
+      setActiveSection(matchingNavItem.name)
+    } else {
+      // Handle special cases or fallback
+      if (pathname.startsWith('/community-speaking')) {
+        setActiveSection('Community & Speaking')
+      } else {
+        setActiveSection('Home') // Or some default/fallback section name
+      }
+    }
+  }, [pathname, navItems])
 
   // toggle hamburger mobile menu
   const handleMenu = () => {
@@ -81,8 +86,8 @@ export default function NavBar() {
                 <Link
                   href={href}
                   className={clsx(
-                    'relative text-lg',
-                    activeSection === name && 'font-semibold'
+                    'relative text-lg transition-all duration-200 ease-in-out hover:text-primary',
+                    activeSection === name && 'font-semibold hover:text-black'
                   )}
                   prefetch={true}
                 >
@@ -104,7 +109,19 @@ export default function NavBar() {
             ))}
           </div>
           {/* dark/light theme toggle button */}
-          <ModeToggle />
+          <div className="flex items-center gap-2">
+            <Link
+              href="/community-speaking"
+              className={clsx(
+                'flex items-center gap-2 rounded-lg border px-4 py-1 text-lg transition-all duration-200 ease-in-out hover:border-primary hover:shadow-sm',
+                pathname.startsWith('/community-speaking') && 'border-primary'
+              )}
+            >
+              <Icon id="community" size={24} />
+              Community
+            </Link>
+            <ModeToggle />
+          </div>
         </ul>
 
         {/* hamburger menu for mobile */}
