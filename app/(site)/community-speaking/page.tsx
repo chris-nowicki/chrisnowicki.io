@@ -315,7 +315,7 @@ export default async function Blog() {
             <ul className="mt-1 list-outside list-disc space-y-2 pl-4 marker:text-primary">
               <li>
                 <a
-                  href="#"
+                  href="https://youtu.be/ZSMU5Avf-T0?si=tUOLNuzItYU0kJia"
                   className="font-bold text-primary hover:underline"
                   target="_blank"
                 >
