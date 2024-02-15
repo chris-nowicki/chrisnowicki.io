@@ -12,6 +12,16 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardContent,
+} from '@/components/ui/card'
+
+import YouTubeEmbed from '@/components/YouTubeEmbed'
+
 export default async function Blog() {
   const articleData: Promise<Article[]> = getArticles()
   const postViewData = getStoredPostViews()
@@ -34,6 +44,7 @@ export default async function Blog() {
       </p>
 
       <Accordion type="single" collapsible className="w-full">
+        {/* Community Involvement */}
         <AccordionItem value="Community Involvement">
           <AccordionTrigger className="text-xl font-bold md:text-2xl">
             Community Involvement
@@ -174,6 +185,8 @@ export default async function Blog() {
             </div>
           </AccordionContent>
         </AccordionItem>
+
+        {/* Technical Writing */}
         <AccordionItem value="Technical Writing">
           <AccordionTrigger className="text-xl font-bold md:text-2xl">
             Technical Writing{' '}
@@ -212,6 +225,8 @@ export default async function Blog() {
             </div>
           </AccordionContent>
         </AccordionItem>
+
+        {/* OSS Contributions */}
         <AccordionItem value="OSS Contributions">
           <AccordionTrigger className="text-xl font-bold md:text-2xl">
             OSS Contributions
@@ -279,6 +294,8 @@ export default async function Blog() {
             </ul>
           </AccordionContent>
         </AccordionItem>
+
+        {/* Conferences */}
         <AccordionItem value="Conferences">
           <AccordionTrigger className="text-xl font-bold md:text-2xl">
             Conferences
@@ -307,35 +324,32 @@ export default async function Blog() {
             </ul>
           </AccordionContent>
         </AccordionItem>
+
+        {/* Speaking */}
         <AccordionItem value="Speaking">
           <AccordionTrigger className="text-xl font-bold md:text-2xl">
             Speaking
           </AccordionTrigger>
-          <AccordionContent className="flex flex-col gap-4">
-            <ul className="mt-1 list-outside list-disc space-y-2 pl-4 marker:text-primary">
-              <li>
-                <a
-                  href="https://youtu.be/ZSMU5Avf-T0?si=tUOLNuzItYU0kJia"
-                  className="font-bold text-primary hover:underline"
-                  target="_blank"
-                >
-                  February 9th, 2024
-                </a>
-                {` - `}
-                How to Improve Your Home WiFi Speeds
-              </li>
-              <li>
-                <a
-                  href="https://youtu.be/P4aMxBWwLD0?si=g3xjNuqtQV6w8z7J"
-                  className="font-bold text-primary hover:underline"
-                  target="_blank"
-                >
-                  August 30th, 2023
-                </a>
-                {` - `}
-                The Complexity of ADHD Treatment
-              </li>
-            </ul>
+          <AccordionContent className="flex flex-wrap gap-4">
+            <Card className="w-full transition-all duration-100 ease-in-out hover:border-primary md:w-[375px]">
+              <CardHeader>
+                <CardTitle>How to Improve Your Home WiFi Speeds ⚡️</CardTitle>
+                <CardDescription>February 9th, 2024</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <YouTubeEmbed embedId="ZSMU5Avf-T0?si=8XR7aRmDw_0hSChK" />
+              </CardContent>
+            </Card>
+
+            <Card className="w-full transition-all duration-100 ease-in-out hover:border-primary md:w-[375px]">
+              <CardHeader>
+                <CardTitle>The Complexity of ADHD Treatment 🧠</CardTitle>
+                <CardDescription>August 30th, 2023</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <YouTubeEmbed embedId="P4aMxBWwLD0?si=AJbMu8fqJ-U9EQNN" />
+              </CardContent>
+            </Card>
           </AccordionContent>
         </AccordionItem>
       </Accordion>
