@@ -1,9 +1,9 @@
 import Icon from '@/components/Icon'
 import SectionHeading from '@/components/SectionHeading'
-import Image from 'next/image'
 import { getArticles } from '@/lib/devto'
 import { getStoredPostViews } from '@/lib/metrics'
 import type { Article } from '@/types/types'
+import Image from 'next/image'
 
 import {
   Accordion,
