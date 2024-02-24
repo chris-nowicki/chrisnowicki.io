@@ -207,3 +207,6 @@ dist/
 
 # sanity
 sanity.cli.ts
+
+#sentry
+.sentryclirc
