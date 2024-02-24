@@ -210,3 +210,9 @@ sanity.cli.ts
 
 #sentry
 .sentryclirc
+
+# Sentry Config File
+.sentryclirc
+
+# Sentry Config File
+.sentryclirc
