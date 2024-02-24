@@ -207,8 +207,6 @@ dist/
 
 # sanity
 sanity.cli.ts
-# Sentry Config File
-.sentryclirc
 
-# Sentry Config File
+#sentry
 .sentryclirc
