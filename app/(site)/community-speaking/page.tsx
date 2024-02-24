@@ -18,9 +18,11 @@ import {
   CardTitle,
   CardDescription,
   CardContent,
+  CardFooter,
 } from '@/components/ui/card'
 
 import YouTubeEmbed from '@/components/YouTubeEmbed'
+import { Badge } from '@/components/ui/badge'
 
 export default async function Blog() {
   const articleData: Promise<Article[]> = getArticles()
@@ -67,7 +69,7 @@ export default async function Blog() {
                 </a>
                 <span className="font-semibold">June 2023 - Present</span>
               </div>
-              <p>
+              <p className="-mb-4 leading-6">
                 Virtual Coffee is a community of 900+ wonderful humans where
                 people connect with others who are in similar stages of their
                 journey. Whether they are trying to break into tech for the
@@ -174,10 +176,9 @@ export default async function Blog() {
                       </a>{' '}
                       -{' '}
                     </span>
-                    Someone posted on one of my technical articles that there
-                    was a community issue with Vercel Cron Jobs. I was able to
-                    help them troubleshoot and resolve the issue through my
-                    experience where my answer is highlighted as the accepted
+                    There was a community issue with Vercel Cron Jobs, and I was
+                    able to help them troubleshoot and resolve the issue through
+                    my experience where my answer is highlighted as the accepted
                     solution.
                   </li>
                 </ul>
@@ -300,28 +301,53 @@ export default async function Blog() {
           <AccordionTrigger className="text-xl font-bold md:text-2xl">
             Conferences
           </AccordionTrigger>
-          <AccordionContent className="flex flex-col gap-4">
-            <ul className="mt-1 list-outside list-disc space-y-2 pl-4 marker:text-primary">
-              <li>
-                <a
-                  href="https://www.renderatl.com/"
-                  className="font-bold hover:underline"
-                  target="_blank"
-                >
-                  Render ATL
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://thatconference.com/"
-                  className="font-bold hover:underline"
-                  target="_blank"
-                >
-                  THAT Conference
-                </a>
-                {` `}- Texas & Wisconsin
-              </li>
-            </ul>
+          <AccordionContent className="flex flex-wrap gap-4">
+            {/* THAT Conference */}
+            <a href="https://thatconference.com/" target="_blank">
+              <Card className="w-full transition-all duration-100 ease-in-out hover:border-primary md:w-[375px]">
+                <CardHeader>
+                  <CardTitle className="flex justify-center">
+                    <Image
+                      src="/icons/thatConferenceLogo.svg"
+                      width={125}
+                      height={125}
+                      alt="THAT Conference Logo"
+                    />
+                  </CardTitle>
+                </CardHeader>
+                <CardFooter className="flex justify-center">
+                  <div className="flex flex-wrap gap-1">
+                    <Badge className="rounded-full" variant="secondary">
+                      January 2024, TX
+                    </Badge>
+                  </div>
+                </CardFooter>
+              </Card>
+            </a>
+
+            {/* Render ATL */}
+            <a href="https://renderatl.com/" target="_blank">
+              <Card className="flex w-full flex-col justify-between transition-all duration-100 ease-in-out hover:border-primary md:w-[375px]">
+                <CardHeader>
+                  <CardTitle className=" flex flex-col items-center gap-1">
+                    <Image
+                      src="/icons/renderATL.svg"
+                      width={75}
+                      height={75}
+                      alt="Render ATL Conference Logo"
+                    />
+                    Render ATL
+                  </CardTitle>
+                </CardHeader>
+                <CardFooter className="flex justify-center">
+                  <div className="flex flex-wrap gap-1">
+                    <Badge className="rounded-full" variant="secondary">
+                      June 2023
+                    </Badge>
+                  </div>
+                </CardFooter>
+              </Card>
+            </a>
           </AccordionContent>
         </AccordionItem>
 
