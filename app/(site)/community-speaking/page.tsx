@@ -308,7 +308,7 @@ export default async function Blog() {
                 <CardHeader>
                   <CardTitle className="flex justify-center">
                     <Image
-                      src="/icons/thatConferenceLogo.svg"
+                      src="/icons/ThatConferenceLogo.svg"
                       width={125}
                       height={125}
                       alt="THAT Conference Logo"
