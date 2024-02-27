@@ -1,4 +1,5 @@
 import { AnalyticsWrapper } from '@/components/Analytics'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ThemeProvider } from './ThemeProvider'
 import { Toaster } from 'react-hot-toast'
 import NavBar from '@/components/NavBar/NavBar'
@@ -84,6 +85,7 @@ export default async function RootLayout({
               <main className="z-10">
                 {children}
                 <AnalyticsWrapper />
+                <SpeedInsights />
               </main>
               <Footer resumeURL={resumeURL} />
             </div>
