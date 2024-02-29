@@ -1,10 +1,15 @@
 import { socialLinks } from '@/lib/data'
-import { fetchMetrics } from '@/lib/metrics'
-import { MetricsType } from '@/types/types'
+import { getStoredGithubMetrics, getStoredTweetCount } from '@/lib/planetscale'
 import Icon from '../Icon'
 
 export default async function Metrics() {
-  const metrics: MetricsType = await fetchMetrics()
+  const githubMetricsData = getStoredGithubMetrics()
+  const tweetCountData = getStoredTweetCount()
+
+  const [githubMetrics, tweetCount] = await Promise.all([
+    githubMetricsData,
+    tweetCountData,
+  ])
 
   const githubLink = socialLinks.filter((link) => link.name === 'GitHub')[0]
   const twitterLink = socialLinks.filter((link) => link.name === 'Twitter')[0]
@@ -17,7 +22,7 @@ export default async function Metrics() {
           size={20}
           className="animate-pulse text-primary transition-all"
         />
-        <span>{metrics.tweetCount.toLocaleString()}</span> posts on{' '}
+        <span>{tweetCount.toLocaleString()}</span> posts on{' '}
         <a
           href={twitterLink.URL}
           className="text-primary  hover:scale-110 hover:duration-75 hover:ease-in-out"
@@ -33,7 +38,7 @@ export default async function Metrics() {
           className="animate-pulse text-primary transition-all"
         />
         <span className="text-purple-light dark:text-purple-dark">
-          {metrics.githubCommits.toLocaleString()}
+          {githubMetrics.commits.toLocaleString()}
         </span>
         <a
           href={githubLink.URL}

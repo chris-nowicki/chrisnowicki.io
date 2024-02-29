@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Octokit } from 'octokit'
-import { getStoredGithubMetrics, updateGithubMetrics } from '@/lib/metrics'
+import { getStoredGithubMetrics, updateGithubMetrics } from '@/lib/planetscale'
 
 // Force dynamic (server) route instead of static page
 export const dynamic = 'force-dynamic'
@@ -14,7 +14,6 @@ export async function GET(req: NextRequest) {
   if (!authToken || authToken != process.env.CRON_SECRET) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
-
 
   const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN,
@@ -71,7 +70,8 @@ export async function GET(req: NextRequest) {
     )
   } else {
     // If the metrics have changed, update the stored metrics and return 200 status code
-    updateGithubMetrics(totalCommits, totalRepos)
+    const res = await updateGithubMetrics(totalCommits, totalRepos)
+    console.log(res)
     return NextResponse.json(
       `(updated) commits: ${totalCommits}, repos: ${totalRepos}`,
       { status: 200 }
