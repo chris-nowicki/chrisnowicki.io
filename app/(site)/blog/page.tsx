@@ -1,7 +1,7 @@
 import Icon from '@/components/Icon'
 import SectionHeading from '@/components/SectionHeading'
 import { getArticles } from '@/lib/devto'
-import { getStoredPostViews } from '@/lib/metrics'
+import { getStoredPostViews } from '@/lib/planetscale'
 import type { Article } from '@/types/types'
 import { format } from 'date-fns/format'
 

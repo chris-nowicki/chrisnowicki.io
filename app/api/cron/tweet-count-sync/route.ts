@@ -1,8 +1,8 @@
 import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
 import { NextRequest, NextResponse } from 'next/server'
-import { updateTweetCount, getStoredTweetCount } from '@/lib/metrics'
-import { getTweetCount } from '@/lib/metrics'
+import { updateTweetCount, getStoredTweetCount } from '@/lib/planetscale'
+import { getTweetCount } from '@/lib/x'
 
 // Nextjs route segment config
 export const dynamic = 'force-dynamic' // Force dynamic (server) route instead of static page

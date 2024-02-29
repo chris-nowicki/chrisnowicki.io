@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getArticles } from '@/lib/devto'
-import { getStoredPostViews, updatePostViews } from '@/lib/metrics'
+import { getStoredPostViews, updatePostViews } from '@/lib/planetscale'
 
 // Force dynamic (server) route instead of static page
 export const dynamic = 'force-dynamic'

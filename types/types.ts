@@ -1,5 +1,4 @@
 import { PortableTextBlock } from 'sanity'
-import { ColumnType } from 'kysely'
 
 export type SeoType = {
   name: string
@@ -39,35 +38,10 @@ export type Article = {
   reading_time_minutes: number
 }
 
-export type Database = {
-  tweetCount: TweetCountTable
-  githubMetrics: GitHubMetricsTable
-  postViews: PostViewsTable
-}
-
-type TweetCountTable = {
-  count: number
-  updated_at?: ColumnType<Date, string | undefined>
-  id?: number
-}
-
 export type MetricsType = {
   tweetCount: number
   githubCommits: number
   githubRepos: number
-}
-
-type PostViewsTable = {
-  id?: number
-  count: number
-  updated_at: ColumnType<Date, string | undefined>
-}
-
-type GitHubMetricsTable = {
-  commits: number
-  repos: number
-  updated_at?: ColumnType<Date, string | undefined>
-  id?: number
 }
 
 export type githubMetricsType = {
