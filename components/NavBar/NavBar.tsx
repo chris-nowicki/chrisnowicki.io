@@ -67,6 +67,7 @@ export default function NavBar() {
             document.body.scrollTop = 0 // For Safari
             document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
           }}
+          aria-label="scroll to top"
         >
           <Icon id="arrow-up" size={32} />
         </motion.button>

@@ -1,25 +1,28 @@
-import clsx from 'clsx'
-import { Button } from '@/components/ui/button'
 import Icon from '@/components/Icon'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import Link from 'next/link'
 
-type ProjectLink = {
+type ProjectLinkProps = {
   url: string
   name: string
 }
 
-export default function ProjectLink({ url, name }: ProjectLink) {
+export default function ProjectLink({ url, name }: ProjectLinkProps) {
   return (
-    <Button className="w-full rounded-lg px-4 py-1 md:w-1/2 md:px-0 ">
-      <a
-        href={url}
-        className={clsx('flex items-center justify-center gap-2 ')}
-        target="_blank"
-      >
-        {name == 'github' ?
-          <Icon id="logo-github" size={18} />
-        : <Icon id="open" size={18} />}
-        {name == 'github' ? 'code' : 'live site'}
-      </a>
-    </Button>
+    <Link
+      href={url}
+      className={cn(
+        buttonVariants({ variant: 'default' }),
+        'flex w-full items-center justify-center gap-2 rounded-lg px-4 py-1 md:w-1/2 md:px-0'
+      )}
+      target="_blank"
+      prefetch={false}
+    >
+      {name == 'github' ?
+        <Icon id="logo-github" size={18} />
+      : <Icon id="open" size={18} />}
+      {name == 'github' ? 'code' : 'live site'}
+    </Link>
   )
 }

@@ -21,31 +21,31 @@ export const socialLinks = [
   {
     name: 'Linkedin',
     URL: 'https://www.linkedin.com/in/chris-nowicki/',
-    icon: <Icon id="logo-linkedin" size={28} />,
+    icon: <Icon id="logo-linkedin" size={28} focusable={false} />,
     aria: 'LinkedIn',
   },
   {
     name: 'GitHub',
     URL: 'https://github.com/chris-nowicki',
-    icon: <Icon id="logo-github" size={28} />,
+    icon: <Icon id="logo-github" size={28} focusable={false} />,
     aria: 'GitHub',
   },
   {
     name: 'Twitter',
     URL: 'https://twitter.com/iamwix',
-    icon: <Icon id="logo-x" size={28} />,
+    icon: <Icon id="logo-x" size={28} focusable={false} />,
     aria: 'Twitter',
   },
   {
     name: 'Twitch',
     URL: 'https://www.twitch.tv/chriswix',
-    icon: <Icon id="logo-twitch" size={28} />,
+    icon: <Icon id="logo-twitch" size={28} focusable={false} />,
     aria: 'Twitch',
   },
   {
     name: 'DEV',
     URL: 'https://dev.to/chrisnowicki',
-    icon: <Icon id="logo-devto" size={28} />,
+    icon: <Icon id="logo-devto" size={28} focusable={false} />,
     aria: 'DEVTO Blog',
   },
 ] as const
@@ -65,11 +65,18 @@ type ContactInfoType = {
 export const contactInfo: ContactInfoType = {
   Contact: {
     text: 'Contact',
-    icon: <Icon id="envelope" size={20} />,
+    icon: <Icon id="envelope" size={20} focusable={false} />,
   },
   DownloadCV: {
     text: 'Download CV',
-    icon: <Icon id="download" size={20} className="sm:hidden md:block" />,
+    icon: (
+      <Icon
+        id="download"
+        size={20}
+        className="sm:hidden md:block"
+        focusable={false}
+      />
+    ),
   },
 }
 

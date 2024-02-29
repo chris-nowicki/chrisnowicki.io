@@ -1,9 +1,11 @@
 import { socialLinks } from '@/lib/data'
-import Metrics from './Metrics'
-import SectionDivider from '../SectionDivider'
-import { Button } from '../ui/button'
-import Icon from '../Icon'
+import { cn } from '@/lib/utils'
 import { getResume } from '@/sanity/sanity-queries'
+import Link from 'next/link'
+import Icon from '../Icon'
+import SectionDivider from '../SectionDivider'
+import { buttonVariants } from '../ui/button'
+import Metrics from './Metrics'
 
 export default async function Footer() {
   const resumeURL = await getResume()
@@ -17,44 +19,38 @@ export default async function Footer() {
       <div className="mb-10 flex w-full flex-col gap-2 rounded-lg border p-4 shadow-lg md:w-3/4 md:flex-row">
         <div className="flex w-full flex-col gap-2 md:w-1/2">
           {/* resume */}
-          <Button
-            variant="outline"
-            className="group py-6 hover:border-primary hover:bg-transparent hover:shadow"
+          <Link
+            href={resumeURL}
+            className={cn(
+              buttonVariants({ variant: 'outline' }),
+              'group flex items-center justify-center gap-2 rounded-lg py-6 hover:border-primary hover:bg-transparent hover:shadow group-hover:text-primary'
+            )}
+            target="_blank"
           >
-            <a
-              href={resumeURL}
-              className="flex items-center justify-center gap-2 rounded-lg group-hover:text-primary"
-              target="_blank"
-            >
-              <Icon id="pdf" size={28} />
-              Download CV
-              <Icon
-                id="download"
-                size={20}
-                className="transition-all group-hover:animate-bounce"
-              />
-            </a>
-          </Button>
+            <Icon id="pdf" size={28} />
+            Download CV
+            <Icon
+              id="download"
+              size={20}
+              className="transition-all group-hover:animate-bounce"
+            />
+          </Link>
 
           {/* social media links */}
           <div className="flex items-center gap-2">
             {socialLinks.map((link, index) => (
-              <Button
+              <Link
                 key={index + link.URL}
-                variant="outline"
-                className="group w-full px-3.5 py-6 hover:border-primary hover:bg-transparent md:px-[9px] md:py-5"
+                href={link.URL}
+                className={cn(
+                  buttonVariants({ variant: 'outline' }),
+                  'w-full px-3.5 py-6 hover:border-primary hover:bg-transparent hover:text-primary md:px-[9px] md:py-5'
+                )}
+                target="_blank"
                 aria-label={link.aria}
               >
-                <a
-                  key={index}
-                  href={link.URL}
-                  className="group-hover:text-primary"
-                  target="_blank"
-                  aria-label={link.aria}
-                >
-                  {link.icon}
-                </a>
-              </Button>
+                {link.icon}
+              </Link>
             ))}
           </div>
         </div>
