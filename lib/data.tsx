@@ -75,23 +75,54 @@ export const contactInfo: ContactInfoType = {
 
 // icons for tech stack section
 export const TechStackIcons = [
-  { icon: <Icon id="logo-nextjs" size={36} />, URL: 'https://nextjs.org/' },
-  { icon: <Icon id="logo-react" size={36} />, URL: 'https://reactjs.org/' },
-  { icon: <Icon id="logo-astro" size={36} />, URL: 'https://astro.build/' },
+  {
+    icon: <Icon id="logo-nextjs" size={36} />,
+    URL: 'https://nextjs.org/',
+    aria: 'Next.js',
+  },
+  {
+    icon: <Icon id="logo-react" size={36} />,
+    URL: 'https://reactjs.org/',
+    aria: 'React',
+  },
+  {
+    icon: <Icon id="logo-astro" size={36} />,
+    URL: 'https://astro.build/',
+    aria: 'Astro',
+  },
   {
     icon: <Icon id="logo-ts" size={36} />,
     URL: 'https://www.typescriptlang.org/',
+    aria: 'TypeScript',
   },
-  { icon: <Icon id="logo-shadcn" size={36} />, URL: 'https://ui.shadcn.com/' },
+  {
+    icon: <Icon id="logo-shadcn" size={36} />,
+    URL: 'https://ui.shadcn.com/',
+    aria: 'shadcn/ui',
+  },
   {
     icon: <Icon id="logo-tailwindcss" size={36} />,
     URL: 'https://tailwindcss.com/',
+    aria: 'Tailwind CSS',
   },
-  { icon: <Icon id="logo-sanity" size={36} />, URL: 'https://www.sanity.io/' },
-  { icon: <Icon id="logo-mysql" size={47} />, URL: 'https://www.mysql.com/' },
+  {
+    icon: <Icon id="logo-sanity" size={36} />,
+    URL: 'https://www.sanity.io/',
+    aria: 'Sanity',
+  },
+  {
+    icon: <Icon id="logo-mysql" size={47} />,
+    URL: 'https://www.mysql.com/',
+    aria: 'MySQL',
+  },
   {
     icon: <Icon id="logo-mongodb" size={36} />,
     URL: 'https://www.mongodb.com/',
+    aria: 'MongoDB',
   },
-  { icon: <Icon id="logo-vercel" size={36} />, URL: 'https://www.vercel.com' },
+  {
+    icon: <Icon id="logo-vercel" size={36} />,
+    URL: 'https://www.vercel.com',
+    aria: 'Vercel',
+  },
 ] as const
