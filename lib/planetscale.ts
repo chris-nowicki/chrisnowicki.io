@@ -16,11 +16,13 @@ export async function getStoredTweetCount(): Promise<number> {
 }
 
 // tweet count
-export const updateTweetCount = (tweetCount: number) => {
-  prisma.tweetCount.update({
+export const updateTweetCount = async (tweetCount: number) => {
+  const res = await prisma.tweetCount.update({
     where: { id: 1 },
     data: { count: tweetCount, updated_at: new Date() },
   })
+
+  return res
 }
 
 // github metrics

@@ -71,7 +71,8 @@ export async function GET(req: NextRequest) {
       )
     } else {
       // If the tweet count has changed, update the stored tweet count and return 200 status code
-      updateTweetCount(tweetCount)
+      const res = await updateTweetCount(tweetCount)
+      console.log(res)
       return NextResponse.json(`(updated) Tweet count: ${tweetCount}`, {
         status: 200,
       })
