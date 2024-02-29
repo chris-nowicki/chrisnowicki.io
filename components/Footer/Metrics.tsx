@@ -29,6 +29,7 @@ export default async function Metrics() {
           href={twitterLink.URL}
           className="text-primary  hover:scale-110 hover:duration-75 hover:ease-in-out"
           target="_blank"
+          aria-label="Twitter"
         >
           <Icon id="logo-x" size={24} />
         </a>
@@ -46,6 +47,7 @@ export default async function Metrics() {
           href={githubLink.URL}
           className=" text-primary hover:scale-110 hover:duration-75 hover:ease-in-out"
           target="_blank"
+          aria-label="GitHub"
         >
           <Icon id="logo-github" size={24} />
         </a>
