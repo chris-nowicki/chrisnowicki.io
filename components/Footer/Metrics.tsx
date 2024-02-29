@@ -2,6 +2,8 @@ import { socialLinks } from '@/lib/data'
 import { getStoredGithubMetrics, getStoredTweetCount } from '@/lib/planetscale'
 import Icon from '../Icon'
 
+export const revalidate = 60
+
 export default async function Metrics() {
   const githubMetricsData = getStoredGithubMetrics()
   const tweetCountData = getStoredTweetCount()
