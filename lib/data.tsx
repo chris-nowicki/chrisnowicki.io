@@ -22,26 +22,31 @@ export const socialLinks = [
     name: 'Linkedin',
     URL: 'https://www.linkedin.com/in/chris-nowicki/',
     icon: <Icon id="logo-linkedin" size={28} />,
+    aria: 'LinkedIn',
   },
   {
     name: 'GitHub',
     URL: 'https://github.com/chris-nowicki',
     icon: <Icon id="logo-github" size={28} />,
+    aria: 'GitHub',
   },
   {
     name: 'Twitter',
     URL: 'https://twitter.com/iamwix',
     icon: <Icon id="logo-x" size={28} />,
+    aria: 'Twitter',
   },
   {
     name: 'Twitch',
     URL: 'https://www.twitch.tv/chriswix',
     icon: <Icon id="logo-twitch" size={28} />,
+    aria: 'Twitch',
   },
   {
     name: 'DEV',
     URL: 'https://dev.to/chrisnowicki',
     icon: <Icon id="logo-devto" size={28} />,
+    aria: 'DEVTO Blog',
   },
 ] as const
 

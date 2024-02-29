@@ -8,7 +8,7 @@ import ContactButton from './ContactButton'
 const IntroPortableText: PortableTextComponents = {
   block: {
     normal: ({ children }) => (
-      <p className="text-center text-lg md:text-xl leading-7 md:mr-4 md:text-left [&:not(:first-child)]:mt-4">
+      <p className="text-center text-lg leading-7 md:mr-4 md:text-left md:text-xl [&:not(:first-child)]:mt-4">
         {children}
       </p>
     ),
@@ -62,6 +62,7 @@ export default async function Intro() {
                 href={link.URL}
                 className="hover:scale-110 hover:text-primary hover:duration-75 hover:ease-in-out"
                 target="_blank"
+                aria-label={link.aria}
               >
                 {link.icon}
               </a>

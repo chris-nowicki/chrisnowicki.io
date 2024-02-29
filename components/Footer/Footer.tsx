@@ -43,12 +43,14 @@ export default async function Footer() {
                 key={index + link.URL}
                 variant="outline"
                 className="group w-full px-3.5 py-6 hover:border-primary hover:bg-transparent md:px-[9px] md:py-5"
+                aria-label={link.aria}
               >
                 <a
                   key={index}
                   href={link.URL}
                   className="group-hover:text-primary"
                   target="_blank"
+                  aria-label={link.aria}
                 >
                   {link.icon}
                 </a>
