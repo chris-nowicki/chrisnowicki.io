@@ -1,6 +1,6 @@
 import SectionHeading from '@/components/SectionHeading'
 import { Button } from '@/components/ui/button'
-import EmailForm from './EmailForm'
+import EmailForm from '../../../components/Contact/EmailForm'
 
 export const dynamic = 'force-dynamic'
 
