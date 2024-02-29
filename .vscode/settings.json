@@ -1,6 +1,4 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "cSpell.ignoreWords": ["easymde"],
-  "cSpell.words": ["classname", "datetime", "DEVTO", "nownownow", "usehooks"]
 }
