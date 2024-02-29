@@ -6,15 +6,6 @@ import { getStoredGithubMetrics, updateGithubMetrics } from '@/lib/planetscale'
 export const dynamic = 'force-dynamic'
 
 export async function GET(req: NextRequest) {
-  // make sure the request is coming from vercel
-  const authToken = (req.headers.get('authorization') || '')
-    .split('Bearer ')
-    .at(1)
-
-  if (!authToken || authToken != process.env.CRON_SECRET) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
-  }
-
   const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN,
   })
@@ -71,7 +62,6 @@ export async function GET(req: NextRequest) {
   } else {
     // If the metrics have changed, update the stored metrics and return 200 status code
     const res = await updateGithubMetrics(totalCommits, totalRepos)
-    console.log(res)
     return NextResponse.json(
       `(updated) commits: ${totalCommits}, repos: ${totalRepos}`,
       { status: 200 }

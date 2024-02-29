@@ -10,7 +10,7 @@ export async function getStoredTweetCount(): Promise<number> {
     select: {
       count: true,
     },
-    cacheStrategy: { ttl: 60 },
+    cacheStrategy: { ttl: 60 * 30 }, // 30 minutes
   })
   return res.count
 }
@@ -32,7 +32,7 @@ export const getStoredGithubMetrics = async (): Promise<githubMetricsType> => {
       commits: true,
       repos: true,
     },
-    cacheStrategy: { ttl: 60 },
+    cacheStrategy: { ttl: 60 * 10 }, // 10 minutes
   })
 
   return res
@@ -53,7 +53,7 @@ export const getStoredPostViews = async (): Promise<number> => {
     select: {
       count: true,
     },
-    cacheStrategy: { ttl: 60 },
+    cacheStrategy: { ttl: 60 }, // 1 minute
   })
 
   return res.count
