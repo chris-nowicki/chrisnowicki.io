@@ -4,11 +4,13 @@ import SectionDivider from '../SectionDivider'
 import { Button } from '../ui/button'
 import Icon from '../Icon'
 
+export const dynamic = 'force-dynamic'
+
 type FooterProps = {
   resumeURL: string
 }
 
-export default function Footer({ resumeURL }: FooterProps) {
+export default async function Footer({ resumeURL }: FooterProps) {
   return (
     <footer className="mb-10 flex flex-col items-center justify-center px-4 text-left md:px-0 md:text-center">
       <SectionDivider />
