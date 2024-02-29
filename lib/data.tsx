@@ -133,3 +133,19 @@ export const TechStackIcons = [
     aria: 'Vercel',
   },
 ] as const
+
+// contact page button links
+export const contactPageLinks = [
+  {
+    name: 'Chat With Me',
+    href: 'https://cal.com/chriswix',
+    variant: 'default',
+    aria: 'Schedule a call with me via Calendly',
+  },
+  {
+    name: 'Email Me',
+    href: 'mailto:chris@chrisnowicki.io',
+    variant: 'outline',
+    aria: 'Email me directly',
+  },
+] as const

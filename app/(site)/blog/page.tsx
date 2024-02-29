@@ -29,6 +29,7 @@ export default async function Blog() {
           href="https://www.dev.to/chrisnowicki/"
           className="hover:text-primary"
           target="_blank"
+          aria-label="Link to my dev.to profile. Click to open in a new tab."
         >
           <Icon id="logo-devto" size={32} />
         </a>

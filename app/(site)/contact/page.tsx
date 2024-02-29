@@ -1,6 +1,9 @@
 import SectionHeading from '@/components/SectionHeading'
-import { Button } from '@/components/ui/button'
+import { buttonVariants } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import Link from 'next/link'
 import EmailForm from '../../../components/Contact/EmailForm'
+import { contactPageLinks } from '@/lib/data'
 
 export const dynamic = 'force-dynamic'
 
@@ -31,14 +34,19 @@ export default async function Contact() {
 
       {/* contact buttons */}
       <div className="my-4 flex gap-3">
-        <Button variant="default" className="rounded-lg md:text-lg" size="lg">
-          <a href="https://cal.com/chriswix" target="_blank">
-            Chat With Me
-          </a>
-        </Button>
-        <Button variant="outline" className="rounded-lg md:text-lg" size="lg">
-          <a href="mailto:chris@chrisnowicki.io">Email Me</a>
-        </Button>
+        {contactPageLinks.map((link, index) => (
+          <Link
+            href={link.href}
+            className={cn(
+              buttonVariants({ variant: link.variant, size: 'lg' }),
+              'rounded-lg md:text-lg'
+            )}
+            target="_blank"
+            aria-label={link.aria}
+          >
+            {link.name}
+          </Link>
+        ))}
       </div>
 
       {/* email form */}
