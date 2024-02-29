@@ -8,7 +8,7 @@ import '@/app/globals.css'
 
 import { Inter as FontSans } from 'next/font/google'
 
-export const dynamic = 'force-dynamic'
+// export const dynamic = 'force-dynamic'
 
 const inter = FontSans({
   subsets: ['latin'],
