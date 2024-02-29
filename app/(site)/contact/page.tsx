@@ -2,8 +2,6 @@ import SectionHeading from '@/components/SectionHeading'
 import { Button } from '@/components/ui/button'
 import EmailForm from './EmailForm'
 
-export const dynamic = 'force-dynamic'
-
 export default async function Contact() {
   return (
     <section className="flex w-full flex-col items-center gap-2 px-4 md:items-start md:px-0">
