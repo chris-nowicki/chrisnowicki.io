@@ -10,7 +10,8 @@
     "pretty": "prettier --write .",
     "release:major": "npm version major",
     "release:minor": "npm version minor",
-    "release:patch": "npm version patch"
+    "release:patch": "npm version patch",
+    "postinstall": "prisma generate"
   },
   "dependencies": {
     "@portabletext/react": "^3.0.11",
