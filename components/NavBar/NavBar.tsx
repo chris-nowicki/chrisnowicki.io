@@ -75,12 +75,12 @@ export default function NavBar() {
       {/* nav bar */}
       <div className="z-99 relative flex w-full items-center justify-between py-4 shadow md:px-0 md:py-0 md:shadow-none">
         {/* nav bar menu */}
-        <ul
+        <menu
           className={clsx(
             'hidden w-full pt-6 sm:hidden md:flex md:items-center md:justify-between'
           )}
         >
-          <div className="flex items-center gap-4">
+          <ul className="flex items-center gap-4">
             {navItems.map(({ name, href }) => (
               <li key={href}>
                 <Link
@@ -107,7 +107,7 @@ export default function NavBar() {
                 </Link>
               </li>
             ))}
-          </div>
+          </ul>
           {/* dark/light theme toggle button */}
           <div className="flex items-center gap-2">
             <Link
@@ -122,7 +122,7 @@ export default function NavBar() {
             </Link>
             <ModeToggle />
           </div>
-        </ul>
+        </menu>
 
         {/* hamburger menu for mobile */}
         <div className="flex w-full items-center justify-between px-4 md:hidden">
@@ -154,7 +154,7 @@ export default function NavBar() {
         {/* mobile navigation menu when hamburger button is selected */}
         {showMobileMenu && (
           <div>
-            <div
+            <menu
               id="menu"
               className="absolute left-0 right-0 z-10 mt-7 flex flex-col  items-center self-end bg-foreground opacity-95 drop-shadow-md dark:opacity-100 sm:w-full sm:self-center"
             >
@@ -164,11 +164,12 @@ export default function NavBar() {
                   href={href}
                   className="flex w-full justify-center py-1 text-3xl text-background last:mb-2 last:border-none"
                   onClick={() => handleMenu()}
+                  aria-label={name}
                 >
                   {name}
                 </Link>
               ))}
-            </div>
+            </menu>
           </div>
         )}
       </div>

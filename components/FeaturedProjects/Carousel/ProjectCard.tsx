@@ -21,9 +21,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="flex w-full flex-col items-center justify-between px-2 md:ml-[375px] md:w-1/2 md:gap-4 md:pl-3">
         <div className="flex flex-col gap-1">
-          <h4 className="text-center text-lg uppercase md:text-xl">
+          <span className="text-center text-lg uppercase md:text-xl">
             {project.name}
-          </h4>
+          </span>
           <div className="flex flex-wrap justify-center gap-1">
             {project.tags.map((tag) => (
               <Badge key={tag.name} className="rounded-full text-xs lowercase">
@@ -31,7 +31,9 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               </Badge>
             ))}
           </div>
-          <p className="text-md -mt-2 md:text-inherit text-center">{project.excerpt}</p>
+          <p className="text-md -mt-2 text-center md:text-inherit">
+            {project.excerpt}
+          </p>
         </div>
         <div className="flex w-full justify-center gap-2">
           <ProjectLink url={project.gitHubUrl} name="github" />
