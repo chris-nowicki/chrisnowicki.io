@@ -8,8 +8,6 @@ import '@/app/globals.css'
 
 import { Inter as FontSans } from 'next/font/google'
 
-// export const dynamic = 'force-dynamic'
-
 const inter = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
@@ -76,7 +74,7 @@ export default async function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          disableTransitionOnChange
+          // disableTransitionOnChange
         >
           {/* main portfolio site */}
           <div className="flex flex-col items-center">
