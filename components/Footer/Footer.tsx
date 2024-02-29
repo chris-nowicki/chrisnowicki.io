@@ -3,14 +3,11 @@ import Metrics from './Metrics'
 import SectionDivider from '../SectionDivider'
 import { Button } from '../ui/button'
 import Icon from '../Icon'
+import { getResume } from '@/sanity/sanity-queries'
 
-export const dynamic = 'force-dynamic'
+export default async function Footer() {
+  const resumeURL = await getResume()
 
-type FooterProps = {
-  resumeURL: string
-}
-
-export default async function Footer({ resumeURL }: FooterProps) {
   return (
     <footer className="mb-10 flex flex-col items-center justify-center px-4 text-left md:px-0 md:text-center">
       <SectionDivider />

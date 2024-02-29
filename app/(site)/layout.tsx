@@ -15,7 +15,7 @@ const inter = FontSans({
   variable: '--font-sans',
 })
 
-import { getSEO, getResume } from '@/sanity/sanity-queries'
+import { getSEO } from '@/sanity/sanity-queries'
 import type { SeoType } from '@/types/types'
 import type { Metadata } from 'next'
 
@@ -67,8 +67,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  const resumeURL = await getResume()
-
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -89,7 +87,7 @@ export default async function RootLayout({
                 <AnalyticsWrapper />
                 <SpeedInsights />
               </main>
-              <Footer resumeURL={resumeURL} />
+              <Footer />
             </div>
           </div>
 
