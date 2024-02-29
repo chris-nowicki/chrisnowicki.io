@@ -11,7 +11,8 @@
     "release:major": "npm version major",
     "release:minor": "npm version minor",
     "release:patch": "npm version patch",
-    "postinstall": "prisma generate --no-engine"
+    "postinstall": "prisma generate --no-engine",
+    "studio": "npx prisma studio"
   },
   "dependencies": {
     "@portabletext/react": "^3.0.11",

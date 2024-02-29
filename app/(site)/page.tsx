@@ -4,6 +4,8 @@ import SectionDivider from '@/components/SectionDivider'
 import FeaturedProjects from '@/components/FeaturedProjects/FeaturedProjects'
 import Skills from '@/components/Skills/Skills'
 
+export const dynamic = 'force-dynamic'
+
 import { getSkills } from '@/sanity/sanity-queries'
 import type { SkillsType } from '@/types/types'
 
