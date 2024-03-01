@@ -36,6 +36,7 @@ export default async function Contact() {
       <div className="my-4 flex gap-3">
         {contactPageLinks.map((link, index) => (
           <Link
+            key={index}
             href={link.href}
             className={cn(
               buttonVariants({ variant: link.variant, size: 'lg' }),

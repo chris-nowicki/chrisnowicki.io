@@ -1,10 +1,13 @@
 'use server'
+import EmailTemplate from '@/email/email-template'
+import { getErrorMessage, validateString } from '@/lib/utils'
+import type { CreateEmailResponse } from '@/types/types'
 import * as React from 'react'
 import { Resend } from 'resend'
-import { validateString, getErrorMessage } from '@/lib/utils'
-import EmailTemplate from '@/email/email-template'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
+const from = process.env.RESEND_FROM_EMAIL
+const to = process.env.RESEND_TO_EMAIL
 
 export const sendEmail = async (formData: FormData) => {
   const senderEmail = formData.get('email')
@@ -22,11 +25,13 @@ export const sendEmail = async (formData: FormData) => {
     }
   }
 
-  let data
+  // send email
+  let data: CreateEmailResponse
+
   try {
     data = await resend.emails.send({
-      from: 'Portfolio Website <portfolio@chrisnowicki.io>',
-      to: ['chris@chrisnowicki.io'],
+      from,
+      to,
       reply_to: senderEmail,
       subject: 'Someone is trying to contact you!',
       react: React.createElement(EmailTemplate, {

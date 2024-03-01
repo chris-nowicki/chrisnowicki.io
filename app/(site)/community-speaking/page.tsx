@@ -81,7 +81,7 @@ export default async function Blog() {
                 I've been volunteering with the bi-weekly coffee chats in the
                 following roles:
               </p>
-              <ul className="mt-1 list-outside list-disc space-y-2 pl-4 marker:text-primary">
+              <ul className="marker:text-primary mt-1 list-outside list-disc space-y-2 pl-4">
                 <li>
                   <span className="font-semibold">Room Leader - </span>The Room
                   Leaders are the conversation facilitators of the breakout
@@ -119,7 +119,7 @@ export default async function Blog() {
                 <p className="text-center md:text-left">
                   My Favorite Discord Communities:
                 </p>
-                <ul className="mt-1 list-outside list-disc space-y-2 pl-4 marker:text-primary">
+                <ul className="marker:text-primary mt-1 list-outside list-disc space-y-2 pl-4">
                   <li>
                     <span className="font-semibold">
                       Build in Public Live -{' '}
@@ -164,7 +164,7 @@ export default async function Blog() {
                 <p className="text-center md:text-left">
                   I like to provide help in GitHub community discussions:
                 </p>
-                <ul className="mt-1 w-auto list-outside list-disc space-y-2 pl-4 marker:text-primary">
+                <ul className="marker:text-primary mt-1 w-auto list-outside list-disc space-y-2 pl-4">
                   <li>
                     <span className="font-semibold">
                       <a
@@ -209,7 +209,7 @@ export default async function Blog() {
                   <a
                     key={article.id}
                     href={article.url}
-                    className="text-md group flex items-center justify-between rounded-lg border bg-accent p-4 text-lg hover:bg-muted-foreground/20 dark:hover:bg-accent/75 sm:mx-4 md:mx-0"
+                    className="text-md bg-accent hover:bg-muted-foreground/20 dark:hover:bg-accent/75 group flex items-center justify-between rounded-lg border p-4 text-lg sm:mx-4 md:mx-0"
                     target="_blank"
                   >
                     <div className="flex flex-col">
@@ -233,7 +233,7 @@ export default async function Blog() {
             OSS Contributions
           </AccordionTrigger>
           <AccordionContent className="flex flex-col gap-4">
-            <ul className="mt-1 list-outside list-disc space-y-2 pl-4 marker:text-primary">
+            <ul className="marker:text-primary mt-1 list-outside list-disc space-y-2 pl-4">
               <li>
                 <a
                   href="https://github.com/exercism/javascript/pull/1958"
@@ -304,7 +304,7 @@ export default async function Blog() {
           <AccordionContent className="flex flex-wrap gap-4">
             {/* THAT Conference */}
             <a href="https://thatconference.com/" target="_blank">
-              <Card className="w-full transition-all duration-100 ease-in-out hover:border-primary md:w-[375px]">
+              <Card className="hover:border-primary w-full transition-all duration-100 ease-in-out md:w-[375px]">
                 <CardHeader>
                   <CardTitle className="flex justify-center">
                     <Image
@@ -327,7 +327,7 @@ export default async function Blog() {
 
             {/* Render ATL */}
             <a href="https://renderatl.com/" target="_blank">
-              <Card className="flex w-full flex-col justify-between transition-all duration-100 ease-in-out hover:border-primary md:w-[375px]">
+              <Card className="hover:border-primary flex w-full flex-col justify-between transition-all duration-100 ease-in-out md:w-[375px]">
                 <CardHeader>
                   <CardTitle className=" flex flex-col items-center gap-1">
                     <Image
@@ -357,7 +357,7 @@ export default async function Blog() {
             Speaking
           </AccordionTrigger>
           <AccordionContent className="flex flex-wrap gap-4">
-            <Card className="w-full transition-all duration-100 ease-in-out hover:border-primary md:w-[375px]">
+            <Card className="hover:border-primary w-full transition-all duration-100 ease-in-out md:w-[375px]">
               <CardHeader>
                 <CardTitle>How to Improve Your Home WiFi Speeds ⚡️</CardTitle>
                 <CardDescription>February 9th, 2024</CardDescription>
@@ -367,7 +367,7 @@ export default async function Blog() {
               </CardContent>
             </Card>
 
-            <Card className="w-full transition-all duration-100 ease-in-out hover:border-primary md:w-[375px]">
+            <Card className="hover:border-primary w-full transition-all duration-100 ease-in-out md:w-[375px]">
               <CardHeader>
                 <CardTitle>The Complexity of ADHD Treatment 🧠</CardTitle>
                 <CardDescription>August 30th, 2023</CardDescription>
