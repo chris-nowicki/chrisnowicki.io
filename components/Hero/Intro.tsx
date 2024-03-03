@@ -27,11 +27,7 @@ export default async function Intro() {
 
         {/* projects and contact buttons */}
         <div className="mt-10 flex items-center gap-2">
-          <ButtonLink
-            href="#projects"
-            variant="default"
-            className="dark:bg-white dark:text-black hover:dark:bg-white/90"
-          >
+          <ButtonLink href="#projects" variant="default" className='px-10'>
             Projects
           </ButtonLink>
 
@@ -47,7 +43,7 @@ export default async function Intro() {
       </div>
 
       {/* profile image */}
-      <div className="w-[200px] md:w-[400px] ">
+      <div className="mb-10 w-[200px] md:mb-0 md:w-[400px]">
         <Image
           className="rounded-xl bg-accent p-2 shadow-lg "
           width={400}

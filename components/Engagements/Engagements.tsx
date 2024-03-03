@@ -25,7 +25,7 @@ import { Badge } from '@/components/ui/badge'
 export default function Engagements() {
   return (
     <section id='engagements' className="scroll-mt-8 border-1 flex w-full flex-col gap-4 rounded-xl px-4 md:px-0">
-      <SectionHeading>Community & Speaking</SectionHeading>
+      <SectionHeading className='text-2xl md:text-3xl'>Community & Speaking</SectionHeading>
 
       <Accordion type="single" collapsible className="w-full">
         {/* Community Involvement */}

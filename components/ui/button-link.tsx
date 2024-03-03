@@ -18,6 +18,7 @@ interface ButtonLinkProps {
   iconSize?: number
   iconFocusable?: boolean
   className?: string
+  targetBlank?: boolean
 }
 
 export default function ButtonLink({
@@ -28,6 +29,7 @@ export default function ButtonLink({
   iconSize,
   iconFocusable = false,
   className,
+  targetBlank = false,
 }: ButtonLinkProps) {
   return (
     <Link
@@ -37,6 +39,7 @@ export default function ButtonLink({
         'group flex items-center gap-2 rounded-lg py-6 text-xl',
         className
       )}
+      target={targetBlank ? '_blank' : ''}
     >
       {children}
       {iconId && (
