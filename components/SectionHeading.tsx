@@ -11,10 +11,13 @@ export default function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <h2
-      className={cn('w-full border-b-0 pb-0 text-center uppercase', className)}
+    <span
+      className={cn(
+        'w-full border-b-0 pb-0 text-center text-2xl font-semibold uppercase md:text-3xl',
+        className
+      )}
     >
       {children}
-    </h2>
+    </span>
   )
 }
