@@ -11,7 +11,6 @@ import ButtonLink from '../ui/button-link'
 import Icon from '../Icon'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
-
 import { Badge } from '../ui/badge'
 
 type ProjectCardProps = {
@@ -23,17 +22,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     <Card className="group w-[375px] hover:border-primary">
       <CardHeader className="px-0">
         <CardTitle className="text-center">{project.name}</CardTitle>
-        <CardDescription className="flex h-6 flex-wrap justify-center gap-1 pt-2">
+        <div className="flex justify-center gap-1 pt-1">
           {project.tags.map((tag, index) => (
             <Badge
               key={index + tag.name}
               variant="secondary"
-              className="h-6 rounded-full"
+              className="rounded-full"
             >
               {tag.name}
             </Badge>
           ))}
-        </CardDescription>
+        </div>
       </CardHeader>
       <CardContent className="flex flex-col items-center gap-4">
         <Image

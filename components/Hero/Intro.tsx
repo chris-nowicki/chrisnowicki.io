@@ -27,7 +27,7 @@ export default async function Intro() {
 
         {/* projects and contact buttons */}
         <div className="mt-10 flex items-center gap-2">
-          <ButtonLink href="#projects" variant="default" className='px-10'>
+          <ButtonLink href="#projects" variant="default">
             Projects
           </ButtonLink>
 
