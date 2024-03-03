@@ -6,11 +6,6 @@ import {
   CardContent,
   CardFooter,
 } from '@/components/ui/card'
-import {
-  HoverCard,
-  HoverCardContent,
-  HoverCardTrigger,
-} from '@/components/ui/hover-card'
 
 import ButtonLink from '../ui/button-link'
 import Icon from '../Icon'
