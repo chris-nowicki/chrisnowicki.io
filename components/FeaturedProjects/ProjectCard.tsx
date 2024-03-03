@@ -50,17 +50,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <CardFooter>
         <div className="flex w-full items-center gap-4">
           {project.liveSiteUrl && (
-            <div className="group/action w-1/2">
-              <ButtonLink
-                href={project.liveSiteUrl}
-                className="w-full rounded-lg border-primary text-primary transition-all duration-150 ease-in-out group-hover/action:bg-primary/80 group-hover/card:bg-primary  group-hover/card:text-white"
-                targetBlank={true}
-                variant="outline"
-              >
-                live site
-                <Icon id="open" size={24} />
-              </ButtonLink>
-            </div>
+            <ButtonLink
+              href={project.liveSiteUrl}
+              className="w-1/2 rounded-lg"
+              targetBlank={true}
+            >
+              live site
+              <Icon id="open" size={24} />
+            </ButtonLink>
           )}
           <ButtonLink
             href={project.gitHubUrl}
