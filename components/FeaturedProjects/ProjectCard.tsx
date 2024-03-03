@@ -3,10 +3,15 @@ import {
   Card,
   CardHeader,
   CardTitle,
-  CardDescription,
   CardContent,
   CardFooter,
 } from '@/components/ui/card'
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from '@/components/ui/hover-card'
+
 import ButtonLink from '../ui/button-link'
 import Icon from '../Icon'
 import Image from 'next/image'
@@ -34,10 +39,13 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
       </CardHeader>
-      <CardContent className="flex flex-col items-center gap-4">
+      <CardContent className="relative h-[220px]">
+        <div className="absolute z-10 flex h-[200px] w-[320px] items-center justify-center bg-secondary px-4 opacity-0 transition-all duration-500 ease-in-out group-hover:opacity-100">
+          {project.excerpt}
+        </div>
         <Image
           src={project.image}
-          className="rounded-md transition-transform duration-300 ease-in-out group-hover:scale-105"
+          className="absolute z-20 rounded-md opacity-100 shadow-lg shadow-primary/20 transition-all duration-500 ease-in-out group-hover:opacity-0"
           width={320}
           height={200}
           alt={`Screenshot of ${project.name}`}
