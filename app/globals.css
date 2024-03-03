@@ -24,6 +24,7 @@
     --input: 220 13% 91%;
     --ring: 262.1 83.3% 57.8%;
     --radius: 0.3rem;
+    --devto-fill: #ffffff;
   }
 
   .dark {
@@ -46,6 +47,7 @@
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
     --ring: 263.4 70% 50.4%;
+    --devto-fill: #000000;
   }
 }
 
@@ -125,7 +127,8 @@
 }
 
 .moving-border:hover::before,
-.moving-border:focus::before { /* Ensure it's also accessible via keyboard navigation */
+.moving-border:focus::before {
+  /* Ensure it's also accessible via keyboard navigation */
   content: '';
   position: absolute;
   top: -2px; /* Adjust based on border size */
