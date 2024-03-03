@@ -8,6 +8,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { navItems } from '@/lib/data'
 import Icon from '../Icon'
 import { ModeToggle } from './ModeToggle'
+import { Separator } from '../ui/separator'
 
 export default function NavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -81,7 +82,7 @@ export default function NavBar() {
             'hidden w-full pt-6 sm:hidden md:flex md:items-center md:justify-between'
           )}
         >
-          <ul className="flex items-center gap-4">
+          <ul className="flex items-center gap-5">
             {navItems.map(({ name, href }) => (
               <li key={href}>
                 <Link
@@ -110,19 +111,8 @@ export default function NavBar() {
             ))}
           </ul>
           {/* dark/light theme toggle button */}
-          <div className="flex items-center gap-2">
-            <Link
-              href="/community-speaking"
-              className={clsx(
-                'flex items-center gap-2 rounded-lg border px-4 py-1 text-lg transition-all duration-200 ease-in-out hover:border-primary hover:shadow-sm',
-                pathname.startsWith('/community-speaking') && 'border-primary'
-              )}
-            >
-              <Icon id="community" size={24} />
-              Community
-            </Link>
-            <ModeToggle />
-          </div>
+
+          <ModeToggle />
         </menu>
 
         {/* hamburger menu for mobile */}
@@ -137,19 +127,7 @@ export default function NavBar() {
             <span className="hamburger-bottom bg-accent-foreground"></span>
           </button>
 
-          <div className="flex items-center gap-2">
-            <Link
-              href="/community-speaking"
-              className={clsx(
-                'flex items-center gap-2 rounded-lg border px-4 py-1 text-lg transition-all duration-200 ease-in-out hover:border-primary hover:shadow-sm',
-                pathname.startsWith('/community-speaking') && 'border-primary'
-              )}
-            >
-              <Icon id="community" size={24} />
-              Community
-            </Link>
-            <ModeToggle />
-          </div>
+          <ModeToggle />
         </div>
 
         {/* mobile navigation menu when hamburger button is selected */}

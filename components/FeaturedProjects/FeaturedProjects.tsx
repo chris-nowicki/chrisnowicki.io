@@ -6,7 +6,10 @@ export default async function FeaturedProjects() {
   const projects = await getFeaturedProjects()
 
   return (
-    <section className="flex w-full max-w-3xl flex-col items-center gap-6">
+    <section
+      id="projects"
+      className="lex flex w-full max-w-3xl scroll-mt-8 flex-col items-center gap-6"
+    >
       <SectionHeading>Projects</SectionHeading>
       <Carousel projects={projects} />
     </section>

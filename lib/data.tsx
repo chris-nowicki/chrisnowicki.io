@@ -7,6 +7,14 @@ export const navItems = [
     href: '/',
   },
   {
+    name: 'Projects',
+    href: '/#projects',
+  },
+  {
+    name: 'Engagements',
+    href: '/#engagements',
+  },
+  {
     name: 'Blog',
     href: '/blog',
   },
@@ -56,27 +64,12 @@ type ContactInfoType = {
     text: string
     icon: JSX.Element
   }
-  DownloadCV: {
-    text: string
-    icon: JSX.Element
-  }
 }
 
 export const contactInfo: ContactInfoType = {
   Contact: {
     text: 'Contact',
     icon: <Icon id="envelope" size={20} focusable={false} />,
-  },
-  DownloadCV: {
-    text: 'Download CV',
-    icon: (
-      <Icon
-        id="download"
-        size={20}
-        className="sm:hidden md:block"
-        focusable={false}
-      />
-    ),
   },
 }
 

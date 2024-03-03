@@ -3,7 +3,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ThemeProvider } from './ThemeProvider'
 import { Toaster } from 'react-hot-toast'
 import NavBar from '@/components/NavBar/NavBar'
-import Footer from '@/components/Footer/Footer'
+import Footer from '@/components/Footer'
 import '@/app/globals.css'
 
 import { Inter as FontSans } from 'next/font/google'
