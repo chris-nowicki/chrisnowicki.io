@@ -1,7 +1,5 @@
 'use client'
 import { sendEmail } from '@/actions/send-email'
-import Icon from '@/components/Icon'
-import { Button } from '@/components/ui/button'
 import {
   Form,
   FormControl,
@@ -14,14 +12,12 @@ import {
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useFormStatus } from 'react-dom'
 import { useForm } from 'react-hook-form'
 import toast from 'react-hot-toast'
 import z from 'zod'
+import SubmitButton from './SubmitButton'
 
 export default function EmailForm() {
-  const { pending } = useFormStatus()
-
   const formSchema = z.object({
     email: z.string().email(),
     message: z.string().min(1).max(5000),
@@ -96,25 +92,7 @@ export default function EmailForm() {
               </FormItem>
             )}
           />
-
-          <Button
-            variant="outline"
-            type="submit"
-            className="group flex h-[3rem] w-full items-center justify-center gap-2 rounded-lg text-primary transition-all hover:text-primary  disabled:scale-100 disabled:bg-opacity-65 md:w-[8rem]"
-            disabled={pending}
-          >
-            {pending ?
-              <div className="h-5 w-5 animate-spin rounded-full border-b-2 border-primary"></div>
-            : <>
-                Submit{' '}
-                <Icon
-                  id="paper-plane"
-                  size={16}
-                  className="text-xs text-primary opacity-70 transition-all group-hover:-translate-y-1 group-hover:translate-x-1"
-                />
-              </>
-            }
-          </Button>
+          <SubmitButton />
         </form>
       </Form>
     </div>
