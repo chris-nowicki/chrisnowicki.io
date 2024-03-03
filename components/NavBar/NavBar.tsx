@@ -8,7 +8,6 @@ import { useEffect, useMemo, useState } from 'react'
 import { navItems } from '@/lib/data'
 import Icon from '../Icon'
 import { ModeToggle } from './ModeToggle'
-import { Separator } from '../ui/separator'
 
 export default function NavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
@@ -38,12 +37,7 @@ export default function NavBar() {
     if (matchingNavItem) {
       setActiveSection(matchingNavItem.name)
     } else {
-      // Handle special cases or fallback
-      if (pathname.startsWith('/community-speaking')) {
-        setActiveSection('Community & Speaking')
-      } else {
-        setActiveSection('Home') // Or some default/fallback section name
-      }
+      setActiveSection('Home') // Or some default/fallback section name
     }
   }, [pathname, navItems])
 
@@ -88,8 +82,7 @@ export default function NavBar() {
                 <Link
                   href={href}
                   className={clsx(
-                    'relative text-lg transition-all duration-200 ease-in-out hover:text-primary',
-                    activeSection === name && 'font-semibold hover:text-black'
+                    'relative text-lg transition-all duration-200 ease-in-out'
                   )}
                   prefetch={true}
                 >
@@ -111,7 +104,6 @@ export default function NavBar() {
             ))}
           </ul>
           {/* dark/light theme toggle button */}
-
           <ModeToggle />
         </menu>
 
