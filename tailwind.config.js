@@ -76,5 +76,8 @@ module.exports = {
       sans: ['var(--font-sans)'],
     },
   },
+  future: {
+    hoverOnlyWhenSupported: true,
+  },
   plugins: [require('tailwindcss-animate')],
 }

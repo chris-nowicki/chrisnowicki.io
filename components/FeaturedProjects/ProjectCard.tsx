@@ -19,7 +19,7 @@ type ProjectCardProps = {
 
 export default function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="group w-[375px] hover:border-primary">
+    <Card className="group/card w-[375px]">
       <CardHeader className="px-0">
         <CardTitle className="text-center">{project.name}</CardTitle>
         <div className="flex justify-center gap-1 pt-1">
@@ -35,12 +35,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
       </CardHeader>
       <CardContent className="relative h-[220px]">
-        <div className="absolute z-10 flex h-[200px] w-[320px] items-center justify-center rounded-md bg-secondary px-4 opacity-0 transition-all duration-300 ease-in-out group-hover:opacity-100">
+        <div className="absolute z-10 flex h-[200px] w-[320px] items-center justify-center rounded-md bg-secondary px-4 opacity-0 transition-all duration-300 ease-in-out group-hover/card:opacity-100">
           {project.excerpt}
         </div>
         <Image
           src={project.image}
-          className="absolute z-20 rounded-md opacity-100 shadow-lg shadow-primary/20 transition-all duration-300 ease-in-out group-hover:opacity-0"
+          className="absolute z-20 rounded-md opacity-100 shadow-lg shadow-primary/20 transition-all duration-300 ease-in-out group-hover/card:opacity-0"
           width={320}
           height={200}
           alt={`Screenshot of ${project.name}`}
@@ -50,14 +50,17 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <CardFooter>
         <div className="flex w-full items-center gap-4">
           {project.liveSiteUrl && (
-            <ButtonLink
-              href={project.liveSiteUrl}
-              className="w-1/2 rounded-lg"
-              targetBlank={true}
-            >
-              live site
-              <Icon id="open" size={24} />
-            </ButtonLink>
+            <div className="group/action w-1/2">
+              <ButtonLink
+                href={project.liveSiteUrl}
+                className="w-full rounded-lg group-hover/action:bg-primary/80 group-hover/card:bg-primary group-hover/card:text-white ease-in-out transition-all  duration-150"
+                targetBlank={true}
+                variant="secondary"
+              >
+                live site
+                <Icon id="open" size={24} />
+              </ButtonLink>
+            </div>
           )}
           <ButtonLink
             href={project.gitHubUrl}
