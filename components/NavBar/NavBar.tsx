@@ -38,7 +38,7 @@ export default function NavBar() {
   return (
     <nav className="mb-24 flex w-full max-w-3xl justify-center md:mb-12">
       {/* nav bar */}
-      <div className="z-99 fixed flex w-full items-center justify-between bg-white py-4 shadow md:relative md:px-0 md:py-0 md:shadow-none">
+      <div className="fixed z-30 flex w-full items-center justify-between bg-white py-4 shadow md:relative md:bg-transparent md:px-0 md:py-0 md:shadow-none">
         {/* nav bar menu */}
         <div
           className={clsx(
@@ -89,7 +89,7 @@ export default function NavBar() {
                 <span className="hamburger-bottom bg-accent-foreground"></span>
               </button>
             </SheetTrigger>
-            <SheetContent side="left" className=" h-svh w-screen ">
+            <SheetContent side="left" className=" h-svh w-screen">
               <div className="mt-7 flex flex-col justify-center self-end opacity-95 drop-shadow-md dark:opacity-100">
                 {navItems.map(({ name, href }) => (
                   <SheetClose key={name + href} asChild>

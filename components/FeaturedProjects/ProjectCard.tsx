@@ -43,14 +43,14 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       </CardHeader>
       <CardContent className="relative h-[208px] md:h-[220px]">
         {/* project image on desktop view */}
-        <div className="absolute z-10 flex h-[200px] w-[320px] items-center justify-center rounded-md bg-secondary px-4 opacity-0 transition-all duration-300 ease-in-out group-hover/card:opacity-100">
+        <div className="absolute flex h-[200px] w-[320px] items-center justify-center rounded-md bg-secondary px-4 opacity-0 transition-all duration-300 ease-in-out group-hover/card:opacity-100">
           {project.excerpt}
         </div>
 
         {/* project image */}
         <Image
           src={project.image}
-          className="absolute z-20 rounded-md opacity-100 shadow-lg shadow-primary/20 transition-all duration-300 ease-in-out group-hover/card:opacity-0"
+          className="absolute rounded-md opacity-100 shadow-lg shadow-primary/20 transition-all duration-300 ease-in-out group-hover/card:opacity-0"
           width={320}
           height={200}
           alt={`Screenshot of ${project.name}`}
