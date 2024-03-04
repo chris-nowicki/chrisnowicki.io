@@ -1,4 +1,4 @@
-import { AnalyticsWrapper } from '@/components/Analytics'
+import { AnalyticsWrapper } from '@/app/(site)/AnalyticsWrapper'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ThemeProvider } from './ThemeProvider'
 import { Toaster } from 'react-hot-toast'
@@ -76,7 +76,6 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {/* main portfolio site */}
           <div className="flex flex-col items-center">
             <div className="w-full max-w-3xl">
               <NavBar />
