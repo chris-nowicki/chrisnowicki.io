@@ -74,7 +74,7 @@ export default async function RootLayout({
           attribute="class"
           defaultTheme="system"
           enableSystem
-          // disableTransitionOnChange
+          disableTransitionOnChange
         >
           {/* main portfolio site */}
           <div className="flex flex-col items-center">
