@@ -1,10 +1,11 @@
-import { AnalyticsWrapper } from '@/app/(site)/AnalyticsWrapper'
+import { AnalyticsWrapper } from '@/components/AnalyticsWrapper'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { ThemeProvider } from './ThemeProvider'
+import { ThemeProvider } from '../../components/ThemeProvider'
 import { Toaster } from 'react-hot-toast'
 import NavBar from '@/components/NavBar/NavBar'
 import Footer from '@/components/Footer'
 import '@/app/globals.css'
+import ScrollToTop from '@/components/ScrollToTop'
 
 import { Inter as FontSans } from 'next/font/google'
 
@@ -90,6 +91,7 @@ export default async function RootLayout({
 
           {/* toaster for when an email is sent from the contact form */}
           <Toaster position="top-center" toastOptions={{ duration: 5000 }} />
+          <ScrollToTop />
         </ThemeProvider>
       </body>
     </html>
