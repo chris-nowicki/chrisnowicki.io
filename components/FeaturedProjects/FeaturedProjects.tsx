@@ -8,7 +8,7 @@ export default async function FeaturedProjects() {
   return (
     <section
       id="projects"
-      className="flex w-full max-w-3xl scroll-mt-8 flex-col items-center gap-6"
+      className="flex w-full max-w-3xl scroll-mt-20 md:scroll-mt-8 flex-col items-center gap-6"
     >
       <SectionHeading>Projects</SectionHeading>
       <div className="flex flex-wrap justify-center gap-4 md:justify-start">

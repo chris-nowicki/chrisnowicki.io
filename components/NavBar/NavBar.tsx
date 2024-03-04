@@ -1,34 +1,22 @@
 'use client'
 import clsx from 'clsx'
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 
 import { navItems } from '@/lib/data'
-import Icon from '../Icon'
 import { ModeToggle } from './ModeToggle'
 
 export default function NavBar() {
-  const [showMobileMenu, setShowMobileMenu] = useState(false)
   const [activeSection, setActiveSection] = useState<string>('')
-  const [showScrollTop, setShowScrollTop] = useState(false)
-  const { scrollY } = useScroll()
   const pathname = usePathname()
-
-  // show up button when scrollY > 200
-  useMotionValueEvent(scrollY, 'change', (latest) => {
-    if (latest > 200) {
-      setShowScrollTop(true)
-    } else {
-      setShowScrollTop(false)
-    }
-  })
-
-  // on page load, if returning to a point > 200, show scroll to top button
-  useEffect(() => {
-    scrollY.get() > 200 ? setShowScrollTop(true) : setShowScrollTop(false)
-  }, [])
 
   useMemo(() => {
     // Assuming navItems is an array of objects with name and href properties
@@ -45,33 +33,14 @@ export default function NavBar() {
   const handleMenu = () => {
     const btn: HTMLElement = document.getElementById('menu-btn')
     btn.classList.toggle('open')
-    setShowMobileMenu(showMobileMenu === false ? true : false)
   }
 
   return (
-    <nav className="mb-12 flex w-full max-w-3xl justify-center">
-      {/* scroll to top button */}
-      {showScrollTop && (
-        <motion.button
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ ease: 'easeInOut' }}
-          className="group fixed bottom-10 right-12 hidden rounded-full border bg-primary p-2 text-white shadow-lg transition-all duration-150 ease-in-out hover:scale-105 md:block"
-          onClick={() => {
-            document.body.scrollTop = 0 // For Safari
-            document.documentElement.scrollTop = 0 // For Chrome, Firefox, IE and Opera
-          }}
-          aria-label="scroll to top"
-        >
-          <Icon id="arrow-up" size={32} />
-        </motion.button>
-      )}
-
+    <nav className="mb-24 flex w-full max-w-3xl justify-center md:mb-12">
       {/* nav bar */}
-      <div className="z-99 relative flex w-full items-center justify-between py-4 shadow md:px-0 md:py-0 md:shadow-none">
+      <div className="z-99 fixed flex w-full items-center justify-between bg-white py-4 shadow md:relative md:px-0 md:py-0 md:shadow-none">
         {/* nav bar menu */}
-        <menu
+        <div
           className={clsx(
             'hidden w-full pt-6 sm:hidden md:flex md:items-center md:justify-between'
           )}
@@ -105,44 +74,41 @@ export default function NavBar() {
           </ul>
           {/* dark/light theme toggle button */}
           <ModeToggle />
-        </menu>
+        </div>
 
-        {/* hamburger menu for mobile */}
         <div className="flex w-full items-center justify-between px-4 md:hidden">
-          <button
-            className="hamburger relative shadow-2xl focus:outline-none"
-            id="menu-btn"
-            onClick={() => handleMenu()}
-          >
-            <span className="hamburger-top bg-accent-foreground"></span>
-            <span className="hamburger-middle bg-accent-foreground"></span>
-            <span className="hamburger-bottom bg-accent-foreground"></span>
-          </button>
+          <Sheet key="mobile">
+            <SheetTrigger asChild>
+              <button
+                className="hamburger relative shadow-2xl focus:outline-none"
+                id="menu-btn"
+                onClick={() => handleMenu()}
+              >
+                <span className="hamburger-top bg-accent-foreground"></span>
+                <span className="hamburger-middle bg-accent-foreground"></span>
+                <span className="hamburger-bottom bg-accent-foreground"></span>
+              </button>
+            </SheetTrigger>
+            <SheetContent side="left" className=" h-svh w-screen ">
+              <div className="mt-7 flex flex-col justify-center self-end opacity-95 drop-shadow-md dark:opacity-100">
+                {navItems.map(({ name, href }) => (
+                  <SheetClose key={name + href} asChild>
+                    <Link
+                      href={href}
+                      className="text-3xl"
+                      onClick={() => handleMenu()}
+                      aria-label={name}
+                    >
+                      {`/${name}`}
+                    </Link>
+                  </SheetClose>
+                ))}
+              </div>
+            </SheetContent>
+          </Sheet>
 
           <ModeToggle />
         </div>
-
-        {/* mobile navigation menu when hamburger button is selected */}
-        {showMobileMenu && (
-          <div>
-            <menu
-              id="menu"
-              className="absolute left-0 right-0 z-10 mt-7 flex flex-col  items-center self-end bg-foreground opacity-95 drop-shadow-md dark:opacity-100 sm:w-full sm:self-center"
-            >
-              {navItems.map(({ name, href }) => (
-                <Link
-                  key={name + href}
-                  href={href}
-                  className="flex w-full justify-center py-1 text-3xl text-background last:mb-2 last:border-none"
-                  onClick={() => handleMenu()}
-                  aria-label={name}
-                >
-                  {name}
-                </Link>
-              ))}
-            </menu>
-          </div>
-        )}
       </div>
     </nav>
   )
