@@ -1,8 +1,7 @@
 import SectionDivider from '@/components/SectionDivider'
 import FeaturedProjects from '@/components/FeaturedProjects/FeaturedProjects'
 import Hero from '@/components/Hero/Hero'
-import TechStack from '@/components/TechStack'
-import Engagements from '@/components/Engagements/Engagements'
+import Speaking from '@/components/Highlights'
 
 export const dynamic = 'force-dynamic'
 
@@ -13,7 +12,7 @@ export default async function Home() {
       <SectionDivider />
       <FeaturedProjects />
       <SectionDivider />
-      <Engagements />
+      <Speaking />
     </div>
   )
 }

@@ -11,8 +11,8 @@ export const navItems = [
     href: '/#projects',
   },
   {
-    name: 'Engagements',
-    href: '/#engagements',
+    name: 'Speaking',
+    href: '/#speaking',
   },
   {
     name: 'Blog',

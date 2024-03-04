@@ -1,4 +1,9 @@
-import { Accordion } from '@/components/ui/accordion'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 import SectionHeading from '@/components/SectionHeading'
 import Community from '@/components/Engagements/Community'
 import TechnicalWriting from './TechnicalWriting'
@@ -24,7 +29,16 @@ export default async function Blog() {
         <TechnicalWriting />
         <OSS />
         <Conferences />
-        <Speaking />
+
+        {/* speaking */}
+        <AccordionItem value="Speaking">
+          <AccordionTrigger className="text-xl font-bold md:text-2xl">
+            Speaking
+          </AccordionTrigger>
+          <AccordionContent>
+            <Speaking />
+          </AccordionContent>
+        </AccordionItem>
       </Accordion>
     </section>
   )
