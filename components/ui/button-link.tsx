@@ -1,6 +1,5 @@
 import React from 'react'
 import cn from 'classnames'
-import Icon from '../Icon'
 import Link from 'next/link'
 import { buttonVariants } from './button'
 
@@ -25,9 +24,6 @@ export default function ButtonLink({
   href,
   variant,
   children,
-  iconId,
-  iconSize,
-  iconFocusable = false,
   className,
   targetBlank = false,
 }: ButtonLinkProps) {
@@ -42,11 +38,6 @@ export default function ButtonLink({
       target={targetBlank ? '_blank' : ''}
     >
       {children}
-      {iconId && (
-        <span>
-          <Icon id={iconId} size={iconSize} focusable={iconFocusable} />
-        </span>
-      )}
     </Link>
   )
 }

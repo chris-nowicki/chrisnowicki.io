@@ -1,6 +1,6 @@
 import { socialLinks } from '@/lib/data'
 import { getStoredGithubMetrics, getStoredTweetCount } from '@/lib/planetscale'
-import Icon from '../Icon'
+import Icon from '@/components/Icon'
 
 export const revalidate = 60
 
@@ -20,7 +20,7 @@ export default async function Metrics() {
     <div className="border-borderColor-light hover:border-purple-light dark:hover:border-purple-dark flex w-full flex-col items-center justify-center gap-2 rounded-lg border p-4 dark:border-gray-300/20 md:w-1/2">
       <span className="flex items-center gap-2">
         <Icon
-          id="trending-up"
+          id="arrow-trendingUp"
           size={20}
           className="animate-pulse text-primary transition-all"
         />
@@ -31,12 +31,12 @@ export default async function Metrics() {
           target="_blank"
           aria-label="Twitter"
         >
-          <Icon id="logo-x" size={24} />
+          <Icon id="twitter" size={24} />
         </a>
       </span>
       <span className="flex items-center gap-2">
         <Icon
-          id="trending-up"
+          id="arrow-trendingUp"
           size={20}
           className="animate-pulse text-primary transition-all"
         />
@@ -49,7 +49,7 @@ export default async function Metrics() {
           target="_blank"
           aria-label="GitHub"
         >
-          <Icon id="logo-github" size={24} />
+          <Icon id="github" size={24} />
         </a>
         commits
       </span>

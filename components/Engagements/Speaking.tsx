@@ -1,11 +1,5 @@
 import YouTubeEmbed from '@/components/YouTubeEmbed'
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from '../ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
 
 export default function Speaking() {
   return (

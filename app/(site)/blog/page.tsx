@@ -31,7 +31,7 @@ export default async function Blog() {
           target="_blank"
           aria-label="Link to my dev.to profile. Click to open in a new tab."
         >
-          <Icon id="logo-devto" size={32} />
+          <Icon id="devto" size={32} />
         </a>
       </p>
       <span className="font-mono mt-6 flex items-center gap-1 text-sm">
@@ -61,7 +61,7 @@ export default async function Blog() {
               </span>
             </div>
             <Icon
-              id="arrow-top-right"
+              id="arrow-topRight"
               size={24}
               className="mr-4 hidden transition-all ease-in-out group-hover:scale-125 group-hover:animate-pulse sm:hidden md:block"
             />
