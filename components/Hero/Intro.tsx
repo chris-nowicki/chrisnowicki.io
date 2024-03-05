@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { getIntro } from '@/sanity/sanity-queries'
 import ButtonLink from '../ui/button-link'
+import Icon from '../Icon'
 
 const IntroPortableText: PortableTextComponents = {
   block: {
@@ -31,13 +32,9 @@ export default async function Intro() {
             Projects
           </ButtonLink>
 
-          <ButtonLink
-            href="/contact"
-            variant="outline"
-            iconId="envelope"
-            iconSize={20}
-          >
+          <ButtonLink href="/contact" variant="outline">
             Contact Me
+            <Icon id="mail" size={20} focusable={false} />
           </ButtonLink>
         </div>
       </div>

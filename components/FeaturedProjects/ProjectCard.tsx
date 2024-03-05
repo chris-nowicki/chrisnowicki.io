@@ -91,7 +91,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             variant="outline"
           >
             <Icon
-              id="logo-github"
+              id="github"
               size={24}
               className="text-black dark:text-white"
             />

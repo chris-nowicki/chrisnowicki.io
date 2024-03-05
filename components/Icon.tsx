@@ -1,19 +1,16 @@
-type IconProps = {
-  id: string
-  size: number
-  className?: string
-  focusable?: boolean
+import type { IconName } from 'public/icons/name.d.ts'
+
+interface IconProps extends React.SVGProps<SVGSVGElement> {
+  id: IconName
+  size?: number
 }
 
-export default function Icon({
-  id,
-  size,
-  className,
-  focusable = true,
-}: IconProps): JSX.Element {
+const Icon = ({ id, size = 24, ...props }: IconProps) => {
   return (
-    <svg width={size} height={size} className={className} focusable={focusable}>
+    <svg width={size} height={size} {...props}>
       <use href={`/icons/sprite.svg#${id}`} />
     </svg>
   )
 }
+
+export default Icon

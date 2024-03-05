@@ -21,12 +21,13 @@ export default function Community() {
               target="_blank"
               rel="noreferrer"
               className="mb-1 md:mb-0"
+              aria-label="Link to Virtual Coffee website. Click to open in a new tab."
             >
               <Image
-                src="/virtualCoffeeLogo.svg"
+                src="/logos/virtualCoffee.svg"
+                alt="Virtual Coffee Logo"
                 width={200}
                 height={200}
-                alt="Virtual Coffee Logo"
               />
             </a>
             <span className="font-semibold">June 2023 - Present</span>
@@ -74,7 +75,12 @@ export default function Community() {
         {/* Discord */}
         <div className="flex flex-col items-center gap-6 rounded-lg border p-4 md:flex-row">
           <div>
-            <Icon id="logo-discord" size={64} className="-mb-4" />
+            <Icon
+              id="discord"
+              size={64}
+              className="-mb-4 text-[#5865F2]"
+              focusable={false}
+            />
           </div>
           <div>
             <p className="text-center md:text-left">
@@ -115,7 +121,7 @@ export default function Community() {
         {/* Github */}
         <div className="flex flex-col items-center gap-6 rounded-lg border p-4 md:flex-row">
           <div>
-            <Icon id="logo-github" size={64} className="-mb-4" />
+            <Icon id="github" size={64} className="-mb-4" focusable={false} />
           </div>
           <div>
             <ul className="mt-1 w-auto list-outside list-disc space-y-2 pl-4 marker:text-primary">
