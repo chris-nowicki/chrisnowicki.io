@@ -1,5 +1,4 @@
 'use client'
-import clsx from 'clsx'
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
@@ -29,30 +28,18 @@ export default function NavBar() {
     }
   }, [pathname, navItems])
 
-  // toggle hamburger mobile menu
-  const handleMenu = () => {
-    const btn: HTMLElement = document.getElementById('menu-btn')
-    btn.classList.toggle('open')
-  }
-
   return (
     <nav className="mb-24 flex w-full max-w-3xl justify-center md:mb-12">
       {/* nav bar */}
       <div className="fixed z-30 flex w-full items-center justify-between bg-background py-4 shadow dark:shadow-foreground/20 md:relative md:px-0 md:py-0 md:shadow-none">
         {/* nav bar menu */}
-        <div
-          className={clsx(
-            'hidden w-full pt-6 sm:hidden md:flex md:items-center md:justify-between'
-          )}
-        >
+        <div className="hidden w-full pt-6 sm:hidden md:flex md:items-center md:justify-between">
           <ul className="flex items-center gap-5">
             {navItems.map(({ name, href }) => (
               <li key={href}>
                 <Link
                   href={href}
-                  className={clsx(
-                    'relative text-lg transition-all duration-200 ease-in-out'
-                  )}
+                  className="relative text-lg transition-all duration-200 ease-in-out"
                   prefetch={true}
                 >
                   {name}
@@ -82,7 +69,6 @@ export default function NavBar() {
               <button
                 className="hamburger relative shadow-2xl focus:outline-none"
                 id="menu-btn"
-                onClick={() => handleMenu()}
               >
                 <span className="hamburger-top bg-accent-foreground"></span>
                 <span className="hamburger-middle bg-accent-foreground"></span>
@@ -93,12 +79,7 @@ export default function NavBar() {
               <div className="mt-7 flex flex-col justify-center self-end opacity-95 drop-shadow-md dark:opacity-100">
                 {navItems.map(({ name, href }) => (
                   <SheetClose key={name + href} asChild>
-                    <Link
-                      href={href}
-                      className="text-3xl"
-                      onClick={() => handleMenu()}
-                      aria-label={name}
-                    >
+                    <Link href={href} className="text-3xl" aria-label={name}>
                       {`/${name}`}
                     </Link>
                   </SheetClose>
