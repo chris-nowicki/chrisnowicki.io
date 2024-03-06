@@ -1,3 +1,4 @@
+'use server'
 import { socialLinks } from '@/lib/data'
 import { cn } from '@/lib/utils'
 import { getResume } from '@/sanity/sanity-queries'
