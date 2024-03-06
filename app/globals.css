@@ -56,7 +56,7 @@
     @apply border-border;
   }
   body {
-    @apply overflow-y-scroll bg-background text-foreground;
+    @apply bg-background text-foreground overflow-y-scroll;
   }
   html {
     @apply scroll-smooth;
@@ -81,5 +81,41 @@
   }
   svg {
     @apply fill-current;
+  }
+}
+
+@layer components {
+  .hamburger {
+    @apply relative h-6 w-6 cursor-pointer transition-all duration-300;
+  }
+
+  .hamburger-top,
+  .hamburger-middle,
+  .hamburger-bottom {
+    @apply absolute left-[5px] top-[5px] h-[2px] w-6 rotate-0 transition-transform duration-500;
+  }
+  .hamburger-middle {
+    @apply translate-y-[7px] transform;
+  }
+
+  .hamburger-bottom {
+    @apply translate-y-3.5 transform;
+  }
+
+  .open {
+    transform: rotate(90deg);
+    transform: translateY(0px);
+  }
+
+  .open .hamburger-top {
+    transform: rotate(45deg) translateY(6px) translate(6px);
+  }
+
+  .open .hamburger-middle {
+    display: none;
+  }
+
+  .open .hamburger-bottom {
+    transform: rotate(-45deg) translateY(6px) translate(-6px);
   }
 }

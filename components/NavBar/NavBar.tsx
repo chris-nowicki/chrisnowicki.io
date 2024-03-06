@@ -31,7 +31,7 @@ export default function NavBar() {
   return (
     <nav className="mb-24 flex w-full max-w-3xl justify-center md:mb-12">
       {/* nav bar */}
-      <div className="fixed z-30 flex w-full items-center justify-between bg-background py-4 shadow dark:shadow-foreground/20 md:relative md:px-0 md:py-0 md:shadow-none">
+      <div className="bg-background dark:shadow-foreground/20 fixed z-30 flex w-full items-center justify-between py-4 shadow md:relative md:px-0 md:py-0 md:shadow-none">
         {/* nav bar menu */}
         <div className="hidden w-full pt-6 sm:hidden md:flex md:items-center md:justify-between">
           <ul className="flex items-center gap-5">
@@ -46,7 +46,7 @@ export default function NavBar() {
 
                   {activeSection === name && (
                     <motion.span
-                      className="absolute -bottom-[2px] left-0 -z-10 w-full rounded border-b-2 border-b-primary"
+                      className="border-b-primary absolute -bottom-[2px] left-0 -z-10 w-full rounded border-b-2"
                       layoutId="activeSection"
                       transition={{
                         type: 'spring',
