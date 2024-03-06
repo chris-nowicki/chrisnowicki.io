@@ -15,7 +15,7 @@ export default async function Footer() {
   return (
     <footer className="mb-20 flex flex-col items-center px-4 text-left md:px-0 md:text-center">
       <SectionDivider />
-      <div className="flex w-full flex-col justify-between gap-4 rounded-xl border p-4 shadow-xl shadow-primary/20 md:flex-row">
+      <div className="flex w-full flex-col justify-between gap-4 rounded-xl border p-6 shadow-xl shadow-primary/20 md:flex-row">
         <div className="flex w-full flex-col items-center md:w-1/2 md:items-start md:justify-between">
           <span className="mb-4 text-3xl font-semibold">Sitemap</span>
           {footerLinks.map((link, index) => (
