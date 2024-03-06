@@ -28,13 +28,12 @@ export default async function Intro() {
 
         {/* projects and contact buttons */}
         <div className="mt-10 flex items-center gap-2">
-          <ButtonLink href="#projects" variant="default">
+          <ButtonLink href="#projects" variant="default" className='px-8'>
             Projects
           </ButtonLink>
 
           <ButtonLink href="/contact" variant="outline">
             Contact Me
-            <Icon id="mail" size={20} focusable={false} />
           </ButtonLink>
         </div>
       </div>
