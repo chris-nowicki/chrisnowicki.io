@@ -29,6 +29,12 @@ export default async function Footer() {
           <SocialMetrics metrics={false} footer={true} />
         </div>
       </div>
+      {/* about this website information */}
+      <p className="text-left text-xs md:px-4">
+        <span className="font-semibold">Built with:</span> Next.js, TypeScript,
+        Tailwind CSS, shadcn/ui, Framer Motion, React Email & Resend, Sanity
+        CMS, PlanetScale MySQL, and hosted on Vercel.
+      </p>
     </footer>
   )
 }
