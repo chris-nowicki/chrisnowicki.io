@@ -9,25 +9,38 @@ import Metrics from './Metrics'
 
 interface SocialMetricsProps {
   className?: string
+  metrics?: boolean
+  footer?: boolean
 }
 
-export default async function SocialMetrics({ className }: SocialMetricsProps) {
+export default async function SocialMetrics({
+  className,
+  metrics = true,
+  footer = false,
+}: SocialMetricsProps) {
   const resumeURL = await getResume()
 
   return (
     <section
       className={cn(
-        'flex w-full flex-col gap-2 rounded-lg border p-4 shadow-lg md:w-3/4 md:flex-row',
+        'flex flex-col gap-2 rounded-lg border p-4 shadow-lg md:flex-row',
+        footer ? 'w-full' : 'w-full md:w-3/4',
         className
       )}
     >
-      <div className="flex w-full flex-col gap-2 md:w-1/2">
+      <div
+        className={cn(
+          'flex flex-col gap-2',
+          footer ? 'w-full' : 'w-full md:w-1/2'
+        )}
+      >
         {/* resume */}
         <Link
           href={resumeURL}
           className={cn(
             buttonVariants({ variant: 'outline' }),
-            'group flex items-center justify-center gap-2 rounded-lg py-6 hover:border-primary hover:bg-transparent hover:shadow group-hover:text-primary'
+            'group flex items-center justify-center gap-2 rounded-lg py-6 hover:border-primary hover:bg-transparent hover:shadow group-hover:text-primary',
+            footer && 'w-full'
           )}
           target="_blank"
         >
@@ -59,8 +72,7 @@ export default async function SocialMetrics({ className }: SocialMetricsProps) {
         </div>
       </div>
 
-      {/* metrics */}
-      <Metrics />
+      {metrics && <Metrics />}
     </section>
   )
 }
