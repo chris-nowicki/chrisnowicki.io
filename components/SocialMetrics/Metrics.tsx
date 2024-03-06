@@ -1,3 +1,4 @@
+'use server'
 import { socialLinks } from '@/lib/data'
 import { getStoredGithubMetrics, getStoredTweetCount } from '@/lib/planetscale'
 import Icon from '@/components/Icon'
