@@ -1,9 +1,9 @@
 import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
-import { visionTool } from '@sanity/vision'
-import { schemaTypes } from '@/sanity/schemas'
 import { myStructure } from '@/sanity/deskStructure'
+import { visionTool } from '@sanity/vision'
 import { media } from 'sanity-plugin-media'
+import { schemaTypes } from '@/sanity/schemas'
 
 // custom studio theme
 import { theme as _theme } from '@/sanity/theme'
