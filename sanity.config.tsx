@@ -1,4 +1,4 @@
-import { defineConfig, definePlugin } from 'sanity'
+import { defineConfig } from 'sanity'
 import { structureTool } from 'sanity/structure'
 import { visionTool } from '@sanity/vision'
 import { schemaTypes } from '@/sanity/schemas'
@@ -9,35 +9,6 @@ import { media } from 'sanity-plugin-media'
 import { theme as _theme } from '@/sanity/theme'
 const theme = _theme as import('sanity').StudioTheme
 
-// custom logo component
-function MyCustomLogo(props: any) {
-  return (
-    <div>
-      {props.renderDefault({
-        ...props,
-        title: props.title.toUpperCase(),
-      })}
-    </div>
-  )
-}
-
-// create the plugin for the custom logo component
-const myLogoPlugin = definePlugin({
-  name: 'my-logo-plugin',
-  studio: {
-    components: {
-      logo: (props) => (
-        <div>
-          {props.renderDefault({
-            ...props,
-            title: 'chrisnowicki.io',
-          })}
-        </div>
-      ),
-    },
-  },
-})
-
 const config = defineConfig({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
   dataset: process.env.NEXT_PUBLIC_SANITY_DATASET,
@@ -46,23 +17,19 @@ const config = defineConfig({
   theme,
   title: 'chrisnowicki.io',
 
-  studio: {
-    components: {
-      logo: MyCustomLogo,
-    },
-  },
-
   plugins: [
     structureTool({
       structure: myStructure,
     }),
     visionTool(),
-    myLogoPlugin(),
     media(),
   ],
 
   schema: {
-    types: schemaTypes,
+    types: (prev, context) => {
+      console.log(context) // logs { projectId, dataset }
+      return [...schemaTypes, ...prev]
+    },
   },
 })
 

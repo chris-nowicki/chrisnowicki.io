@@ -1,5 +1,4 @@
-import type { Metadata} from 'next'
-import '@/app/globals.css'
+import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
   return {
