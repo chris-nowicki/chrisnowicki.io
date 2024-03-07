@@ -45,7 +45,7 @@ export default async function Contact() {
             target="_blank"
             aria-label={link.aria}
           >
-            {link.name}
+            {link.name.toUpperCase()}
           </Link>
         ))}
       </div>

@@ -28,11 +28,11 @@ export default async function Intro() {
 
         {/* projects and contact buttons */}
         <div className="mt-10 flex items-center gap-2">
-          <ButtonLink href="#projects" variant="default" className='px-8'>
+          <ButtonLink href="#projects" variant="default" className='px-8 uppercase'>
             Projects
           </ButtonLink>
 
-          <ButtonLink href="/contact" variant="outline">
+          <ButtonLink href="/contact" variant="outline" className='uppercase'>
             Contact Me
           </ButtonLink>
         </div>

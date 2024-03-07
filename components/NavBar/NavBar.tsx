@@ -24,14 +24,14 @@ export default function NavBar() {
     if (matchingNavItem) {
       setActiveSection(matchingNavItem.name)
     } else {
-      setActiveSection('Home') // Or some default/fallback section name
+      setActiveSection('Home')
     }
   }, [pathname, navItems])
 
   return (
     <nav className="mb-24 flex w-full max-w-3xl justify-center md:mb-12">
       {/* nav bar */}
-      <div className="bg-background dark:shadow-foreground/20 fixed z-30 flex w-full items-center justify-between py-4 shadow md:relative md:px-0 md:py-0 md:shadow-none">
+      <div className="fixed z-30 flex w-full items-center justify-between bg-background py-4 shadow dark:shadow-foreground/20 md:relative md:px-0 md:py-0 md:shadow-none">
         {/* nav bar menu */}
         <div className="hidden w-full pt-6 sm:hidden md:flex md:items-center md:justify-between">
           <ul className="flex items-center gap-5">
@@ -42,11 +42,11 @@ export default function NavBar() {
                   className="relative text-lg transition-all duration-200 ease-in-out"
                   prefetch={true}
                 >
-                  {name}
+                  {name.toLocaleLowerCase()}
 
                   {activeSection === name && (
                     <motion.span
-                      className="border-b-primary absolute -bottom-[2px] left-0 -z-10 w-full rounded border-b-2"
+                      className="absolute -bottom-[2px] left-0 -z-10 w-full rounded border-b-2 border-b-primary"
                       layoutId="activeSection"
                       transition={{
                         type: 'spring',
@@ -65,7 +65,7 @@ export default function NavBar() {
 
         <div className="flex w-full items-center justify-between px-4 md:hidden">
           <Sheet key="mobile">
-            <SheetTrigger asChild>
+            <SheetTrigger>
               <button
                 className="hamburger relative shadow-2xl focus:outline-none"
                 id="menu-btn"
@@ -80,7 +80,7 @@ export default function NavBar() {
                 {navItems.map(({ name, href }) => (
                   <SheetClose key={name + href} asChild>
                     <Link href={href} className="text-3xl" aria-label={name}>
-                      {`/${name}`}
+                      {`/${name.toLocaleLowerCase()}`}
                     </Link>
                   </SheetClose>
                 ))}
