@@ -4,6 +4,7 @@ export default {
   name: 'resume',
   title: TITLE,
   type: 'document',
+  __experimental_formPreviewTitle: false,
   fields: [
     {
       name: 'resume',

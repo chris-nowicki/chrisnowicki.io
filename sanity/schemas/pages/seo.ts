@@ -1,11 +1,10 @@
-import { defineType } from 'sanity'
-
-const TITLE = 'Seo'
+const TITLE = 'SEO'
 
 export default {
   name: 'seo',
   title: TITLE,
   type: 'document',
+  __experimental_formPreviewTitle: false,
   fields: [
     {
       name: 'name',

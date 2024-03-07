@@ -5,6 +5,7 @@ export default {
   type: 'document',
   title: 'Skills',
   icon: CodeBlockIcon,
+  __experimental_formPreviewTitle: false,
   fields: [
     {
       name: 'name',

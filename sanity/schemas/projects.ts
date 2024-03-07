@@ -5,6 +5,7 @@ export default {
   type: 'document',
   title: 'Projects',
   icon: JoystickIcon,
+  __experimental_formPreviewTitle: false,
   fields: [
     {
       name: 'projectName',

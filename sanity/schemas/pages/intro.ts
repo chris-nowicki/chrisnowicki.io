@@ -4,6 +4,7 @@ export default {
   name: 'intro',
   title: TITLE,
   type: 'document',
+  __experimental_formPreviewTitle: false,
   fields: [
     {
       name: 'profilePicture',

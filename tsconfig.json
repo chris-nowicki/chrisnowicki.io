@@ -30,6 +30,6 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "sanity/theme.js"
-  ],
+, "sanity.cli.ts"  ],
   "exclude": ["node_modules"]
 }
