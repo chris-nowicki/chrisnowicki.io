@@ -4,15 +4,13 @@ import { sanityFetch } from './sanity-utils'
 
 // GROQ Queries
 export async function getSEO(): Promise<SeoType> {
-  const query = groq`*[_type == "settings"] {
-        seo {
+  const query = groq`*[_type == "seo"] { 
             name,
             siteName,
             url,
             description,
             "image": image.asset->url,
-        }
-    }[0].seo`
+    }[0]`
 
   const res: SeoType = await sanityFetch({ query, tags: ['settings'] })
   return res
