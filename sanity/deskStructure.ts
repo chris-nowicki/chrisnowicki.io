@@ -7,7 +7,15 @@ export const myStructure = (S: any) =>
       S.listItem()
         .title('Site Settings')
         .icon(CogIcon)
-        .child(S.document().schemaType('settings').documentId('settings')),
+        .child(
+          S.list()
+            .title('Site Settings')
+            .items([
+              S.listItem()
+                .title('SEO')
+                .child(S.document().schemaType('seo').documentId('seo')),
+            ])
+        ),
       S.divider(),
       S.listItem()
         .title('Portfolio')
@@ -37,7 +45,7 @@ export const myStructure = (S: any) =>
       ...S.documentTypeListItems().filter(
         (listItem: any) =>
           ![
-            'settings',
+            'seo',
             'home',
             'intro',
             'featuredProjects',

@@ -5,7 +5,14 @@ import tech from './skills'
 import projects from './projects'
 
 // Singleton document type
-import settings from './singletons/settings'
-const singletons = [settings]
+import seo from './singletons/seo'
+const singletons = [seo]
 
-export const schemaTypes = [...singletons, intro, featuredProjects, resume, tech, projects]
+export const schemaTypes = [
+  ...singletons,
+  intro,
+  featuredProjects,
+  resume,
+  tech,
+  projects,
+]
