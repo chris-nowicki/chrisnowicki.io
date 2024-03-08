@@ -11,6 +11,8 @@ import OSS from '@/components/Engagements/OSS'
 import Conferences from '@/components/Engagements/Conferences'
 import Speaking from '@/components/Engagements/Speaking'
 
+export const dynamic = 'force-dynamic'
+
 export default async function Blog() {
   return (
     <section className="flex w-full flex-col gap-4 px-4 md:px-0">
