@@ -11,7 +11,7 @@ import OSS from '@/components/Engagements/OSS'
 import Conferences from '@/components/Engagements/Conferences'
 import Speaking from '@/components/Engagements/Speaking'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 60
 
 export default async function Blog() {
   return (
