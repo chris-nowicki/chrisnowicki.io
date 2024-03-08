@@ -5,7 +5,6 @@ import type { Article } from '@/types/types'
 import { format } from 'date-fns/format'
 import { getPostViews } from '@/lib/appwrite'
 
-export const dynamic = 'force-dynamic'
 export const revalidate = 60
 
 export default async function Blog() {

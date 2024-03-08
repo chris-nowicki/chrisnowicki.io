@@ -7,6 +7,8 @@ import { getArticles } from '@/lib/devto'
 import { getPostViews } from '@/lib/appwrite'
 import type { Article } from '@/types/types'
 
+export const revalidate = 60
+
 export default async function TechnicalWriting() {
   const articleData: Promise<Article[]> = getArticles()
   const postViewData = getPostViews()
