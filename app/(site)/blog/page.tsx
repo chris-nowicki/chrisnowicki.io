@@ -1,13 +1,15 @@
 import Icon from '@/components/Icon'
 import SectionHeading from '@/components/SectionHeading'
 import { getArticles } from '@/lib/devto'
-import { getStoredPostViews } from '@/lib/planetscale'
 import type { Article } from '@/types/types'
 import { format } from 'date-fns/format'
+import { getPostViews } from '@/lib/appwrite'
+
+export const revalidate = 60
 
 export default async function Blog() {
   const articleData: Promise<Article[]> = getArticles()
-  const postViewData = getStoredPostViews()
+  const postViewData = getPostViews()
 
   const [articles, totalPostViews] = await Promise.all([
     articleData,

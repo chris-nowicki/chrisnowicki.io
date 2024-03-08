@@ -1,7 +1,7 @@
 import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
 import { NextRequest, NextResponse } from 'next/server'
-import { updateTweetCount, getStoredTweetCount } from '@/lib/planetscale'
+import { getXMetrics, updateXMetrics } from '@/lib/appwrite'
 import { getTweetCount } from '@/lib/x'
 
 // Nextjs route segment config
@@ -50,7 +50,7 @@ export async function GET(req: NextRequest) {
     }
 
     // Fetch the current stored tweet count from PlanetScale storage
-    const storedTweetCount = await getStoredTweetCount()
+    const storedTweetCount = await getXMetrics()
 
     // If the tweet count hasn't changed, return 208 status code
     if (tweetCount === storedTweetCount) {
@@ -62,8 +62,7 @@ export async function GET(req: NextRequest) {
       )
     } else {
       // If the tweet count has changed, update the stored tweet count and return 200 status code
-      const res = await updateTweetCount(tweetCount)
-      console.log(res)
+      await updateXMetrics(tweetCount)
       return NextResponse.json(`(updated) Tweet count: ${tweetCount}`, {
         status: 200,
       })

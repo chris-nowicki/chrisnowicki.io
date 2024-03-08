@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Octokit } from 'octokit'
-import { getStoredGithubMetrics, updateGithubMetrics } from '@/lib/planetscale'
+import { getGithubMetrics, updateGithubMetrics } from '@/lib/appwrite'
 
 // Force dynamic (server) route instead of static page
 export const dynamic = 'force-dynamic'
@@ -15,9 +15,6 @@ export async function GET(req: NextRequest) {
     per_page: 100,
     affiliation: 'owner',
   })
-
-  // Count all repos
-  const totalRepos = repos.data.length
 
   // Retrieve all commits and count them
   let totalCommits = 0
@@ -42,29 +39,22 @@ export async function GET(req: NextRequest) {
   }
 
   // update PlanetScale database with new metrics
-  if (totalCommits === 0 || totalRepos === 0) {
-    return NextResponse.json({ error: 'No commits or repos found' })
+  if (totalCommits === 0) {
+    return NextResponse.json({ error: 'No commits found' })
   }
 
-  const storedGithubMetrics = await getStoredGithubMetrics()
+  const storedCommits = await getGithubMetrics()
 
   // If the metrics haven't changed, return 208 status code
-  if (
-    storedGithubMetrics.commits == totalCommits &&
-    storedGithubMetrics.repos == totalRepos
-  ) {
-    return NextResponse.json(
-      `(no change) commits: ${totalCommits} repos: ${totalRepos}`,
-      {
-        status: 208,
-      }
-    )
+  if (storedCommits == totalCommits) {
+    return NextResponse.json(`(no change) commits: ${totalCommits}`, {
+      status: 208,
+    })
   } else {
     // If the metrics have changed, update the stored metrics and return 200 status code
-    const res = await updateGithubMetrics(totalCommits, totalRepos)
-    return NextResponse.json(
-      `(updated) commits: ${totalCommits}, repos: ${totalRepos}`,
-      { status: 200 }
-    )
+    await updateGithubMetrics(totalCommits)
+    return NextResponse.json(`(updated) commits: ${totalCommits}`, {
+      status: 200,
+    })
   }
 }

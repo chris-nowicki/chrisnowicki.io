@@ -1,17 +1,14 @@
 import { socialLinks } from '@/lib/data'
-import { getStoredGithubMetrics, getStoredTweetCount } from '@/lib/planetscale'
+import { getXMetrics, getGithubMetrics } from '@/lib/appwrite'
 import Icon from '@/components/Icon'
 
 export const revalidate = 60
 
 export default async function Metrics() {
-  const githubMetricsData = getStoredGithubMetrics()
-  const tweetCountData = getStoredTweetCount()
+  const githubMetricsData = getGithubMetrics()
+  const xData = getXMetrics()
 
-  const [githubMetrics, tweetCount] = await Promise.all([
-    githubMetricsData,
-    tweetCountData,
-  ])
+  const [commits, tweetCount] = await Promise.all([githubMetricsData, xData])
 
   const githubLink = socialLinks.filter((link) => link.name === 'GitHub')[0]
   const twitterLink = socialLinks.filter((link) => link.name === 'Twitter')[0]
@@ -41,7 +38,7 @@ export default async function Metrics() {
           className="animate-pulse text-primary transition-all"
         />
         <span className="text-purple-light dark:text-purple-dark">
-          {githubMetrics.commits.toLocaleString()}
+          {commits.toLocaleString()}
         </span>
         <a
           href={githubLink.URL}

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { getArticles } from '@/lib/devto'
-import { getStoredPostViews, updatePostViews } from '@/lib/planetscale'
+import { getPostViews, updatePostViews } from '@/lib/appwrite'
 
 // Force dynamic (server) route instead of static page
 export const dynamic = 'force-dynamic'
@@ -27,7 +27,7 @@ export async function GET(req: NextRequest) {
   }
 
   // get current stored post views from the database
-  const storedPostViews = await getStoredPostViews()
+  const storedPostViews = await getPostViews()
 
   // if the stored post views do not equal views from dev.to then update the database
   if (storedPostViews === postViewCount) {
