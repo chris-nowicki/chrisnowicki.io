@@ -3,7 +3,7 @@ import FeaturedProjects from '@/components/FeaturedProjects/FeaturedProjects'
 import Hero from '@/components/Hero/Hero'
 import Speaking from '@/components/Highlights'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 60
 
 export default async function Home() {
   return (

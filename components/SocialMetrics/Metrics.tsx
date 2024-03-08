@@ -2,8 +2,6 @@ import { socialLinks } from '@/lib/data'
 import { getXMetrics, getGithubMetrics } from '@/lib/appwrite'
 import Icon from '@/components/Icon'
 
-export const revalidate = 60
-
 export default async function Metrics() {
   const githubMetricsData = getGithubMetrics()
   const xData = getXMetrics()
