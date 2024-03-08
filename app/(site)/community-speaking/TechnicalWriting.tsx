@@ -4,12 +4,12 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { getArticles } from '@/lib/devto'
-import { getStoredPostViews } from '@/lib/planetscale'
+import { getPostViews } from '@/lib/appwrite'
 import type { Article } from '@/types/types'
 
 export default async function TechnicalWriting() {
   const articleData: Promise<Article[]> = getArticles()
-  const postViewData = getStoredPostViews()
+  const postViewData = getPostViews()
 
   const [articles, totalPostViews] = await Promise.all([
     articleData,
