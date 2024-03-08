@@ -11,7 +11,6 @@
     "release:major": "npm version major",
     "release:minor": "npm version minor",
     "release:patch": "npm version patch",
-    "postinstall": "prisma generate --no-engine",
     "studio": "npx prisma studio",
     "build:icons": "tsx ./scripts/build-icons.mts"
   },

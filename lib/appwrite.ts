@@ -19,7 +19,6 @@ const db = new sdk.Databases(client)
 // devto post metrics
 export const getPostViews = async () => {
   const res = await db.getDocument('metrics', 'devto', devto_DocumentId)
-  console.log(res)
   // @ts-ignore
   return res.postViews
 }
@@ -33,7 +32,6 @@ export const updatePostViews = async (postViews: number) => {
 // twitter metrics
 export const getXMetrics = async () => {
   const res = await db.getDocument('metrics', 'x', x_DocumentId)
-  console.log(res)
   // @ts-ignore
   return res.tweetCount
 }
@@ -47,7 +45,6 @@ export const updateXMetrics = async (tweetCount: number) => {
 // github metrics
 export const getGithubMetrics = async () => {
   const res = await db.getDocument('metrics', 'github', github_DocumentId)
-  console.log(res)
   // @ts-ignore
   return res.commits
 }
