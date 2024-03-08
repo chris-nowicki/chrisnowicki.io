@@ -17,8 +17,6 @@
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
     "@portabletext/react": "^3.0.11",
-    "@prisma/client": "^5.10.2",
-    "@prisma/extension-accelerate": "^1.0.0",
     "@radix-ui/react-accordion": "^1.1.2",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
