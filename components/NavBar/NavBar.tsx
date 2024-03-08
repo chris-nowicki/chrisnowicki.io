@@ -65,15 +65,12 @@ export default function NavBar() {
 
         <div className="flex w-full items-center justify-between px-4 md:hidden">
           <Sheet key="mobile">
-            <SheetTrigger>
-              <button
-                className="hamburger relative shadow-2xl focus:outline-none"
-                id="menu-btn"
-              >
+            <SheetTrigger className="mb-6">
+              <span className="hamburger shadow-2xl">
                 <span className="hamburger-top bg-accent-foreground"></span>
                 <span className="hamburger-middle bg-accent-foreground"></span>
                 <span className="hamburger-bottom bg-accent-foreground"></span>
-              </button>
+              </span>
             </SheetTrigger>
             <SheetContent side="left" className=" h-svh w-screen">
               <div className="mt-7 flex flex-col justify-center self-end opacity-95 drop-shadow-md dark:opacity-100">
@@ -87,7 +84,7 @@ export default function NavBar() {
               </div>
             </SheetContent>
           </Sheet>
-
+          
           <ModeToggle />
         </div>
       </div>
