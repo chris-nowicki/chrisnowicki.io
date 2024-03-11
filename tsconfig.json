@@ -25,11 +25,13 @@
     ]
   },
   "include": [
+    "new-types.d.ts",
     "next-env.d.ts",
+    ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "sanity/theme.js"
-, "sanity.cli.ts"  ],
+    "sanity/theme.js",
+    "sanity.cli.ts"
+  ],
   "exclude": ["node_modules"]
 }
