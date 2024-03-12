@@ -123,7 +123,7 @@
 /* markdown code block */
 
 [data-rehype-pretty-code-figure] pre {
-  @apply rounded-lg p-2;
+  @apply overflow-auto rounded-lg p-2;
 }
 
 [data-rehype-pretty-code-figure] code {
@@ -159,5 +159,35 @@
 }
 
 .subheading-anchor {
-  @apply no-underline hover:underline;
+  @apply relative text-foreground no-underline;
+}
+
+.subheading-anchor::before {
+  content: ''; /* Initial state has no content. */
+  position: absolute;
+  left: -30px; /* Adjust as needed to place the hashtag to the left. */
+  top: 0; /* Align with the top of the anchor. */
+  opacity: 0; /* Make it invisible initially. */
+  transition: opacity 0.2s; /* Smooth transition for the hover effect. */
+}
+
+.subheading-anchor:hover::before {
+  content: '#'; /* The content to show on hover. */
+  opacity: 1; /* Make the hashtag visible on hover. */
+  @apply text-muted-foreground/40;
+}
+
+.mdx
+  a:not(
+    body
+      > div.flex.flex-col.items-center
+      > div
+      > main
+      > article
+      > div.mdx
+      > div
+      a,
+    .subheading-anchor
+  ) {
+  @apply text-primary hover:underline;
 }

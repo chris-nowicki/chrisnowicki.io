@@ -74,26 +74,30 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <article className="prose-img:border prose-img:rounded-lg prose-img:mt-6 prose-img:shadow-md dark:prose-img:shadow-none">
-      <h1>{post.title}</h1>
-      <div className="text-md font-mono mb-4 mt-2 flex items-center gap-2 text-muted-foreground">
+    <article className="flex flex-col px-6 prose-img:mt-6 prose-img:rounded-lg prose-img:border prose-img:shadow-md dark:prose-img:shadow-none md:px-0">
+      <h1 className="text-2xl md:text-5xl">{post.title}</h1>
+      <div className="text-md mb-4 mt-2 flex items-center gap-2 text-muted-foreground">
         {format(new Date(post.date), 'MMMM dd, yyyy')}
         <Separator orientation="vertical" className="h-4" />
         <span>{post.readingTime}</span>
       </div>
       {post.cover && (
-        <Image
-          src={post.cover}
-          alt={post.title}
-          width={768}
-          height={400}
-          className="rounded-lg border-none"
-        />
+        <>
+          <Image
+            src={post.cover}
+            alt={post.title}
+            width={768}
+            height={400}
+            className="rounded-lg border-none"
+          />
+        </>
       )}
       {post.description ?
         <p className="text-muted-foreground">{post.description}</p>
       : null}
-      <MDXContent code={post.body} />
+      <div className="mdx">
+        <MDXContent code={post.body} />
+      </div>
       <div className="group mt-20 flex justify-center text-xl text-muted-foreground hover:text-primary">
         <Link
           href="/blog"
