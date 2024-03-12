@@ -10,6 +10,7 @@ const posts = defineCollection({
   schema: s
     .object({
       slug: s.path(),
+      cover: s.string().optional(),
       title: s.string().max(99),
       description: s.string().max(999).optional(),
       date: s.isodate(),

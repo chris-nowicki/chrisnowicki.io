@@ -1,10 +1,12 @@
 import { posts } from '#site/content'
-import { MDXContent } from '@/components/Posts/MDX-Components'
-import { notFound } from 'next/navigation'
-
-import '@/styles/mdx.css'
-import { Metadata } from 'next'
+import { MDXContent } from '@/components/Posts/mdx-components'
+import { Separator } from '@/components/ui/separator'
 import { siteConfig } from '@/config/site'
+import { format } from 'date-fns'
+import { Metadata } from 'next'
+import Image from 'next/image'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
 
 interface PostPageProps {
   params: {
@@ -72,12 +74,35 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <article className="prose dark:prose-invert py-6">
-      <h1 className="mb-2">{post.title}</h1>
+    <article className="prose-img:border prose-img:rounded-lg prose-img:mt-6 prose-img:shadow-md dark:prose-img:shadow-none">
+      <h1>{post.title}</h1>
+      <div className="text-md font-mono mb-4 mt-2 flex items-center gap-2 text-muted-foreground">
+        {format(new Date(post.date), 'MMMM dd, yyyy')}
+        <Separator orientation="vertical" className="h-4" />
+        <span>{post.readingTime}</span>
+      </div>
+      {post.cover && (
+        <Image
+          src={post.cover}
+          alt={post.title}
+          width={768}
+          height={400}
+          className="rounded-lg border-none"
+        />
+      )}
       {post.description ?
-        <p className="mt-0 text-xl text-muted-foreground">{post.description}</p>
+        <p className="text-muted-foreground">{post.description}</p>
       : null}
       <MDXContent code={post.body} />
+      <div className="group mt-20 flex justify-center text-xl text-muted-foreground hover:text-primary">
+        <Link
+          href="/blog"
+          prefetch={true}
+          className="rounded-lg border p-4 group-hover:border-primary"
+        >
+          ← back to blog posts
+        </Link>
+      </div>
     </article>
   )
 }

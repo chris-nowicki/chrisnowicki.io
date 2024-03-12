@@ -31,6 +31,7 @@
     "@sanity/vision": "^3.32.0",
     "@sentry/cli": "^2.30.0",
     "@sentry/nextjs": "^7.106.1",
+    "@types/mdx": "^2.0.11",
     "@vercel/analytics": "^1.2.2",
     "@vercel/edge-config": "^1.1.0",
     "@vercel/og": "^0.6.2",
@@ -69,6 +70,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20.11.26",
     "@types/react": "^18.2.65",
     "@types/react-dom": "^18.2.21",

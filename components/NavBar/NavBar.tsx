@@ -37,7 +37,7 @@ export default function NavBar() {
       <div className="fixed z-30 flex w-full items-center justify-between bg-background py-4 shadow dark:shadow-foreground/20 md:relative md:px-0 md:py-0 md:shadow-none">
         {/* nav bar menu */}
         <div className="hidden w-full pt-6 sm:hidden md:flex md:items-center md:justify-between">
-          <ul className="flex items-center gap-5">
+          <ul className="ml-0 flex list-none items-center gap-5">
             {navItems.map(({ name, href }) => (
               <li key={href}>
                 <Link
