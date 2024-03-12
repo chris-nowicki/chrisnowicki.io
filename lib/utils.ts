@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from 'clsx'
 import { twMerge } from 'tailwind-merge'
+import { Post } from '#site/content'
 
 // EMAIL (CONTACT FORM) VALIDATIONS
 // validate if the contact form email and message is a string
@@ -33,4 +34,12 @@ export const getErrorMessage = (error: unknown): string => {
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
+}
+
+export function sortPosts(posts: Array<Post>) {
+  return posts.sort((a, b) => {
+    if (a.date > b.date) return -1
+    if (a.date < b.date) return 1
+    return 0
+  })
 }

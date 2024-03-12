@@ -20,8 +20,11 @@ export default function NavBar() {
   useMemo(() => {
     // Assuming navItems is an array of objects with name and href properties
     const matchingNavItem = navItems.find((item) => item.href === pathname)
+    const blogPattern = /^\/blog\/.+/
 
-    if (matchingNavItem) {
+    if (blogPattern.test(pathname)) {
+      setActiveSection('Blog')
+    } else if (matchingNavItem) {
       setActiveSection(matchingNavItem.name)
     } else {
       setActiveSection('Home')
@@ -84,7 +87,7 @@ export default function NavBar() {
               </div>
             </SheetContent>
           </Sheet>
-          
+
           <ModeToggle />
         </div>
       </div>

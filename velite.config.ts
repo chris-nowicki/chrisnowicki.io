@@ -1,9 +1,8 @@
 import { defineConfig, defineCollection, s } from 'velite'
-
-const computedFields = <T extends { slug: string }>(data: T) => ({
-  ...data,
-  slugAsParams: data.slug.split('/').slice(1).join('/'),
-})
+import rehypeSlug from 'rehype-slug'
+import rehypePrettyCode from 'rehype-pretty-code'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import readingTime from 'reading-time/lib/reading-time'
 
 const posts = defineCollection({
   name: 'Post',
@@ -12,12 +11,17 @@ const posts = defineCollection({
     .object({
       slug: s.path(),
       title: s.string().max(99),
-      excerpt: s.excerpt({ length: 400 }),
+      description: s.string().max(999).optional(),
       date: s.isodate(),
       published: s.boolean().default(true),
+      featured: s.boolean().default(false),
       body: s.mdx(),
     })
-    .transform(computedFields),
+    .transform((data) => ({
+      ...data,
+      slugAsParams: data.slug.split('/').slice(1).join('/'),
+      readingTime: readingTime(data.body, 265).text,
+    })),
 })
 
 export default defineConfig({
@@ -31,7 +35,21 @@ export default defineConfig({
   },
   collections: { posts },
   mdx: {
-    rehypePlugins: [],
+    gfm: true,
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypePrettyCode, { theme: 'dracula' }],
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: 'wrap',
+          properties: {
+            className: ['subheading-anchor'],
+            ariaLabel: 'Link to section',
+          },
+        },
+      ],
+    ],
     remarkPlugins: [],
   },
 })
