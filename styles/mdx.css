@@ -1,9 +1,9 @@
 [data-rehype-pretty-code-figure] pre {
-  @apply px-0;
+  @apply rounded-lg px-0;
 }
 
 [data-rehype-pretty-code-figure] code {
-  @apply border-0 p-0 text-sm !leading-loose md:text-base;
+  @apply rounded-xl border-0 p-1 text-sm !leading-loose shadow-xl md:text-base;
 }
 
 [data-rehype-pretty-code-figure] code[data-line-numbers] {
