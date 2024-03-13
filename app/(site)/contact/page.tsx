@@ -11,7 +11,7 @@ export default async function Contact() {
       <SectionHeading className="-mb-6 text-left">Contact</SectionHeading>
 
       {/* contact description */}
-      <p className="-mt-2 text-center md:text-left md:text-lg">
+      <p className="-mt-2 text-left md:text-lg">
         Please contact me directly at{' '}
         <a
           className="text-primary hover:underline"
@@ -31,14 +31,14 @@ export default async function Contact() {
       </p>
 
       {/* contact buttons */}
-      <div className="my-4 flex gap-3">
+      <div className="mb-4 flex gap-3">
         {contactPageLinks.map((link, index) => (
           <Link
             key={index}
             href={link.href}
             className={cn(
               buttonVariants({ variant: link.variant, size: 'lg' }),
-              'rounded-lg md:text-lg'
+              'rounded-lg py-7 md:text-lg'
             )}
             target="_blank"
             aria-label={link.aria}
