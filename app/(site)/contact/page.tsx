@@ -8,7 +8,7 @@ import { contactPageLinks } from '@/lib/data'
 export default async function Contact() {
   return (
     <section className="flex w-full flex-col items-center gap-2 px-4 md:items-start md:px-0">
-      <SectionHeading className="-mb-6">Contact</SectionHeading>
+      <SectionHeading className="-mb-6 text-left">Contact</SectionHeading>
 
       {/* contact description */}
       <p className="-mt-2 text-center md:text-left md:text-lg">

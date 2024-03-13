@@ -13,11 +13,11 @@ export default function PostItem({ slug, title, readingTime }: PostItemProps) {
       <Link
         href={slug}
         prefetch={true}
-        className="text-xl font-semibold hover:text-primary"
+        className="text-md font-semibold hover:text-primary md:text-xl"
       >
         {title}
       </Link>
-      <div className="text-md flex items-center gap-2 text-muted-foreground">
+      <div className="flex items-center gap-2 text-sm text-muted-foreground">
         <Icon id="clock" size={16} />
         {readingTime}
       </div>

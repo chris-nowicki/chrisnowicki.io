@@ -14,22 +14,22 @@ export default async function Blog() {
   const displayPosts = sortedPosts
 
   return (
-    <section className="flex flex-col items-start">
-      <SectionHeading className="-mb-6 text-left text-6xl">Blog</SectionHeading>
+    <section className="mx-6 flex flex-col items-start md:mx-0">
+      <SectionHeading className="-mb-6 text-left">Blog</SectionHeading>
       <p className="mb-6 text-muted-foreground">
         My ramblings on the web about all things tech!
       </p>
 
       {/* featured post */}
-      <div className="relative flex w-full rounded-xl border group-hover:shadow-none">
+      <div className="relative flex w-full flex-wrap rounded-xl border group-hover:shadow-none md:flex-row">
         <Image
           src={featuredPosts.cover}
           width={300}
           height={100}
           alt={featuredPosts.title}
-          className="w-1/2 rounded-bl-xl rounded-tl-xl object-cover"
+          className="w-full rounded-tl-xl rounded-tr-xl object-cover md:w-1/2 md:rounded-bl-xl md:rounded-tl-xl"
         />
-        <div className="flex w-1/2 flex-col p-4">
+        <div className="flex w-full flex-col p-4 md:w-1/2">
           <span className="text-lg font-semibold">{featuredPosts.title}</span>
           <p className="text-muted-foreground">{featuredPosts.description}</p>
           <div className="flex items-center justify-between">
@@ -53,14 +53,14 @@ export default async function Blog() {
         {/* badge */}
         <Icon
           id="featured"
-          className="absolute -right-3 -top-2 text-primary"
+          className="absolute -right-4 -top-2 text-primary md:-right-3 md:-top-2"
           size={48}
         />
       </div>
 
       {/* non-featured posts */}
       <div className="mt-10 w-full">
-        <span className="text-3xl font-semibold">Archive</span>
+        <span className="text-2xl font-semibold md:text-3xl">Archive</span>
         {displayPosts?.length > 0 ?
           <ul className="ml-0 flex list-none flex-col gap-1">
             {displayPosts.map((post, index) => (

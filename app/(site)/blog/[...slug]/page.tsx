@@ -7,6 +7,7 @@ import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import Icon from '@/components/Icon'
 
 interface PostPageProps {
   params: {
@@ -92,19 +93,21 @@ export default async function PostPage({ params }: PostPageProps) {
           />
         </>
       )}
-      {post.description ?
-        <p className="text-muted-foreground">{post.description}</p>
-      : null}
-      <div className="mdx">
+
+      <div className="mdx mt-6">
         <MDXContent code={post.body} />
       </div>
-      <div className="group mt-20 flex justify-center text-xl text-muted-foreground hover:text-primary">
+      <div className="group mt-12 flex justify-center text-xl text-muted-foreground hover:text-primary">
         <Link
           href="/blog"
           prefetch={true}
-          className="rounded-lg border p-4 group-hover:border-primary"
+          className="group flex items-center gap-2 rounded-lg border border-primary p-4 text-primary transition-colors ease-in-out hover:bg-primary hover:text-white"
         >
-          ← back to blog posts
+          <Icon
+            id="arrow-right"
+            className="rotate-180 transition-all ease-out group-hover:-translate-x-1"
+          />
+          back to blog posts
         </Link>
       </div>
     </article>

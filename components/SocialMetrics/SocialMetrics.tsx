@@ -61,7 +61,7 @@ export default async function SocialMetrics({
               href={link.URL}
               className={cn(
                 buttonVariants({ variant: 'outline' }),
-                'w-full px-3.5 py-6 hover:border-primary hover:bg-transparent hover:text-primary md:px-[9px] md:py-5'
+                'flex w-full items-center justify-center px-2 py-6 hover:border-primary hover:bg-transparent hover:text-primary md:px-[9px] md:py-5'
               )}
               target="_blank"
               aria-label={link.aria}
