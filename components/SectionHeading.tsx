@@ -13,7 +13,7 @@ export default function SectionHeading({
   return (
     <span
       className={cn(
-        'w-full border-b-0 pb-0 text-center text-2xl font-semibold uppercase md:text-3xl',
+        'w-full border-b-0 pb-0 text-center text-2xl font-semibold uppercase md:text-5xl',
         className
       )}
     >

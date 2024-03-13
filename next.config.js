@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  pageExtensions: ['mdx', 'tsx'],
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [
@@ -8,6 +9,18 @@ const nextConfig = {
         hostname: 'cdn.sanity.io',
         port: '',
         pathname: '/images/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'abs.twimg.com',
+        port: '',
+        pathname: '/ddetibihn/image/upload/v1710262757/**',
       },
       { protocol: 'https', hostname: 'pbs.twimg.com' },
       { protocol: 'https', hostname: 'abs.twimg.com' },
@@ -21,6 +34,30 @@ const nextConfig = {
       },
     ]
   },
+  webpack: (config) => {
+    config.plugins.push(new VeliteWebpackPlugin())
+    return config
+  },
+}
+
+class VeliteWebpackPlugin {
+  static started = false
+  constructor(/** @type {import('velite').Options} */ options = {}) {
+    this.options = options
+  }
+  apply(/** @type {import('webpack').Compiler} */ compiler) {
+    // executed three times in nextjs !!!
+    // twice for the server (nodejs / edge runtime) and once for the client
+    compiler.hooks.beforeCompile.tapPromise('VeliteWebpackPlugin', async () => {
+      if (VeliteWebpackPlugin.started) return
+      VeliteWebpackPlugin.started = true
+      const dev = compiler.options.mode === 'development'
+      this.options.watch = this.options.watch ?? dev
+      this.options.clean = this.options.clean ?? !dev
+      const { build } = await import('velite')
+      await build(this.options) // start velite
+    })
+  }
 }
 
 // https://nextjs.org/docs/advanced-features/security-headers

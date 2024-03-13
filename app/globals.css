@@ -55,32 +55,49 @@
   * {
     @apply border-border;
   }
+
   body {
     @apply overflow-y-scroll bg-background text-foreground;
   }
+
   html {
     @apply scroll-smooth;
   }
+
   h1 {
-    @apply scroll-m-20 text-4xl font-extrabold tracking-tight lg:text-5xl;
+    @apply scroll-m-20 text-4xl font-extrabold tracking-tight md:text-5xl;
   }
+
   h2 {
     @apply scroll-m-20 border-b pb-2 text-3xl font-semibold tracking-tight first:mt-0;
   }
+
   h3 {
     @apply scroll-m-20 text-2xl font-semibold tracking-tight;
   }
+
   h4 {
     @apply scroll-m-20 text-xl font-semibold tracking-tight;
   }
+
   p {
-    @apply leading-7 [&:not(:first-child)]:mt-6;
+    @apply mb-6 leading-7 [&:not(:first-child)]:mt-6;
   }
+
   blockquote {
-    @apply mt-6 border-l-2 pl-6 italic;
+    @apply mt-6 border-l-2 border-primary pl-6 italic;
   }
+
   svg {
     @apply fill-current;
+  }
+
+  ul {
+    @apply my-6 ml-6 list-disc marker:text-primary [&>li]:mt-2;
+  }
+
+  ol {
+    @apply my-6 ml-6 list-decimal marker:text-primary [&>li]:mt-2;
   }
 }
 
@@ -101,4 +118,104 @@
   .hamburger-bottom {
     @apply translate-y-3.5 transform;
   }
+}
+
+/* markdown code block */
+
+[data-rehype-pretty-code-figure] pre {
+  @apply overflow-auto rounded-lg p-2;
+}
+
+[data-rehype-pretty-code-figure] code {
+  @apply my-1 border-0 text-sm !leading-normal shadow-xl md:text-base;
+}
+
+[data-rehype-pretty-code-figure] code[data-line-numbers] {
+  counter-reset: line;
+}
+
+[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply mr-4 inline-block w-4 text-right text-gray-500;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply border-l-2 border-l-transparent px-3;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  background: rgba(200, 200, 255, 0.1);
+  @apply border-l-blue-400;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  @apply rounded bg-zinc-600/50;
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+}
+
+[data-rehype-pretty-code-figure] [data-chars-id] {
+  @apply border-b-2 p-1 shadow-none;
+}
+
+.subheading-anchor {
+  @apply relative text-foreground no-underline;
+}
+
+.subheading-anchor::before {
+  content: ''; /* Initial state has no content. */
+  position: absolute;
+  left: -30px; /* Adjust as needed to place the hashtag to the left. */
+  top: 0; /* Align with the top of the anchor. */
+  opacity: 0; /* Make it invisible initially. */
+  transition: opacity 0.2s; /* Smooth transition for the hover effect. */
+}
+
+.subheading-anchor:hover::before {
+  content: '#'; /* The content to show on hover. */
+  opacity: 1; /* Make the hashtag visible on hover. */
+  @apply text-muted-foreground/40;
+}
+
+.mdx
+  a:not(
+    body
+      > div.flex.flex-col.items-center
+      > div
+      > main
+      > article
+      > div.mdx
+      > div
+      a,
+    .subheading-anchor
+  ) {
+  @apply text-primary hover:underline;
+}
+
+/* body
+  > div.flex.flex-col.items-center
+  > div
+  > main
+  > article
+  > div.mdx
+  > div
+  > article
+  > div.tweet-header_header__CXzdi
+  > a.tweet-header_avatar__0Wi9G {
+  @apply mt-0;
+} */
+
+body
+  > div.flex.flex-col.items-center
+  > div
+  > main
+  > article
+  > div.mdx
+  > div
+  > article
+  > div.tweet-header_header__CXzdi
+  > a.tweet-header_avatar__0Wi9G
+  > div:nth-child(1)
+  > img {
+  @apply mt-0;
 }

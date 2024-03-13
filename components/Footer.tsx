@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import SocialMetrics from './SocialMetrics/SocialMetrics'
 import SectionDivider from './SectionDivider'
-import { Separator } from './ui/separator'
 
 const footerLinks = [
   { name: '/home', href: '/' },
@@ -20,13 +19,17 @@ export default async function Footer() {
         <div className="flex w-full flex-col items-center md:w-1/2 md:items-start md:justify-between">
           <span className="mb-4 text-3xl font-semibold ">Sitemap</span>
           {footerLinks.map((link, index) => (
-            <Link key={index} href={link.href} className="hover:text-primary">
+            <Link
+              key={index}
+              href={link.href}
+              className="text-xl hover:text-primary"
+            >
               {link.name}
             </Link>
           ))}
         </div>
-        <div className="flex w-full flex-col items-center justify-between gap-4 md:w-1/2 md:items-start  md:gap-0">
-          <span className="text-3xl font-semibold">Links to stuff</span>
+        <div className="flex w-full flex-col items-center gap-6 md:w-1/2 md:items-start">
+          <span className="text-3xl font-semibold">Links</span>
           <SocialMetrics metrics={false} footer={true} />
         </div>
       </div>
@@ -34,7 +37,7 @@ export default async function Footer() {
       <p className="text-left text-xs md:px-4">
         <span className="font-semibold">Built with:</span> Next.js, TypeScript,
         Tailwind CSS, shadcn/ui, Framer Motion, React Email & Resend, Sanity
-        CMS, PlanetScale MySQL, and hosted on Vercel.
+        CMS, Appwrite DB, and hosted on Vercel.
       </p>
     </footer>
   )
