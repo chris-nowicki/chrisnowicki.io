@@ -48,11 +48,10 @@ export default function FeaturedPost({ post }) {
         </div>
       </div>
       {/* badge */}
-      <Icon
-        id="featured"
-        className="absolute -right-4 -top-2 text-primary md:-right-3 md:-top-2"
-        size={48}
-      />
+      <div className="absolute -right-4 -top-2 flex items-center gap-2 text-white md:left-1 md:top-1">
+        <Icon id="star" className="" size={26} />
+        <span className="text-lg font-semibold">Featured Article</span>
+      </div>
     </div>
   )
 }
