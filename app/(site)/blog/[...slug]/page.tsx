@@ -1,5 +1,5 @@
 import { posts } from '#site/content'
-import { MDXContent } from '@/components/Posts/mdx-components'
+import { MDXContent } from '@/mdx-components'
 import { Separator } from '@/components/ui/separator'
 import { siteConfig } from '@/config/site'
 import { format } from 'date-fns'
