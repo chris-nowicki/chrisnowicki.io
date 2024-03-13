@@ -3,6 +3,43 @@ import FeaturedPost from '@/components/Blog/FeaturedPost'
 import PostItem from '@/components/Blog/PostItem'
 import SectionHeading from '@/components/SectionHeading'
 import { sortPosts } from '@/lib/utils'
+import { Metadata } from 'next'
+
+type OGImageType = {
+  url: string
+}
+
+// metadata
+const title: string = `Chris Nowicki's Blog`
+const description: string = `Checkout my latest articles on all things tech and web development!`
+
+const ogSearchParams = new URLSearchParams()
+ogSearchParams.set('page', 'BLOG')
+ogSearchParams.set('description', description)
+
+export const metadata: Metadata = {
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    url: 'https://chrisnowicki.io/blog',
+    images: [
+      {
+        url: `/api/og?${ogSearchParams.toString()}`,
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: [`/api/og?${ogSearchParams.toString()}`],
+  },
+}
 
 export default async function Blog() {
   const sortedPosts = sortPosts(

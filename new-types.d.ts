@@ -22,6 +22,7 @@ const envVariables = z.object({
   X_DOCUMENT_ID: z.string(),
   GITHUB_DOCUMENT_ID: z.string(),
   NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: z.string(),
+  VERCEL_ENV: z.string(),
 })
 
 envVariables.parse(process.env)

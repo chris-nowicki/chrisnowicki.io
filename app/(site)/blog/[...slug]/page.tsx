@@ -32,7 +32,8 @@ export async function generateMetadata({
   }
 
   const ogSearchParams = new URLSearchParams()
-  ogSearchParams.set('title', post.title)
+  ogSearchParams.set('page', 'BLOG')
+  ogSearchParams.set('description', post.title)
 
   return {
     title: post.title,
@@ -59,12 +60,6 @@ export async function generateMetadata({
       images: [`/api/og?${ogSearchParams.toString()}`],
     },
   }
-}
-
-export async function generateStaticParams(): Promise<
-  PostPageProps['params'][]
-> {
-  return posts.map((post) => ({ slug: post.slugAsParams.split('/') }))
 }
 
 export default async function PostPage({ params }: PostPageProps) {

@@ -8,7 +8,7 @@ const footerLinks = [
   { name: '/speaking', href: '/#speaking' },
   { name: '/blog', href: '/blog' },
   { name: '/contact', href: '/contact' },
-  { name: '/community', href: '/community-speaking' },
+  { name: '/community', href: '/community' },
 ]
 
 export default async function Footer() {

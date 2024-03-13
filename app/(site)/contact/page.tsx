@@ -4,6 +4,39 @@ import { cn } from '@/lib/utils'
 import Link from 'next/link'
 import EmailForm from '../../../components/Contact/EmailForm'
 import { contactPageLinks } from '@/lib/data'
+import { Metadata } from 'next'
+
+// metadata
+const title: string = `Contact Chris Nowicki`
+const description: string = `Schedule a video call or send a message`
+
+const ogSearchParams = new URLSearchParams()
+ogSearchParams.set('page', 'CONTACT')
+ogSearchParams.set('description', description)
+
+export const metadata: Metadata = {
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    url: 'https://chrisnowicki.io/contact',
+    images: [
+      {
+        url: `/api/og?${ogSearchParams.toString()}`,
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: [`/api/og?${ogSearchParams.toString()}`],
+  },
+}
 
 export default async function Contact() {
   return (

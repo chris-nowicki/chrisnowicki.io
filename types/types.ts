@@ -82,3 +82,7 @@ interface ErrorResponse {
   message: string
   name: RESEND_ERROR_CODE_KEY
 }
+
+export type OGImageType = {
+  url: string
+}
