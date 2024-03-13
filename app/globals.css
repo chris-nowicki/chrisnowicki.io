@@ -101,27 +101,7 @@
   }
 }
 
-@layer components {
-  .hamburger {
-    @apply relative h-6 w-6 cursor-pointer transition-all duration-300;
-  }
-
-  .hamburger-top,
-  .hamburger-middle,
-  .hamburger-bottom {
-    @apply absolute left-[5px] top-[5px] h-[2px] w-6 rotate-0 transition-transform duration-500;
-  }
-  .hamburger-middle {
-    @apply translate-y-[7px] transform;
-  }
-
-  .hamburger-bottom {
-    @apply translate-y-3.5 transform;
-  }
-}
-
-/* markdown code block */
-
+/* markdown code block styling */
 [data-rehype-pretty-code-figure] pre {
   @apply overflow-auto rounded-lg p-2;
 }
@@ -158,6 +138,7 @@
   @apply border-b-2 p-1 shadow-none;
 }
 
+/* styles subheadings in a blog post to show anchor tag next to the subheading */
 .subheading-anchor {
   @apply relative text-foreground no-underline;
 }
@@ -177,6 +158,7 @@
   @apply text-muted-foreground/40;
 }
 
+/* ensures article header links are not styled like a tags */
 .mdx
   a:not(
     body
@@ -192,19 +174,7 @@
   @apply text-primary hover:underline;
 }
 
-/* body
-  > div.flex.flex-col.items-center
-  > div
-  > main
-  > article
-  > div.mdx
-  > div
-  > article
-  > div.tweet-header_header__CXzdi
-  > a.tweet-header_avatar__0Wi9G {
-  @apply mt-0;
-} */
-
+/* ensures avatar of twitter image is not changed by prose-a tailwind utility class */
 body
   > div.flex.flex-col.items-center
   > div

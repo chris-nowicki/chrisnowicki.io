@@ -21,6 +21,7 @@ const envVariables = z.object({
   DEVTO_DOCUMENT_ID: z.string(),
   X_DOCUMENT_ID: z.string(),
   GITHUB_DOCUMENT_ID: z.string(),
+  NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: z.string(),
 })
 
 envVariables.parse(process.env)
