@@ -4,7 +4,7 @@ import { Separator } from '@/components/ui/separator'
 import { siteConfig } from '@/config/site'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
-import Image from 'next/image'
+import PostCover from '@/components/Blog/PostCover'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Icon from '@/components/Icon'
@@ -82,18 +82,7 @@ export default async function PostPage({ params }: PostPageProps) {
         <Separator orientation="vertical" className="h-4" />
         <span>{post.readingTime}</span>
       </div>
-      {post.cover && (
-        <>
-          <Image
-            src={post.cover}
-            alt={post.title}
-            width={768}
-            height={400}
-            className="rounded-lg border-none"
-          />
-        </>
-      )}
-
+      {post.cover && <PostCover cover={post.cover} alt={post.title} />}
       <div className="mdx mt-6">
         <MDXContent code={post.body} />
       </div>

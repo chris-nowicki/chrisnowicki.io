@@ -2,7 +2,6 @@ import Image from 'next/image'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { getIntro } from '@/sanity/sanity-queries'
 import ButtonLink from '../ui/button-link'
-import Icon from '../Icon'
 
 const IntroPortableText: PortableTextComponents = {
   block: {
