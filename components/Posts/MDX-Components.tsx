@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import * as runtime from 'react/jsx-runtime'
-import { Tweet } from 'react-tweet'
+import Tweet from '../Tweet-Component'
 
 const useMDXComponent = (code: string) => {
   const fn = new Function(code)

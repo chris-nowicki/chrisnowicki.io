@@ -85,7 +85,7 @@
   }
 
   blockquote {
-    @apply mt-6 border-l-2 pl-6 italic;
+    @apply mt-6 border-l-2 border-primary pl-6 italic;
   }
 
   svg {
@@ -190,4 +190,32 @@
     .subheading-anchor
   ) {
   @apply text-primary hover:underline;
+}
+
+/* body
+  > div.flex.flex-col.items-center
+  > div
+  > main
+  > article
+  > div.mdx
+  > div
+  > article
+  > div.tweet-header_header__CXzdi
+  > a.tweet-header_avatar__0Wi9G {
+  @apply mt-0;
+} */
+
+body
+  > div.flex.flex-col.items-center
+  > div
+  > main
+  > article
+  > div.mdx
+  > div
+  > article
+  > div.tweet-header_header__CXzdi
+  > a.tweet-header_avatar__0Wi9G
+  > div:nth-child(1)
+  > img {
+  @apply mt-0;
 }
