@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import SocialMetrics from './SocialMetrics/SocialMetrics'
+import SocialMetrics from './Social/SocialMetrics'
 import SectionDivider from './SectionDivider'
 
 const footerLinks = [
@@ -18,9 +18,9 @@ export default async function Footer() {
       <div className="flex w-full flex-col justify-between gap-4 rounded-xl border p-6 shadow-xl shadow-primary/20 md:flex-row">
         <div className="flex w-full flex-col items-center md:w-1/2 md:items-start md:justify-between">
           <span className="mb-4 text-3xl font-semibold ">Sitemap</span>
-          {footerLinks.map((link, index) => (
+          {footerLinks.map((link) => (
             <Link
-              key={index}
+              key={link.href}
               href={link.href}
               className="text-xl hover:text-primary"
             >

@@ -3,7 +3,6 @@ import FeaturedPost from '@/components/Blog/FeaturedPost'
 import PostItem from '@/components/Blog/PostItem'
 import SectionHeading from '@/components/SectionHeading'
 import { sortPosts } from '@/lib/utils'
-import { Suspense } from 'react'
 
 export default async function Blog() {
   const sortedPosts = sortPosts(
