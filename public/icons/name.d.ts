@@ -22,3 +22,4 @@
 	| "sun"
 	| "twitch"
 	| "twitter"
+	| "vercel"

@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import SocialMetrics from './Social/SocialMetrics'
 import SectionDivider from './SectionDivider'
+import Icon from './Icon'
 
 const footerLinks = [
   { name: '/home', href: '/' },
@@ -39,6 +40,14 @@ export default async function Footer() {
         Tailwind CSS, shadcn/ui, Framer Motion, React Email & Resend, Sanity
         CMS, Appwrite DB, and hosted on Vercel.
       </p>
+
+      {/* powered by vercel */}
+      <div className="mt-6 flex gap-2">
+        <span>⚡️ by vercel</span>
+        <Link href="https://vercel.com" target="_blank">
+          <Icon id="vercel" size={24} />
+        </Link>
+      </div>
     </footer>
   )
 }
