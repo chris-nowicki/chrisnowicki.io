@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import SocialMetrics from './SocialMetrics/SocialMetrics'
 import SectionDivider from './SectionDivider'
-import { Separator } from './ui/separator'
 
 const footerLinks = [
   { name: '/home', href: '/' },

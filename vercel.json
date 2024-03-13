@@ -7,10 +7,6 @@
     {
       "path": "/api/cron/github-metrics-sync",
       "schedule": "*/10 * * * *"
-    },
-    {
-      "path": "/api/cron/blog-post-views-sync",
-      "schedule": "*/1 * * * *"
     }
   ]
 }
