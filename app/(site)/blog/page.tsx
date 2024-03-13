@@ -27,7 +27,7 @@ export default async function Blog() {
           width={300}
           height={100}
           alt={featuredPosts.title}
-          className="w-full rounded-tl-xl rounded-tr-xl object-cover md:w-1/2 md:rounded-bl-xl md:rounded-tl-xl"
+          className="w-full rounded-tl-xl rounded-tr-xl object-cover md:w-1/2 md:rounded-bl-xl md:rounded-tr-none"
         />
         <div className="flex w-full flex-col p-4 md:w-1/2">
           <span className="text-lg font-semibold">{featuredPosts.title}</span>
