@@ -33,6 +33,15 @@ const nextConfig = {
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/community-projects',
+        destination: '/community',
+        permanent: true,
+      },
+    ]
+  },
   webpack: (config) => {
     config.plugins.push(new VeliteWebpackPlugin())
     return config
