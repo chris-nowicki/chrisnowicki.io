@@ -1,13 +1,13 @@
+'use server'
 import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { getXMetrics, updateXMetrics } from '@/lib/appwrite'
 import { getTweetCount } from '@/lib/x'
 
-// Nextjs route segment config
-export const dynamic = 'force-dynamic' // Force dynamic (server) route instead of static page
+export const runtime = 'edge'
 
-export async function GET(req: NextRequest) {
+export async function GET() {
   const consumerKey = process.env.TWITTER_CONSUMER_KEY
   const consumerSecret = process.env.TWITTER_CONSUMER_SECRET
   const accessToken = process.env.TWITTER_ACCESS_TOKEN

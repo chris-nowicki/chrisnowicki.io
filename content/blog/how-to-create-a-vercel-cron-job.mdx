@@ -1,10 +1,10 @@
 ---
-title: How to create a Vercel Cron Job using NextJS 13
-description: 'In this article I go into detail on how to create a cron job using Vercel and NextJS 13. I will also go over the limitations and how to set up the cron job in the Vercel dashboard.'
 date: 2023-04-18
+title: How to create a Vercel Cron Job using NextJS 13
+description: In this article I go into detail on how to create a cron job using Vercel and NextJS 13. I will also go over the limitations and how to set up the cron job in the Vercel dashboard.
+cover: https://res.cloudinary.com/ddetibihn/image/upload/v1710262757/portfolio/blog/vercel-cron-job-cover.webp
 published: true
 featured: true
-cover: https://res.cloudinary.com/ddetibihn/image/upload/v1710262757/portfolio/blog/vercel-cron-job-cover.webp
 ---
 
 As a new developer I am constantly trying new technologies and recently have really enjoyed coding in NextJS 13 using their `/app` directory experimental feature.
@@ -20,9 +20,9 @@ I wanted to be able to show total **ALL TIME** GitHub commits across my reposito
 
 ## Limitations
 
-As of 4/19/2023 Vercel has the following [limitations](https://vercel.com/docs/cron-jobs#limits) based on your plan:
+Vercel has the following [limitations](https://vercel.com/docs/cron-jobs/usage-and-pricing#) based on your plan:
 
-![](https://res.cloudinary.com/ddetibihn/image/upload/f_auto/v1710275159/portfolio/blog/bbgknyudt7inasxvq1g6.png)
+![Screenshot of Vercel cron job limits](https://res.cloudinary.com/ddetibihn/image/upload/f_auto/v1710367875/portfolio/blog/nrlunhl603b8l4zthrt9.png)
 
 ## Let's Create a Cron Job!
 
@@ -124,7 +124,7 @@ Add a `vercel.json` file in the root of your project folder:
 
 Once that is complete deploy your project to vercel and you can check the status of your cron job by going to the **settings > crons** menu for your project. You should see something like this:
 
-![](https://res.cloudinary.com/ddetibihn/image/upload/f_auto/v1710275272/portfolio/blog/dx0de3rtmpboxgy8zvpa.png)
+![Screen shot of Vervel Dashboard with Cron Job Menu](https://res.cloudinary.com/ddetibihn/image/upload/f_auto/v1710275272/portfolio/blog/dx0de3rtmpboxgy8zvpa.png)
 
 ## CONCLUSION
 

@@ -1,11 +1,8 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { Octokit } from 'octokit'
 import { getGithubMetrics, updateGithubMetrics } from '@/lib/appwrite'
 
-// Force dynamic (server) route instead of static page
-export const dynamic = 'force-dynamic'
-
-export async function GET(req: NextRequest) {
+export async function GET() {
   const octokit = new Octokit({
     auth: process.env.GITHUB_TOKEN,
   })
