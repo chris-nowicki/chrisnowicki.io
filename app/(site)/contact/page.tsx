@@ -1,6 +1,6 @@
 import SectionHeading from '@/components/SectionHeading'
 import { buttonVariants } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 import Link from 'next/link'
 import EmailForm from '../../../components/Contact/EmailForm'
 import { contactPageLinks } from '@/lib/data'

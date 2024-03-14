@@ -1,6 +1,6 @@
 'use server'
 import { socialLinks } from '@/lib/data'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 import { getResume } from '@/sanity/sanity-queries'
 import Link from 'next/link'
 import Icon from '../Icon'

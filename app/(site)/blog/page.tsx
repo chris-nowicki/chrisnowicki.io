@@ -2,7 +2,7 @@ import { posts } from '#site/content'
 import FeaturedPost from '@/components/Blog/FeaturedPost'
 import PostItem from '@/components/Blog/PostItem'
 import SectionHeading from '@/components/SectionHeading'
-import { sortPosts } from '@/lib/utils'
+import { sortPosts } from '@/utils/utils'
 import { Metadata } from 'next'
 
 type OGImageType = {

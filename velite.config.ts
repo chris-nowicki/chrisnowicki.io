@@ -2,7 +2,7 @@ import { defineConfig, defineCollection, s } from 'velite'
 import rehypeSlug from 'rehype-slug'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
-import readingTime from 'reading-time/lib/reading-time'
+import readingTime from 'reading-time'
 
 const posts = defineCollection({
   name: 'Post',
@@ -21,7 +21,7 @@ const posts = defineCollection({
     .transform((data) => ({
       ...data,
       slugAsParams: data.slug.split('/').slice(1).join('/'),
-      readingTime: readingTime(data.body, 265).text,
+      readingTime: readingTime(data.body, { wordsPerMinute: 265 }).text,
     })),
 })
 
