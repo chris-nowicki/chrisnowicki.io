@@ -36,7 +36,7 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/community-projects',
+        source: '/community-speaking',
         destination: '/community',
         permanent: true,
       },
