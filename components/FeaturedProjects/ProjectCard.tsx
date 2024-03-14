@@ -17,7 +17,7 @@ import {
 import ButtonLink from '../ui/button-link'
 import Icon from '../Icon'
 import Image from 'next/image'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 import { Badge } from '../ui/badge'
 
 type ProjectCardProps = {

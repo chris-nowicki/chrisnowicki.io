@@ -1,5 +1,5 @@
 import { Separator } from './ui/separator'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils/utils'
 
 interface SectionDividerProps {
   className?: string

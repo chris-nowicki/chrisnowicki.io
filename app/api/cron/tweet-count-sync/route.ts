@@ -1,74 +1,55 @@
-import OAuth from 'oauth-1.0a'
-import crypto from 'node:crypto'
 import { NextResponse } from 'next/server'
 import { getXMetrics, updateXMetrics } from '@/lib/appwrite'
 import { getTweetCount } from '@/lib/x'
+import { generateTwitterOAuthHeader } from '@/lib/x'
 
-// Nextjs route segment config
 export const dynamic = 'force-dynamic' // Force dynamic (server) route instead of static page
 
+const HTTP_STATUS = {
+  RATE_LIMIT_EXCEEDED: 429,
+  NO_CHANGE: 208,
+  OK: 200,
+  BAD_REQUEST: 400,
+}
+
 export async function GET() {
-  const consumerKey = process.env.TWITTER_CONSUMER_KEY
-  const consumerSecret = process.env.TWITTER_CONSUMER_SECRET
-  const accessToken = process.env.TWITTER_ACCESS_TOKEN
-  const accessTokenSecret = process.env.TWITTER_ACCESS_TOKEN_SECRET
   const url = 'https://api.twitter.com/2/users/me?user.fields=public_metrics'
+  const headers = await generateTwitterOAuthHeader(url)
 
-  // OAuth 1.0a setup
-  const oauth = new OAuth({
-    consumer: { key: consumerKey, secret: consumerSecret },
-    signature_method: 'HMAC-SHA1',
-    hash_function(baseString, key) {
-      return crypto.createHmac('sha1', key).update(baseString).digest('base64')
-    },
-  })
-
-  const requestData: OAuth.RequestOptions = {
-    url: url,
-    method: 'GET',
-  }
-
-  const token = {
-    key: accessToken,
-    secret: accessTokenSecret,
-  }
-
-  const headers = oauth.toHeader(
-    oauth.authorize(requestData, token)
-  ) as unknown as Headers
-
-  // Twitter API request
   try {
+    // fetch tweet count from X API
     const tweetCount = await getTweetCount(url, headers)
-
-    // Rate limit exceeded error
-    if (tweetCount.status === 429) {
+    if (tweetCount.status === HTTP_STATUS.RATE_LIMIT_EXCEEDED) {
+      console.error('Rate limit exceeded')
       return NextResponse.json(
         { error: 'Rate limit exceeded' },
-        { status: 429 }
+        { status: HTTP_STATUS.RATE_LIMIT_EXCEEDED }
       )
     }
 
-    // Fetch the current stored tweet count from PlanetScale storage
+    // fetch stored tweet count from Appwrite
     const storedTweetCount = await getXMetrics()
-
-    // If the tweet count hasn't changed, return 208 status code
     if (tweetCount === storedTweetCount) {
+      console.info('No change in tweet count')
       return NextResponse.json(
         `(no change) TweetCount: ${tweetCount} | StoredTweetCount: ${storedTweetCount}`,
         {
-          status: 208,
+          status: HTTP_STATUS.NO_CHANGE,
         }
       )
-    } else {
-      // If the tweet count has changed, update the stored tweet count and return 200 status code
-      await updateXMetrics(tweetCount)
-      return NextResponse.json(`(updated) Tweet count: ${tweetCount}`, {
-        status: 200,
-      })
     }
+
+    // update tweet count in if there is a change
+    await updateXMetrics(tweetCount)
+    console.info('Tweet count updated')
+    return NextResponse.json(`(updated) Tweet count: ${tweetCount}`, {
+      status: HTTP_STATUS.OK,
+    })
   } catch (error) {
-    console.error(error)
-    return NextResponse.json({ error }, { status: 400 })
+    console.error('An error occurred:', error)
+    return NextResponse.json(
+      { error: error.message || error },
+      { status: HTTP_STATUS.BAD_REQUEST }
+    )
   }
 }

@@ -1,6 +1,6 @@
 'use server'
 import EmailTemplate from '@/email/email-template'
-import { getErrorMessage, validateString } from '@/lib/utils'
+import { getErrorMessage, validateString } from '@/utils/utils'
 import type { CreateEmailResponse } from '@/types/types'
 import * as React from 'react'
 import { Resend } from 'resend'
