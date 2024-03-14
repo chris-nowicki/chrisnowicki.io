@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  pageExtensions: ['mdx', 'tsx'],
   images: {
     formats: ['image/avif', 'image/webp'],
     remotePatterns: [

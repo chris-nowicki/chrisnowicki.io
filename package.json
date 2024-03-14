@@ -29,12 +29,10 @@
     "@sanity/icons": "^2.11.2",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.33.0",
-    "@types/mdx": "^2.0.11",
     "@vercel/analytics": "^1.2.2",
     "@vercel/edge-config": "^1.1.0",
     "@vercel/og": "^0.6.2",
     "@vercel/speed-insights": "^1.0.10",
-    "appwrite": "^14.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "date-fns": "^3.4.0",
@@ -65,7 +63,7 @@
     "tailwind-merge": "^2.2.1",
     "tailwindcss-animate": "^1.0.7",
     "usehooks-ts": "^3.0.1",
-    "vercel": "^32.3.0",
+    "vercel": "^33.5.5",
     "zod": "^3.22.4"
   },
   "devDependencies": {
