@@ -15,11 +15,13 @@ export const sendEmail = async (formData: FormData) => {
 
   // server-side form validation
   if (!validateString(senderEmail, 500)) {
+    console.log('Invalid sender email')
     return {
       error: 'Invalid sender email',
     }
   }
   if (!validateString(message, 5000)) {
+    console.log('Invalid message')
     return {
       error: 'Invalid message',
     }
@@ -40,11 +42,13 @@ export const sendEmail = async (formData: FormData) => {
       }),
     })
   } catch (error: unknown) {
+    console.log('Error sending email:', error)
     return {
       error: getErrorMessage(error),
     }
   }
 
+  console.log('Email sent:', data)
   return {
     data,
   }
