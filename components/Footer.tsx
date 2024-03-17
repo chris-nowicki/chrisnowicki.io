@@ -38,16 +38,16 @@ export default async function Footer() {
       <p className="text-left text-xs md:px-4">
         <span className="font-semibold">Built with:</span> Next.js, TypeScript,
         Tailwind CSS, shadcn/ui, Framer Motion, React Email & Resend, Sanity
-        CMS, Appwrite DB, and hosted on Vercel.
+        CMS, Appwrite DB.
       </p>
 
       {/* powered by vercel */}
-      <div className="mt-6 flex gap-2">
+      {/* <div className="mt-6 flex gap-2">
         <span>⚡️ by vercel</span>
         <Link href="https://vercel.com" target="_blank">
           <Icon id="vercel" size={24} />
         </Link>
-      </div>
+      </div> */}
     </footer>
   )
 }

@@ -8,7 +8,10 @@ import { motion } from 'framer-motion'
 
 export default function FeaturedPost({ post }) {
   return (
-    <div className="relative flex w-full flex-wrap rounded-xl border group-hover:shadow-none md:flex-row">
+    <Link
+      href={post.slug}
+      className="relative flex w-full flex-wrap rounded-xl border group-hover:shadow-none md:flex-row"
+    >
       <Suspense fallback={<FeaturedPostSkeleton />}>
         <motion.div
           initial={{ opacity: 0 }}
@@ -48,10 +51,10 @@ export default function FeaturedPost({ post }) {
         </div>
       </div>
       {/* badge */}
-      <div className="absolute flex items-center gap-2 text-white left-1 top-1">
+      <div className="absolute left-1 top-1 flex items-center gap-2 text-white">
         <Icon id="star" className="" size={26} />
         <span className="text-lg font-semibold">Featured Article</span>
       </div>
-    </div>
+    </Link>
   )
 }
