@@ -50,18 +50,6 @@ export const socialLinks = [
     icon: <Icon id="twitch" size={28} focusable={false} />,
     aria: 'Twitch',
   },
-  {
-    name: 'DEV',
-    URL: 'https://dev.to/chrisnowicki',
-    icon: (
-      <Icon
-        id="devto"
-        size={28}
-        focusable={false}
-      />
-    ),
-    aria: 'DEVTO Blog',
-  },
 ] as const
 
 // contact page button links
