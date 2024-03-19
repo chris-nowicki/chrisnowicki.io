@@ -1,4 +1,4 @@
-import { IntroType, ProjectType, SeoType, SkillsType } from '@/types/types'
+import { IntroType, ProjectType, SeoType } from '@/types/types'
 import { groq } from 'next-sanity'
 import { sanityFetch } from './sanity-utils'
 
@@ -59,15 +59,5 @@ export async function getFeaturedProjects(): Promise<ProjectType[]> {
     query,
     tags: ['featuredProjects'],
   })
-  return res
-}
-
-export async function getSkills(): Promise<SkillsType[]> {
-  const query = groq`*[_type == 'tech'] {
-  name,
-  link
-} | order(lower(name) asc)`
-
-  const res: SkillsType[] = await sanityFetch({ query, tags: ['tech'] })
   return res
 }
