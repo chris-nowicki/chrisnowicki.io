@@ -9,6 +9,8 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Icon from '@/components/Icon'
 
+export const dynamic = 'force-static'
+
 interface PostPageProps {
   params: {
     slug: string[]
