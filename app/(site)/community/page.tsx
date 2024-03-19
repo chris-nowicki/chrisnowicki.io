@@ -12,8 +12,6 @@ import Conferences from '@/components/Engagements/Conferences'
 import Speaking from '@/components/Engagements/Speaking'
 import { Metadata } from 'next'
 
-export const revalidate = 60
-
 // metadata
 const title: string = `Chris Nowicki's Community Involvement`
 const description: string = `OSS, Technical Writing, Conferences, and Speaking Contributions`
