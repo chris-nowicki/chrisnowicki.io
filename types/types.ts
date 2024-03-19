@@ -24,20 +24,6 @@ export type ProjectType = {
   }[]
 }
 
-export type SkillsType = {
-  name: string
-  link?: string
-}
-
-export type Article = {
-  id: string
-  title: string
-  url: string
-  published_at: string
-  page_views_count: number
-  reading_time_minutes: number
-}
-
 export type MetricsType = {
   tweetCount: number
   githubCommits: number
