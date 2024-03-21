@@ -1,10 +1,7 @@
 'use client'
-import { Suspense } from 'react'
 import { CldImage } from 'next-cloudinary'
 import Icon from '../Icon'
 import Link from 'next/link'
-import FeaturedPostSkeleton from './FeaturedPostSkeleton'
-import { motion } from 'framer-motion'
 
 export default function FeaturedPost({ post }) {
   return (
@@ -12,23 +9,17 @@ export default function FeaturedPost({ post }) {
       href={post.slug}
       className="relative flex w-full flex-wrap rounded-xl border group-hover:shadow-none md:flex-row"
     >
-      <Suspense fallback={<FeaturedPostSkeleton />}>
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7 }}
-          className="flex w-full md:w-1/2 md:rounded-bl-xl md:rounded-tl-none"
-        >
-          <CldImage
-            src={post.cover}
-            width={383}
-            height={272}
-            alt={post.title}
-            quality={75}
-            className="w-full rounded-tl-xl rounded-tr-xl md:rounded-bl-xl md:rounded-tr-none"
-          />
-        </motion.div>
-      </Suspense>
+      <div className="flex w-full md:w-1/2 md:rounded-bl-xl md:rounded-tl-none">
+        <CldImage
+          src={post.cover}
+          width={383}
+          height={272}
+          alt={post.title}
+          quality={75}
+          className="w-full rounded-tl-xl rounded-tr-xl md:rounded-bl-xl md:rounded-tr-none"
+        />
+      </div>
+
       <div className="flex w-full flex-col p-4 md:w-1/2">
         <span className="text-lg font-semibold">{post.title}</span>
         <p className="text-muted-foreground">{post.description}</p>
