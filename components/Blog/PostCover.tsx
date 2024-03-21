@@ -9,6 +9,7 @@ export default function PostCover({ cover, alt }) {
       width={768}
       height={438}
       className="rounded-lg border-none"
+      loading="eager"
     />
   )
 }

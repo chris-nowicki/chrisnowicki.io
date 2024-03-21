@@ -15,7 +15,7 @@ export default function FeaturedPost({ post }) {
           width={383}
           height={272}
           alt={post.title}
-          quality={75}
+          loading="eager"
           className="w-full rounded-tl-xl rounded-tr-xl md:rounded-bl-xl md:rounded-tr-none"
         />
       </div>
