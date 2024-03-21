@@ -9,7 +9,13 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Icon from '@/components/Icon'
 
-export const dynamic = 'force-static'
+export const generateStaticParams = async () => {
+  return posts
+    .filter((post) => post.published)
+    .map((post) => ({
+      slug: post.slugAsParams.split('/'),
+    }))
+}
 
 interface PostPageProps {
   params: {

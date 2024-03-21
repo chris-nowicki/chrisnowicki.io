@@ -5,10 +5,6 @@ import SectionHeading from '@/components/SectionHeading'
 import { sortPosts } from '@/utils/utils'
 import { Metadata } from 'next'
 
-type OGImageType = {
-  url: string
-}
-
 // metadata
 const title: string = `Chris Nowicki's Blog`
 const description: string = `Checkout my latest articles on all things tech and web development!`
