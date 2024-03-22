@@ -3,6 +3,7 @@ import rehypeSlug from 'rehype-slug'
 import rehypePrettyCode from 'rehype-pretty-code'
 import rehypeAutolinkHeadings from 'rehype-autolink-headings'
 import readingTime from 'reading-time'
+import remarkunwrapImages from 'remark-unwrap-images'
 
 const posts = defineCollection({
   name: 'Post',
@@ -36,7 +37,6 @@ export default defineConfig({
   },
   collections: { posts },
   mdx: {
-    gfm: true,
     rehypePlugins: [
       rehypeSlug,
       [rehypePrettyCode, { theme: 'dracula' }],
@@ -51,6 +51,6 @@ export default defineConfig({
         },
       ],
     ],
-    remarkPlugins: [],
+    remarkPlugins: [remarkunwrapImages],
   },
 })

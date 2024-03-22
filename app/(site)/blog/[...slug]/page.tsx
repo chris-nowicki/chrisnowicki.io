@@ -78,7 +78,7 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <article className="flex flex-col px-6 prose-img:mt-6 prose-img:rounded-lg prose-img:border prose-img:shadow-md dark:prose-img:shadow-none md:px-0">
+    <article className="flex flex-col px-6 prose-img:mb-6 prose-img:mt-6 prose-img:rounded-lg prose-img:border prose-img:shadow-md dark:prose-img:shadow-none md:px-0">
       <h1 className="text-2xl md:text-5xl">{post.title}</h1>
       <div className="text-md mb-4 mt-2 flex items-center gap-2 text-muted-foreground">
         {format(new Date(post.date), 'MMMM dd, yyyy')}

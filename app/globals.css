@@ -138,6 +138,14 @@
   @apply border-b-2 p-1 shadow-none;
 }
 
+[data-rehype-pretty-code-title] {
+  @apply rounded-tl-lg rounded-tr-lg border-l border-r border-t bg-secondary p-2;
+}
+
+[data-rehype-pretty-code-title] + pre {
+  @apply rounded-bl-lg rounded-br-lg rounded-tl-none rounded-tr-none;
+}
+
 /* styles subheadings in a blog post to show anchor tag next to the subheading */
 .subheading-anchor {
   @apply relative text-foreground no-underline;
