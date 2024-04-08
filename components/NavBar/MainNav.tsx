@@ -2,7 +2,7 @@ import { navItems } from '@/lib/data'
 import Link from 'next/link'
 import { ThemeToggle } from './ThemeToggle'
 
-export default function MainNav({ activeSection }: { activeSection: string }) {
+export default function MainNav() {
   return (
     <div className="hidden w-full pt-6 sm:hidden md:flex md:items-center md:justify-between">
       <ul className="ml-0 flex list-none items-center gap-5">
