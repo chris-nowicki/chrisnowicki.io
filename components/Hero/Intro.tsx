@@ -35,7 +35,7 @@ export default async function Intro() {
             Projects
           </ButtonLink>
 
-          <ButtonLink href="/contact" variant="outline" className="uppercase">
+          <ButtonLink href="#contact" variant="outline" className="uppercase">
             Contact Me
           </ButtonLink>
         </div>

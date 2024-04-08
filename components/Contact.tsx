@@ -2,49 +2,18 @@ import SectionHeading from '@/components/SectionHeading'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/utils/utils'
 import Link from 'next/link'
-import EmailForm from '../../../components/Contact/EmailForm'
 import { contactPageLinks } from '@/lib/data'
-import { Metadata } from 'next'
-
-// metadata
-const title: string = `Contact Chris Nowicki`
-const description: string = `Schedule a video call or send a message`
-
-const ogSearchParams = new URLSearchParams()
-ogSearchParams.set('page', 'CONTACT')
-ogSearchParams.set('description', description)
-
-export const metadata: Metadata = {
-  title: title,
-  description: description,
-  openGraph: {
-    title: title,
-    description: description,
-    url: 'https://chrisnowicki.io/contact',
-    images: [
-      {
-        url: `/api/og?${ogSearchParams.toString()}`,
-        width: 1200,
-        height: 630,
-        alt: title,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: title,
-    description: description,
-    images: [`/api/og?${ogSearchParams.toString()}`],
-  },
-}
 
 export default async function Contact() {
   return (
-    <section className="flex w-full flex-col items-center gap-2 px-4 md:items-start md:px-0">
-      <SectionHeading className="-mb-6 text-left">Contact</SectionHeading>
+    <section
+      id="contact"
+      className="flex w-full flex-col items-center gap-2 rounded-xl border px-4 md:px-8 md:py-8"
+    >
+      <SectionHeading className="text-3xl md:text-4xl">Contact</SectionHeading>
 
       {/* contact description */}
-      <p className="-mt-2 text-left md:text-lg">
+      <p className="px-12 md:text-lg">
         Please contact me directly at{' '}
         <a
           className="text-primary hover:underline"
@@ -52,13 +21,13 @@ export default async function Contact() {
         >
           chris@chrisnowicki.io,
         </a>{' '}
-        through the form below, or{' '}
+        or{' '}
         <a
           className="text-primary hover:underline"
           href="https://cal.com/chriswix"
           target="_blank"
         >
-          schedule a call
+          schedule a chat
         </a>{' '}
         with me via Cal.
       </p>
@@ -80,9 +49,6 @@ export default async function Contact() {
           </Link>
         ))}
       </div>
-
-      {/* email form */}
-      <EmailForm />
     </section>
   )
 }
