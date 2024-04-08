@@ -8,12 +8,12 @@ export default async function Contact() {
   return (
     <section
       id="contact"
-      className="flex w-full flex-col items-center gap-2 rounded-xl border px-4 md:px-8 md:py-8"
+      className="flex w-full flex-col items-center gap-2 rounded-xl border p-4 md:p-8"
     >
       <SectionHeading className="text-3xl md:text-4xl">Contact</SectionHeading>
 
       {/* contact description */}
-      <p className="px-12 md:text-lg">
+      <p className="px-6 md:px-12 md:text-lg">
         Please contact me directly at{' '}
         <a
           className="text-primary hover:underline"
@@ -33,7 +33,7 @@ export default async function Contact() {
       </p>
 
       {/* contact buttons */}
-      <div className="mb-4 flex gap-3">
+      <div className="flex gap-3">
         {contactPageLinks.map((link, index) => (
           <Link
             key={index}
