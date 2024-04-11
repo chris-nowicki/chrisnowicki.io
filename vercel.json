@@ -1,14 +1,4 @@
 {
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/node",
-      "config": {
-        "installCommand": "pnpm install",
-        "buildCommand": "pnpm run build"
-      }
-    }
-  ],
   "crons": [
     {
       "path": "/api/cron/tweet-count-sync",
