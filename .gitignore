@@ -213,3 +213,5 @@ dist/
 
 # obsidian
 .obsidian
+
+.npmrc
