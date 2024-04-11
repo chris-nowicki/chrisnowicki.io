@@ -1,5 +1,5 @@
 {
-  "packageManager": "npm",
+  "packageManager": "pnpm",
   "interactive": true,
   "format": [
     "group"

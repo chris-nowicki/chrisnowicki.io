@@ -12,7 +12,8 @@
     "release:minor": "npm version minor",
     "release:patch": "npm version patch",
     "studio": "npx prisma studio",
-    "build:icons": "tsx ./scripts/build-icons.mts"
+    "build:icons": "tsx ./scripts/build-icons.mts",
+    "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.3.4",
@@ -24,6 +25,7 @@
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
+    "@sanity/client": "^6.15.11",
     "@sanity/icons": "^2.11.8",
     "@sanity/image-url": "^1.0.2",
     "@sanity/vision": "^3.37.2",
@@ -32,6 +34,7 @@
     "@vercel/og": "^0.6.2",
     "@vercel/speed-insights": "^1.0.10",
     "class-variance-authority": "^0.7.0",
+    "classnames": "^2.5.1",
     "clsx": "^2.1.0",
     "date-fns": "^3.6.0",
     "encoding": "^0.1.13",
