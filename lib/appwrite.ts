@@ -1,11 +1,12 @@
 import sdk from 'node-appwrite'
+import { env } from '../env'
 
-const endPoint = process.env.APPWRITE_ENDPOINT
-const projectId = process.env.APPWRITE_PROJECT_ID
-const apiKey = process.env.APPWRITE_API_KEY
-const devto_DocumentId = process.env.DEVTO_DOCUMENT_ID
-const x_DocumentId = process.env.X_DOCUMENT_ID
-const github_DocumentId = process.env.GITHUB_DOCUMENT_ID
+const endPoint = env.APPWRITE_ENDPOINT
+const projectId = env.APPWRITE_PROJECT_ID
+const apiKey = env.APPWRITE_API_KEY
+const devto_DocumentId = env.DEVTO_DOCUMENT_ID
+const x_DocumentId = env.X_DOCUMENT_ID
+const github_DocumentId = env.GITHUB_DOCUMENT_ID
 
 // initialize the Appwrite Server SDK
 export const client = new sdk.Client()

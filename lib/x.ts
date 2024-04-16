@@ -1,13 +1,14 @@
 import { NextResponse } from 'next/server'
 import OAuth from 'oauth-1.0a'
 import crypto from 'node:crypto'
+import { env } from '../env'
 
 // X OAUTH GENERATION FUNCTION
 export async function generateTwitterOAuthHeader(url) {
-  const consumerKey = process.env.TWITTER_CONSUMER_KEY
-  const consumerSecret = process.env.TWITTER_CONSUMER_SECRET
-  const accessToken = process.env.TWITTER_ACCESS_TOKEN
-  const accessTokenSecret = process.env.TWITTER_ACCESS_TOKEN_SECRET
+  const consumerKey = env.TWITTER_CONSUMER_KEY
+  const consumerSecret = env.TWITTER_CONSUMER_SECRET
+  const accessToken = env.TWITTER_ACCESS_TOKEN
+  const accessTokenSecret = env.TWITTER_ACCESS_TOKEN_SECRET
 
   if (!consumerKey || !consumerSecret || !accessToken || !accessTokenSecret) {
     console.error('Missing required environment variables')
