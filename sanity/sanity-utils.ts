@@ -1,10 +1,11 @@
 import { createClient } from 'next-sanity'
 import type { QueryParams } from '@sanity/client'
 import imageUrlBuilder from '@sanity/image-url'
+import { env } from '../env'
 
-const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID
-const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET
-const apiVersion = process.env.NEXT_PUBLIC_SANITY_API_VERSION || '2023-05-03'
+const projectId = env.NEXT_PUBLIC_SANITY_PROJECT_ID
+const dataset = env.NEXT_PUBLIC_SANITY_DATASET
+const apiVersion = env.NEXT_PUBLIC_SANITY_API_VERSION
 
 const client = createClient({
   projectId,
