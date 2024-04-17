@@ -3,11 +3,13 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import { posts } from '#site/content'
 import Link from 'next/link'
 import Icon from '@/components/Icon'
+import { getPosts } from '@/utils/posts'
 
 export default async function TechnicalWriting() {
+  const posts = await getPosts()
+
   return (
     <AccordionItem value="Technical Writing">
       <AccordionTrigger className="text-xl font-bold md:text-2xl">

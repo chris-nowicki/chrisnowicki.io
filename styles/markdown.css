@@ -1,0 +1,76 @@
+/* markdown code block styling */
+[data-rehype-pretty-code-figure] pre {
+  @apply overflow-auto rounded-lg p-4;
+}
+
+[data-rehype-pretty-code-figure] code {
+  @apply my-1 border-0 text-sm !leading-normal md:text-base;
+}
+
+[data-rehype-pretty-code-figure] code[data-line-numbers] {
+  counter-reset: line;
+}
+
+[data-rehype-pretty-code-figure] code[data-line-numbers] > [data-line]::before {
+  counter-increment: line;
+  content: counter(line);
+  @apply mr-4 inline-block w-4 text-right text-gray-500;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  @apply border-l-2 border-l-transparent px-3;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  background: rgba(200, 200, 255, 0.1);
+  @apply border-l-blue-400;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  @apply rounded bg-zinc-600/50;
+  box-shadow: 0 0 0 4px rgb(82 82 91 / 0.5);
+}
+
+[data-rehype-pretty-code-figure] [data-chars-id] {
+  @apply border-b-2 p-1 shadow-none;
+}
+
+/* styles subheadings in a blog post to show anchor tag next to the subheading */
+.subheading-anchor {
+  @apply relative text-foreground no-underline;
+}
+
+.subheading-anchor::before {
+  content: ''; /* Initial state has no content. */
+  position: absolute;
+  left: -30px; /* Adjust as needed to place the hashtag to the left. */
+  top: 0; /* Align with the top of the anchor. */
+  opacity: 0; /* Make it invisible initially. */
+  transition: opacity 0.2s; /* Smooth transition for the hover effect. */
+}
+
+.subheading-anchor:hover::before {
+  content: '#'; /* The content to show on hover. */
+  opacity: 1; /* Make the hashtag visible on hover. */
+  @apply text-muted-foreground/40;
+}
+
+/* ensures article header links are not styled like a tags */
+.mdx
+  a:not(
+    body
+      > div.flex.flex-col.items-center
+      > div
+      > main
+      > article
+      > div.mdx
+      > div
+      a,
+    .subheading-anchor
+  ) {
+  @apply text-primary hover:underline;
+}
+
+img {
+  @apply mb-8;
+}

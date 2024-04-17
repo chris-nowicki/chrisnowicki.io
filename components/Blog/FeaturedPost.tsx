@@ -1,5 +1,4 @@
-'use client'
-import { CldImage } from 'next-cloudinary'
+import Image from 'next/image'
 import Icon from '../Icon'
 import Link from 'next/link'
 
@@ -10,13 +9,13 @@ export default function FeaturedPost({ post }) {
       className="relative flex w-full flex-wrap rounded-xl border group-hover:shadow-none md:flex-row"
     >
       <div className="flex w-full md:w-1/2 md:rounded-bl-xl md:rounded-tl-none">
-        <CldImage
+        <Image
           src={post.cover}
           width={383}
           height={272}
           alt={post.title}
-          loading="eager"
           className="w-full rounded-tl-xl rounded-tr-xl md:rounded-bl-xl md:rounded-tr-none"
+          priority
         />
       </div>
 
@@ -28,9 +27,7 @@ export default function FeaturedPost({ post }) {
             <Icon id="clock" className="h-4 w-4" />
             {post.readingTime}
           </div>
-          <Link
-            href={post.slug}
-            prefetch={true}
+          <div
             className="group flex items-center gap-1 text-primary"
           >
             Read More{' '}
@@ -38,12 +35,12 @@ export default function FeaturedPost({ post }) {
               id="arrow-right"
               className="transition-all ease-in-out group-hover:translate-x-1"
             />
-          </Link>
+          </div>
         </div>
       </div>
       {/* badge */}
       <div className="absolute left-1 top-1 flex items-center gap-2 text-white">
-        <Icon id="star" className="" size={26} />
+        <Icon id="star" size={26} />
         <span className="text-lg font-semibold">Featured Article</span>
       </div>
     </Link>

@@ -1,5 +1,3 @@
-import { posts } from '#site/content'
-import { MDXContent } from '@/components/mdx-content'
 import { Separator } from '@/components/ui/separator'
 import { siteConfig } from '@/lib/site'
 import { format } from 'date-fns'
@@ -8,23 +6,28 @@ import PostCover from '@/components/Blog/PostCover'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Icon from '@/components/Icon'
+import { getPosts, getPostBySlug } from '@/utils/posts'
+import '@/styles/markdown.css'
 
 export const generateStaticParams = async () => {
+  const posts = await getPosts()
+
   return posts
     .filter((post) => post.published)
     .map((post) => ({
-      slug: post.slugAsParams.split('/'),
+      slug: post.slugAsParams,
     }))
 }
 
 interface PostPageProps {
   params: {
-    slug: string[]
+    slug: string
   }
 }
 
 async function getPostFromParams(params: PostPageProps['params']) {
-  const slug = params?.slug?.join('/')
+  const posts = await getPosts()
+  const slug = params?.slug
   const post = posts.find((post) => post.slugAsParams === slug)
 
   return post
@@ -71,23 +74,28 @@ export async function generateMetadata({
 }
 
 export default async function PostPage({ params }: PostPageProps) {
-  const post = await getPostFromParams(params)
+  const post = await getPostBySlug(params.slug)
 
-  if (!post || !post.published) {
+  if (!post || !post.frontmatter.published) {
     notFound()
   }
 
   return (
-    <article className="flex flex-col px-6 prose-img:mt-6 prose-img:rounded-lg prose-img:border prose-img:shadow-md dark:prose-img:shadow-none md:px-0">
-      <h1 className="text-2xl md:text-5xl">{post.title}</h1>
+    <article className="flex flex-col px-6  md:px-0">
+      <h1 className="text-2xl md:text-5xl">{post.frontmatter.title}</h1>
       <div className="text-md mb-4 mt-2 flex items-center gap-2 text-muted-foreground">
-        {format(new Date(post.date), 'MMMM dd, yyyy')}
+        {format(new Date(post.frontmatter.date), 'MMMM dd, yyyy')}
         <Separator orientation="vertical" className="h-4" />
-        <span>{post.readingTime}</span>
+        <span>{post.frontmatter.readingTime}</span>
       </div>
-      {post.cover && <PostCover cover={post.cover} alt={post.title} />}
-      <div className="mdx mt-6">
-        <MDXContent code={post.body} />
+      {post.frontmatter.cover && (
+        <PostCover
+          cover={post.frontmatter.cover}
+          alt={post.frontmatter.title}
+        />
+      )}
+      <div className="mdx mt-6 prose-img:my-6 prose-img:rounded-lg prose-img:border prose-img:shadow-md dark:prose-img:shadow-none">
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
       <div className="group mt-12 flex justify-center text-xl text-muted-foreground hover:text-primary">
         <Link
