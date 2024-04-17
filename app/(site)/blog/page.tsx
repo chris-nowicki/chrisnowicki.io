@@ -1,9 +1,9 @@
-import { posts } from '#site/content'
 import FeaturedPost from '@/components/Blog/FeaturedPost'
 import PostItem from '@/components/Blog/PostItem'
 import SectionHeading from '@/components/SectionHeading'
-import { sortPosts } from '@/utils/utils'
 import { Metadata } from 'next'
+import { getPosts } from '@/utils/posts'
+import type { FrontMatter } from '@/types/types'
 
 // metadata
 const title: string = `Chris Nowicki's Blog`
@@ -38,11 +38,9 @@ export const metadata: Metadata = {
 }
 
 export default async function Blog() {
-  const sortedPosts = sortPosts(
-    posts.filter((post) => post.published && !post.featured)
-  )
+  const posts: FrontMatter[] = await getPosts()
   const featuredPosts = posts.filter((post) => post.featured)[0]
-  const displayPosts = sortedPosts
+  const sortedPosts = posts.filter((post) => post.published && !post.featured)
 
   return (
     <section className="mx-6 flex flex-col items-start md:mx-0">
@@ -58,9 +56,9 @@ export default async function Blog() {
       <div className="mt-10 w-full">
         <span className="text-2xl font-semibold md:text-3xl">Archive</span>
 
-        {displayPosts?.length > 0 ?
+        {sortedPosts?.length > 0 ?
           <ul className="ml-0 flex list-none flex-col gap-1">
-            {displayPosts.map((post, index) => (
+            {sortedPosts.map((post, index) => (
               <li key={index}>
                 <PostItem
                   slug={post.slug}

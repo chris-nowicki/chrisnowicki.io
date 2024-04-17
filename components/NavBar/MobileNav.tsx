@@ -1,7 +1,6 @@
 'use client'
 import { useState } from 'react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import Icon from '../Icon'
 import { navItems } from '@/lib/data'
 import { ThemeToggle } from './ThemeToggle'
 import Link, { LinkProps } from 'next/link'
@@ -14,7 +13,22 @@ export default function MobileNav() {
     <div className="flex w-full items-center justify-between px-4 md:hidden">
       <Sheet open={open} onOpenChange={setOpen}>
         <SheetTrigger asChild>
-          <Icon id="menu" size={25} />
+          {/* hamburger icon */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="32"
+            height="32"
+            viewBox="0 0 24 24"
+          >
+            <path
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 12h16M4 6h16M4 18h16"
+            />
+          </svg>
         </SheetTrigger>
         <SheetContent side="left" className="w-screen">
           <div className="mt-7 flex flex-col">
