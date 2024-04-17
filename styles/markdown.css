@@ -70,7 +70,3 @@
   ) {
   @apply text-primary hover:underline;
 }
-
-img {
-  @apply mb-8;
-}
