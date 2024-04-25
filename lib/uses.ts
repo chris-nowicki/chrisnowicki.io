@@ -1,4 +1,4 @@
-export const hw = [
+export const hw_accessories = [
   { name: 'LG 27" 5K UHD Monitor', link: 'https://amzn.to/3UyBatA' },
   { name: 'LG 28" DualUp Monitor', link: 'https://amzn.to/3Uef9iq' },
   { name: 'CalDigit TS4 Docking Station', link: 'https://amzn.to/4aNQvvX' },
@@ -14,6 +14,28 @@ export const hw = [
     name: 'Audio Engine A2+ Speakers',
     link: 'https://amzn.to/3vYyzQp',
   },
+]
+
+export const hw_streaming = [
+  {
+    name: 'Sony A6600 Mirrorless Camera',
+    link: 'https://amzn.to/4aN3xda',
+  },
+  { name: 'Sigma 16MM f/1.4 Lens', link: 'https://amzn.to/3WynL6r' },
+  {
+    name: 'Sony A6600 AC Adapter',
+    link: 'https://amzn.to/3QlGT3r',
+  },
+  { name: 'Elgato Cam Link 4K', link: 'https://amzn.to/4aQ1mpn' },
+  { name: 'Elgato Stream Deck+', link: 'https://amzn.to/3w8LUW7' },
+  { name: 'Elgato LG Master Mount', link: 'https://amzn.to/4dfchuf' },
+  { name: 'Elgato Key Light Air', link: 'https://amzn.to/3WjETfR' },
+  { name: 'RØDE PodMic', link: 'https://amzn.to/3UB7A6V' },
+  {
+    name: 'RØDE PSA1+ Professional Studio Arm',
+    link: 'https://amzn.to/3Uhbwbj',
+  },
+  { name: 'Cloudlifter Preamp', link: 'https://amzn.to/3Wgo2dP' },
 ]
 
 export const sw = [
