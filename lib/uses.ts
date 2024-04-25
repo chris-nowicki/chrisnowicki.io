@@ -1,18 +1,18 @@
 export const hw = [
-  { name: 'LG 27" 5K UHD Monitor', link: 'https://a.co/d/3GTjqUC' },
-  { name: 'LG 28" DualUp Monitor', link: 'https://a.co/d/dIDu3P9' },
-  { name: 'CalDigit TS4 Docking Station', link: 'https://a.co/d/9vBnxSh' },
-  { name: 'Lacie 2BIG Raid', link: 'https://a.co/d/8t33fbe' },
-  { name: 'MX Master 3S Mouse', link: 'https://a.co/d/fLPmSLo' },
-  { name: 'Apple Magic Trackpad', link: 'https://a.co/d/3Py1Fc8' },
-  { name: 'Keychron Q1 Pro Keyboard', link: 'https://a.co/d/405cpbJ' },
+  { name: 'LG 27" 5K UHD Monitor', link: 'https://amzn.to/3UyBatA' },
+  { name: 'LG 28" DualUp Monitor', link: 'https://amzn.to/3Uef9iq' },
+  { name: 'CalDigit TS4 Docking Station', link: 'https://amzn.to/4aNQvvX' },
+  { name: 'Lacie 2BIG Raid', link: 'https://amzn.to/3w84fCK' },
+  { name: 'MX Master 3S Mouse', link: 'https://amzn.to/4b83wQQ' },
+  { name: 'Apple Magic Trackpad', link: 'https://amzn.to/4dhapB9' },
+  { name: 'Keychron Q1 Pro Keyboard', link: 'https://amzn.to/3JBlMX8' },
   {
     name: 'OMOTON Vertical Laptop Desktop Stand',
-    link: 'https://a.co/d/3HkFNW7',
+    link: 'https://amzn.to/3Wy6EBJ',
   },
   {
     name: 'Audio Engine A2+ Speakers',
-    link: 'https://a.co/d/6IRbVvj',
+    link: 'https://amzn.to/3vYyzQp',
   },
 ]
 
