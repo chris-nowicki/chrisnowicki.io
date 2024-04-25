@@ -36,6 +36,10 @@ export const hw_streaming = [
     link: 'https://amzn.to/3Uhbwbj',
   },
   { name: 'Cloudlifter Preamp', link: 'https://amzn.to/3Wgo2dP' },
+  {
+    name: 'Focusrite Scarlett Solo 4th Gen USB Audio Interface',
+    link: 'https://amzn.to/4bcC0lm',
+  },
 ]
 
 export const sw = [
