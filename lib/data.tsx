@@ -18,6 +18,10 @@ export const navItems = [
     name: 'Blog',
     href: '/blog',
   },
+  {
+    name: 'Uses',
+    href: '/uses',
+  },
 ] as const
 
 // social links for intro section, footer, and project cards
