@@ -1,7 +1,7 @@
-import Image from 'next/image'
 import { PortableText, PortableTextComponents } from '@portabletext/react'
 import { getIntro } from '@/sanity/sanity-queries'
 import ButtonLink from '../ui/button-link'
+import CldImage from '../CldImage'
 
 const IntroPortableText: PortableTextComponents = {
   block: {
@@ -43,13 +43,12 @@ export default async function Intro() {
 
       {/* profile image */}
       <div className="mb-10 w-[200px] md:mb-0 md:w-[400px]">
-        <Image
+        <CldImage
           className="rounded-xl bg-accent p-2 shadow-lg "
-          width={400}
-          height={400}
-          src={intro.profilePicture}
+          width={255}
+          height={281}
+          src="https://res.cloudinary.com/ddetibihn/image/upload/f_auto,q_auto,w_255,c_limit/v1714075439/portfolio/oxt7hq6exyscgrcattm3.webp"
           alt="chris nowicki"
-          priority
         />
       </div>
     </section>

@@ -23,6 +23,7 @@ export default function CldImage({
       height={height}
       className={className}
       alt={alt}
+      loading="eager"
     />
   )
 }
