@@ -8,6 +8,7 @@ const footerLinks = [
   { name: '/projects', href: '/#projects' },
   { name: '/speaking', href: '/#speaking' },
   { name: '/blog', href: '/blog' },
+  { name: '/uses', href: '/uses' },
   { name: '/community', href: '/community' },
 ]
 
