@@ -1,5 +1,4 @@
 import { CogIcon } from '@sanity/icons'
-import { ImageIcon } from '@sanity/icons'
 
 export const myStructure = (S: any) =>
   S.list()
@@ -42,18 +41,6 @@ export const myStructure = (S: any) =>
                 .child(S.document().schemaType('resume').documentId('resume')),
             ])
         ),
-      S.listItem()
-        .title('Uses')
-        .child(
-          S.list()
-            .title('Uses Documents')
-            .items([
-              S.listItem()
-                .title('Setup Picture')
-                .icon(ImageIcon)
-                .child(S.document().schemaType('uses').documentId('uses')),
-            ])
-        ),
       S.divider(),
       ...S.documentTypeListItems().filter(
         (listItem: any) =>
@@ -61,7 +48,6 @@ export const myStructure = (S: any) =>
             'seo',
             'home',
             'intro',
-            'uses',
             'featuredProjects',
             'resume',
             'media.tag',

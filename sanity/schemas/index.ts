@@ -4,7 +4,6 @@ import featuredProjects from './pages/featuredProjects'
 import resume from './pages/resume'
 import projects from './projects'
 import skills from './skills'
-import uses from './pages/uses'
 
 export const schemaTypes = [
   seo,
@@ -13,5 +12,4 @@ export const schemaTypes = [
   resume,
   projects,
   skills,
-  uses,
 ]

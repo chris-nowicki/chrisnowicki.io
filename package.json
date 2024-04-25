@@ -28,7 +28,6 @@
     "@sanity/client": "^6.15.20",
     "@sanity/icons": "^2.11.8",
     "@sanity/image-url": "^1.0.2",
-    "@sanity/ui": "^2.1.4",
     "@sanity/vision": "^3.39.0",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@vercel/analytics": "^1.2.2",
