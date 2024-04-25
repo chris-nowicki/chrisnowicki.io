@@ -1,7 +1,39 @@
-'use client'
 import SectionHeading from '@/components/SectionHeading'
-import { CldImage } from 'next-cloudinary'
 import AffiliateLink from '@/components/AffiliateLink'
+import { Metadata } from 'next'
+import CldImage from '@/components/CldImage'
+
+// metadata
+const title: string = `Chris Nowicki's Uses`
+const description: string = `A list of the hardware and software I use on a daily basis.`
+
+const ogSearchParams = new URLSearchParams()
+ogSearchParams.set('page', 'USES')
+ogSearchParams.set('description', description)
+
+export const metadata: Metadata = {
+  title: title,
+  description: description,
+  openGraph: {
+    title: title,
+    description: description,
+    url: 'https://chrisnowicki.io/blog',
+    images: [
+      {
+        url: `/api/og?${ogSearchParams.toString()}`,
+        width: 1200,
+        height: 630,
+        alt: title,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: title,
+    description: description,
+    images: [`/api/og?${ogSearchParams.toString()}`],
+  },
+}
 
 const hw = [
   { name: 'LG 27" 5K UHD Monitor', link: 'https://a.co/d/3GTjqUC' },
@@ -41,13 +73,13 @@ const sw = [
 export default function Uses() {
   return (
     <section className="mx-6 flex flex-col items-start md:mx-0">
-      <SectionHeading className="text-left mb-4">Uses</SectionHeading>
-      <span className='mb-4'>
+      <SectionHeading className="mb-4 text-left">Uses</SectionHeading>
+      <span className="mb-4">
         Being a total tech nerd 🤓, I am always trying new technologies /
         products! Below is a list of all the the HW / SW I use on a daily basis.
         Please note that some of the links are affiliate links.
       </span>
-      <span className='mb-4'>
+      <span className="mb-4">
         I also have my{' '}
         <a
           href="https://github.com/chris-nowicki/dotfiles"
@@ -70,7 +102,7 @@ export default function Uses() {
       {/* setup image */}
       <CldImage
         src="https://res.cloudinary.com/ddetibihn/image/upload/f_auto,q_auto,w_768,c_limit/v1713891400/portfolio/uses/s4hwrs0deshum1skhne2.jpg"
-        width="768"
+        width={768}
         height={700 * 0.75}
         className="aspect-video w-full rounded-lg shadow-md shadow-black"
         alt="My setup"
