@@ -1,34 +1,8 @@
-import { IntroType, ProjectType, SeoType } from '@/types/types'
+import { ProjectType } from '@/types/types'
 import { groq } from 'next-sanity'
 import { sanityFetch } from './sanity-utils'
 
 // GROQ Queries
-export async function getSEO(): Promise<SeoType> {
-  const query = groq`*[_type == "seo"] { 
-            name,
-            siteName,
-            url,
-            description,
-            "image": image.asset->url,
-    }[0]`
-
-  const res: SeoType = await sanityFetch({ query, tags: ['settings'] })
-  return res
-}
-
-export async function getIntro(): Promise<IntroType> {
-  const query = groq`*[_type == 'intro'] {
-    'profilePicture': profilePicture.asset->url,
-    content,
-  }[0]`
-
-  const res: IntroType = await sanityFetch({
-    query,
-    tags: ['intro'],
-  })
-  return res
-}
-
 export async function getResume(): Promise<string> {
   const query = groq`*[_type == 'resume'] {
     "resumeURL": resume.asset->url,

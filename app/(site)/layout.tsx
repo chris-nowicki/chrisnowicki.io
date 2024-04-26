@@ -1,11 +1,12 @@
-import { AnalyticsWrapper } from '@/components/AnalyticsWrapper'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import { ThemeProvider } from '../../components/ThemeProvider'
-import { Toaster } from 'react-hot-toast'
-import NavBar from '@/components/NavBar/NavBar'
-import Footer from '@/components/Footer'
 import '@/app/globals.css'
+import { AnalyticsWrapper } from '@/components/AnalyticsWrapper'
+import Footer from '@/components/Footer'
+import NavBar from '@/components/NavBar/NavBar'
 import ScrollToTop from '@/components/ScrollToTop'
+import { seo } from '@/lib/site'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Toaster } from 'react-hot-toast'
+import { ThemeProvider } from '../../components/ThemeProvider'
 
 import { Inter as FontSans } from 'next/font/google'
 
@@ -14,13 +15,9 @@ const inter = FontSans({
   variable: '--font-sans',
 })
 
-import { getSEO } from '@/sanity/sanity-queries'
-import type { SeoType } from '@/types/types'
 import type { Metadata } from 'next'
 
 export async function generateMetadata(): Promise<Metadata | undefined> {
-  const seo: SeoType = await getSEO()
-
   return {
     metadataBase: new URL(seo.url),
     title: {

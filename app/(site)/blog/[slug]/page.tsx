@@ -1,5 +1,4 @@
 import { Separator } from '@/components/ui/separator'
-import { siteConfig } from '@/lib/site'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
 import PostCover from '@/components/Blog/PostCover'
@@ -49,7 +48,7 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.description,
-    authors: { name: siteConfig.author },
+    authors: { name: 'Chris Nowicki' },
     openGraph: {
       title: post.title,
       description: post.description,
