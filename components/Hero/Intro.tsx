@@ -16,7 +16,7 @@ export default async function Intro() {
           I enjoy working with <strong>Next.js/React</strong>,{' '}
           <strong>Astro</strong>, <strong>TypeScript</strong>,{' '}
           <strong>shadcn/ui</strong>, <strong>Tailwind CSS</strong>,{' '}
-          <strong>MySQL/MongoDB</strong>,{' '}<strong>Sanity CMS</strong>, and
+          <strong>MySQL/MongoDB</strong>, <strong>Sanity CMS</strong>, and{' '}
           <strong>Vercel</strong>.
         </p>
         <p className="text-left text-lg leading-7 md:mr-4 md:text-xl [&:not(:first-child)]:mt-0 [&:not(:first-child)]:pt-0 [&:not(:first-child)]:text-left">
