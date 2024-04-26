@@ -32,7 +32,7 @@ export default async function SocialMetrics({
       >
         {/* resume */}
         <Link
-          href="/ChrisNowicki_Resume.pdf"
+          href="/files/ChrisNowicki_Resume.pdf"
           className={cn(
             buttonVariants({ variant: 'outline' }),
             'group flex items-center justify-center gap-2 rounded-lg py-6 hover:border-primary hover:bg-transparent hover:shadow group-hover:text-primary',
