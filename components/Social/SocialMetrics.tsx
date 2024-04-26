@@ -1,7 +1,5 @@
-'use server'
 import { socialLinks } from '@/lib/data'
 import { cn } from '@/utils/utils'
-import { getResume } from '@/sanity/sanity-queries'
 import Link from 'next/link'
 import Icon from '../Icon'
 import { buttonVariants } from '../ui/button'
@@ -18,8 +16,6 @@ export default async function SocialMetrics({
   metrics = true,
   footer = false,
 }: SocialMetricsProps) {
-  const resumeURL = await getResume()
-
   return (
     <section
       className={cn(
@@ -36,7 +32,7 @@ export default async function SocialMetrics({
       >
         {/* resume */}
         <Link
-          href={resumeURL}
+          href="/files/ChrisNowicki_Resume.pdf"
           className={cn(
             buttonVariants({ variant: 'outline' }),
             'group flex items-center justify-center gap-2 rounded-lg py-6 hover:border-primary hover:bg-transparent hover:shadow group-hover:text-primary',
