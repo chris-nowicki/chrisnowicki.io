@@ -34,7 +34,6 @@
     "@vercel/edge-config": "^1.1.0",
     "@vercel/og": "^0.6.2",
     "@vercel/speed-insights": "^1.0.10",
-    "appwrite": "^14.0.1",
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
