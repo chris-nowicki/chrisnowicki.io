@@ -1,7 +1,6 @@
-'use server'
 import { socialLinks } from '@/lib/data'
 import { cn } from '@/utils/utils'
-import { getResume } from '@/sanity/sanity-queries'
+import { getResume } from '@/lib/appwrite-client'
 import Link from 'next/link'
 import Icon from '../Icon'
 import { buttonVariants } from '../ui/button'
