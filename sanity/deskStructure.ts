@@ -1,5 +1,3 @@
-import { CogIcon } from '@sanity/icons'
-
 export const myStructure = (S: any) =>
   S.list()
     .title('Content')
@@ -20,15 +18,10 @@ export const myStructure = (S: any) =>
                     .schemaType('featuredProjects')
                     .documentId('featuredProjects')
                 ),
-              S.listItem()
-                .title('Resume')
-                .child(S.document().schemaType('resume').documentId('resume')),
             ])
         ),
       ...S.documentTypeListItems().filter(
         (listItem: any) =>
-          !['featuredProjects', 'resume', 'media.tag'].includes(
-            listItem.getId()
-          )
+          !['featuredProjects', 'media.tag'].includes(listItem.getId())
       ),
     ])
