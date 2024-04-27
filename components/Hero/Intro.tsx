@@ -15,7 +15,10 @@ export default async function Intro() {
     <section className="mx-4 flex flex-wrap-reverse justify-center md:mx-0 md:flex-nowrap md:justify-start">
       <div className="mr-0 flex w-full flex-col items-center text-xl md:mr-6 md:items-start">
         {/* intro text */}
-        <div dangerouslySetInnerHTML={{ __html: heroData.markdown }} />
+        <div
+          dangerouslySetInnerHTML={{ __html: heroData.markdown }}
+          className="intro"
+        />
 
         {/* projects and contact buttons */}
         <div className="mt-6 flex items-center gap-2 md:mt-10">

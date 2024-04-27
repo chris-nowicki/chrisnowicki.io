@@ -93,7 +93,7 @@ export default async function PostPage({ params }: PostPageProps) {
           alt={post.frontmatter.title}
         />
       )}
-      <div className="mdx mt-6 prose-img:my-6 prose-img:rounded-lg prose-img:border prose-img:shadow-md dark:prose-img:shadow-none">
+      <div className="mdx mt-6 prose-p:text-base prose-img:my-6 prose-img:rounded-lg prose-img:border prose-img:shadow-md dark:prose-img:shadow-none">
         <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </div>
       <div className="group mt-12 flex justify-center text-xl text-muted-foreground hover:text-primary">

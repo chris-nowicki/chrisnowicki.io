@@ -1,6 +1,6 @@
 /* markdown code block styling */
 [data-rehype-pretty-code-figure] pre {
-  @apply overflow-auto rounded-lg p-4;
+  @apply overflow-auto rounded-lg p-2;
 }
 
 [data-rehype-pretty-code-figure] code {

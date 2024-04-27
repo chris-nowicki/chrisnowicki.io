@@ -10,8 +10,6 @@ export const env = createEnv({
     DEVTO_DOCUMENT_ID: z.string().min(1),
     GITHUB_DOCUMENT_ID: z.string().min(1),
     GITHUB_TOKEN: z.string().min(1),
-    SANITY_API_READ_TOKEN: z.string().min(1),
-    SANITY_REVALIDATE_SECRET: z.string().min(1),
     TWITTER_ACCESS_TOKEN: z.string().min(1),
     TWITTER_ACCESS_TOKEN_SECRET: z.string().min(1),
     TWITTER_CONSUMER_KEY: z.string().min(1),
@@ -21,15 +19,9 @@ export const env = createEnv({
   },
   client: {
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: z.string().min(1),
-    NEXT_PUBLIC_SANITY_DATASET: z.string().min(1),
-    NEXT_PUBLIC_SANITY_PROJECT_ID: z.string().min(1),
-    NEXT_PUBLIC_SANITY_API_VERSION: z.string().min(1),
   },
   experimental__runtimeEnv: {
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME:
       process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
-    NEXT_PUBLIC_SANITY_DATASET: process.env.NEXT_PUBLIC_SANITY_DATASET,
-    NEXT_PUBLIC_SANITY_PROJECT_ID: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
-    NEXT_PUBLIC_SANITY_API_VERSION: process.env.NEXT_PUBLIC_SANITY_API_VERSION,
   },
 })
