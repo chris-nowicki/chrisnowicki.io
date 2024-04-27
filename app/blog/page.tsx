@@ -44,10 +44,10 @@ export default async function Blog() {
 
   return (
     <section className="mx-6 flex flex-col items-start md:mx-0">
-      <SectionHeading className="-mb-6 text-left">Blog</SectionHeading>
-      <p className="mb-6 text-muted-foreground">
+      <SectionHeading className="text-left">Blog</SectionHeading>
+      <span className="mb-6 text-muted-foreground">
         My ramblings on the web about all things tech!
-      </p>
+      </span>
 
       {/* featured post */}
       <FeaturedPost post={featuredPosts} />
