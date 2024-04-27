@@ -1,12 +1,10 @@
 export type ProjectType = {
   name: string
-  excerpt: string
+  description: string
   liveSiteUrl: string
   gitHubUrl: string
   image: string
-  tags: {
-    name: string
-  }[]
+  tags: string[]
 }
 
 export type MetricsType = {
