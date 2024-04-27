@@ -19,17 +19,15 @@ export default function FeaturedPost({ post }) {
         />
       </div>
 
-      <div className="flex w-full flex-col p-4 md:w-1/2">
+      <div className="flex w-full flex-col justify-between p-4 md:w-1/2">
         <span className="text-lg font-semibold">{post.title}</span>
-        <p className="text-muted-foreground">{post.description}</p>
+        <span className="text-muted-foreground">{post.description}</span>
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-1 text-primary">
             <Icon id="clock" className="h-4 w-4" />
             {post.readingTime}
           </div>
-          <div
-            className="group flex items-center gap-1 text-primary"
-          >
+          <div className="group flex items-center gap-1 text-primary">
             Read More{' '}
             <Icon
               id="arrow-right"

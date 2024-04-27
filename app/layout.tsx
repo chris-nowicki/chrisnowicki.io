@@ -6,7 +6,7 @@ import ScrollToTop from '@/components/ScrollToTop'
 import { seo } from '@/lib/site'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Toaster } from 'react-hot-toast'
-import { ThemeProvider } from '../../components/ThemeProvider'
+import { ThemeProvider } from '../components/ThemeProvider'
 
 import { Inter as FontSans } from 'next/font/google'
 
