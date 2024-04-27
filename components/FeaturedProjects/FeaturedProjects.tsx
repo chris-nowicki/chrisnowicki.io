@@ -1,10 +1,8 @@
 import SectionHeading from '@/components/SectionHeading'
-import { getFeaturedProjects } from '@/sanity/sanity-queries'
+import { featuredProject as projects } from '@/lib/projects'
 import ProjectCard from './ProjectCard'
 
 export default async function FeaturedProjects() {
-  const projects = await getFeaturedProjects()
-
   return (
     <section
       id="projects"

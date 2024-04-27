@@ -16,7 +16,7 @@ export default async function Footer() {
   return (
     <footer className="mb-20 flex flex-col items-center px-4 text-left md:px-0 md:text-center">
       <SectionDivider />
-      <div className="flex w-full flex-col justify-between gap-4 rounded-xl border p-6 shadow-xl shadow-primary/20 md:flex-row">
+      <div className="mb-6 flex w-full flex-col justify-between gap-4 rounded-xl border p-6 shadow-xl shadow-primary/20 md:flex-row">
         <div className="flex w-full flex-col items-center md:w-1/2 md:items-start md:justify-between">
           <span className="mb-4 text-3xl font-semibold ">Sitemap</span>
           {footerLinks.map((link) => (
@@ -37,11 +37,11 @@ export default async function Footer() {
       {/* about this website information */}
       <p className="text-left text-xs md:px-4">
         <span className="font-semibold">Built with:</span> Next.js, TypeScript,
-        Tailwind CSS, shadcn/ui, Framer Motion, Sanity CMS, Appwrite DB.
+        Tailwind CSS, shadcn/ui, Framer Motion, Appwrite.
       </p>
 
       {/* powered by vercel */}
-      <div className="mt-6 flex gap-2">
+      <div className="mt-2 flex gap-2">
         <span>⚡️ by vercel</span>
         <Link href="https://vercel.com" target="_blank">
           <Icon id="vercel" size={24} />

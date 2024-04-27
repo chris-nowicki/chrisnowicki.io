@@ -19,6 +19,8 @@ import Icon from '../Icon'
 import Image from 'next/image'
 import { cn } from '@/utils/utils'
 import { Badge } from '../ui/badge'
+import { createImageUrl } from '@/utils/cloudinary'
+import CldImage from '../CldImage'
 
 type ProjectCardProps = {
   project: ProjectType
@@ -32,11 +34,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         <div className="flex justify-center gap-1 pt-1">
           {project.tags.map((tag, index) => (
             <Badge
-              key={index + tag.name}
+              key={index + tag}
               variant="secondary"
               className="rounded-full"
             >
-              {tag.name}
+              {tag}
             </Badge>
           ))}
         </div>
@@ -44,7 +46,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       <CardContent className="relative h-[208px] md:h-[220px]">
         {/* project image on desktop view */}
         <div className="absolute flex h-[200px] w-[320px] items-center justify-center rounded-md bg-secondary px-4 opacity-0 transition-all duration-300 ease-in-out group-hover/card:opacity-100">
-          {project.excerpt}
+          {project.description}
         </div>
 
         {/* project image */}
@@ -68,7 +70,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             <AccordionTrigger className="text-xl text-primary">
               Project Description
             </AccordionTrigger>
-            <AccordionContent>{project.excerpt}</AccordionContent>
+            <AccordionContent>{project.description}</AccordionContent>
           </AccordionItem>
         </Accordion>
         <div className="flex w-full items-center gap-4">
