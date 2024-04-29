@@ -43,7 +43,11 @@ export default async function Footer() {
       {/* powered by vercel */}
       <div className="mt-2 flex gap-2">
         <span>⚡️ by vercel</span>
-        <Link href="https://vercel.com" target="_blank">
+        <Link
+          href="https://vercel.com"
+          target="_blank"
+          aria-label={`Vercel's website`}
+        >
           <Icon id="vercel" size={24} />
         </Link>
       </div>
