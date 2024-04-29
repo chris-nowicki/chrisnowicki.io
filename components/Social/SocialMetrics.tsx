@@ -31,7 +31,7 @@ export default async function SocialMetrics({
         )}
       >
         {/* resume */}
-        <Link
+        <a
           href="/files/ChrisNowicki_Resume.pdf"
           download="ChrisNowicki_Resume.pdf"
           className={cn(
@@ -48,7 +48,7 @@ export default async function SocialMetrics({
             size={20}
             className="transition-all group-hover:animate-bounce"
           />
-        </Link>
+        </a>
 
         {/* social media links */}
         <div className="flex items-center gap-2">
