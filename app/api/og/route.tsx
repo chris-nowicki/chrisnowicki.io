@@ -24,7 +24,7 @@ export async function GET(req: NextRequest) {
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'flex-start',
-          backgroundImage: `url(${baseUrl}/og.png)`,
+          backgroundImage: `url(${baseUrl}/og-template.png)`,
         }}
       >
         <div

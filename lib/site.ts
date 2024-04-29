@@ -3,7 +3,7 @@ export const seo = {
   siteName: 'https://chrisnowicki.io',
   url: 'https://www.chrisnowicki.io',
   description: 'Full-Stack Developer & Technology Nerd.',
-  image: 'https://chrisnowicki.io/portfolio-banner.webp',
+  image: 'https://chrisnowicki.io/og.webp',
 }
 
 export type SiteConfig = typeof seo

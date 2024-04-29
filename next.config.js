@@ -17,6 +17,12 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'img.youtube.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'abs.twimg.com',
         port: '',
         pathname: '/ddetibihn/image/upload/v1710262757/**',

@@ -24,7 +24,7 @@ export default function Community() {
               aria-label="Link to Virtual Coffee website. Click to open in a new tab."
             >
               <Image
-                src="/logos/virtualCoffee.svg"
+                src="/images/logos/virtualCoffee.svg"
                 alt="Virtual Coffee Logo"
                 width={200}
                 height={200}

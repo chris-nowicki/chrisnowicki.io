@@ -1,5 +1,6 @@
-import YouTubeEmbed from '@/components/YouTubeEmbed'
 import { Card, CardContent, CardHeader, CardTitle } from '../ui/card'
+import Image from 'next/image'
+import YouTubeLink from '../YouTubeLink'
 
 export default function Speaking() {
   return (
@@ -9,7 +10,10 @@ export default function Speaking() {
           <CardTitle>How to Improve Your Home WiFi Speeds ⚡️</CardTitle>
         </CardHeader>
         <CardContent>
-          <YouTubeEmbed embedId="ZSMU5Avf-T0?si=8XR7aRmDw_0hSChK" />
+          <YouTubeLink
+            id="ZSMU5Avf-T0"
+            alt="How to Improve Your Home WiFi Speeds"
+          />
         </CardContent>
       </Card>
 
@@ -18,7 +22,10 @@ export default function Speaking() {
           <CardTitle>The Complexity of ADHD Treatment 🧠</CardTitle>
         </CardHeader>
         <CardContent>
-          <YouTubeEmbed embedId="P4aMxBWwLD0?si=AJbMu8fqJ-U9EQNN" />
+          <YouTubeLink
+            id="P4aMxBWwLD0"
+            alt="The Complexity of ADHD Treatment"
+          />
         </CardContent>
       </Card>
     </div>

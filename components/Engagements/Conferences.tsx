@@ -5,7 +5,6 @@ import {
 } from '../ui/accordion'
 import { Card, CardFooter, CardHeader, CardTitle } from '../ui/card'
 import { Badge } from '../ui/badge'
-import Icon from '../Icon'
 import Image from 'next/image'
 
 export default function Conferences() {
@@ -25,7 +24,7 @@ export default function Conferences() {
             <CardHeader>
               <CardTitle className="flex justify-center">
                 <Image
-                  src="/logos/that.svg"
+                  src="/images/logos/that.svg"
                   width={125}
                   height={125}
                   alt="THAT Conference Logo"
@@ -52,7 +51,7 @@ export default function Conferences() {
             <CardHeader>
               <CardTitle className=" flex flex-col items-center gap-1">
                 <Image
-                  src="/logos/render-atl.svg"
+                  src="/images/logos/render-atl.svg"
                   width={75}
                   height={75}
                   alt="Render ATL Conference Logo"
