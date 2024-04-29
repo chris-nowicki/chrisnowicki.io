@@ -1,5 +1,5 @@
 import SectionHeading from './SectionHeading'
-import Speaking from './engagements/Speaking'
+import Speaking from './Engagements/Speaking'
 
 export default function Highlights() {
   return (

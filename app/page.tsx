@@ -1,6 +1,6 @@
 import SectionDivider from '@/components/SectionDivider'
-import FeaturedProjects from '@/components/projects/FeaturedProjects'
-import Hero from '@/components/hero/Hero'
+import FeaturedProjects from '@/components/FeaturedProjects/FeaturedProjects'
+import Hero from '@/components/Hero/Hero'
 import Speaking from '@/components/Highlights'
 import Contact from '@/components/Contact'
 

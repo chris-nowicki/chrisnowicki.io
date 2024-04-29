@@ -1,4 +1,4 @@
-import SocialMetrics from '../social/SocialMetrics'
+import SocialMetrics from '../Social/SocialMetrics'
 import Intro from './Intro'
 
 export default async function Hero() {

@@ -5,11 +5,11 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import SectionHeading from '@/components/SectionHeading'
-import Community from '@/components/engagements/Community'
+import Community from '@/components/Engagements/Community'
 import TechnicalWriting from './TechnicalWriting'
-import OSS from '@/components/engagements/OSS'
-import Conferences from '@/components/engagements/Conferences'
-import Speaking from '@/components/engagements/Speaking'
+import OSS from '@/components/Engagements/OSS'
+import Conferences from '@/components/Engagements/Conferences'
+import Speaking from '@/components/Engagements/Speaking'
 import { Metadata } from 'next'
 
 // metadata

@@ -1,7 +1,7 @@
 import '@/app/globals.css'
 import { AnalyticsWrapper } from '@/components/AnalyticsWrapper'
 import Footer from '@/components/Footer'
-import NavBar from '@/components/navbar/NavBar'
+import NavBar from '@/components/NavBar/NavBar'
 import ScrollToTop from '@/components/ScrollToTop'
 import { seo } from '@/lib/site'
 import { SpeedInsights } from '@vercel/speed-insights/next'
