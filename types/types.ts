@@ -45,3 +45,23 @@ export type TransformedMarkdown<T = Record<string, any>> = {
   html: string
   frontmatter: T
 }
+
+export enum Tags {
+  auth0 = 'auth0',
+  Clerk = 'Clerk',
+  CSS = 'CSS',
+  HTML = 'HTML',
+  JavaScript = 'JavaScript',
+  MongoDB = 'MongoDB',
+  MySQL = 'MySQL',
+  NextJS = 'Next.js',
+  NodeJS = 'Node.js',
+  PostgreSQL = 'PostgreSQL',
+  React = 'React',
+  Sass = 'Sass',
+  Sentry = 'Sentry',
+  TailwindCSS = 'TailwindCSS',
+  TypeScript = 'TypeScript',
+  Vite = 'Vite',
+  Xata = 'Xata',
+}

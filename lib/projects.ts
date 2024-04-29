@@ -1,3 +1,5 @@
+import { Tags } from '@/types/types'
+
 export const featuredProject = [
   {
     name: 'Deals for Devs',
@@ -6,7 +8,7 @@ export const featuredProject = [
     gitHubUrl: 'https://github.com/Learn-Build-Teach/deals-for-devs',
     liveSiteUrl: 'https://www.dealsfordevs.com/',
     image: '/images/projects/dealsfordevs.png',
-    tags: ['Next.js', 'Xata', 'Clerk', 'Sentry', 'TailwindCSS'],
+    tags: [Tags.NextJS, Tags.Xata, Tags.Clerk, Tags.Sentry, Tags.TailwindCSS],
   },
   {
     name: 'Markdown Editor',
@@ -15,7 +17,7 @@ export const featuredProject = [
     gitHubUrl: 'https://github.com/chris-nowicki/in-browser-markdown-editor',
     liveSiteUrl: 'https://markdown.chrisnowicki.io',
     image: '/images/projects/in-browser-markdown-app.webp',
-    tags: ['Next.js', 'TypeScript', 'MongoDB', 'auth0', 'Sass'],
+    tags: [Tags.NextJS, Tags.TypeScript, Tags.MongoDB, Tags.auth0, Tags.Sass],
   },
   {
     name: 'Dev Job Board',
@@ -24,7 +26,7 @@ export const featuredProject = [
     gitHubUrl: 'https://github.com/chris-nowicki/devjobs-web-app',
     liveSiteUrl: 'https://devjobs.chrisnowicki.io/',
     image: '/images/projects/devjobs.webp',
-    tags: ['Next.js', 'React', 'TailwindCSS'],
+    tags: [Tags.NextJS, Tags.React, Tags.TailwindCSS],
   },
   {
     name: 'Pomodoro App',
@@ -33,6 +35,6 @@ export const featuredProject = [
     gitHubUrl: 'https://github.com/chris-nowicki/pomodoro-app',
     liveSiteUrl: 'https://pomodoro.chrisnowicki.io',
     image: '/images/projects/pomodoro.webp',
-    tags: ['Vite', 'React', 'TypeScript', 'Sass'],
+    tags: [Tags.Vite, Tags.React, Tags.TypeScript, Tags.Sass],
   },
 ]
