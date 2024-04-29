@@ -1,5 +1,4 @@
 import SectionHeading from '@/components/SectionHeading'
-import AffiliateLink from '@/components/uses/AffiliateLink'
 import { Metadata } from 'next'
 import CldImage from '@/components/CldImage'
 import { hw_accessories, hw_streaming, sw, laptop, desk } from '@/lib/uses'
