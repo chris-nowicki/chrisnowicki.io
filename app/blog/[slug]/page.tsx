@@ -1,7 +1,7 @@
 import { Separator } from '@/components/ui/separator'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
-import PostCover from '@/components/Blog/PostCover'
+import PostCover from '@/components/blog/PostCover'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Icon from '@/components/Icon'

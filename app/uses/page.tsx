@@ -1,9 +1,9 @@
 import SectionHeading from '@/components/SectionHeading'
-import AffiliateLink from '@/components/AffiliateLink'
+import AffiliateLink from '@/components/uses/AffiliateLink'
 import { Metadata } from 'next'
 import CldImage from '@/components/CldImage'
-import { hw_accessories, hw_streaming, sw } from '@/lib/uses'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
+import { hw_accessories, hw_streaming, sw, laptop, desk } from '@/lib/uses'
+import UsesSection from '@/components/UsesSection'
 
 // metadata
 const title: string = `Chris Nowicki's Uses`
@@ -63,7 +63,7 @@ export default function Uses() {
         >
           mac-setup{' '}
         </a>
-        repo's to go into more depth on the tools I use.
+        repositories that go into more depth on the tools I use.
       </span>
 
       {/* setup image */}
@@ -71,66 +71,16 @@ export default function Uses() {
         src="https://res.cloudinary.com/ddetibihn/image/upload/f_auto,q_auto,w_768,c_limit/v1713891400/portfolio/uses/s4hwrs0deshum1skhne2.jpg"
         width={768}
         height={700 * 0.75}
-        className="aspect-video w-full rounded-lg shadow-md shadow-black"
+        className="aspect-video w-full rounded-lg"
         alt="My setup"
       />
 
-      {/* laptop */}
-      <div className="mt-8 flex w-full flex-col">
-        <h2 className="mb-2 border-none font-semibold">Laptop</h2>
-        <AffiliateLink
-          href="https://www.apple.com/shop/buy-mac/macbook-pro/16-inch-m3-max"
-          name='16" MacBook Pro M1 Max'
-        />
-      </div>
-
-      {/* desk */}
-      <div className="mt-8 flex w-full flex-col">
-        <h2 className="mb-2 border-none font-semibold">Desk</h2>
-        <AffiliateLink
-          href="https://www.upliftdesk.com"
-          name="Uplift V2 Standing Desk"
-        />
-        <AffiliateLink
-          href="https://grovemade.com/product/wood-desk-shelf/"
-          name="LG Grovemade Desk Shelf with Drawer"
-        />
-      </div>
-
-      {/* hardware */}
-      <div className="mt-8 flex w-full flex-col">
-        <h2 className="mb-2 border-none font-semibold">Hardware</h2>
-        <div className="flex flex-wrap gap-4">
-          <Card className="w-full md:flex-1">
-            <CardHeader>
-              <CardTitle>Accessories</CardTitle>
-            </CardHeader>
-            <CardContent>
-              {hw_accessories.map((item, i) => (
-                <AffiliateLink key={i} href={item.link} name={item.name} />
-              ))}
-            </CardContent>
-          </Card>
-          <Card className="w-full md:flex-1">
-            <CardHeader>
-              <CardTitle>Streaming</CardTitle>
-            </CardHeader>
-            <CardContent>
-              {hw_streaming.map((item, i) => (
-                <AffiliateLink key={i} href={item.link} name={item.name} />
-              ))}
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-
-      {/* software */}
-      <div className="mt-8 flex w-full flex-col">
-        <h2 className="mb-2 border-none font-semibold">Software</h2>
-        {sw.map((item, i) => (
-          <AffiliateLink key={i} href={item.link} name={item.name} />
-        ))}
-      </div>
+      {/* sections */}
+      <UsesSection name="Laptop" items={laptop} />
+      <UsesSection name="Desk" items={desk} />
+      <UsesSection name="Accessories" items={hw_accessories} />
+      <UsesSection name="Streaming" items={hw_streaming} />
+      <UsesSection name="Software" items={sw} />
     </section>
   )
 }

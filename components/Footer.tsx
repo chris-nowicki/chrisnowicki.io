@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import SocialMetrics from './Social/SocialMetrics'
+import SocialMetrics from './social/SocialMetrics'
 import SectionDivider from './SectionDivider'
 import Icon from './Icon'
 
