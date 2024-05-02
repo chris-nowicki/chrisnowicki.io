@@ -26,9 +26,4 @@ const createExternalImageUrl = (url: string) => {
   return externalImageUrl
 }
 
-// const createYouTubeUrl = (id: string) => {
-//   const url = `https://res.cloudinary.com/chriswix/image/youtube/f_auto,q_auto/${id}.jpg`
-//   return url
-// }
-
 export { createExternalImageUrl, createImageUrl, createInternalImageUrl }

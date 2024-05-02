@@ -12,6 +12,7 @@ export const desk = [
     url: 'https://grovemade.com/product/wood-desk-shelf/',
   },
 ]
+
 export const hw_accessories = [
   { name: 'LG 27" 5K UHD Monitor', url: 'https://amzn.to/3UyBatA' },
   { name: 'LG 28" DualUp Monitor', url: 'https://amzn.to/3Uef9iq' },
