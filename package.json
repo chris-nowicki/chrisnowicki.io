@@ -34,7 +34,7 @@
     "clsx": "^2.1.1",
     "date-fns": "^3.6.0",
     "encoding": "^0.1.13",
-    "framer-motion": "^11.1.8",
+    "framer-motion": "^11.1.9",
     "fs-extra": "^11.2.0",
     "glob": "^10.3.12",
     "gray-matter": "^4.0.3",
@@ -45,7 +45,7 @@
     "node-appwrite": "^12.0.1",
     "node-html-parser": "^6.1.13",
     "oauth-1.0a": "^2.2.6",
-    "octokit": "^3.2.1",
+    "octokit": "^4.0.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hot-toast": "^2.4.1",
@@ -66,12 +66,12 @@
     "unified": "^11.0.4",
     "unified-stream": "^3.0.0",
     "usehooks-ts": "^3.1.0",
-    "vercel": "^34.1.8",
-    "zod": "^3.23.6"
+    "vercel": "^34.1.9",
+    "zod": "^3.23.7"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
-    "@types/node": "^20.12.9",
+    "@types/node": "^20.12.11",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
