@@ -1,8 +1,8 @@
 export const speakingLinks = [
   {
     id: 'eM3G5EPtu8c',
-    title: 'Maintaining a community Led Dev Project 🎤',
-    alt: 'Maintaining a community Led Dev Project',
+    title: 'Maintaining a Community Led Dev Project 🎤',
+    alt: 'Maintaining a Community Led Dev Project',
   },
   {
     id: 'ZSMU5Avf-T0',
