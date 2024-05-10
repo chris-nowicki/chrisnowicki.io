@@ -36,7 +36,7 @@
     "encoding": "^0.1.13",
     "framer-motion": "^11.1.9",
     "fs-extra": "^11.2.0",
-    "glob": "^10.3.12",
+    "glob": "^10.3.14",
     "gray-matter": "^4.0.3",
     "jiti": "^1.21.0",
     "next": "^14.2.3",
@@ -66,8 +66,8 @@
     "unified": "^11.0.4",
     "unified-stream": "^3.0.0",
     "usehooks-ts": "^3.1.0",
-    "vercel": "^34.1.9",
-    "zod": "^3.23.7"
+    "vercel": "^34.1.10",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
