@@ -36,7 +36,7 @@
     "encoding": "^0.1.13",
     "framer-motion": "^11.1.9",
     "fs-extra": "^11.2.0",
-    "glob": "^10.3.14",
+    "glob": "^10.3.15",
     "gray-matter": "^4.0.3",
     "jiti": "^1.21.0",
     "next": "^14.2.3",
@@ -66,13 +66,13 @@
     "unified": "^11.0.4",
     "unified-stream": "^3.0.0",
     "usehooks-ts": "^3.1.0",
-    "vercel": "^34.1.10",
+    "vercel": "^34.1.11",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",
     "@types/node": "^20.12.11",
-    "@types/react": "^18.3.1",
+    "@types/react": "^18.3.2",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.19",
     "cz-conventional-changelog": "^3.3.0",
@@ -80,7 +80,7 @@
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "tailwindcss": "^3.4.3",
-    "tsx": "^4.9.3",
+    "tsx": "^4.10.1",
     "typescript": "^5.4.5"
   },
   "config": {
