@@ -1,4 +1,4 @@
-import sdk from 'node-appwrite'
+import * as sdk from 'node-appwrite'
 import { env } from '../env'
 
 const endPoint = env.APPWRITE_ENDPOINT
