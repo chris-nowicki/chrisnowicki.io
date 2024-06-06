@@ -101,6 +101,9 @@ importers:
       octokit:
         specifier: ^4.0.2
         version: 4.0.2
+      posthog-js:
+        specifier: ^1.137.0
+        version: 1.137.0
       react:
         specifier: ^18.3.1
         version: 18.3.1
@@ -1926,6 +1929,9 @@ packages:
   fd-slicer@1.1.0:
     resolution: {integrity: sha512-cE1qsB/VwyQozZ+q1dGxR8LBYNZeofhEdUNGSMbQD3Gw2lAzX9Zb3uIU6Ebc/Fmyjo9AWWfnn0AUCHqtevs/8g==}
 
+  fflate@0.4.8:
+    resolution: {integrity: sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==}
+
   fflate@0.7.4:
     resolution: {integrity: sha512-5u2V/CDW15QM1XbbgS+0DfPxVB+jUKhWEKuuFuHncbk3tEEqzmoXL+2KyOFuKGqOnmdIy0/davWF1CkuwtibCw==}
 
@@ -2846,6 +2852,12 @@ packages:
   postcss@8.4.38:
     resolution: {integrity: sha512-Wglpdk03BSfXkHoQa3b/oulrotAkwrlLDRSOb9D0bN86FdRyE9lppSp33aHNPgBa0JKCoB+drFLZkQoRRYae5A==}
     engines: {node: ^10 || ^12 || >=14}
+
+  posthog-js@1.137.0:
+    resolution: {integrity: sha512-9ZJ222ygqkMwkLaeXIJeKilE2iNtHcZ/91NVQDShOu1/Swglq5vDvmH5mT2He8WksR1Sk0rjWxwbAHHxhMSFdQ==}
+
+  preact@10.22.0:
+    resolution: {integrity: sha512-RRurnSjJPj4rp5K6XoP45Ui33ncb7e4H7WiOHVpjbkvqvA3U+N8Z6Qbo0AE6leGYBV66n8EhEaFixvIu3SkxFw==}
 
   prettier-plugin-tailwindcss@0.6.1:
     resolution: {integrity: sha512-AnbeYZu0WGj+QgKciUgdMnRxrqcxltleZPgdwfA5104BHM3siBLONN/HLW1yS2HvzSNkzpQ/JAj+LN0jcJO+0w==}
@@ -5302,6 +5314,8 @@ snapshots:
     dependencies:
       pend: 1.2.0
 
+  fflate@0.4.8: {}
+
   fflate@0.7.4: {}
 
   figures@3.2.0:
@@ -6438,6 +6452,13 @@ snapshots:
       nanoid: 3.3.7
       picocolors: 1.0.0
       source-map-js: 1.2.0
+
+  posthog-js@1.137.0:
+    dependencies:
+      fflate: 0.4.8
+      preact: 10.22.0
+
+  preact@10.22.0: {}
 
   prettier-plugin-tailwindcss@0.6.1(prettier@3.3.0):
     dependencies:
