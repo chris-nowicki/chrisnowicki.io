@@ -64,6 +64,9 @@ export default function Conferences() {
                 <Badge className="rounded-full" variant="secondary">
                   June 2023
                 </Badge>
+                <Badge className="rounded-full" variant="secondary">
+                  June 2024
+                </Badge>
               </div>
             </CardFooter>
           </Card>
