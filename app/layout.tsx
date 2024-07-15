@@ -7,7 +7,6 @@ import { seo } from '@/lib/site'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Toaster } from 'react-hot-toast'
 import { ThemeProvider } from '../components/ThemeProvider'
-import { CSPostHogProvider } from './providers'
 
 import { Inter as FontSans } from 'next/font/google'
 
@@ -66,34 +65,32 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <CSPostHogProvider>
-        <body
-          className={`${inter.variable} min-h-screen bg-background font-sans antialiased`}
+      <body
+        className={`${inter.variable} min-h-screen bg-background font-sans antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <div className="flex flex-col items-center">
-              <div className="w-full max-w-3xl">
-                <NavBar />
-                <main className="z-10">
-                  {children}
-                  <AnalyticsWrapper />
-                  <SpeedInsights />
-                </main>
-                <Footer />
-              </div>
+          <div className="flex flex-col items-center">
+            <div className="w-full max-w-3xl">
+              <NavBar />
+              <main className="z-10">
+                {children}
+                <AnalyticsWrapper />
+                <SpeedInsights />
+              </main>
+              <Footer />
             </div>
+          </div>
 
-            {/* toaster for when an email is sent from the contact form */}
-            <Toaster position="top-center" toastOptions={{ duration: 5000 }} />
-            <ScrollToTop />
-          </ThemeProvider>
-        </body>
-      </CSPostHogProvider>
+          {/* toaster for when an email is sent from the contact form */}
+          <Toaster position="top-center" toastOptions={{ duration: 5000 }} />
+          <ScrollToTop />
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
