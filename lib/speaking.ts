@@ -1,5 +1,10 @@
 export const speakingLinks = [
   {
+    id: 'LYPqcfP-7cA',
+    title: 'A Framework to a better YOU in the world of productivity 🎤',
+    alt: 'A Framework to a better YOU',
+  },
+  {
     id: 'eM3G5EPtu8c',
     title: 'Maintaining a Community Led Dev Project 🎤',
     alt: 'Maintaining a Community Led Dev Project',

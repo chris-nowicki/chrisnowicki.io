@@ -36,6 +36,9 @@ export default function Conferences() {
                 <Badge className="rounded-full" variant="secondary">
                   January 2024, TX
                 </Badge>
+                <Badge className="rounded-full" variant="secondary">
+                  July 2024, TX
+                </Badge>
               </div>
             </CardFooter>
           </Card>
@@ -47,9 +50,9 @@ export default function Conferences() {
           target="_blank"
           className="w-full md:w-[375px]"
         >
-          <Card className="w-full transition-all duration-100 ease-in-out hover:border-primary ">
+          <Card className="w-full transition-all duration-100 ease-in-out hover:border-primary">
             <CardHeader>
-              <CardTitle className=" flex flex-col items-center gap-1">
+              <CardTitle className="flex flex-col items-center gap-1">
                 <Image
                   src="/images/logos/render-atl.svg"
                   width={75}
