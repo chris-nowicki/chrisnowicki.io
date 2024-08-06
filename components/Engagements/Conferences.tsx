@@ -37,7 +37,7 @@ export default function Conferences() {
                   January 2024, TX
                 </Badge>
                 <Badge className="rounded-full" variant="secondary">
-                  July 2024, TX
+                  July 2024, WI
                 </Badge>
               </div>
             </CardFooter>
