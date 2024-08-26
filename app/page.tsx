@@ -12,7 +12,7 @@ export default async function Home() {
       <Hero />
       <SectionDivider />
       <FeaturedProjects />
-      <SectionDivider />
+      <SectionDivider/>
       <Speaking />
       <SectionDivider />
       <Contact />
