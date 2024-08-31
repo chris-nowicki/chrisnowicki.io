@@ -32,6 +32,11 @@ const nextConfig = {
         destination: '/community',
         permanent: true,
       },
+      {
+        source: '/projects',
+        destination: '/',
+        permanent: true,
+      },
     ]
   },
 }
