@@ -19,8 +19,6 @@ import Icon from '../Icon'
 import Image from 'next/image'
 import { cn } from '@/utils/utils'
 import { Badge } from '../ui/badge'
-import { createImageUrl } from '@/utils/cloudinary'
-import CldImage from '../CldImage'
 
 type ProjectCardProps = {
   project: ProjectType
