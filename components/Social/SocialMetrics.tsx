@@ -1,44 +1,46 @@
+import { FC } from 'react'
+
 import { socialLinks } from '@/lib/data'
 import { cn } from '@/utils/utils'
 import Link from 'next/link'
 import Icon from '../Icon'
-import { buttonVariants } from '../ui/button'
 import Metrics from './Metrics'
+import { buttonVariants } from '../ui/button'
 
 interface SocialMetricsProps {
   className?: string
-  metrics?: boolean
-  footer?: boolean
+  showMetrics?: boolean
+  isFooter?: boolean
 }
 
-export default async function SocialMetrics({
+const SocialMetrics: FC<SocialMetricsProps> = ({
   className,
-  metrics = true,
-  footer = false,
-}: SocialMetricsProps) {
+  showMetrics = true,
+  isFooter = false,
+}): JSX.Element => {
   return (
     <section
       className={cn(
         'flex flex-col gap-2 rounded-lg border p-4 shadow-lg md:flex-row',
-        footer ? 'w-full' : 'w-full md:w-3/4',
+        isFooter ? 'w-full' : 'w-full md:w-3/4',
         className
       )}
     >
       <div
         className={cn(
           'flex flex-col gap-2',
-          footer ? 'w-full' : 'w-full md:w-1/2'
+          isFooter ? 'w-full' : 'w-full md:w-1/2'
         )}
       >
-        {/* resume */}
         <a
           href="/files/ChrisNowicki_Resume.pdf"
           className={cn(
             buttonVariants({ variant: 'outline' }),
             'group flex items-center justify-center gap-2 rounded-lg py-6 hover:border-primary hover:bg-transparent hover:shadow group-hover:text-primary',
-            footer && 'w-full'
+            isFooter && 'w-full'
           )}
           target="_blank"
+          rel="noopener noreferrer"
         >
           <Icon id="pdf" size={28} />
           Download CV
@@ -49,26 +51,28 @@ export default async function SocialMetrics({
           />
         </a>
 
-        {/* social media links */}
         <div className="flex items-center gap-2">
-          {socialLinks.map((link, index) => (
+          {socialLinks.map(({ URL, icon, aria }, index) => (
             <Link
-              key={index + link.URL}
-              href={link.URL}
+              key={`${URL}-${index}`}
+              href={URL}
               className={cn(
                 buttonVariants({ variant: 'outline' }),
                 'flex w-full items-center justify-center px-2 py-6 hover:border-primary hover:bg-transparent hover:text-primary md:px-[9px] md:py-5'
               )}
               target="_blank"
-              aria-label={link.aria}
+              aria-label={aria}
+              rel="noopener noreferrer"
             >
-              {link.icon}
+              {icon}
             </Link>
           ))}
         </div>
       </div>
 
-      {metrics && <Metrics />}
+      {showMetrics && <Metrics />}
     </section>
   )
 }
+
+export default SocialMetrics

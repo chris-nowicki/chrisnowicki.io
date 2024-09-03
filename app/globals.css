@@ -57,7 +57,7 @@
   }
 
   body {
-    @apply overflow-y-scroll bg-background text-foreground;
+    @apply min-h-screen overflow-y-scroll bg-background font-sans text-foreground antialiased;
   }
 
   html {
@@ -81,13 +81,8 @@
   }
 
   p {
-    @apply mb-6 leading-7 [&:not(:first-child)]:mt-6;
+    @apply mb-6 mt-0 leading-7;
   }
-
-  blockquote {
-    @apply mt-6 border-l-2 border-primary pl-6 italic;
-  }
-
   svg {
     @apply fill-current;
   }

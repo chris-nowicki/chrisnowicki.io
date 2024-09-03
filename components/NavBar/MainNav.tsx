@@ -1,13 +1,15 @@
-import { navItems } from '@/lib/data'
+import { FC } from 'react'
+
+import { navLinks } from '@/lib/data'
 import Link from 'next/link'
 import { ThemeToggle } from './ThemeToggle'
 
-export default function MainNav() {
+const MainNav: FC = (): JSX.Element => {
   return (
     <div className="hidden w-full pt-6 sm:hidden md:flex md:items-center md:justify-between">
       <ul className="ml-0 flex list-none items-center gap-5">
-        {navItems.map(({ name, href }) => (
-          <li key={href}>
+        {navLinks.map(({ name, href }, index) => (
+          <li key={`${href}-${index}`}>
             <Link
               href={href}
               className="relative text-lg transition-all duration-200 ease-in-out"
@@ -21,3 +23,5 @@ export default function MainNav() {
     </div>
   )
 }
+
+export default MainNav

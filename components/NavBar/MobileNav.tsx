@@ -1,12 +1,12 @@
 'use client'
-import { useState } from 'react'
+import { FC, useState } from 'react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { navItems } from '@/lib/data'
+import { navLinks } from '@/lib/data'
 import { ThemeToggle } from './ThemeToggle'
 import Link, { LinkProps } from 'next/link'
 import { useRouter } from 'next/navigation'
 
-export default function MobileNav() {
+const MobileNav: FC = (): JSX.Element => {
   const [open, setOpen] = useState(false)
 
   return (
@@ -32,9 +32,9 @@ export default function MobileNav() {
         </SheetTrigger>
         <SheetContent side="left" className="w-screen">
           <div className="mt-7 flex flex-col">
-            {navItems.map(({ name, href }) => (
+            {navLinks.map(({ name, href }, index) => (
               <MobileLink
-                key={name + href}
+                key={`${name}-${href}-${index}`}
                 href={href}
                 className="text-3xl"
                 onOpenChange={setOpen}
@@ -51,6 +51,8 @@ export default function MobileNav() {
     </div>
   )
 }
+
+export default MobileNav
 
 interface MobileLinkProps extends LinkProps {
   children: React.ReactNode

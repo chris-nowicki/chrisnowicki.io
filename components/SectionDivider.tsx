@@ -1,11 +1,15 @@
-import { Separator } from './ui/separator'
+import { FC } from 'react'
+
 import { cn } from '@/utils/utils'
+import { Separator } from './ui/separator'
 
 interface SectionDividerProps {
   className?: string
 }
 
-export default function SectionDivider({ className }: SectionDividerProps) {
+const SectionDivider: FC<SectionDividerProps> = ({
+  className,
+}): JSX.Element => {
   return (
     <Separator
       orientation="vertical"
@@ -16,3 +20,5 @@ export default function SectionDivider({ className }: SectionDividerProps) {
     />
   )
 }
+
+export default SectionDivider

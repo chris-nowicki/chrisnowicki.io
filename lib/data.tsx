@@ -1,7 +1,7 @@
 import Icon from '@/components/Icon'
 
 // navbar items
-export const navItems = [
+export const navLinks = [
   {
     name: 'Home',
     href: '/',
@@ -66,4 +66,13 @@ export const contactPageLinks = [
     variant: 'outline',
     aria: 'Email me directly',
   },
+] as const
+
+export const footerLinks = [
+  { name: '/home', href: '/' },
+  { name: '/projects', href: '/#projects' },
+  { name: '/speaking', href: '/#speaking' },
+  { name: '/blog', href: '/blog' },
+  { name: '/uses', href: '/uses' },
+  { name: '/community', href: '/community' },
 ] as const
