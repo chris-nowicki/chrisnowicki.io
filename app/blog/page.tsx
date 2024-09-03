@@ -6,40 +6,41 @@ import { getPosts } from '@/utils/posts'
 import type { FrontMatter } from '@/types/types'
 
 // metadata
-const title: string = `Chris Nowicki's Blog`
-const description: string = `Checkout my latest articles on all things tech and web development!`
+const TITLE: string = `Chris Nowicki's Blog`
+const DESCRIPTION: string = `Checkout my latest articles on all things tech and web development!`
 
-const ogSearchParams = new URLSearchParams()
-ogSearchParams.set('page', 'BLOG')
-ogSearchParams.set('description', description)
+const ogSearchParams = new URLSearchParams({
+  page: 'BLOG',
+  description: DESCRIPTION,
+})
 
 export const metadata: Metadata = {
-  title: title,
-  description: description,
+  title: TITLE,
+  description: DESCRIPTION,
   openGraph: {
-    title: title,
-    description: description,
+    title: TITLE,
+    description: DESCRIPTION,
     url: 'https://chrisnowicki.io/blog',
     images: [
       {
         url: `/api/og?${ogSearchParams.toString()}`,
         width: 1200,
         height: 630,
-        alt: title,
+        alt: TITLE,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: title,
-    description: description,
+    title: TITLE,
+    description: DESCRIPTION,
     images: [`/api/og?${ogSearchParams.toString()}`],
   },
 }
 
 export default async function Blog() {
   const posts: FrontMatter[] = await getPosts()
-  const featuredPosts = posts.filter((post) => post.featured)[0]
+  const [featuredPost] = posts.filter((post) => post.featured)
   const sortedPosts = posts.filter((post) => post.published && !post.featured)
 
   return (
@@ -49,22 +50,17 @@ export default async function Blog() {
         My ramblings on the web about all things tech!
       </span>
 
-      {/* featured post */}
-      <FeaturedPost post={featuredPosts} />
+      {featuredPost && <FeaturedPost post={featuredPost} />}
 
       {/* post archive */}
       <div className="mt-10 w-full">
         <span className="text-2xl font-semibold md:text-3xl">Archive</span>
 
-        {sortedPosts?.length > 0 ?
+        {sortedPosts.length > 0 ?
           <ul className="ml-0 flex list-none flex-col gap-1">
-            {sortedPosts.map((post, index) => (
-              <li key={index}>
-                <PostItem
-                  slug={post.slug}
-                  title={post.title}
-                  readingTime={post.readingTime}
-                />
+            {sortedPosts.map(({ slug, title, readingTime }) => (
+              <li key={slug}>
+                <PostItem slug={slug} title={title} readingTime={readingTime} />
               </li>
             ))}
           </ul>
