@@ -1,8 +1,14 @@
-import { cronAuth } from '@/utils/cronAuth'
-import { NextRequest } from 'next/server'
+import { NextRequest, NextResponse } from 'next/server'
+import { env } from './env'
 
 export function middleware(req: NextRequest) {
-  return cronAuth(req)
+  const authToken = (req.headers.get('authorization') || '')
+    .split('Bearer ')
+    .at(1)
+
+  if (!authToken || authToken != env.CRON_SECRET) {
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+  }
 }
 
 export const config = {
