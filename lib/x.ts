@@ -44,13 +44,23 @@ export const getTweetCount = async (
   url: string,
   headers: Headers
 ): Promise<number | NextResponse> => {
-  const response = await fetch(url, {
-    headers,
-  }).then((res) => res.json())
+  try {
+    const response = await fetch(url, { headers })
 
-  if (response.status === 429) {
-    return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429 })
+    if (!response.ok) {
+      if (response.status === 429) {
+        return NextResponse.json(
+          { error: 'Rate limit exceeded' },
+          { status: 429 }
+        )
+      }
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    const data = await response.json()
+    return data.data.public_metrics.tweet_count
+  } catch (error) {
+    console.error('Error fetching tweet count:', error)
+    throw error
   }
-
-  return response.data.public_metrics.tweet_count
 }

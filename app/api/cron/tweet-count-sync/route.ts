@@ -18,19 +18,15 @@ const TWITTER_API_URL =
 export async function GET() {
   try {
     const headers = await generateTwitterOAuthHeader(TWITTER_API_URL)
-    const tweetCount = await getTweetCount(TWITTER_API_URL, headers)
+    const tweetCountResponse = await getTweetCount(TWITTER_API_URL, headers)
 
-    if (
-      typeof tweetCount === 'object' &&
-      tweetCount.status === HTTP_STATUS.RATE_LIMIT_EXCEEDED
-    ) {
+    if (tweetCountResponse instanceof NextResponse) {
+      // This means we got a rate limit exceeded response
       console.error('Rate limit exceeded')
-      return NextResponse.json(
-        { error: 'Rate limit exceeded' },
-        { status: HTTP_STATUS.RATE_LIMIT_EXCEEDED }
-      )
+      return tweetCountResponse
     }
 
+    const tweetCount = tweetCountResponse
     const storedTweetCount = await getXMetrics()
 
     if (tweetCount === storedTweetCount) {
