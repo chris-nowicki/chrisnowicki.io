@@ -1,7 +1,0 @@
-.intro p {
-  @apply text-left text-lg leading-7 md:mr-4 md:text-xl [&:not(:first-child)]:mt-0 [&:not(:first-child)]:pt-0 [&:not(:first-child)]:text-left;
-}
-
-.intro h2 {
-  @apply mb-2 border-b-0 pb-0 text-2xl md:text-3xl;
-}

@@ -1,10 +1,10 @@
 import ButtonLink from '../ui/button-link'
 import CldImage from '../CldImage'
-import '@/styles/intro.css'
 
 export default async function Intro() {
   const headshot =
     'https://res.cloudinary.com/ddetibihn/image/upload/f_auto,q_auto,w_255,c_limit/v1723742649/portfolio/bqbjvpscfeqkumjbinwk.jpg'
+
   return (
     <section className="mx-4 flex flex-wrap-reverse justify-center md:mx-0 md:flex-nowrap md:justify-start">
       <div className="mr-0 flex w-full flex-col items-center text-xl md:mr-6 md:items-start">
