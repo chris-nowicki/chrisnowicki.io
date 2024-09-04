@@ -4,7 +4,7 @@ import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
 
 import '@/app/globals.css'
-import { seo } from '@/lib/site'
+import { seo } from '@/config/site'
 
 import { AnalyticsWrapper } from '@/components/AnalyticsWrapper'
 import Footer from '@/components/Footer'
