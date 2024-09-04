@@ -1,50 +1,52 @@
+import { FC } from 'react'
+
+import Community from '@/components/Engagements/Community'
+import Conferences from '@/components/Engagements/Conferences'
+import OSS from '@/components/Engagements/OSS'
+import Speaking from '@/components/Engagements/Speaking'
+import SectionHeading from '@/components/SectionHeading'
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion'
-import SectionHeading from '@/components/SectionHeading'
-import Community from '@/components/Engagements/Community'
-import TechnicalWriting from './TechnicalWriting'
-import OSS from '@/components/Engagements/OSS'
-import Conferences from '@/components/Engagements/Conferences'
-import Speaking from '@/components/Engagements/Speaking'
 import { Metadata } from 'next'
+import TechnicalWriting from './TechnicalWriting'
 
 // metadata
-const title: string = `Chris Nowicki's Community Involvement`
-const description: string = `OSS, Technical Writing, Conferences, and Speaking Contributions`
+const TITLE: string = `Chris Nowicki's Community Involvement`
+const DESCRIPTION: string = `OSS, Technical Writing, Conferences, and Speaking Contributions`
 
-const ogSearchParams = new URLSearchParams()
-ogSearchParams.set('page', 'COMMUNITY')
-ogSearchParams.set('description', description)
+const ogSearchParams = new URLSearchParams({
+  page: 'COMMUNITY',
+  description: DESCRIPTION,
+})
 
 export const metadata: Metadata = {
-  title: title,
-  description: description,
+  title: TITLE,
+  description: DESCRIPTION,
   openGraph: {
-    title: title,
-    description: description,
+    title: TITLE,
+    description: DESCRIPTION,
     url: 'https://chrisnowicki.io/community',
     images: [
       {
         url: `/api/og?${ogSearchParams.toString()}`,
         width: 1200,
         height: 630,
-        alt: title,
+        alt: TITLE,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: title,
-    description: description,
+    title: TITLE,
+    description: DESCRIPTION,
     images: [`/api/og?${ogSearchParams.toString()}`],
   },
 }
-
-export default async function Blog() {
+const Blog: FC = (): JSX.Element => {
   return (
     <section className="flex w-full flex-col gap-4 px-4 md:px-0">
       <SectionHeading className="-mb-6 text-left text-2xl md:text-4xl">
@@ -76,3 +78,5 @@ export default async function Blog() {
     </section>
   )
 }
+
+export default Blog
