@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import { navLinks } from '@/config/links'
 import Link from 'next/link'
-import { ThemeToggle } from './ThemeToggle'
+import ThemeToggle from './ThemeToggle'
 
 const MainNav: FC = (): JSX.Element => {
   return (

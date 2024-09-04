@@ -1,7 +1,9 @@
+import { FC } from 'react'
+
 import SectionHeading from './SectionHeading'
 import Speaking from './Engagements/Speaking'
 
-export default function Highlights() {
+const Highlights: FC = (): JSX.Element => {
   return (
     <section
       id="speaking"
@@ -12,3 +14,5 @@ export default function Highlights() {
     </section>
   )
 }
+
+export default Highlights

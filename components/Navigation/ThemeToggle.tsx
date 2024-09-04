@@ -1,4 +1,5 @@
 'use client'
+import { FC } from 'react'
 import { useTheme } from 'next-themes'
 import Icon from '../Icon'
 
@@ -10,7 +11,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-export function ThemeToggle() {
+const ThemeToggle: FC = (): JSX.Element => {
   const { setTheme } = useTheme()
 
   return (
@@ -44,3 +45,5 @@ export function ThemeToggle() {
     </DropdownMenu>
   )
 }
+
+export default ThemeToggle

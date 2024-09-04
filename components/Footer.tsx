@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { footerLinks } from '@/config/links'
 
 import Icon from './Icon'
-import SocialMetrics from './Social/SocialMetrics'
+import SocialMetrics from './SocialMetrics/Social'
 import SectionDivider from './SectionDivider'
 
 const Footer: FC = (): JSX.Element => {

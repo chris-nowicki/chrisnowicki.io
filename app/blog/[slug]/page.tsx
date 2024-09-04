@@ -1,12 +1,12 @@
+import Icon from '@/components/Icon'
 import { Separator } from '@/components/ui/separator'
+import { getPostBySlug, getPosts } from '@/lib/markdown/posts'
+import '@/styles/markdown.css'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
-import PostCover from '@/components/Blog/PostCover'
+import CldImage from '@/components/CldImage'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import Icon from '@/components/Icon'
-import { getPosts, getPostBySlug } from '@/lib/markdown/posts'
-import '@/styles/markdown.css'
 
 interface PostPageProps {
   params: {
@@ -87,7 +87,15 @@ export default async function PostPage({ params }: PostPageProps) {
         <Separator orientation="vertical" className="h-4" />
         <span>{readingTime}</span>
       </div>
-      {cover && <PostCover cover={cover} alt={cover} />}
+      {cover && (
+        <CldImage
+          src={cover}
+          alt={`${title} cover image`}
+          width={768}
+          height={438}
+          className="rounded-lg border-none"
+        />
+      )}
       <div
         className="mdx mt-6 prose-p:text-base prose-a:text-primary prose-img:my-6 prose-img:rounded-lg prose-img:border prose-img:shadow-md dark:prose-img:shadow-none"
         dangerouslySetInnerHTML={{ __html: post.html }}

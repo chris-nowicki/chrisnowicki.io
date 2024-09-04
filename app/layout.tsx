@@ -6,12 +6,12 @@ import { Inter as FontSans } from 'next/font/google'
 import '@/app/globals.css'
 import { seo } from '@/config/site'
 
-import { AnalyticsWrapper } from '@/components/AnalyticsWrapper'
+import AnalyticsWrapper from '@/components/AnalyticsWrapper'
 import Footer from '@/components/Footer'
-import NavBar from '@/components/NavBar/NavBar'
+import NavBar from '@/components/Navigation/NavBar'
 import ScrollToTop from '@/components/ScrollToTop'
 import { SpeedInsights } from '@vercel/speed-insights/next'
-import { ThemeProvider } from '../components/ThemeProvider'
+import ThemeProvider from '../components/ThemeProvider'
 
 const inter = FontSans({
   subsets: ['latin'],

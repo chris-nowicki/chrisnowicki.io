@@ -1,9 +1,9 @@
 'use client'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import Icon from './Icon'
 
-export default function ScrollToTop() {
+const ScrollToTop: FC = (): JSX.Element => {
   const [showScrollTop, setShowScrollTop] = useState(false)
   const { scrollY } = useScroll()
 
@@ -42,3 +42,5 @@ export default function ScrollToTop() {
     </>
   )
 }
+
+export default ScrollToTop

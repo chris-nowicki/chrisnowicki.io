@@ -1,4 +1,6 @@
-interface Props {
+import { FC } from 'react'
+
+interface UseSectionProps {
   name: string
   items: {
     name: string
@@ -6,7 +8,7 @@ interface Props {
   }[]
 }
 
-export default function UsesSection({ name, items }: Props) {
+const UsesSection: FC<UseSectionProps> = ({ name, items }): JSX.Element => {
   return (
     <div className="mt-8 flex w-full flex-col">
       <h2 className="rounded-lg border p-2 font-semibold">{name}</h2>
@@ -28,3 +30,5 @@ export default function UsesSection({ name, items }: Props) {
     </div>
   )
 }
+
+export default UsesSection

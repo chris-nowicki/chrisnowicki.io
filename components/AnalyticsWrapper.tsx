@@ -1,6 +1,9 @@
 'use client'
+import { FC } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 
-export function AnalyticsWrapper() {
+const AnalyticsWrapper: FC = (): JSX.Element => {
   return <Analytics />
 }
+
+export default AnalyticsWrapper

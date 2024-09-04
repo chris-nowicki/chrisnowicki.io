@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
-import { FrontMatter, Markdown } from '@/types/types'
+import { IPostFrontMatter, Markdown } from '@/types/types'
 import readingTime from 'reading-time'
 import { transformMarkdown } from './markdown-processor'
 import { notFound } from 'next/navigation'
@@ -23,7 +23,7 @@ const getPostData = async (): Promise<Markdown[]> => {
 
       const { data, content } = matter(fileContents) as unknown as {
         content: string
-        data: FrontMatter
+        data: IPostFrontMatter
       }
 
       return {
@@ -45,7 +45,7 @@ const getPostData = async (): Promise<Markdown[]> => {
   }
 }
 
-export async function getPosts(count?: number): Promise<FrontMatter[]> {
+export async function getPosts(count?: number): Promise<IPostFrontMatter[]> {
   const allPostData = await getPostData()
   const posts = allPostData.map((post) => post.frontMatter)
 
@@ -57,7 +57,7 @@ export async function getPosts(count?: number): Promise<FrontMatter[]> {
   return count ? sortedPosts.slice(0, count) : sortedPosts
 }
 
-export const getPostBySlug = async (slug: FrontMatter['slug']) => {
+export const getPostBySlug = async (slug: IPostFrontMatter['slug']) => {
   try {
     const posts = await getPostData()
     const file = posts.find((post) => post.frontMatter.slugAsParams === slug)

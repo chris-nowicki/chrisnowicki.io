@@ -1,7 +1,8 @@
 'use client'
+import { FC } from 'react'
 import { CldImage as CldImageDefault } from 'next-cloudinary'
 
-interface Props {
+interface CLDImageProps {
   src: string
   width: number
   height: number
@@ -9,13 +10,13 @@ interface Props {
   alt: string
 }
 
-export default function CldImage({
+const CldImage: FC<CLDImageProps> = ({
   src,
   width,
   height,
   className,
   alt,
-}: Props) {
+}): JSX.Element => {
   return (
     <CldImageDefault
       src={src}
@@ -27,3 +28,5 @@ export default function CldImage({
     />
   )
 }
+
+export default CldImage
