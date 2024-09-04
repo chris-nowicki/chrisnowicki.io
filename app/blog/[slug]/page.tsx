@@ -1,12 +1,18 @@
+import Icon from '@/components/Icon'
 import { Separator } from '@/components/ui/separator'
+import { getPostBySlug, getPosts } from '@/lib/markdown/posts'
+import '@/styles/markdown.css'
 import { format } from 'date-fns'
 import { Metadata } from 'next'
-import PostCover from '@/components/Blog/PostCover'
+import CldImage from '@/components/CldImage'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
-import Icon from '@/components/Icon'
-import { getPosts, getPostBySlug } from '@/utils/posts'
-import '@/styles/markdown.css'
+
+interface PostPageProps {
+  params: {
+    slug: string
+  }
+}
 
 export const generateStaticParams = async () => {
   const posts = await getPosts()
@@ -18,18 +24,9 @@ export const generateStaticParams = async () => {
     }))
 }
 
-interface PostPageProps {
-  params: {
-    slug: string
-  }
-}
-
 async function getPostFromParams(params: PostPageProps['params']) {
   const posts = await getPosts()
-  const slug = params?.slug
-  const post = posts.find((post) => post.slugAsParams === slug)
-
-  return post
+  return posts.find((post) => post.slugAsParams === params?.slug)
 }
 
 export async function generateMetadata({
@@ -41,9 +38,10 @@ export async function generateMetadata({
     return {}
   }
 
-  const ogSearchParams = new URLSearchParams()
-  ogSearchParams.set('page', 'BLOG')
-  ogSearchParams.set('description', post.title)
+  const ogSearchParams = new URLSearchParams({
+    page: 'BLOG',
+    description: post.title,
+  })
 
   return {
     title: post.title,
@@ -75,31 +73,36 @@ export async function generateMetadata({
 export default async function PostPage({ params }: PostPageProps) {
   const post = await getPostBySlug(params.slug)
 
-  if (!post || !post.frontmatter.published) {
+  if (!post?.frontmatter.published) {
     notFound()
   }
 
+  const { title, date, readingTime, cover } = post.frontmatter
+
   return (
-    <article className="flex flex-col px-6  md:px-0">
-      <h1 className="text-2xl md:text-5xl">{post.frontmatter.title}</h1>
+    <article className="flex flex-col px-6 md:px-0">
+      <h1 className="text-2xl md:text-5xl">{title}</h1>
       <div className="text-md mb-4 mt-2 flex items-center gap-2 text-muted-foreground">
-        {format(new Date(post.frontmatter.date), 'MMMM dd, yyyy')}
+        {format(new Date(date), 'MMMM dd, yyyy')}
         <Separator orientation="vertical" className="h-4" />
-        <span>{post.frontmatter.readingTime}</span>
+        <span>{readingTime}</span>
       </div>
-      {post.frontmatter.cover && (
-        <PostCover
-          cover={post.frontmatter.cover}
-          alt={post.frontmatter.title}
+      {cover && (
+        <CldImage
+          src={cover}
+          alt={`${title} cover image`}
+          width={768}
+          height={438}
+          className="rounded-lg border-none"
         />
       )}
-      <div className="mdx mt-6 prose-p:text-base prose-a:text-primary prose-img:my-6 prose-img:rounded-lg prose-img:border prose-img:shadow-md dark:prose-img:shadow-none">
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </div>
-      <div className="group mt-12 flex justify-center text-xl text-muted-foreground hover:text-primary">
+      <div
+        className="mdx mt-6 prose-p:text-base prose-a:text-primary prose-img:my-6 prose-img:rounded-lg prose-img:border prose-img:shadow-md dark:prose-img:shadow-none"
+        dangerouslySetInnerHTML={{ __html: post.html }}
+      />
+      <div className="mt-12 flex justify-center">
         <Link
           href="/blog"
-          prefetch={true}
           className="group flex items-center gap-2 rounded-lg border border-primary p-4 text-primary transition-colors ease-in-out hover:bg-primary hover:text-white"
         >
           <Icon

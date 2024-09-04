@@ -5,7 +5,7 @@ import {
 } from '@/components/ui/accordion'
 import Link from 'next/link'
 import Icon from '@/components/Icon'
-import { getPosts } from '@/utils/posts'
+import { getPosts } from '@/lib/markdown/posts'
 
 export default async function TechnicalWriting() {
   const posts = await getPosts()

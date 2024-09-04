@@ -1,5 +1,5 @@
 import SectionHeading from '@/components/SectionHeading'
-import { featuredProject as projects } from '@/lib/projects'
+import { featuredProject as projects } from '@/content/projects'
 import ProjectCard from './ProjectCard'
 
 export default async function FeaturedProjects() {

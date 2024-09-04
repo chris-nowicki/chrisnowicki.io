@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { Octokit } from 'octokit'
-import { getGithubMetrics, updateGithubMetrics } from '@/lib/appwrite'
+import { getGithubMetrics, updateGithubMetrics } from '@/lib/appwrite/queries'
 
 // Nextjs route segment config
 export const dynamic = 'force-dynamic' // Force dynamic (server) route instead of static page
@@ -38,7 +38,6 @@ export async function GET() {
     }
   }
 
-  // update PlanetScale database with new metrics
   if (totalCommits === 0) {
     return NextResponse.json({ error: 'No commits found' })
   }

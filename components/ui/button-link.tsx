@@ -1,4 +1,5 @@
-import React from 'react'
+import { FC } from 'react'
+
 import cn from 'classnames'
 import Link from 'next/link'
 import { buttonVariants } from './button'
@@ -20,13 +21,13 @@ interface ButtonLinkProps {
   targetBlank?: boolean
 }
 
-export default function ButtonLink({
+const ButtonLink: FC<ButtonLinkProps> = ({
   href,
   variant,
   children,
   className,
   targetBlank = false,
-}: ButtonLinkProps) {
+}): JSX.Element => {
   return (
     <Link
       href={href}
@@ -41,3 +42,5 @@ export default function ButtonLink({
     </Link>
   )
 }
+
+export default ButtonLink

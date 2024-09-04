@@ -1,6 +1,7 @@
 import { Tags } from '@/types/types'
+import { IProjectType } from '@/types/types'
 
-export const featuredProject = [
+export const featuredProject: IProjectType[] = [
   {
     name: 'Deals for Devs',
     description:

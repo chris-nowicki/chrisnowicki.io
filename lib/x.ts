@@ -4,7 +4,9 @@ import crypto from 'node:crypto'
 import { env } from '../env'
 
 // X OAUTH GENERATION FUNCTION
-export async function generateTwitterOAuthHeader(url) {
+export async function generateTwitterOAuthHeader(
+  url: string
+): Promise<Headers> {
   const consumerKey = env.TWITTER_CONSUMER_KEY
   const consumerSecret = env.TWITTER_CONSUMER_SECRET
   const accessToken = env.TWITTER_ACCESS_TOKEN
@@ -33,20 +35,32 @@ export async function generateTwitterOAuthHeader(url) {
     secret: accessTokenSecret,
   }
 
-  return oauth.toHeader(
-    oauth.authorize(requestData, token)
-  ) as unknown as Headers
+  const authHeader = oauth.toHeader(oauth.authorize(requestData, token))
+  return new Headers(authHeader as unknown as Record<string, string>)
 }
 
 // X FETCH FUNCTION
-export const getTweetCount = async (url: string, headers: HeadersInit) => {
-  const response = await fetch(url, {
-    headers,
-  }).then((res) => res.json())
+export const getTweetCount = async (
+  url: string,
+  headers: Headers
+): Promise<number | NextResponse> => {
+  try {
+    const response = await fetch(url, { headers })
 
-  if (response.status === 429) {
-    return NextResponse.json({ error: 'Rate limit exceeded' }, { status: 429 })
+    if (!response.ok) {
+      if (response.status === 429) {
+        return NextResponse.json(
+          { error: 'Rate limit exceeded' },
+          { status: 429 }
+        )
+      }
+      throw new Error(`HTTP error! status: ${response.status}`)
+    }
+
+    const data = await response.json()
+    return data.data.public_metrics.tweet_count
+  } catch (error) {
+    console.error('Error fetching tweet count:', error)
+    throw error
   }
-
-  return response.data.public_metrics.tweet_count
 }

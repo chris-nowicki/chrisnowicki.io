@@ -1,22 +1,24 @@
-import '@/app/globals.css'
-import { AnalyticsWrapper } from '@/components/AnalyticsWrapper'
-import Footer from '@/components/Footer'
-import NavBar from '@/components/NavBar/NavBar'
-import ScrollToTop from '@/components/ScrollToTop'
-import { seo } from '@/lib/site'
-import { SpeedInsights } from '@vercel/speed-insights/next'
-import { ThemeProvider } from '../components/ThemeProvider'
+import { FC } from 'react'
 
+import type { Metadata } from 'next'
 import { Inter as FontSans } from 'next/font/google'
+
+import '@/app/globals.css'
+import { seo } from '@/config/site'
+
+import AnalyticsWrapper from '@/components/AnalyticsWrapper'
+import Footer from '@/components/Footer'
+import NavBar from '@/components/Navigation/NavBar'
+import ScrollToTop from '@/components/ScrollToTop'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import ThemeProvider from '../components/ThemeProvider'
 
 const inter = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
 })
 
-import type { Metadata } from 'next'
-
-export async function generateMetadata(): Promise<Metadata | undefined> {
+export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: new URL(seo.url),
     title: {
@@ -57,16 +59,14 @@ export async function generateMetadata(): Promise<Metadata | undefined> {
   }
 }
 
-export default async function RootLayout({
-  children,
-}: {
+interface RootLayoutProps {
   children: React.ReactNode
-}) {
+}
+
+const RootLayout: FC<RootLayoutProps> = ({ children }): JSX.Element => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} min-h-screen bg-background font-sans antialiased`}
-      >
+      <body className={`${inter.variable}`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -91,3 +91,5 @@ export default async function RootLayout({
     </html>
   )
 }
+
+export default RootLayout

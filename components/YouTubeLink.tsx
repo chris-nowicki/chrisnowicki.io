@@ -1,14 +1,16 @@
+import { FC } from 'react'
+
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import Image from 'next/image'
 import Link from 'next/link'
 
-interface Props {
+interface YouTubeLinkProps {
   title: string
   id: string
   alt: string
 }
 
-export default function YouTubeLink({ id, title, alt }: Props) {
+const YouTubeLink: FC<YouTubeLinkProps> = ({ id, title, alt }): JSX.Element => {
   return (
     <Link href={`https://youtu.be/${id}`} className="group" target="_blank">
       <Card className="w-full transition-all duration-100 ease-in-out hover:border-primary md:w-[375px]">
@@ -21,10 +23,12 @@ export default function YouTubeLink({ id, title, alt }: Props) {
             alt={alt}
             width={375}
             height={200}
-            className="rounded-lg transition-all duration-100 ease-in-out group-hover:scale-105 "
+            className="rounded-lg transition-all duration-100 ease-in-out group-hover:scale-105"
           />
         </CardContent>
       </Card>
     </Link>
   )
 }
+
+export default YouTubeLink

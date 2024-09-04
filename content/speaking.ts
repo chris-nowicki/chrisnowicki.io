@@ -1,4 +1,6 @@
-export const speakingLinks = [
+import { ISpeakingLinks } from '@/types/types'
+
+export const speakingLinks: ISpeakingLinks[] = [
   {
     id: 'LYPqcfP-7cA', // YouTube ID
     title: 'A Framework to a better YOU in the world of productivity 🎤',

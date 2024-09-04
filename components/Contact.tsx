@@ -1,10 +1,12 @@
+import { FC } from 'react'
+
 import SectionHeading from '@/components/SectionHeading'
 import { buttonVariants } from '@/components/ui/button'
+import { contactPageLinks } from '@/config/links'
 import { cn } from '@/utils/utils'
 import Link from 'next/link'
-import { contactPageLinks } from '@/lib/data'
 
-export default async function Contact() {
+const Contact: FC = (): JSX.Element => {
   return (
     <section
       id="contact"
@@ -52,3 +54,5 @@ export default async function Contact() {
     </section>
   )
 }
+
+export default Contact

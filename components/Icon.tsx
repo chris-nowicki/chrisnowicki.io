@@ -1,3 +1,4 @@
+import { FC } from 'react'
 import type { IconName } from 'public/icons/name.d.ts'
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {
@@ -5,7 +6,7 @@ interface IconProps extends React.SVGProps<SVGSVGElement> {
   size?: number
 }
 
-const Icon = ({ id, size = 24, ...props }: IconProps) => {
+const Icon: FC<IconProps> = ({ id, size = 24, ...props }): JSX.Element => {
   return (
     <svg width={size} height={size} {...props}>
       <use href={`/icons/sprite.svg#${id}`} />

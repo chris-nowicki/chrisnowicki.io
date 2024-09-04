@@ -1,4 +1,4 @@
-import React from 'react'
+import { FC } from 'react'
 import { cn } from '@/utils/utils'
 
 type SectionHeadingProps = {
@@ -6,10 +6,10 @@ type SectionHeadingProps = {
   className?: string
 }
 
-export default function SectionHeading({
+const SectionHeading: FC<SectionHeadingProps> = ({
   children,
   className,
-}: SectionHeadingProps) {
+}): JSX.Element => {
   return (
     <span
       className={cn(
@@ -21,3 +21,5 @@ export default function SectionHeading({
     </span>
   )
 }
+
+export default SectionHeading

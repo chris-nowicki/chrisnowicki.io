@@ -1,29 +1,25 @@
+import { FC } from 'react'
+
 import Link from 'next/link'
-import SocialMetrics from './Social/SocialMetrics'
-import SectionDivider from './SectionDivider'
+import { footerLinks } from '@/config/links'
+
 import Icon from './Icon'
+import SocialMetrics from './SocialMetrics/Social'
+import SectionDivider from './SectionDivider'
 
-const footerLinks = [
-  { name: '/home', href: '/' },
-  { name: '/projects', href: '/#projects' },
-  { name: '/speaking', href: '/#speaking' },
-  { name: '/blog', href: '/blog' },
-  { name: '/uses', href: '/uses' },
-  { name: '/community', href: '/community' },
-]
-
-export default async function Footer() {
+const Footer: FC = (): JSX.Element => {
   return (
     <footer className="mb-20 flex flex-col items-center px-4 text-left md:px-0 md:text-center">
       <SectionDivider />
       <div className="mb-6 flex w-full flex-col justify-between gap-4 rounded-xl border p-6 shadow-xl shadow-primary/20 md:flex-row">
         <div className="flex w-full flex-col items-center md:w-1/2 md:items-start md:justify-between">
-          <span className="mb-4 text-3xl font-semibold ">Sitemap</span>
+          <span className="mb-4 text-3xl font-semibold">Sitemap</span>
           {footerLinks.map((link) => (
             <Link
               key={link.href}
-              href={link.href}
               className="text-xl hover:text-primary"
+              href={link.href}
+              rel="noopener noreferrer"
             >
               {link.name}
             </Link>
@@ -31,7 +27,7 @@ export default async function Footer() {
         </div>
         <div className="flex w-full flex-col items-center gap-6 md:w-1/2 md:items-start">
           <span className="text-3xl font-semibold">Links</span>
-          <SocialMetrics metrics={false} footer={true} />
+          <SocialMetrics showMetrics={false} isFooter={true} />
         </div>
       </div>
       {/* about this website information */}
@@ -47,6 +43,7 @@ export default async function Footer() {
           href="https://vercel.com"
           target="_blank"
           aria-label={`Vercel's website`}
+          rel="noopener noreferrer"
         >
           <Icon id="vercel" size={24} />
         </Link>
@@ -54,3 +51,5 @@ export default async function Footer() {
     </footer>
   )
 }
+
+export default Footer

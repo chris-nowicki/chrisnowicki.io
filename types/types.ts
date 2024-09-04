@@ -1,4 +1,4 @@
-export type ProjectType = {
+export interface IProjectType {
   name: string
   description: string
   liveSiteUrl: string
@@ -22,7 +22,7 @@ export type OGImageType = {
   url: string
 }
 
-export type FrontMatter = {
+export interface IPostFrontMatter {
   title: string
   description?: string
   date: Date
@@ -37,7 +37,7 @@ export type FrontMatter = {
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Markdown<T = Record<string, any>> = {
   markdown: string
-  frontMatter: FrontMatter & T
+  frontMatter: IPostFrontMatter & T
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -64,4 +64,17 @@ export enum Tags {
   TypeScript = 'TypeScript',
   Vite = 'Vite',
   Xata = 'Xata',
+}
+
+export interface IGithubMetrics {
+  commits: number
+}
+export interface IXMetrics {
+  tweetCount: number
+}
+
+export interface ISpeakingLinks {
+  id: string
+  title: string
+  alt: string
 }
