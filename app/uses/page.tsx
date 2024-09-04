@@ -5,33 +5,34 @@ import { hw_accessories, hw_streaming, sw, laptop, desk } from '@/lib/uses'
 import UsesSection from '@/components/UsesSection'
 
 // metadata
-const title: string = `Chris Nowicki's Uses`
-const description: string = `A list of the hardware and software I use on a daily basis.`
+const TITLE: string = `Chris Nowicki's Uses`
+const DESCRIPTION: string = `A list of the hardware and software I use on a daily basis.`
 
-const ogSearchParams = new URLSearchParams()
-ogSearchParams.set('page', 'USES')
-ogSearchParams.set('description', description)
+const ogSearchParams = new URLSearchParams({
+  page: 'USES',
+  description: DESCRIPTION,
+})
 
 export const metadata: Metadata = {
-  title: title,
-  description: description,
+  title: TITLE,
+  description: DESCRIPTION,
   openGraph: {
-    title: title,
-    description: description,
+    title: TITLE,
+    description: DESCRIPTION,
     url: 'https://chrisnowicki.io/uses',
     images: [
       {
         url: `/api/og?${ogSearchParams.toString()}`,
         width: 1200,
         height: 630,
-        alt: title,
+        alt: TITLE,
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: title,
-    description: description,
+    title: TITLE,
+    description: DESCRIPTION,
     images: [`/api/og?${ogSearchParams.toString()}`],
   },
 }
