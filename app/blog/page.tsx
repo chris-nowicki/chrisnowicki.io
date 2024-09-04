@@ -2,7 +2,7 @@ import FeaturedPost from '@/components/Blog/FeaturedPost'
 import PostItem from '@/components/Blog/PostItem'
 import SectionHeading from '@/components/SectionHeading'
 import { Metadata } from 'next'
-import { getPosts } from '@/utils/posts'
+import { getPosts } from '@/lib/markdown/posts'
 import type { FrontMatter } from '@/types/types'
 
 // metadata

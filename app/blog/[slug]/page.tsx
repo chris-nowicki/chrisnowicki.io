@@ -5,7 +5,7 @@ import PostCover from '@/components/Blog/PostCover'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import Icon from '@/components/Icon'
-import { getPosts, getPostBySlug } from '@/utils/posts'
+import { getPosts, getPostBySlug } from '@/lib/markdown/posts'
 import '@/styles/markdown.css'
 
 interface PostPageProps {

@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import { getXMetrics, updateXMetrics } from '@/lib/appwrite'
+import { getXMetrics, updateXMetrics } from '@/lib/appwrite/queries'
 import { getTweetCount, generateTwitterOAuthHeader } from '@/lib/x'
 
 export const dynamic = 'force-dynamic' // Force dynamic (server) route instead of static page

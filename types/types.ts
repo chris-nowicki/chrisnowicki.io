@@ -65,3 +65,10 @@ export enum Tags {
   Vite = 'Vite',
   Xata = 'Xata',
 }
+
+export interface IGithubMetrics {
+  commits: number
+}
+export interface IXMetrics {
+  tweetCount: number
+}

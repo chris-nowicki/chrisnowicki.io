@@ -1,18 +1,12 @@
 import { FC } from 'react'
 
 import { socialLinks } from '@/lib/data'
-import { getXMetrics, getGithubMetrics } from '@/lib/appwrite'
+import { getAllMetrics } from '@/lib/appwrite/queries'
 import Icon from '@/components/Icon'
-
-type GithubMetrics = { commits: number }
-type XMetrics = { tweetCount: number }
 
 const Metrics: FC = async () => {
   try {
-    const [commits, tweetCount] = await Promise.all([
-      getGithubMetrics() as Promise<GithubMetrics>,
-      getXMetrics() as Promise<XMetrics>,
-    ])
+    const metrics = await getAllMetrics()
 
     const socialLinksMap = Object.fromEntries(
       socialLinks.map((link) => [link.name, link])
@@ -28,7 +22,7 @@ const Metrics: FC = async () => {
             size={20}
             className="animate-pulse text-primary transition-all"
           />
-          <span>{tweetCount.toLocaleString()}</span> posts on
+          <span>{metrics.tweetCount.toLocaleString()}</span> posts on
           <a
             href={twitterLink.URL}
             className="text-primary hover:scale-110 hover:duration-75 hover:ease-in-out"
@@ -46,7 +40,7 @@ const Metrics: FC = async () => {
             className="animate-pulse text-primary transition-all"
           />
           <span className="text-purple-light dark:text-purple-dark">
-            {commits.toLocaleString()}
+            {metrics.commitCount.toLocaleString()}
           </span>
           <a
             href={githubLink.URL}
@@ -63,7 +57,11 @@ const Metrics: FC = async () => {
     )
   } catch (error) {
     console.error('Error fetching metrics:', error)
-    return <div>Error loading metrics</div>
+    return (
+      <div className="flex w-full items-center justify-center text-red-500 md:w-1/2">
+        Error loading metrics!
+      </div>
+    )
   }
 }
 
