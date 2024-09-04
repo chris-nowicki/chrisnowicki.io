@@ -29,25 +29,25 @@ export const socialLinks = [
   {
     name: 'Linkedin',
     URL: 'https://www.linkedin.com/in/chris-nowicki/',
-    icon: <Icon id="linkedin" size={28} focusable={false} />,
+    icon: 'linkedin',
     aria: 'LinkedIn',
   },
   {
     name: 'GitHub',
     URL: 'https://github.com/chris-nowicki',
-    icon: <Icon id="github" size={28} focusable={false} />,
+    icon: 'github',
     aria: 'GitHub',
   },
   {
     name: 'Twitter',
     URL: 'https://twitter.com/iamwix',
-    icon: <Icon id="twitter" size={28} focusable={false} />,
+    icon: 'twitter',
     aria: 'Twitter',
   },
   {
     name: 'Twitch',
     URL: 'https://www.twitch.tv/chriswix',
-    icon: <Icon id="twitch" size={28} focusable={false} />,
+    icon: 'twitch',
     aria: 'Twitch',
   },
 ] as const

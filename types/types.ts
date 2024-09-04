@@ -1,4 +1,4 @@
-export type ProjectType = {
+export interface IProjectType {
   name: string
   description: string
   liveSiteUrl: string
@@ -71,4 +71,10 @@ export interface IGithubMetrics {
 }
 export interface IXMetrics {
   tweetCount: number
+}
+
+export interface ISpeakingLinks {
+  id: string
+  title: string
+  alt: string
 }

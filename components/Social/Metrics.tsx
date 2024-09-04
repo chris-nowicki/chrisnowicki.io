@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { socialLinks } from '@/lib/data'
+import { socialLinks } from '@/config/links'
 import { getAllMetrics } from '@/lib/appwrite/queries'
 import Icon from '@/components/Icon'
 

@@ -1,4 +1,4 @@
-import { ProjectType } from '@/types/types'
+import { IProjectType } from '@/types/types'
 import {
   Card,
   CardHeader,
@@ -21,7 +21,7 @@ import { cn } from '@/utils/utils'
 import { Badge } from '../ui/badge'
 
 type ProjectCardProps = {
-  project: ProjectType
+  project: IProjectType
 }
 
 export default function ProjectCard({ project }: ProjectCardProps) {

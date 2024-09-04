@@ -1,7 +1,7 @@
 'use client'
 import { FC, useState } from 'react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { navLinks } from '@/lib/data'
+import { navLinks } from '@/config/links'
 import { ThemeToggle } from './ThemeToggle'
 import Link, { LinkProps } from 'next/link'
 import { useRouter } from 'next/navigation'

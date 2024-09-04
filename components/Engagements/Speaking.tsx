@@ -1,5 +1,5 @@
 import YouTubeLink from '../YouTubeLink'
-import { speakingLinks } from '@/lib/speaking'
+import { speakingLinks } from '@/content/speaking'
 
 export default function Speaking() {
   return (

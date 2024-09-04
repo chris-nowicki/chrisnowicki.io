@@ -2,7 +2,7 @@ import SectionHeading from '@/components/SectionHeading'
 import { buttonVariants } from '@/components/ui/button'
 import { cn } from '@/utils/utils'
 import Link from 'next/link'
-import { contactPageLinks } from '@/lib/data'
+import { contactPageLinks } from '@/config/links'
 
 export default async function Contact() {
   return (

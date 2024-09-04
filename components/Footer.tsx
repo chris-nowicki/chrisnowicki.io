@@ -1,7 +1,7 @@
 import { FC } from 'react'
 
 import Link from 'next/link'
-import { footerLinks } from '@/lib/data'
+import { footerLinks } from '@/config/links'
 
 import Icon from './Icon'
 import SocialMetrics from './Social/SocialMetrics'

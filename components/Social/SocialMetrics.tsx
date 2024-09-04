@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { socialLinks } from '@/lib/data'
+import { socialLinks } from '@/config/links'
 import { cn } from '@/utils/utils'
 import Link from 'next/link'
 import Icon from '../Icon'
@@ -64,7 +64,7 @@ const SocialMetrics: FC<SocialMetricsProps> = ({
               aria-label={aria}
               rel="noopener noreferrer"
             >
-              {icon}
+              <Icon id={icon} size={28} focusable={false} />
             </Link>
           ))}
         </div>

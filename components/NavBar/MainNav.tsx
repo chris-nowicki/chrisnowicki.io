@@ -1,6 +1,6 @@
 import { FC } from 'react'
 
-import { navLinks } from '@/lib/data'
+import { navLinks } from '@/config/links'
 import Link from 'next/link'
 import { ThemeToggle } from './ThemeToggle'
 

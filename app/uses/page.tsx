@@ -3,7 +3,7 @@ import { FC } from 'react'
 import CldImage from '@/components/CldImage'
 import SectionHeading from '@/components/SectionHeading'
 import UsesSection from '@/components/UsesSection'
-import { desk, hw_accessories, hw_streaming, laptop, sw } from '@/lib/uses'
+import { desk, hw_accessories, hw_streaming, laptop, sw } from '@/content/uses'
 import { Metadata } from 'next'
 
 const TITLE: string = `Chris Nowicki's Uses`
