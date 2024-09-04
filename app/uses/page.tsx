@@ -1,10 +1,11 @@
-import SectionHeading from '@/components/SectionHeading'
-import { Metadata } from 'next'
-import CldImage from '@/components/CldImage'
-import { hw_accessories, hw_streaming, sw, laptop, desk } from '@/lib/uses'
-import UsesSection from '@/components/UsesSection'
+import { FC } from 'react'
 
-// metadata
+import CldImage from '@/components/CldImage'
+import SectionHeading from '@/components/SectionHeading'
+import UsesSection from '@/components/UsesSection'
+import { desk, hw_accessories, hw_streaming, laptop, sw } from '@/lib/uses'
+import { Metadata } from 'next'
+
 const TITLE: string = `Chris Nowicki's Uses`
 const DESCRIPTION: string = `A list of the hardware and software I use on a daily basis.`
 
@@ -37,7 +38,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function Uses() {
+const Uses: FC = (): JSX.Element => {
   return (
     <section className="mx-6 flex flex-col items-start md:mx-0">
       <SectionHeading className="mb-4 text-left">Uses</SectionHeading>
@@ -84,3 +85,5 @@ export default function Uses() {
     </section>
   )
 }
+
+export default Uses
