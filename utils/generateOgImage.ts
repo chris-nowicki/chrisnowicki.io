@@ -29,7 +29,7 @@ const generateOgImageUrl = ({
         },
       },
       {
-        width: '1200',
+        width: '1100',
         crop: 'fit',
         position: {
           x: 50,
