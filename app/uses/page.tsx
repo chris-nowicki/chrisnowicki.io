@@ -1,6 +1,7 @@
 import { FC } from 'react'
 
 import CldImage from '@/components/CldImage'
+import generateOgImageUrl from '@/utils/generateOgImage'
 import SectionHeading from '@/components/SectionHeading'
 import UsesSection from '@/components/UsesSection'
 import { desk, hw_accessories, hw_streaming, laptop, sw } from '@/content/uses'
@@ -8,9 +9,8 @@ import { Metadata } from 'next'
 
 const TITLE: string = `Chris Nowicki's Uses`
 const DESCRIPTION: string = `A list of the hardware and software I use on a daily basis.`
-
-const ogSearchParams = new URLSearchParams({
-  page: 'USES',
+const ogImageUrl = generateOgImageUrl({
+  header: '/USES',
   description: DESCRIPTION,
 })
 
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     url: 'https://chrisnowicki.io/uses',
     images: [
       {
-        url: `/api/og?${ogSearchParams.toString()}`,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: TITLE,
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: TITLE,
     description: DESCRIPTION,
-    images: [`/api/og?${ogSearchParams.toString()}`],
+    images: [ogImageUrl],
   },
 }
 

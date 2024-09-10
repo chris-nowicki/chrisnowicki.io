@@ -5,16 +5,16 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 import CldImage from '@/components/CldImage'
+import generateOgImageUrl from '@/utils/generateOgImage'
 import Icon from '@/components/Icon'
 import SectionHeading from '@/components/SectionHeading'
 import type { IPostFrontMatter } from '@/types/types'
-import generateOgImageUrl from '@/utils/generateOgImage'
 
 // metadata
 const TITLE: string = `Chris Nowicki's Blog`
 const DESCRIPTION: string = `Checkout my latest articles on all things tech and web development!`
 const ogImageUrl = generateOgImageUrl({
-  title: TITLE,
+  header: '/BLOG',
   description: DESCRIPTION,
 })
 
@@ -33,6 +33,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    title: TITLE,
+    description: DESCRIPTION,
     images: [ogImageUrl],
   },
 }

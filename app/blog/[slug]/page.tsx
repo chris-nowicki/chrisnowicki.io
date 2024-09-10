@@ -1,5 +1,6 @@
 import Icon from '@/components/Icon'
 import { Separator } from '@/components/ui/separator'
+import generateOgImageUrl from '@/utils/generateOgImage'
 import { getPostBySlug, getPosts } from '@/lib/markdown/posts'
 import '@/styles/markdown.css'
 import { format } from 'date-fns'
@@ -38,8 +39,8 @@ export async function generateMetadata({
     return {}
   }
 
-  const ogSearchParams = new URLSearchParams({
-    page: 'BLOG',
+  const ogImageUrl = generateOgImageUrl({
+    header: '/BLOG',
     description: post.title,
   })
 
@@ -54,7 +55,7 @@ export async function generateMetadata({
       url: post.slug,
       images: [
         {
-          url: `/api/og?${ogSearchParams.toString()}`,
+          url: ogImageUrl,
           width: 1200,
           height: 630,
           alt: post.title,
@@ -65,7 +66,7 @@ export async function generateMetadata({
       card: 'summary_large_image',
       title: post.title,
       description: post.description,
-      images: [`/api/og?${ogSearchParams.toString()}`],
+      images: [ogImageUrl],
     },
   }
 }

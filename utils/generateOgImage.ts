@@ -1,12 +1,12 @@
 import { getCldOgImageUrl } from 'next-cloudinary'
 
 interface GenerateOgImageUrlProps {
-  title: string
+  header: string
   description: string
 }
 
 const generateOgImageUrl = ({
-  title,
+  header,
   description,
 }: GenerateOgImageUrlProps): string => {
   return getCldOgImageUrl({
@@ -25,7 +25,7 @@ const generateOgImageUrl = ({
           fontFamily: 'Arial',
           fontSize: 175,
           fontWeight: 'bold',
-          text: '/Blog',
+          text: header,
         },
       },
       {
