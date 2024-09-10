@@ -23,7 +23,7 @@ const generateOgImageUrl = ({
         text: {
           color: 'white',
           fontFamily: 'Arial',
-          fontSize: 175,
+          fontSize: 100,
           fontWeight: 'bold',
           text: header,
         },
@@ -33,7 +33,7 @@ const generateOgImageUrl = ({
         crop: 'fit',
         position: {
           x: 50,
-          y: 250,
+          y: 170,
           gravity: 'north_west',
         },
         text: {
