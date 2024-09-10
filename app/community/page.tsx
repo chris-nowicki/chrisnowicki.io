@@ -1,5 +1,7 @@
 import { FC } from 'react'
 
+import generateOgImageUrl from '@/utils/generateOgImage'
+
 import Community from '@/components/Engagements/Community'
 import Conferences from '@/components/Engagements/Conferences'
 import OSS from '@/components/Engagements/OSS'
@@ -17,6 +19,10 @@ import TechnicalWriting from './TechnicalWriting'
 // metadata
 const TITLE: string = `Chris Nowicki's Community Involvement`
 const DESCRIPTION: string = `OSS, Technical Writing, Conferences, and Speaking Contributions`
+const ogImageUrl = generateOgImageUrl({
+  header: '/COMMUNITY',
+  description: DESCRIPTION,
+})
 
 const ogSearchParams = new URLSearchParams({
   page: 'COMMUNITY',
@@ -32,7 +38,7 @@ export const metadata: Metadata = {
     url: 'https://chrisnowicki.io/community',
     images: [
       {
-        url: `/api/og?${ogSearchParams.toString()}`,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: TITLE,
@@ -43,7 +49,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: TITLE,
     description: DESCRIPTION,
-    images: [`/api/og?${ogSearchParams.toString()}`],
+    images: [ogImageUrl],
   },
 }
 const Blog: FC = (): JSX.Element => {

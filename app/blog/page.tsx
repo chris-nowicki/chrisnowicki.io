@@ -5,6 +5,7 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 import CldImage from '@/components/CldImage'
+import generateOgImageUrl from '@/utils/generateOgImage'
 import Icon from '@/components/Icon'
 import SectionHeading from '@/components/SectionHeading'
 import type { IPostFrontMatter } from '@/types/types'
@@ -12,9 +13,8 @@ import type { IPostFrontMatter } from '@/types/types'
 // metadata
 const TITLE: string = `Chris Nowicki's Blog`
 const DESCRIPTION: string = `Checkout my latest articles on all things tech and web development!`
-
-const ogSearchParams = new URLSearchParams({
-  page: 'BLOG',
+const ogImageUrl = generateOgImageUrl({
+  header: '/BLOG',
   description: DESCRIPTION,
 })
 
@@ -22,12 +22,9 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    url: 'https://chrisnowicki.io/blog',
     images: [
       {
-        url: `/api/og?${ogSearchParams.toString()}`,
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: TITLE,
@@ -38,7 +35,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: TITLE,
     description: DESCRIPTION,
-    images: [`/api/og?${ogSearchParams.toString()}`],
+    images: [ogImageUrl],
   },
 }
 
