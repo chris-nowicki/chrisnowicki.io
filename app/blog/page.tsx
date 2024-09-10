@@ -4,6 +4,7 @@ import { getPosts } from '@/lib/markdown/posts'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
+import { CldOgImage } from 'next-cloudinary'
 import CldImage from '@/components/CldImage'
 import Icon from '@/components/Icon'
 import SectionHeading from '@/components/SectionHeading'
@@ -21,25 +22,6 @@ const ogSearchParams = new URLSearchParams({
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  openGraph: {
-    title: TITLE,
-    description: DESCRIPTION,
-    url: 'https://chrisnowicki.io/blog',
-    images: [
-      {
-        url: `/api/og?${ogSearchParams.toString()}`,
-        width: 1200,
-        height: 630,
-        alt: TITLE,
-      },
-    ],
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: TITLE,
-    description: DESCRIPTION,
-    images: [`/api/og?${ogSearchParams.toString()}`],
-  },
 }
 
 const Blog: FC = async (): Promise<JSX.Element> => {
@@ -49,6 +31,45 @@ const Blog: FC = async (): Promise<JSX.Element> => {
 
   return (
     <section className="mx-6 flex flex-col items-start md:mx-0">
+      <CldOgImage
+        src="/portfolio/vksq41gpozn34ishv1yx"
+        width={1200}
+        height={630}
+        alt={TITLE}
+        overlays={[
+          {
+            position: {
+              x: 91,
+              y: 80,
+              gravity: 'north_west',
+            },
+            text: {
+              color: 'white',
+              fontFamily: 'Arial',
+              fontSize: 175,
+              fontWeight: 'bold',
+              text: '/Blog',
+            },
+          },
+          {
+            width: 1900,
+            crop: 'fit',
+            position: {
+              x: 91,
+              y: 280,
+              gravity: 'north_west',
+            },
+            text: {
+              color: 'white',
+              fontFamily: 'Arial',
+              fontSize: 110,
+              letterSpacing: '-0.05em',
+              text: `${DESCRIPTION}`,
+            },
+          },
+        ]}
+      />
+
       <SectionHeading className="text-left">Blog</SectionHeading>
       <span className="mb-6 text-muted-foreground">
         My ramblings on the web about all things tech!
