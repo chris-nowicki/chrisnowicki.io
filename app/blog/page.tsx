@@ -4,7 +4,6 @@ import { getPosts } from '@/lib/markdown/posts'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
-import { CldOgImage } from 'next-cloudinary'
 import CldImage from '@/components/CldImage'
 import Icon from '@/components/Icon'
 import SectionHeading from '@/components/SectionHeading'
@@ -18,6 +17,7 @@ const ogImageUrl = generateOgImageUrl({
   title: TITLE,
   description: DESCRIPTION,
 })
+
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,

@@ -16,8 +16,8 @@ const generateOgImageUrl = ({
     overlays: [
       {
         position: {
-          x: 91,
-          y: 80,
+          x: 50,
+          y: 50,
           gravity: 'north_west',
         },
         text: {
@@ -29,17 +29,17 @@ const generateOgImageUrl = ({
         },
       },
       {
-        width: 1900,
+        width: '1200',
         crop: 'fit',
         position: {
-          x: 91,
-          y: 280,
+          x: 50,
+          y: 250,
           gravity: 'north_west',
         },
         text: {
           color: 'white',
           fontFamily: 'Arial',
-          fontSize: 110,
+          fontSize: 75,
           letterSpacing: -0.05,
           text: description,
         },
