@@ -74,7 +74,7 @@ export interface IXMetrics {
 }
 
 export interface ISpeakingLinks {
-  id: string
+  youTubeId: string
   title: string
   alt: string
 }
