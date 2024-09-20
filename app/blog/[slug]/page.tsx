@@ -94,6 +94,7 @@ export default async function PostPage({ params }: PostPageProps) {
           alt={`${title} cover image`}
           width={768}
           height={438}
+          loading="eager"
           className="rounded-lg border-none"
         />
       )}
