@@ -52,6 +52,7 @@ const Hero: FC = () => {
             height={281}
             src={HEADSHOT_URL}
             alt="Chris Nowicki"
+            loading="eager"
           />
         </div>
       </div>

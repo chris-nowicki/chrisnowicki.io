@@ -32,6 +32,7 @@ const YouTubeLink: FC<YouTubeLinkProps> = ({
             width={375}
             height={200}
             deliveryType="youtube"
+            loading="lazy"
             className="rounded-lg transition-all duration-100 ease-in-out group-hover:scale-105"
           />
         </CardContent>
