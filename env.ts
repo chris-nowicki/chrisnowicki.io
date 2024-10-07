@@ -18,14 +18,9 @@ export const env = createEnv({
     X_DOCUMENT_ID: z.string().min(1),
   },
   client: {
-    NEXT_PUBLIC_CLOUDINARY_API_KEY: z.string().min(1),
-    NEXT_PUBLIC_CLOUDINARY_API_SECRET: z.string().min(1).optional(),
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME: z.string().min(1),
   },
   experimental__runtimeEnv: {
-    NEXT_PUBLIC_CLOUDINARY_API_KEY: process.env.NEXT_PUBLIC_CLOUDINARY_API_KEY,
-    NEXT_PUBLIC_CLOUDINARY_API_SECRET:
-      process.env.NEXT_PUBLIC_CLOUDINARY_API_SECRET,
     NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME:
       process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
   },
