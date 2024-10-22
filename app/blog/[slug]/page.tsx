@@ -10,9 +10,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 interface PostPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export const generateStaticParams = async () => {
@@ -25,14 +25,15 @@ export const generateStaticParams = async () => {
     }))
 }
 
-async function getPostFromParams(params: PostPageProps['params']) {
+async function getPostFromParams(resolvedParams: { slug: string }) {
   const posts = await getPosts()
-  return posts.find((post) => post.slugAsParams === params?.slug)
+  return posts.find((post) => post.slugAsParams === resolvedParams.slug)
 }
 
-export async function generateMetadata({
-  params,
-}: PostPageProps): Promise<Metadata> {
+export async function generateMetadata(
+  props: PostPageProps
+): Promise<Metadata> {
+  const params = await props.params
   const post = await getPostFromParams(params)
 
   if (!post) {
@@ -71,8 +72,8 @@ export async function generateMetadata({
   }
 }
 
-export default async function PostPage({ params }: PostPageProps) {
-  const { slug } = await params
+export default async function PostPage(props: PostPageProps) {
+  const params = await props.params
   const post = await getPostBySlug(params.slug)
 
   if (!post?.frontmatter.published) {
