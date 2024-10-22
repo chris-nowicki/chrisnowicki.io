@@ -62,6 +62,7 @@ const Blog: FC = async (): Promise<JSX.Element> => {
               width={383}
               height={272}
               alt={featuredPost.title}
+              loading="eager"
               className="w-full rounded-tl-xl rounded-tr-xl md:rounded-bl-xl md:rounded-tr-none"
             />
           </div>
