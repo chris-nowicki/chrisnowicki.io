@@ -1,7 +1,7 @@
 import { unified } from 'unified'
 import remarkParse from 'remark-parse'
 import remarkGfm from 'remark-gfm'
-import remarkUnwrapImages from 'remark-unwrap-images'
+import rehypeUnwrapImages from 'rehype-unwrap-images'
 import remarkRehype from 'remark-rehype'
 import rehypeSlug from 'rehype-slug'
 import rehypePrettyCode from 'rehype-pretty-code'
@@ -13,7 +13,7 @@ import rehypeStringify from 'rehype-stringify'
 const processor = unified()
   .use(remarkParse)
   .use(remarkGfm)
-  .use(remarkUnwrapImages)
+  .use(rehypeUnwrapImages)
   .use(remarkRehype, { allowDangerousHtml: true })
   .use(rehypeSlug)
   .use(rehypePrettyCode, { theme: 'dracula' })

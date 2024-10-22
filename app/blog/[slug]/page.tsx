@@ -72,6 +72,7 @@ export async function generateMetadata({
 }
 
 export default async function PostPage({ params }: PostPageProps) {
+  const { slug } = await params
   const post = await getPostBySlug(params.slug)
 
   if (!post?.frontmatter.published) {
