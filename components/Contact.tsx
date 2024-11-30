@@ -21,17 +21,9 @@ const Contact: FC = (): JSX.Element => {
           className="text-primary hover:underline"
           href="mailto:chris@chrisnowicki.io"
         >
-          chris@chrisnowicki.io,
-        </a>{' '}
-        or{' '}
-        <a
-          className="text-primary hover:underline"
-          href="https://cal.com/chriswix"
-          target="_blank"
-        >
-          schedule a chat
-        </a>{' '}
-        with me via Cal.
+          chris@chrisnowicki.io
+        </a>
+        .
       </p>
 
       {/* contact buttons */}
