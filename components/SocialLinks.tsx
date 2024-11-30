@@ -3,35 +3,27 @@ import { FC } from 'react'
 import { socialLinks } from '@/config/links'
 import { cn } from '@/utils/utils'
 import Link from 'next/link'
-import Icon from '../Icon'
-import Metrics from './Metrics'
-import { buttonVariants } from '../ui/button'
+import Icon from './Icon'
+import { buttonVariants } from './ui/button'
 
-interface SocialMetricsProps {
+interface SocialProps {
   className?: string
-  showMetrics?: boolean
   isFooter?: boolean
 }
 
-const SocialMetrics: FC<SocialMetricsProps> = ({
+const SocialLinks: FC<SocialProps> = ({
   className,
-  showMetrics = true,
   isFooter = false,
 }): JSX.Element => {
   return (
     <section
       className={cn(
         'flex flex-col gap-2 rounded-lg border p-4 shadow-lg md:flex-row',
-        isFooter ? 'w-full' : 'w-full md:w-3/4',
+        isFooter ? 'w-full' : 'w-full md:w-1/2',
         className
       )}
     >
-      <div
-        className={cn(
-          'flex flex-col gap-2',
-          isFooter ? 'w-full' : 'w-full md:w-1/2'
-        )}
-      >
+      <div className={cn('flex w-full flex-col gap-2')}>
         <a
           href="/files/ChrisNowicki_Resume.pdf"
           className={cn(
@@ -69,10 +61,8 @@ const SocialMetrics: FC<SocialMetricsProps> = ({
           ))}
         </div>
       </div>
-
-      {showMetrics && <Metrics />}
     </section>
   )
 }
 
-export default SocialMetrics
+export default SocialLinks
