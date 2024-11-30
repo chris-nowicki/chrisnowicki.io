@@ -7,8 +7,6 @@ import Hero from '@/components/Hero'
 import Speaking from '@/components/Highlights'
 import SectionDivider from '@/components/SectionDivider'
 
-export const revalidate = 60
-
 const Home: FC = (): JSX.Element => {
   return (
     <div className="flex w-full flex-col items-center px-4 md:px-0">
