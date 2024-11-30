@@ -55,15 +55,9 @@ export const socialLinks = [
 // contact page button links
 export const contactPageLinks = [
   {
-    name: 'Chat With Me',
-    href: 'https://cal.com/chriswix',
-    variant: 'default',
-    aria: 'Schedule a call with me via Calendly',
-  },
-  {
     name: 'Email Me',
     href: 'mailto:chris@chrisnowicki.io',
-    variant: 'outline',
+    variant: 'default',
     aria: 'Email me directly',
   },
 ] as const
