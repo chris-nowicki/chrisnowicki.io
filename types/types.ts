@@ -7,17 +7,6 @@ export interface IProjectType {
   tags: string[]
 }
 
-export type MetricsType = {
-  tweetCount: number
-  githubCommits: number
-  githubRepos: number
-}
-
-export type githubMetricsType = {
-  commits: number
-  repos: number
-}
-
 export type OGImageType = {
   url: string
 }
@@ -64,13 +53,6 @@ export enum Tags {
   TypeScript = 'TypeScript',
   Vite = 'Vite',
   Xata = 'Xata',
-}
-
-export interface IGithubMetrics {
-  commits: number
-}
-export interface IXMetrics {
-  tweetCount: number
 }
 
 export interface ISpeakingLinks {

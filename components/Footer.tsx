@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { footerLinks } from '@/config/links'
 
 import Icon from './Icon'
-import SocialMetrics from './SocialMetrics/Social'
+import SocialLinks from './SocialLinks'
 import SectionDivider from './SectionDivider'
 
 const Footer: FC = (): JSX.Element => {
@@ -27,7 +27,7 @@ const Footer: FC = (): JSX.Element => {
         </div>
         <div className="flex w-full flex-col items-center gap-6 md:w-1/2 md:items-start">
           <span className="text-3xl font-semibold">Links</span>
-          <SocialMetrics showMetrics={false} isFooter={true} />
+          <SocialLinks isFooter={true} />
         </div>
       </div>
       {/* about this website information */}

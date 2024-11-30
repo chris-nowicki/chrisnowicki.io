@@ -2,7 +2,7 @@ import { FC } from 'react'
 
 import ButtonLink from './ui/button-link'
 import CldImage from './CldImage'
-import SocialMetrics from './SocialMetrics/Social'
+import SocialLinks from './SocialLinks'
 
 const HEADSHOT_URL =
   'https://res.cloudinary.com/ddetibihn/image/upload/f_auto,q_auto,w_255,c_limit/v1723742649/portfolio/bqbjvpscfeqkumjbinwk.jpg'
@@ -56,7 +56,7 @@ const Hero: FC = () => {
           />
         </div>
       </div>
-      <SocialMetrics className="mb-0 md:mb-16" />
+      <SocialLinks className="mb-0 md:mb-16" />
     </section>
   )
 }
