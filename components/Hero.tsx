@@ -16,18 +16,25 @@ const Hero: FC = () => {
             Hello, I'm Chris Nowicki
           </h1>
           <p className="text-lg font-semibold md:text-xl">
-            I'm a Full Stack Software Engineer
+            I'm a Engineering Lead and Software Engineer at{' '}
+            <a
+              href="https://www.thisdot.co"
+              className="text-primary hover:underline"
+              target="_blank"
+            >
+              This Dot Labs
+            </a>
+            .
           </p>
           <p className="text-lg md:text-xl">
             I enjoy working with <strong>Next.js/React</strong>,{' '}
-            <strong>Astro</strong>, <strong>Typescript</strong>,
-            <strong>shadcn/ui</strong>, <strong>Tailwind CSS</strong>,{' '}
-            <strong>MySQL/MongoDB</strong>, <strong>Sanity CMS</strong>, and{' '}
-            <strong>Vercel</strong>
+            <strong>Astro</strong>, <strong>PHP</strong>,{' '}
+            <strong>Typescript</strong>,<strong> shadcn/ui</strong>,{' '}
+            <strong>Tailwind CSS</strong>, <strong>MySQL/MongoDB</strong>,{' '}
+            <strong>Sanity CMS</strong>, and <strong>Vercel</strong>
           </p>
           <p className="text-lg md:text-xl">
-            Let's connect to bring your ideas to life. Together, we can craft
-            exceptional digital experiences that make a real impact.
+            Let's connect for a coffee chat or a project!
           </p>
 
           <div className="flex gap-4 md:mt-10">
@@ -56,7 +63,7 @@ const Hero: FC = () => {
           />
         </div>
       </div>
-      <SocialLinks className="mb-0 md:mb-16" />
+      <SocialLinks className="mb-0 md:mb-4" />
     </section>
   )
 }
