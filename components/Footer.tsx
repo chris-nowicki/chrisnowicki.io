@@ -33,7 +33,7 @@ const Footer: FC = (): JSX.Element => {
       {/* about this website information */}
       <p className="text-left text-xs md:px-4">
         <span className="font-semibold">Built with:</span> Next.js, TypeScript,
-        Tailwind CSS, shadcn/ui, Framer Motion, Appwrite.
+        Tailwind CSS, shadcn/ui, and Framer Motion.
       </p>
 
       {/* powered by vercel */}
