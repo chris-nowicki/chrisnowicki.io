@@ -16,7 +16,7 @@ const Hero: FC = () => {
             Hello, I'm Chris Nowicki
           </h1>
           <p className="text-lg font-semibold md:text-xl">
-            I'm a Engineering Lead and Software Engineer at{' '}
+            I'm a Software Engineering Lead at{' '}
             <a
               href="https://www.thisdot.co"
               className="text-primary hover:underline"
