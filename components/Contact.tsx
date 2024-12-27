@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 
 import SectionHeading from '@/components/SectionHeading'
 import { buttonVariants } from '@/components/ui/button'

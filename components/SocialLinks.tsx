@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 
 import { socialLinks } from '@/config/links'
 import { cn } from '@/utils/utils'

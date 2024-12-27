@@ -1,5 +1,5 @@
 'use client'
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 import { Analytics } from '@vercel/analytics/react'
 
 const AnalyticsWrapper: FC = (): JSX.Element => {

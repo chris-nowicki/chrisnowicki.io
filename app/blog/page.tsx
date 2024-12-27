@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 
 import { getPosts } from '@/lib/markdown/posts'
 import { Metadata } from 'next'

@@ -1,5 +1,5 @@
 'use client'
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 import { useTheme } from 'next-themes'
 import Icon from '../Icon'
 

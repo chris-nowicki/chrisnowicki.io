@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 
 import CldImage from '@/components/CldImage'
 import generateOgImageUrl from '@/utils/generateOgImage'

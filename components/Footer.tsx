@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 
 import Link from 'next/link'
 import { footerLinks } from '@/config/links'
