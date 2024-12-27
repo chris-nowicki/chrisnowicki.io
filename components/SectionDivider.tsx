@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 
 import { cn } from '@/utils/utils'
 import { Separator } from './ui/separator'

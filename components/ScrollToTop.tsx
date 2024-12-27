@@ -1,6 +1,6 @@
 'use client'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
-import { FC, useEffect, useState } from 'react'
+import { FC, JSX, useEffect, useState } from 'react'
 import Icon from './Icon'
 
 const ScrollToTop: FC = (): JSX.Element => {

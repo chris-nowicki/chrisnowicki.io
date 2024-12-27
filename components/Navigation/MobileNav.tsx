@@ -1,5 +1,5 @@
 'use client'
-import { FC, useState } from 'react'
+import { FC, JSX, useState } from 'react'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { navLinks } from '@/config/links'
 import ThemeToggle from './ThemeToggle'

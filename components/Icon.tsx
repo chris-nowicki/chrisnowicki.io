@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 import type { IconName } from 'public/icons/name.d.ts'
 
 interface IconProps extends React.SVGProps<SVGSVGElement> {

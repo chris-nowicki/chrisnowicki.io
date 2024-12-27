@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 
 interface UseSectionProps {
   name: string

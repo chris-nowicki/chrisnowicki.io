@@ -1,5 +1,5 @@
 'use client'
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 
 import { ThemeProvider as NextThemesProvider } from 'next-themes'
 import { ThemeProviderProps } from 'next-themes'

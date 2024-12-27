@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, JSX } from 'react'
 
 import SectionHeading from './SectionHeading'
 import Speaking from './Engagements/Speaking'
